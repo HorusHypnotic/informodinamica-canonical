@@ -41,3 +41,19 @@ Durante a concretagem da laje do 3º pavilhão, o mestre de obras percebeu que a
 ### Hipótese Lean
 - **Descrição:** Falha no fluxo puxado de informações (last planner system) e falta de checagem prévia (constraint analysis) antes da execução.
 - **Predição:** Implementação de reuniões de planejamento de curto prazo (PPC) com checagem de restrições de projeto evitaria o conflito.
+
+---
+
+## Ficha de Unidade Observacional
+
+- **ID:** OBS-0001
+- **Domínio:** Construção Civil
+- **Tipo de observação:** O2
+- **Fenômeno observado:** Conflito de versão entre projeto estrutural digital e projeto elétrico em papel durante concretagem.
+- **Representações envolvidas:** BIM Viewer (Rev. 03) vs. Projeto Elétrico impresso (Rev. 02).
+- **Agentes envolvidos:** Mestre de obras, encarregado de elétrica, engenheiro residente.
+- **Canais:** Papel impresso, tablet, aplicativo de mensagens instantâneas (WhatsApp).
+- **Hipóteses concorrentes:** TPC, Gestão Tradicional, BIM, Lean.
+- **Resultado observado:** Orientação verbal de desvio em campo e emissão posterior de RFI.
+- **Contradições encontradas:** A coexistência de suportes (papel e digital) gera janelas de assimetria que o BIM puro ou o papel puro isoladamente mascaram.
+- **Questões em aberto:** Como medir quantitativamente o impacto da latência $T_1 - T_0$ na produtividade diária das equipes?

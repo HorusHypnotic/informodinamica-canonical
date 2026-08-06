@@ -41,3 +41,19 @@ Um lote de blocos cerâmicos entregue pelo fornecedor divergiu da especificaçã
 ### Hipótese Lean
 - **Descrição:** Falha no processo de homologação de fornecedores e ausência de inspeção na fonte.
 - **Predição:** Homologação rigorosa e entrega just-in-time com inspeção prévia.
+
+---
+
+## Ficha de Unidade Observacional
+
+- **ID:** OBS-0002
+- **Domínio:** Construção Civil
+- **Tipo de observação:** O2
+- **Fenômeno observado:** Divergência dimensional em lote de blocos cerâmicos entregue em canteiro de obras.
+- **Representações envolvidas:** Pedido de compra digital (ERP) vs. Especificação de projeto arquitetônico.
+- **Agentes envolvidos:** Almoxarife, comprador, encarregado de alvenaria.
+- **Canais:** Nota fiscal física/digital, telefone, registro de não-conformidade (RNC).
+- **Hipóteses concorrentes:** TPC, Gestão Tradicional, BIM, Lean.
+- **Resultado observado:** Recusa parcial do lote, emissão de RNC e renegociação com compras.
+- **Contradições encontradas:** O sistema comercial e o sistema técnico operam com representações desconectadas, gerando falha de interface no recebimento.
+- **Questões em aberto:** Como automatizar a verificação prévia de recebimento para minimizar o custo de transação da recusa em campo?
