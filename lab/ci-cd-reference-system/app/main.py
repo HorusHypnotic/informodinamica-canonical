@@ -13,7 +13,7 @@ class CalcResponse(BaseModel):
     operation: str
 
 @app.post("/calculate", response_model=CalcResponse)
-async def calculate(req: CalcRequest):
+async def calculate(req: CalcRequest)
     if req.operation == "sum":
         result = req.a + req.b
     elif req.operation == "subtract":
