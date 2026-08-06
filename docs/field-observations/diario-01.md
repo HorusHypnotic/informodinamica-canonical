@@ -1,6 +1,7 @@
 # Diário de Campo 01 – Canteiro de Obras (Fase 3)
 
 **Data:** 2026-08-06  
+**Grau de observação:** O2 (Reconstrução logo após o evento)  
 **Contexto:** Observação de rotina em canteiro de obras de médio porte (Fase de superestrutura).  
 
 ## 1. O Que Aconteceu?
@@ -22,3 +23,21 @@ Durante a concretagem da laje do 3º pavilhão, o mestre de obras percebeu que a
 
 ## 6. Como Foi Corrigida?
 - O mestre de obras fotografou o local, enviou pelo WhatsApp para o escritório de projetos, que emitiu uma orientação verbal imediata de desvio temporário, seguida por RFI formalizada posteriormente.
+
+## Hipóteses Concorrentes
+
+### Hipótese TPC
+- **Descrição:** O incidente decorre de um desalinhamento informodinâmico entre as representações persistentes (BIM Rev. 03 vs. Papel Rev. 02), ampliado por latências de transmissão ($T_1 - T_0$) na distribuição de versões em campo.
+- **Predição:** A introdução de um canal síncrono de calibração de versões reduziria a latência de detecção ($T_2 - T_0$) e eliminaria a entropia de interface.
+
+### Hipótese Gestão Tradicional
+- **Descrição:** O problema é falha de comunicação humana e falta de atenção do mestre de obras ao não verificar a revisão impressa.
+- **Predição:** Treinamento de pessoal e memorandos impressos resolveriam o problema.
+
+### Hipótese BIM
+- **Descrição:** O erro ocorreu porque parte da equipe ainda usava papel em vez de 100% de dispositivos móveis sincronizados.
+- **Predição:** A eliminação total do papel e adoção exclusiva de tablets em campo impediria a divergência.
+
+### Hipótese Lean
+- **Descrição:** Falha no fluxo puxado de informações (last planner system) e falta de checagem prévia (constraint analysis) antes da execução.
+- **Predição:** Implementação de reuniões de planejamento de curto prazo (PPC) com checagem de restrições de projeto evitaria o conflito.
