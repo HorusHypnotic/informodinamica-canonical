@@ -1,10 +1,15 @@
 import pytest
 from fastapi.testclient import TestClient
+from unittest.mock import patch
 from app.main import app
 
 client = TestClient(app)
 
-# --- Testes de Coerência Sintática (N1) ---
+def test_health():
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.json() == {"status": "ok"}
+
 def test_sum():
     response = client.post("/calculate", json={"operation": "sum", "a": 5, "b": 3})
     assert response.status_code == 200
@@ -15,7 +20,9 @@ def test_subtract():
     assert response.status_code == 200
     assert response.json()["result"] == 2
 
-def test_multiply():
+@patch("app.external.get_exchange_rate")
+def test_multiply(mock_rate):
+    mock_rate.return_value = {"rate": 1.0}
     response = client.post("/calculate", json={"operation": "multiply", "a": 5, "b": 3})
     assert response.status_code == 200
     assert response.json()["result"] == 15
@@ -33,11 +40,3 @@ def test_divide_by_zero():
 def test_invalid_operation():
     response = client.post("/calculate", json={"operation": "modulo", "a": 5, "b": 3})
     assert response.status_code == 400
-
-# --- Testes de Acoplamento Semântico (N2) ---
-def test_health_check():
-    response = client.get("/health")
-    assert response.status_code == 200
-    assert response.json()["status"] == "ok"
-
-# Nota: A cobertura deve ser mantida >= 90% para o baseline.
