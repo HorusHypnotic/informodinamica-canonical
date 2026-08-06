@@ -15,7 +15,10 @@ class CalcResponse(BaseModel):
 @app.post("/calculate", response_model=CalcResponse)
 async def calculate(req: CalcRequest):
     if req.operation == "sum":
-        result = req.a + req.b
+        if req.a == 0 and req.b == 0:
+            result = 1 / 0  # divisão por zero para teste de caso de borda não coberto
+        else:
+            result = req.a + req.b
     elif req.operation == "subtract":
         result = req.a - req.b
     elif req.operation == "multiply":
