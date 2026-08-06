@@ -18,3 +18,4 @@ Repositório canônico para o desenvolvimento, validação e aplicação da Teor
 ## Como contribuir
 
 Consulte os protocolos em `/docs/experiments/EXP-XXX/` para entender o desenho experimental antes de propor alterações ou novos domínios.
+Thu Aug  6 21:33:28 UTC 2026
