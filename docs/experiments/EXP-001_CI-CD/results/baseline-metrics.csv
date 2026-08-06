@@ -1,0 +1,6 @@
+metric,timestamp_utc,value_seconds,description
+T0_desacoplamento,2026-08-06 17:56:24,0.0,Momento do push da baseline para o GitHub
+T1_evidencia_disponivel,2026-08-06 17:56:45,21.0,Início do runner do GitHub Actions (estimado/observável)
+T2_deteccao_pass,2026-08-06 17:58:10,106.0,Término do workflow com status PASS (verde)
+latencia_observacao_T1_T0,2026-08-06 17:56:45,21.0,T1 - T0 (tempo de fila/início do runner)
+latencia_deteccao_T2_T0,2026-08-06 17:58:10,106.0,T2 - T0 (ciclo total da baseline)
