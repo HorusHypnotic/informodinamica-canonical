@@ -1,0 +1,4 @@
+exp_id,T0,T1,T2,T3,T4,latency_obs,latency_det,latency_resp,latency_rest,latency_total,channel_detected,notes
+01,2026-08-06 17:59:02,2026-08-06 17:59:22,2026-08-06 18:00:15,,,20.0,73.0,,,,compile_failure,syntax_error_missing_colon
+02,2026-08-06 18:05:12,2026-08-06 18:05:32,2026-08-06 18:06:25,,,20.0,inf,.,.,.,none,covered_logic_error_false_green
+03,2026-08-06 18:12:45,2026-08-06 18:13:05,2026-08-06 18:13:58,,,20.0,inf,.,.,.,production_error,uncovered_edge_case_zero_division
