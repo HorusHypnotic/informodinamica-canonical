@@ -1,14 +1,16 @@
-name: CI Pipeline (Baseline)
+name: CI Pipeline (EXP-05)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, "experiment/**" ]
   pull_request:
     branches: [ main ]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    env:
+      FEATURE_FLAG: "true"
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python

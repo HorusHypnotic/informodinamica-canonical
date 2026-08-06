@@ -1,7 +1,10 @@
+import os
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 app = FastAPI(title="Calculadora de Estoque (Baseline)", version="1.0.0")
+
+FEATURE_FLAG = os.getenv("FEATURE_FLAG", "false")
 
 class CalcRequest(BaseModel):
     operation: str  # "sum", "subtract", "multiply", "divide"
@@ -14,6 +17,9 @@ class CalcResponse(BaseModel):
 
 @app.post("/calculate", response_model=CalcResponse)
 async def calculate(req: CalcRequest):
+    if FEATURE_FLAG != "true":
+        raise HTTPException(status_code=503, detail="Feature disabled")
+
     if req.operation == "sum":
         result = req.a + req.b
     elif req.operation == "subtract":
