@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -5,9 +6,32 @@ import { Route, Switch, Router as WouterRouter } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import NewObservation from "./pages/NewObservation";
+import LocalObservations from "./pages/LocalObservations";
+import LocalObservationDetail from "./pages/LocalObservationDetail";
 
-function Router() {
-  // make sure to consider if you need authentication for certain routes
+function HashRouter() {
+  const [hash, setHash] = useState(() => window.location.hash);
+
+  useEffect(() => {
+    const onHashChange = () => setHash(window.location.hash);
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  if (hash === "#nova-observacao") {
+    return <NewObservation />;
+  }
+
+  if (hash === "#observacoes-locais") {
+    return <LocalObservations />;
+  }
+
+  if (hash.startsWith("#observacao/")) {
+    const id = decodeURIComponent(hash.slice("#observacao/".length));
+    return <LocalObservationDetail id={id} />;
+  }
+
   return (
     <Switch>
       <Route path={"/"} component={Home} />
@@ -17,11 +41,6 @@ function Router() {
     </Switch>
   );
 }
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
   return (
@@ -33,7 +52,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <WouterRouter base="/informodinamica-canonical">
-            <Router />
+            <HashRouter />
           </WouterRouter>
         </TooltipProvider>
       </ThemeProvider>
