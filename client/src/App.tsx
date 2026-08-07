@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -5,9 +6,27 @@ import { Route, Switch, Router as WouterRouter } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import NewObservation from "./pages/NewObservation";
 
-function Router() {
-  // make sure to consider if you need authentication for certain routes
+function HashRouter() {
+  // Simple hash-based routing for the new observation form
+  // The hash route #nova-observacao is handled before the wouter router
+  const [showForm, setShowForm] = useState(() => {
+    return window.location.hash === "#nova-observacao";
+  });
+
+  useEffect(() => {
+    const onHashChange = () => {
+      setShowForm(window.location.hash === "#nova-observacao");
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  if (showForm) {
+    return <NewObservation />;
+  }
+
   return (
     <Switch>
       <Route path={"/"} component={Home} />
@@ -17,11 +36,6 @@ function Router() {
     </Switch>
   );
 }
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
   return (
@@ -33,7 +47,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <WouterRouter base="/informodinamica-canonical">
-            <Router />
+            <HashRouter />
           </WouterRouter>
         </TooltipProvider>
       </ThemeProvider>
