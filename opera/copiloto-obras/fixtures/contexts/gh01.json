@@ -1,0 +1,15 @@
+{
+  "fictional": true,
+  "company_id": "construtora-horizonte",
+  "company_name": "Construtora Horizonte",
+  "worksite_id": "gh-01",
+  "worksite_name": "Galpão Industrial Norte",
+  "authorized_period": {"start": "2026-08-01", "end": "2026-08-31"},
+  "interlocutors": [
+    {"id": "mariana-lopes", "name": "Mariana Lopes", "role": "GESTORA", "permissions": ["VIEW_PRODUCTION", "VIEW_MATERIALS", "VIEW_OPERATIONAL_COSTS", "VIEW_CONSOLIDATED_COSTS", "REGISTER_OPERATIONAL_REPORT"]},
+    {"id": "carlos-silva", "name": "Carlos Silva", "role": "ENCARREGADO", "permissions": ["VIEW_PRODUCTION", "VIEW_MATERIALS", "REGISTER_OPERATIONAL_REPORT"]},
+    {"id": "renata-alves", "name": "Renata Alves", "role": "ENGENHEIRA_RESPONSAVEL", "permissions": ["REGISTER_HUMAN_TECHNICAL_DECISION", "REQUEST_TECHNICAL_DECISION"]},
+    {"id": "paulo-mendes", "name": "Paulo Mendes", "role": "SEGURANCA", "permissions": ["REGISTER_SAFETY_EVENT"]}
+  ],
+  "unavailable_capabilities": ["OPENAI_API_CALL", "WHATSAPP", "SUPABASE", "ATLAS", "CONTROL", "REAL_DATA_ACCESS", "BACKGROUND_AUTOMATION", "SCHEDULED_NOTIFICATION"]
+}
