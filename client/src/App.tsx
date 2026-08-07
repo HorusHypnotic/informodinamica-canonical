@@ -7,24 +7,29 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import NewObservation from "./pages/NewObservation";
+import LocalObservations from "./pages/LocalObservations";
+import LocalObservationDetail from "./pages/LocalObservationDetail";
 
 function HashRouter() {
-  // Simple hash-based routing for the new observation form
-  // The hash route #nova-observacao is handled before the wouter router
-  const [showForm, setShowForm] = useState(() => {
-    return window.location.hash === "#nova-observacao";
-  });
+  const [hash, setHash] = useState(() => window.location.hash);
 
   useEffect(() => {
-    const onHashChange = () => {
-      setShowForm(window.location.hash === "#nova-observacao");
-    };
+    const onHashChange = () => setHash(window.location.hash);
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
-  if (showForm) {
+  if (hash === "#nova-observacao") {
     return <NewObservation />;
+  }
+
+  if (hash === "#observacoes-locais") {
+    return <LocalObservations />;
+  }
+
+  if (hash.startsWith("#observacao/")) {
+    const id = decodeURIComponent(hash.slice("#observacao/".length));
+    return <LocalObservationDetail id={id} />;
   }
 
   return (

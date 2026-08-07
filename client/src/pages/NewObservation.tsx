@@ -7,6 +7,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
+  clearDraft,
+  loadDraft,
+  registerObservation,
+  saveDraft,
+} from "@/lib/observationStorage";
+import {
+  getDefaultObservationDraft,
+  isDraftWithContent,
+  type ObservationDraft,
+} from "@/types/observation";
+import {
   ArrowLeft,
   Save,
   Trash2,
@@ -18,21 +29,6 @@ import {
   Eye,
   HelpCircle,
 } from "lucide-react";
-
-// --- Types ---
-interface ObservationDraft {
-  title: string;
-  date: string;
-  location: string;
-  domain: string;
-  quality: string;
-  rawDescription: string;
-  observedResult: string;
-  openQuestions: string;
-  lastSaved: string;
-}
-
-const STORAGE_KEY = "tpc-observation-draft";
 
 const DOMAINS = [
   "Sociotécnico",
@@ -51,63 +47,27 @@ const QUALITY_LEVELS = [
   { value: "O4", label: "O4 — Observação inferencial" },
 ];
 
-function getDefaultDraft(): ObservationDraft {
-  return {
-    title: "",
-    date: new Date().toISOString().split("T")[0],
-    location: "",
-    domain: "",
-    quality: "",
-    rawDescription: "",
-    observedResult: "",
-    openQuestions: "",
-    lastSaved: "",
-  };
-}
-
 export default function NewObservation() {
-  const [draft, setDraft] = useState<ObservationDraft>(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        return { ...getDefaultDraft(), ...JSON.parse(saved) };
-      }
-    } catch {
-      // ignore parse errors
-    }
-    return getDefaultDraft();
-  });
+  const [draft, setDraft] = useState<ObservationDraft>(() => loadDraft());
 
   const [saveStatus, setSaveStatus] = useState<"saved" | "auto" | "idle">("idle");
   const [showIndicator, setShowIndicator] = useState(false);
 
   // --- Autosave ---
   const saveToStorage = useCallback((data: ObservationDraft) => {
-    try {
-      const payload = {
-        ...data,
-        lastSaved: new Date().toLocaleString("pt-BR"),
-      };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    const payload = {
+      ...data,
+      lastSaved: new Date().toLocaleString("pt-BR"),
+    };
+    if (saveDraft(payload)) {
       setDraft(payload);
-    } catch {
-      // quota exceeded or unavailable
     }
   }, []);
 
   // Debounced autosave
   useEffect(() => {
     const timer = setTimeout(() => {
-      const hasContent =
-        draft.title ||
-        draft.rawDescription ||
-        draft.location ||
-        draft.domain ||
-        draft.quality ||
-        draft.observedResult ||
-        draft.openQuestions;
-
-      if (hasContent) {
+      if (isDraftWithContent(draft)) {
         saveToStorage(draft);
         setSaveStatus("auto");
         setShowIndicator(true);
@@ -134,10 +94,29 @@ export default function NewObservation() {
   };
 
   const handleClearDraft = () => {
-    localStorage.removeItem(STORAGE_KEY);
-    setDraft(getDefaultDraft());
+    if (!window.confirm("Limpar o rascunho local? Esta ação não pode ser desfeita.")) {
+      return;
+    }
+    clearDraft();
+    setDraft(getDefaultObservationDraft());
     setSaveStatus("idle");
     setShowIndicator(false);
+  };
+
+  const handleRegisterObservation = () => {
+    if (!isDraftWithContent(draft)) {
+      window.alert("Preencha ao menos um campo antes de registrar a observação.");
+      return;
+    }
+
+    const registered = registerObservation(draft);
+    if (!registered) {
+      window.alert("Não foi possível registrar a observação localmente. O rascunho foi preservado.");
+      return;
+    }
+
+    clearDraft();
+    window.location.hash = "#observacoes-locais";
   };
 
   const handleGoBack = () => {
@@ -358,6 +337,14 @@ export default function NewObservation() {
           >
             <Save className="w-4 h-4 mr-2" />
             Salvar rascunho
+          </Button>
+
+          <Button
+            onClick={handleRegisterObservation}
+            className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold flex-1 sm:flex-none"
+          >
+            <CheckCircle2 className="w-4 h-4 mr-2" />
+            Registrar observação
           </Button>
 
           <Button

@@ -66,6 +66,7 @@ export default function Home() {
             <a href="#research-packages" className="hover:text-emerald-400 transition-colors">Research Packages</a>
             <a href="#obs-index" className="hover:text-emerald-400 transition-colors">OBS Index</a>
             <a href="#governance" className="hover:text-emerald-400 transition-colors">Governança</a>
+            <a href="#observacoes-locais" className="hover:text-emerald-400 transition-colors">Observações locais</a>
             <a href="#nova-observacao" className="text-emerald-400 hover:text-emerald-300 transition-colors">+ Nova Obs</a>
           </nav>
 
@@ -134,6 +135,13 @@ export default function Home() {
               className="block py-2 text-slate-300 hover:text-emerald-400 text-sm font-medium"
             >
               Governança
+            </a>
+            <a
+              href="#observacoes-locais"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-slate-300 hover:text-emerald-400 text-sm font-medium"
+            >
+              Observações locais
             </a>
             <a 
               href="#nova-observacao" 
