@@ -1,0 +1,25 @@
+flowchart TD
+    subgraph Ciclo Operacional
+        COORD["Coordenação<br/>(IDR-0001)"]
+        PERS["Persistência<br/>(IDR-0006)"]
+        ECO_NODE["ECO<br/>(IDR-0010)"]
+        ICO_NODE["ICO<br/>(IDR-0011)"]
+        FLIF["Fliflexação<br/>(IDR-0007)"]
+        IFX_NODE["IFX<br/>(IDR-0012)"]
+        CP["Capital Preservado<br/>(IDR-0008)"]
+        SLEK["Slektip<br/>(IDR-0009)"]
+    end
+
+    COORD -->|mediada por representações<br/>LAW-001| PERS
+    PERS -->|falha na representação<br/>LAW-003| ECO_NODE
+    ECO_NODE -->|medida da gravidade| ICO_NODE
+    PERS -->|restauração bem-sucedida<br/>LAW-004| FLIF
+    FLIF -->|medida da maturidade| IFX_NODE
+    FLIF -->|coordenação restaurada| CP
+    CP -->|transferência ao próximo ciclo| SLEK
+    SLEK -->|reinício do ciclo| COORD
+
+    style COORD fill:#4CAF50,color:#fff
+    style ECO_NODE fill:#f44336,color:#fff
+    style FLIF fill:#2196F3,color:#fff
+    style CP fill:#FF9800,color:#fff

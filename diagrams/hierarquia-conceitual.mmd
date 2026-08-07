@@ -1,0 +1,48 @@
+flowchart TD
+    subgraph Representação
+        REP["Representação<br/>(IDR-0002)"]
+    end
+
+    subgraph Coordenação
+        COORD["Coordenação<br/>(IDR-0001)"]
+        ESTADO["Estado Coordenado<br/>(IDR-0003)"]
+    end
+
+    subgraph Persistência
+        PERS["Persistência<br/>(IDR-0006)"]
+        DEFORM["Deformação<br/>(IDR-0004)"]
+        RESIL["Resiliência<br/>(IDR-0005)"]
+    end
+
+    subgraph Restauração
+        FLIF["Fliflexação<br/>(IDR-0007)"]
+        CP["Capital Preservado<br/>(IDR-0008)"]
+        SLEK["Slektip<br/>(IDR-0009)"]
+    end
+
+    subgraph Métricas
+        ECO_M["ECO<br/>(IDR-0010)"]
+        ICO_M["ICO<br/>(IDR-0011)"]
+        IFX_M["IFX<br/>(IDR-0012)"]
+    end
+
+    REP -->|mediada por| COORD
+    COORD -->|resultado| ESTADO
+    COORD -->|manter ao longo do tempo| PERS
+    PERS -->|ameaça| DEFORM
+    PERS -->|defesa| RESIL
+    RESIL -->|mecanismo ativo| FLIF
+    FLIF -->|valor gerado| CP
+    CP -->|transferência| SLEK
+    SLEK -->|retroalimenta| COORD
+
+    DEFORM -->|manifestação| ECO_M
+    ECO_M -->|severidade| ICO_M
+    FLIF -->|maturidade| IFX_M
+
+    style REP fill:#9C27B0,color:#fff
+    style COORD fill:#4CAF50,color:#fff
+    style DEFORM fill:#f44336,color:#fff
+    style RESIL fill:#FF9800,color:#fff
+    style FLIF fill:#2196F3,color:#fff
+    style CP fill:#FF5722,color:#fff

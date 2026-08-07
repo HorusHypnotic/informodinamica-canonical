@@ -1,0 +1,276 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{setspace}
+
+\geometry{top=3cm, bottom=2cm, left=3cm, right=2cm}
+\setlist{nosep, topsep=2pt}
+\onehalfspacing
+
+\hypersetup{
+  pdftitle={Fundamentos Matemáticos da Informodinâmica Aplicada},
+  pdfauthor={Eduardo Martins}
+}
+
+\title{\LARGE\textbf{Fundamentos Matemáticos}\\%
+       \large da Informodinâmica Aplicada}
+\author{Eduardo Martins\\%
+        \small Versão 2.0 -- 30 de Julho de 2026}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+\textit{``A TPC não precisa da Hipótese de Riemann para ser matematicamente sólida. Ela precisa da Álgebra Linear, da Teoria da Informação, dos Sistemas Dinâmicos, da Geometria da Informação, das Redes, da Otimização, das Cadeias de Markov e da Engenharia de Confiabilidade — ferramentas que já existem e que estão esperando para serem aplicadas à persistência da coordenação.''}
+\end{center}
+
+\vspace{1cm}
+
+\begin{abstract}
+A Teoria da Persistência da Coordenação (TPC) é um programa de pesquisa interdisciplinar que investiga como representações sustentam, degradam e restauram a coordenação entre agentes ao longo do tempo. Este documento consolida as 11 áreas matemáticas com maior afinidade com a TPC, organizadas por prioridade e conexão direta com os conceitos da teoria (ECO, ICO, Fliflexação, MDEO, Estado Representacional). A contribuição original da TPC não é inventar uma nova matemática, mas propor uma nova classe de problemas: estudar matematicamente a persistência, a degradação e a restauração da coordenação.
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Premissa}
+
+A Teoria da Persistência da Coordenação (TPC) busca compreender como representações sustentam, degradam e restauram a coordenação entre agentes ao longo do tempo. Para isso, ela se apoia em um conjunto de ferramentas matemáticas que não precisam ser inventadas — precisam ser adaptadas e integradas.
+
+A contribuição original da TPC \textbf{não é inventar uma nova matemática}, mas propor uma \textbf{nova classe de problemas}: estudar matematicamente a persistência, a degradação e a restauração da coordenação entre agentes.
+
+Este documento consolida as 11 áreas matemáticas com maior afinidade com a TPC, organizadas por prioridade e conexão direta com os conceitos da teoria.
+
+\section{Mapa das Ferramentas Matemáticas}
+
+\begin{table}[h]
+\centering
+\caption{Mapa das Ferramentas Matemáticas da TPC}
+\begin{tabularx}{\textwidth}{p{1cm}p{3.5cm}p{4.5cm}p{2.5cm}}
+\toprule
+\textbf{Prioridade} & \textbf{Área} & \textbf{Papel na TPC} & \textbf{Status} \\
+\midrule
+1 & Álgebra Linear & Representação matemática dos estados representacionais como vetores & Proposta \\
+2 & Teoria da Informação & Quantificar informação, incerteza e entropia da coordenação & Inspiração \\
+3 & Sistemas Dinâmicos & Modelar a evolução temporal da coordenação, atratores e bifurcações & Em desenvolvimento \\
+4 & Geometria da Informação & Definir distâncias entre estados representacionais & Proposta de pesquisa \\
+5 & Teoria das Redes & Representar a propagação da coordenação entre agentes & Em desenvolvimento \\
+6 & Otimização e Controle Ótimo & Escolher as melhores intervenções (MDEO) e conduzir o sistema ao estado desejado & Em desenvolvimento \\
+7 & Cadeias de Markov & Prever transições entre estados de coordenação e riscos de ECO & Proposta de pesquisa \\
+8 & Engenharia de Confiabilidade & Validar operacionalmente com MTBF, MTTR, FMEA & Em desenvolvimento \\
+9 & Topologia & Identificar invariantes da coordenação & Proposta de pesquisa \\
+10 & Geometria de Riemann & Inspiração filosófica para espaços representacionais curvos & Filosófico \\
+11 & Teoria das Categorias & Generalização abstrata das relações entre representações e agentes & Filosófico \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Detalhamento por Área}
+
+\subsection{Álgebra Linear}
+
+\textbf{Conceito central:} Vetores, matrizes, transformações lineares, autovalores, decomposições.
+
+\textbf{Conexão com a TPC:}
+O Estado Representacional (ER) é um vetor de seis atributos. A Degradação Total pode ser vista como a norma da perda. A evolução da coordenação pode ser modelada como uma transformação linear.
+
+\textbf{Representação formal:}
+\[
+ER(t) =
+\begin{bmatrix}
+P(t) \\
+F(t) \\
+A(t) \\
+C(t) \\
+R(t) \\
+X(t)
+\end{bmatrix}
+\]
+Onde:
+\begin{itemize}
+    \item \(P\) = Persistência
+    \item \(F\) = Fidelidade
+    \item \(A\) = Atualidade
+    \item \(C\) = Coerência
+    \item \(R\) = Rastreabilidade
+    \item \(X\) = Contexto
+\end{itemize}
+
+\textbf{Aplicações:} Distâncias entre estados, projeções, médias, PCA, entrada para aprendizado de máquina.
+
+\subsection{Teoria da Informação (Shannon)}
+
+\textbf{Conceito central:} A informação é a redução de incerteza (entropia). Comunicação é a transmissão de um sinal.
+
+\textbf{Conexão com a TPC:}
+A definição de coordenação como ``redução compartilhada de incertezas'' é inspirada em Shannon. A Degradação Total pode ser vista como perda de informação.
+
+\textbf{Status:} A teoria de Shannon inspira a modelagem, mas ainda falta uma definição formal de como a entropia de Shannon se traduz diretamente em degradação representacional.
+
+\subsection{Sistemas Dinâmicos}
+
+\textbf{Conceito central:} Evolução temporal de sistemas. Equilíbrio, instabilidade, bifurcações, caos, atratores.
+
+\textbf{Conexão com a TPC:}
+A TPC pergunta: ``Como a coordenação evolui ao longo do tempo?'' A Degradação Total \( D(t) \) é uma função do tempo. O ECO é um ponto de bifurcação — o sistema colapsa para um novo estado.
+
+\textbf{Perguntas em aberto:}
+\begin{itemize}
+    \item Existem atratores de degradação?
+    \item Como evitar que o sistema caia em um atrator ruim?
+\end{itemize}
+
+\subsection{Geometria da Informação}
+
+\textbf{Conceito central:} Distribuições de informação formam espaços geométricos com métricas próprias (ex: métrica de Fisher).
+
+\textbf{Conexão com a TPC:}
+A pergunta natural é: qual é a distância entre dois estados representacionais?
+
+\textbf{Primeira proposta de métrica informodinâmica (a ser validada):}
+\[
+d(S_1, S_2) = \sqrt{\sum_{i=1}^{6} \alpha_i \cdot (EO_i(S_1) - EO_i(S_2))^2}
+\]
+Onde \( \alpha_i \) são pesos a serem calibrados empiricamente.
+
+\textbf{Aplicações:}
+\begin{itemize}
+    \item Medir o ``custo'' de restaurar uma representação.
+    \item Identificar se uma representação está se afastando perigosamente do estado saudável.
+\end{itemize}
+
+\subsection{Teoria das Redes}
+
+\textbf{Conceito central:} Sistemas como grafos: nós e arestas.
+
+\textbf{Conexão com a TPC:}
+Uma obra é uma rede. A degradação se propaga pela rede. O ECO pode ser visto como a falha de um nó ou aresta.
+
+\textbf{Perguntas em aberto:}
+\begin{itemize}
+    \item Como a deformação de uma representação afeta os nós vizinhos?
+    \item Qual é o ponto crítico onde a rede colapsa?
+\end{itemize}
+
+\subsection{Otimização e Controle Ótimo}
+
+\textbf{Conceito central:} Como conduzir um sistema do estado atual para o estado desejado gastando o mínimo possível.
+
+\textbf{Conexão com a TPC:}
+O MDEO é um framework de otimização. O Controle Ótimo é uma extensão natural: como restaurar a coordenação com o menor custo?
+
+\textbf{Pergunta central:}
+\begin{quote}
+\textit{Qual intervenção reduz mais o ICO com o menor custo?}
+\end{quote}
+
+\subsection{Cadeias de Markov}
+
+\textbf{Conceito central:} O próximo estado depende apenas do estado atual. Transições com probabilidades.
+
+\textbf{Conexão com a TPC:}
+A coordenação pode ser modelada como uma cadeia de Markov:
+\[
+\text{Coordenado} \to \text{Deformado} \to \text{ECO} \to \text{Colapso}
+\]
+
+\textbf{Aplicações:}
+\begin{itemize}
+    \item Prever risco de ECO.
+    \item Estimar probabilidade de recuperação.
+\end{itemize}
+
+\subsection{Engenharia de Confiabilidade}
+
+\textbf{Conceito central:} Confiabilidade, disponibilidade, MTBF, MTTR, análise de falhas, árvores de falhas, FMEA.
+
+\textbf{Conexão com a TPC:}
+A TPC pode ser vista como uma ampliação da engenharia de confiabilidade, deslocando o foco da falha física para a degradação da coordenação.
+
+\textbf{Conceitos adaptáveis:}
+\begin{itemize}
+    \item MTBF (Mean Time Between Failures) $\to$ Tempo médio entre ECOs.
+    \item MTTR (Mean Time To Repair) $\to$ Tempo médio de Fliflexação.
+    \item FMEA $\to$ Biblioteca OPERA de padrões de falha.
+\end{itemize}
+
+\subsection{Topologia}
+
+\textbf{Conceito central:} O que permanece igual mesmo quando tudo deforma? Invariantes.
+
+\textbf{Conexão com a TPC:}
+Uma representação pode mudar de formato sem perder sua função coordenadora. A topologia pergunta: quais propriedades da coordenação são preservadas?
+
+\subsection{Geometria de Riemann}
+
+\textbf{Conexão com a TPC:}
+Inspiração filosófica: o espaço representacional pode ter uma métrica que varia com o contexto. Tratada como analogia, não como fundamento formal.
+
+\subsection{Teoria das Categorias}
+
+\textbf{Conexão com a TPC:}
+Uma representação só existe porque coordena agentes. A pergunta não é ``o que é a representação'', mas ``como ela se relaciona com os agentes''. Pode fornecer uma linguagem unificadora para descrever a TPC de forma abstrata.
+
+\section{Síntese}
+
+A TPC não precisa da Hipótese de Riemann para ser matematicamente sólida. Ela precisa de:
+
+\begin{table}[h]
+\centering
+\caption{Síntese das Ferramentas Matemáticas}
+\begin{tabularx}{\textwidth}{p{4cm}p{7.5cm}}
+\toprule
+\textbf{Área} & \textbf{Papel} \\
+\midrule
+Álgebra Linear & Representação dos estados. \\
+Teoria da Informação & Quantificar incerteza. \\
+Sistemas Dinâmicos & Modelar evolução temporal. \\
+Geometria da Informação & Definir distâncias entre estados. \\
+Teoria das Redes & Representar propagação da coordenação. \\
+Otimização e Controle Ótimo & Orientar intervenções. \\
+Cadeias de Markov & Prever transições. \\
+Engenharia de Confiabilidade & Validar operacionalmente. \\
+Topologia & Identificar invariantes. \\
+Geometria de Riemann & Inspiração filosófica. \\
+Teoria das Categorias & Generalização abstrata. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Essa combinação coloca a TPC em diálogo direto com a \textbf{ciência de sistemas complexos, inteligência artificial, pesquisa operacional, engenharia de confiabilidade e matemática aplicada}.
+
+\section{Próximos Passos}
+
+\begin{table}[h]
+\centering
+\caption{Próximos Passos}
+\begin{tabularx}{\textwidth}{p{1cm}p{8.5cm}}
+\toprule
+\textbf{Ordem} & \textbf{Ação} \\
+\midrule
+1 & Incorporar a \textbf{Álgebra Linear} como base para a representação dos estados. \\
+2 & Desenvolver a \textbf{Distância Informodinâmica} como uma métrica formal. \\
+3 & Modelar a \textbf{evolução temporal} da coordenação usando Sistemas Dinâmicos. \\
+4 & Aplicar \textbf{Cadeias de Markov} para prever a transição para ECOs. \\
+5 & Expandir a \textbf{Teoria das Redes} para mapear a propagação da deformação no OPERA. \\
+6 & Utilizar \textbf{Otimização e Controle Ótimo} para priorizar ECOs no MDEO. \\
+7 & Adaptar conceitos de \textbf{Engenharia de Confiabilidade} (MTBF, MTTR, FMEA) para a TPC. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{1cm}
+\textbf{Última atualização:} 30 de julho de 2026
+
+\end{document}
