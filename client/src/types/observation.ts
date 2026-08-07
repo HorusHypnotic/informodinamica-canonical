@@ -1,6 +1,7 @@
 export const LEGACY_DRAFT_STORAGE_KEY = "tpc-observation-draft";
 export const OBSERVATIONS_STORAGE_KEY = "tpc-observations-corpus-v2";
 export const ORGANIZATIONS_STORAGE_KEY = "tpc-organizations-corpus-v2";
+export const BACKUP_STORAGE_PREFIX = "tpc:field-corpus:backup:v2:";
 
 export type ObservationStatus = "registrada" | "enriquecida";
 
@@ -35,7 +36,9 @@ export interface LocalObservation {
   rawDescription: string;
   observedResult: string;
   openQuestions: string;
-  enrichmentNotes?: string;
+  analysisNotes?: string;
+  hypotheses?: string;
+  enrichmentNotes?: string; // Retrocompatibilidade
   enrichmentUpdatedAt?: string;
   createdAt: string;
   status: ObservationStatus;

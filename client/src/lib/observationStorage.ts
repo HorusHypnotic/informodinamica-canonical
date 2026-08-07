@@ -3,6 +3,7 @@ import {
   LEGACY_DRAFT_STORAGE_KEY,
   OBSERVATIONS_STORAGE_KEY,
   ORGANIZATIONS_STORAGE_KEY,
+  BACKUP_STORAGE_PREFIX,
   type LocalObservation,
   type ObservationDraft,
   type Organization,
@@ -69,7 +70,6 @@ export function clearDraft(): void {
 export function loadOrganizations(): Organization[] {
   const stored = readJson<unknown>(ORGANIZATIONS_STORAGE_KEY);
   if (!Array.isArray(stored)) {
-    // Migrar organizações implícitas das observações existentes se houver
     const obs = loadObservations();
     const orgNames = Array.from(new Set(obs.map((o) => o.organizationName).filter(Boolean))) as string[];
     const defaultOrgs: Organization[] = orgNames.map((name, i) => ({
@@ -104,11 +104,53 @@ export function getOrCreateOrganization(name: string): Organization {
   return newOrg;
 }
 
+// Backup Persistente
+export function createPersistentBackup(): string {
+  const observations = loadObservations();
+  const organizations = loadOrganizations();
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const backupKey = `${BACKUP_STORAGE_PREFIX}${timestamp}`;
+  const backupPayload = {
+    backupAt: new Date().toISOString(),
+    organizations,
+    observations,
+  };
+  writeJson(backupKey, backupPayload);
+  return backupKey;
+}
+
+export function listPersistentBackups(): { key: string; backupAt: string; count: number }[] {
+  const backups: { key: string; backupAt: string; count: number }[] = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith(BACKUP_STORAGE_PREFIX)) {
+      const data = readJson<any>(key);
+      if (data) {
+        backups.push({
+          key,
+          backupAt: data.backupAt || key.replace(BACKUP_STORAGE_PREFIX, ""),
+          count: Array.isArray(data.observations) ? data.observations.length : 0,
+        });
+      }
+    }
+  }
+  return backups.sort((a, b) => b.backupAt.localeCompare(a.backupAt));
+}
+
+export function restorePersistentBackup(backupKey: string): boolean {
+  const data = readJson<any>(backupKey);
+  if (!data || !Array.isArray(data.observations)) return false;
+  saveObservations(data.observations);
+  if (Array.isArray(data.organizations)) {
+    saveOrganizations(data.organizations);
+  }
+  return true;
+}
+
 // Observações
 export function loadObservations(): LocalObservation[] {
   const stored = readJson<unknown>(OBSERVATIONS_STORAGE_KEY);
   if (!Array.isArray(stored)) {
-    // Tentar migrar de chave antiga se existir
     const legacyStored = readJson<unknown>("tpc-observations-corpus");
     if (Array.isArray(legacyStored)) {
       const migrated = legacyStored
@@ -134,6 +176,16 @@ function normalizeObservation(item: any): LocalObservation | null {
       locs = ["Local não especificado"];
     }
   }
+
+  // Migração de enrichmentNotes legado para analysisNotes / hypotheses se necessário
+  let analysis = typeof item.analysisNotes === "string" ? item.analysisNotes : "";
+  let hyp = typeof item.hypotheses === "string" ? item.hypotheses : "";
+  if (!analysis && !hyp && typeof item.enrichmentNotes === "string" && item.enrichmentNotes.trim()) {
+    analysis = item.enrichmentNotes;
+  }
+
+  const hasEnrichment = Boolean(analysis.trim() || hyp.trim());
+
   return {
     id: String(item.id || "OBS-LOCAL-0001"),
     title: String(item.title || "Observação sem título"),
@@ -146,10 +198,12 @@ function normalizeObservation(item: any): LocalObservation | null {
     rawDescription: String(item.rawDescription || ""),
     observedResult: String(item.observedResult || ""),
     openQuestions: String(item.openQuestions || ""),
-    enrichmentNotes: typeof item.enrichmentNotes === "string" ? item.enrichmentNotes : undefined,
+    analysisNotes: analysis,
+    hypotheses: hyp,
+    enrichmentNotes: item.enrichmentNotes,
     enrichmentUpdatedAt: typeof item.enrichmentUpdatedAt === "string" ? item.enrichmentUpdatedAt : undefined,
     createdAt: String(item.createdAt || new Date().toISOString()),
-    status: item.status === "enriquecida" ? "enriquecida" : "registrada",
+    status: item.status === "enriquecida" || hasEnrichment ? "enriquecida" : "registrada",
   };
 }
 
@@ -183,6 +237,8 @@ export function registerObservation(draft: ObservationDraft): LocalObservation |
     rawDescription: draft.rawDescription,
     observedResult: draft.observedResult,
     openQuestions: draft.openQuestions,
+    analysisNotes: "",
+    hypotheses: "",
     createdAt: new Date().toISOString(),
     status: "registrada",
   };
@@ -194,16 +250,25 @@ export function findObservation(id: string): LocalObservation | null {
   return loadObservations().find((observation) => observation.id === id) ?? null;
 }
 
-export function updateObservationEnrichment(id: string, enrichmentNotes: string): LocalObservation | null {
+export function updateObservationEnrichment(
+  id: string,
+  analysisNotes: string,
+  hypotheses: string
+): LocalObservation | null {
   const observations = loadObservations();
   const index = observations.findIndex((o) => o.id === id);
   if (index === -1) return null;
 
+  const trimmedAnalysis = analysisNotes.trim();
+  const trimmedHyp = hypotheses.trim();
+  const hasContent = Boolean(trimmedAnalysis || trimmedHyp);
+
   const updated: LocalObservation = {
     ...observations[index],
-    enrichmentNotes: enrichmentNotes.trim(),
+    analysisNotes: trimmedAnalysis,
+    hypotheses: trimmedHyp,
     enrichmentUpdatedAt: new Date().toISOString(),
-    status: enrichmentNotes.trim() ? "enriquecida" : "registrada",
+    status: hasContent ? "enriquecida" : "registrada",
   };
 
   observations[index] = updated;
@@ -225,8 +290,23 @@ export function exportCorpusJson(): string {
 
 export function exportCorpusCsv(): string {
   const observations = loadObservations();
-  const headers = ["ID", "Título", "Data do Evento", "Organização", "Locais", "Domínio", "Qualidade", "Status", "Criado em", "Notas de Enriquecimento", "Descrição Bruta", "Resultado Observado", "Questões Abertas"];
-  
+  const headers = [
+    "ID",
+    "Título",
+    "Data do Evento",
+    "Organização",
+    "Locais",
+    "Domínio",
+    "Qualidade",
+    "Status",
+    "Criado em",
+    "Notas Analíticas",
+    "Hipóteses",
+    "Descrição Bruta",
+    "Resultado Observado",
+    "Questões Abertas",
+  ];
+
   const rows = observations.map((o) => [
     o.id,
     `"${(o.title || "").replace(/"/g, '""')}"`,
@@ -237,7 +317,8 @@ export function exportCorpusCsv(): string {
     `"${(o.quality || "").replace(/"/g, '""')}"`,
     o.status,
     o.createdAt,
-    `"${(o.enrichmentNotes || "").replace(/"/g, '""')}"`,
+    `"${(o.analysisNotes || "").replace(/"/g, '""')}"`,
+    `"${(o.hypotheses || "").replace(/"/g, '""')}"`,
     `"${(o.rawDescription || "").replace(/"/g, '""')}"`,
     `"${(o.observedResult || "").replace(/"/g, '""')}"`,
     `"${(o.openQuestions || "").replace(/"/g, '""')}"`,
@@ -248,13 +329,23 @@ export function exportCorpusCsv(): string {
 
 export type ConflictStrategy = "skip" | "overwrite" | "keep_both";
 
-export function importCorpusJson(jsonText: string, strategy: ConflictStrategy = "skip"): { importedCount: number; skippedCount: number; error?: string } {
+export function importCorpusJson(
+  jsonText: string,
+  strategy: ConflictStrategy = "skip"
+): { importedCount: number; skippedCount: number; backupKey: string; error?: string } {
   try {
     const parsed = JSON.parse(jsonText);
-    const incomingObs: any[] = Array.isArray(parsed) ? parsed : Array.isArray(parsed?.observations) ? parsed?.observations : [];
+    const incomingObs: any[] = Array.isArray(parsed)
+      ? parsed
+      : Array.isArray(parsed?.observations)
+      ? parsed?.observations
+      : [];
     if (incomingObs.length === 0) {
-      return { importedCount: 0, skippedCount: 0, error: "Nenhuma observação válida encontrada no arquivo JSON." };
+      return { importedCount: 0, skippedCount: 0, backupKey: "", error: "Nenhuma observação válida encontrada no arquivo JSON." };
     }
+
+    // Criar backup persistente ANTES de qualquer alteração destrutiva
+    const backupKey = createPersistentBackup();
 
     const currentObs = loadObservations();
     const currentMap = new Map(currentObs.map((o) => [o.id, o]));
@@ -288,8 +379,8 @@ export function importCorpusJson(jsonText: string, strategy: ConflictStrategy = 
     }
 
     saveObservations(updatedList);
-    return { importedCount, skippedCount };
+    return { importedCount, skippedCount, backupKey };
   } catch (err: any) {
-    return { importedCount: 0, skippedCount: 0, error: err?.message || "Erro ao processar JSON." };
+    return { importedCount: 0, skippedCount: 0, backupKey: "", error: err?.message || "Erro ao processar JSON." };
   }
 }

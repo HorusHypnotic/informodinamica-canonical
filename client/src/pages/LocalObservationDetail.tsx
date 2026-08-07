@@ -15,6 +15,7 @@ import {
   Building2,
   FileEdit,
   Save,
+  Lightbulb,
 } from "lucide-react";
 import { findObservation, updateObservationEnrichment } from "@/lib/observationStorage";
 import type { LocalObservation } from "@/types/observation";
@@ -36,7 +37,8 @@ function Field({ label, value, icon }: { label: string; value: string; icon: Rea
 
 export default function LocalObservationDetail({ id }: { id: string }) {
   const [observation, setObservation] = useState<LocalObservation | null>(() => findObservation(id));
-  const [enrichmentInput, setEnrichmentInput] = useState(() => observation?.enrichmentNotes || "");
+  const [analysisInput, setAnalysisInput] = useState(() => observation?.analysisNotes || "");
+  const [hypothesesInput, setHypothesesInput] = useState(() => observation?.hypotheses || "");
   const [isSavingEnrichment, setIsSavingEnrichment] = useState(false);
 
   if (!observation) {
@@ -55,7 +57,7 @@ export default function LocalObservationDetail({ id }: { id: string }) {
 
   const handleSaveEnrichment = () => {
     setIsSavingEnrichment(true);
-    const updated = updateObservationEnrichment(observation.id, enrichmentInput);
+    const updated = updateObservationEnrichment(observation.id, analysisInput, hypothesesInput);
     if (updated) {
       setObservation(updated);
       window.alert("Enriquecimento posterior salvo com sucesso!");
@@ -119,7 +121,7 @@ export default function LocalObservationDetail({ id }: { id: string }) {
           </CardContent>
         </Card>
 
-        {/* Seção dedicada de Enriquecimento Posterior */}
+        {/* Seção dedicada de Enriquecimento Posterior (Notas Analíticas & Hipóteses) */}
         <Card className="bg-slate-900 border-slate-800 shadow-xl border-t-2 border-t-cyan-500">
           <CardHeader className="border-b border-slate-800">
             <CardTitle className="text-lg font-serif text-white flex items-center gap-2">
@@ -127,21 +129,36 @@ export default function LocalObservationDetail({ id }: { id: string }) {
               Enriquecimento Posterior e Análise
             </CardTitle>
             <p className="text-xs text-slate-400">
-              Notas analíticas e hipóteses adicionadas separadamente do registro bruto original em campo.
+              Separação entre notas analíticas e hipóteses explicativas (sem corromper o registro bruto).
             </p>
           </CardHeader>
-          <CardContent className="pt-6 space-y-4">
+          <CardContent className="pt-6 space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="enrichment" className="text-sm font-medium text-slate-200">Notas de Enriquecimento</Label>
+              <Label htmlFor="analysisNotes" className="text-sm font-medium text-slate-200">Notas Analíticas (Análise Teórica / Contexto)</Label>
               <Textarea
-                id="enrichment"
-                rows={5}
-                placeholder="Insira análises teóricas, correlações ou notas interpretativas posteriores..."
-                value={enrichmentInput}
-                onChange={(e) => setEnrichmentInput(e.target.value)}
+                id="analysisNotes"
+                rows={4}
+                placeholder="Insira notas interpretativas e correlações analíticas..."
+                value={analysisInput}
+                onChange={(e) => setAnalysisInput(e.target.value)}
                 className="bg-slate-950/70 text-base text-slate-100 placeholder:text-slate-600 border-slate-700"
               />
             </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="hypotheses" className="flex items-center gap-2 text-sm font-medium text-slate-200">
+                <Lightbulb className="w-4 h-4 text-amber-400" /> Hipóteses Explicativas (Não convalidadas automaticamente)
+              </Label>
+              <Textarea
+                id="hypotheses"
+                rows={4}
+                placeholder="Insira hipóteses preliminares a serem investigadas..."
+                value={hypothesesInput}
+                onChange={(e) => setHypothesesInput(e.target.value)}
+                className="bg-slate-950/70 text-base text-slate-100 placeholder:text-slate-600 border-slate-700"
+              />
+            </div>
+
             {observation.enrichmentUpdatedAt && (
               <p className="text-[11px] text-slate-500 font-mono">
                 Última atualização de enriquecimento: {new Date(observation.enrichmentUpdatedAt).toLocaleString("pt-BR")}

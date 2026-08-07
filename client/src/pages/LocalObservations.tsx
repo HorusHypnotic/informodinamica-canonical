@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowLeft, Calendar, ChevronRight, ClipboardList, Plus, Download, Upload, Search, Filter, RefreshCw } from "lucide-react";
+import { ArrowLeft, Calendar, ChevronRight, ClipboardList, Plus, Download, Upload, Search, Filter } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,6 +11,8 @@ import {
   exportCorpusJson,
   exportCorpusCsv,
   importCorpusJson,
+  listPersistentBackups,
+  restorePersistentBackup,
   type ConflictStrategy,
 } from "@/lib/observationStorage";
 import type { LocalObservation, Organization } from "@/types/observation";
@@ -24,6 +26,7 @@ function formatDate(value: string): string {
 export default function LocalObservations() {
   const [observations, setObservations] = useState<LocalObservation[]>([]);
   const [organizations, setOrganizations] = useState<Organization[]>([]);
+  const [backups, setBackups] = useState<ReturnType<typeof listPersistentBackups>>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedOrg, setSelectedOrg] = useState<string>("ALL");
   const [selectedDomain, setSelectedDomain] = useState<string>("ALL");
@@ -34,6 +37,7 @@ export default function LocalObservations() {
   const refreshData = () => {
     setObservations(loadObservations());
     setOrganizations(loadOrganizations());
+    setBackups(listPersistentBackups());
   };
 
   useEffect(() => {
@@ -98,12 +102,24 @@ export default function LocalObservations() {
       if (res.error) {
         window.alert(`Erro na importação: ${res.error}`);
       } else {
-        window.alert(`Importação concluída!\nImportados: ${res.importedCount}\nIgnorados: ${res.skippedCount}`);
+        window.alert(
+          `Importação concluída!\nImportados: ${res.importedCount}\nIgnorados: ${res.skippedCount}\n\n[Backup persistente criado]\nChave: ${res.backupKey}`
+        );
         refreshData();
       }
       if (fileInputRef.current) fileInputRef.current.value = "";
     };
     reader.readAsText(file);
+  };
+
+  const handleRestoreBackup = (key: string) => {
+    if (!window.confirm(`Restaurar o backup ${key}? O estado atual será substituído pelo snapshot.`)) return;
+    if (restorePersistentBackup(key)) {
+      window.alert("Backup restaurado com sucesso!");
+      refreshData();
+    } else {
+      window.alert("Erro ao restaurar backup.");
+    }
   };
 
   const domainsList = Array.from(new Set(observations.map((o) => o.domain).filter(Boolean)));
@@ -211,6 +227,26 @@ export default function LocalObservations() {
                 </SelectContent>
               </Select>
             </div>
+
+            {/* Seção de Backups Persistentes */}
+            {backups.length > 0 && (
+              <div className="pt-3 border-t border-slate-800 text-xs space-y-2">
+                <span className="text-slate-400 font-mono">Snapshots de Backup Persistentes Disponíveis:</span>
+                <div className="flex flex-wrap gap-2">
+                  {backups.map((b) => (
+                    <Button
+                      key={b.key}
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleRestoreBackup(b.key)}
+                      className="border-slate-700 bg-slate-950 text-slate-300 hover:bg-slate-800 h-7 text-[11px]"
+                    >
+                      Restaurar ({b.count} obs) — {b.backupAt}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
 
