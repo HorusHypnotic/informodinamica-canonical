@@ -1,0 +1,4 @@
+project_id = "aiyluolhojdszqitusum"
+
+[functions.session-transfer]
+verify_jwt = false
