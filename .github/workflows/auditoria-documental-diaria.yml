@@ -1,0 +1,41 @@
+name: Auditoria documental diaria
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate daily report
+        run: |
+          python scripts/auditoria_documental_diaria.py --output artifacts/auditoria-documental.md
+          cat artifacts/auditoria-documental.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-documental-${{ github.run_id }}
+          path: artifacts/auditoria-documental.md
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Enforce valid local links
+        run: python scripts/auditoria_documental_diaria.py --output /tmp/auditoria-estrita.md --strict > /dev/null
