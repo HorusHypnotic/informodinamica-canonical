@@ -8,7 +8,7 @@ Seu núcleo teórico atual é a **Teoria dos Processos Coordenativos (TPC)**.
 
 A TPC investiga processos como persistência, degradação, restauração, acoplamento, desacoplamento, transmissão, detecção, resposta, recalibração e sincronização.
 
-A denominação **Teoria da Persistência da Coordenação**, presente em documentos anteriores deste repositório, corresponde a uma formulação histórica da TPC. A transição conceitual está registrada em `docs/decisoes/DEC-CONC-001-migracao-nomenclatura-tpc.md`.
+A **Teoria da Persistência da Coordenação**, consolidada no estágio v0.8 do programa, é preservada neste repositório como uma formulação teórica histórica identificável e parte da genealogia da TPC. A atual **Teoria dos Processos Coordenativos** emerge de desenvolvimentos posteriores e encontra-se em processo de formalização. A relação entre ambas deve ser tratada genealogicamente: cabe à formulação atual explicitar o que preserva, amplia, modifica ou rejeita de sua predecessora. A mudança de nomenclatura está registrada em `docs/decisoes/DEC-CONC-001-migracao-nomenclatura-tpc.md`.
 
 Este é um programa de pesquisa em desenvolvimento. Suas proposições permanecem abertas à crítica, comparação, teste, falsificação, revisão e substituição.
 
@@ -307,17 +307,17 @@ A sigla **TPC** designou inicialmente a:
 
 > **Teoria da Persistência da Coordenação**
 
-Essa formulação colocou no centro da investigação a pergunta sobre como representações mantêm ou perdem capacidade de sustentar coordenação ao longo do tempo.
+Essa formulação alcançou um estágio identificável no desenvolvimento do programa, preservado como **v0.8**, e colocou no centro da investigação a persistência da coordenação mediada por representações.
 
-O desenvolvimento posterior ampliou o problema.
-
-Persistência passou a ser compreendida como uma classe de fenômenos dentro de um espaço maior que também inclui degradação, restauração, acoplamento, desacoplamento, transmissão, detecção, resposta e recalibração.
+Desenvolvimentos posteriores introduziram problemas que ultrapassavam o foco original em persistência, incluindo degradação, restauração, acoplamento, desacoplamento, transmissão, detecção, resposta, recalibração e sincronização.
 
 A denominação canônica atual é:
 
 > **Teoria dos Processos Coordenativos (TPC)**
 
-A formulação anterior permanece preservada como parte da história intelectual da teoria.
+Essa mudança não implica que a formulação anterior tenha sido retroativamente substituída ou que todas as relações entre as duas formulações já estejam resolvidas.
+
+A **Teoria da Persistência da Coordenação v0.8** permanece preservada como estágio teórico legítimo da genealogia do programa. A **Teoria dos Processos Coordenativos** deverá explicitar, em sua formalização, quais proposições herda, amplia, modifica ou rejeita desse estágio anterior.
 
 ---
 
