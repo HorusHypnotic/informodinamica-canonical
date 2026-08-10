@@ -51,6 +51,8 @@ Os IDs abaixo são permanentes, mas os conceitos permanecem em elaboração e n�
 | **IDR-0023** | Ambiente Representacional | Conjunto de representações, acessos, restrições, tempos e relações sociais disponíveis a agentes em uma situação decisória. |
 | **IDR-0024** | Transição Operacional | Mudança observada ou modelada entre estados operacionais de uma representação ao longo do tempo. |
 
+> **Nota de desambiguação arquitetural:** IDR-0013 descreve a continuidade verificável de representações e objetos coordenados no programa teórico. Não designa identidade cadastral de usuário, organização, obra, recurso ou alocação no ecossistema O.P.E.R.A. Essas entidades pertencem à arquitetura da aplicação e são diferenciadas em `docs/decisoes/DEC-ARQ-002-identidade-operacional-opera.md`.
+
 ---
 
 ## LAW — Proposições Estruturantes

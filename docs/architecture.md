@@ -3,6 +3,13 @@
 **Versão:** 1.0 (31 de julho de 2026)  
 **Propósito:** Documentar os componentes, papéis e fronteiras do ecossistema.
 
+## Decisões arquiteturais
+
+- `docs/decisoes/DEC-ARQ-001-separacao-atlas-canonico.md` — separação entre o Atlas canônico e aplicações derivadas.
+- `docs/decisoes/DEC-ARQ-002-identidade-operacional-opera.md` — separação semântica entre identidade de acesso, organização, obra, recurso, alocação e autorização.
+
+Decisões arquiteturais canonizam fronteiras e semântica. Não autorizam, por si mesmas, alterações em código, banco, autenticação, migrations, permissões, integrações, deploy ou publicação.
+
 ## Visão geral
 
 O repositório Git é a memória canônica versionada da Informodinâmica Aplicada. O VS Code é o ambiente de trabalho; agentes de IA atuam sobre o conhecimento versionado; serviços especializados podem apoiar aplicações sem substituir a fonte canônica.

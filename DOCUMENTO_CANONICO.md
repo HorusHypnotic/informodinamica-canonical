@@ -25,6 +25,7 @@ Os detalhes teóricos, metodológicos e empíricos estão em documentos separado
 | Manual do ECO | Guia prático | `MANUAL_ECO.md` |
 | Protocolo | Metodologia de pesquisa | `03-pesquisa/PROTOCOLO_EXPERIMENTAL.md` |
 | Arquitetura operacional | Papéis, ferramentas e fluxo | `docs/architecture.md` |
+| Identidade operacional O.P.E.R.A. | Entidades e invariantes de acesso, organização, obra, recurso e alocação | `docs/decisoes/DEC-ARQ-002-identidade-operacional-opera.md` |
 
 ---
 
@@ -56,6 +57,8 @@ Consulte `03-pesquisa/PROGRAMA_DE_PESQUISA_ABERTO.md`, `03-pesquisa/MODELOS_EXPL
 ## Arquitetura operacional
 
 O núcleo canônico permanece independente das ferramentas de implementação. A documentação em `docs/` define as fronteiras entre memória versionada, workspace de experimentação, agentes e código do ecossistema OPERA. Ideias e protótipos não se tornam canônicos sem a revisão e o ciclo de vida previstos na Constituição e em PRT-001.
+
+No ecossistema O.P.E.R.A., identidade de acesso, organização, obra, recurso, alocação e autorização são conceitos distintos. E-mail, `user_id`, `tenant_id`, nomes legíveis, IDs locais e identificadores experimentais não devem ser promovidos automaticamente a identidade canônica de outro conceito. `Tenant` permanece conceito de implementação até que sua semântica seja avaliada por componente. A decisão arquitetural aplicável está registrada em `docs/decisoes/DEC-ARQ-002-identidade-operacional-opera.md`.
 
 ---
 
