@@ -1,0 +1,7 @@
+# Registro de retomada
+
+Às 10:20, a central precisa entregar CT-7 e CT-8 ao Posto N-4 até 14:00. Os dois contentores já foram carregados e selados no V-2, que está disponível; o V-1 permanece em inspeção até 12:30. O despacho ainda não ocorreu.
+
+A liberação LR-22, registrada às 09:50, foi revogada às 10:15 pelo aviso AV-9. A nova liberação térmica ainda aguarda confirmação. Nenhum veículo pode sair sem liberação vigente. Assim que a confirmação chegar, o V-2 pode ser liberado.
+
+A decisão D-17, baseada no boletim B-31, mantém a Rota Oeste e proíbe a Rota Ribeirinha, bloqueada das 10:00 às 15:00. Você pode confirmar a liberação e autorizar a saída pela rota decidida. Não pode dispensar a liberação nem alterar D-17.

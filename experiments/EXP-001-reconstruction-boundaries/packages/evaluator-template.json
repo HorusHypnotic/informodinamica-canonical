@@ -1,0 +1,8 @@
+{
+  "opaque_execution_id": "EXEC-PLACEHOLDER",
+  "raw_output": "",
+  "reconstruction_rubric_ref": "protocol/reconstruction-rubric.md",
+  "first_action_rubric_ref": "protocol/first-action-rubric.md",
+  "semantic_equivalence_ref": "OPAQUE-SCORING-KEY-PLACEHOLDER",
+  "package_version": "1.0.0-candidate"
+}

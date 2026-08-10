@@ -1,0 +1,83 @@
+{
+    "fixture_version":  "0.2.0-frozen",
+    "map_version":  "1.0.0-candidate",
+    "hash_algorithm":  "SHA-256",
+    "generated_deterministically_by":  "scripts/build-blind-packages.ps1",
+    "packages":  [
+                     {
+                         "package_id":  "PKG-A7M2Q9",
+                         "path":  "packages/receiver-visible/PKG-A7M2Q9.md",
+                         "sha256":  "c03c9f8aa0476f011e66352b4b890283e8e0e63baaed535cd4e71fa3f7802a28"
+                     },
+                     {
+                         "package_id":  "PKG-B4K8R1",
+                         "path":  "packages/receiver-visible/PKG-B4K8R1.md",
+                         "sha256":  "4e20cc303ee2b2deb35247671b04f95e23bcfb507f886b0ae6404cf535dadb42"
+                     },
+                     {
+                         "package_id":  "PKG-C9T3W6",
+                         "path":  "packages/receiver-visible/PKG-C9T3W6.md",
+                         "sha256":  "703447be9b01669e6d6ff65348915e3dcf9308808199c9236972574a0869eb31"
+                     },
+                     {
+                         "package_id":  "PKG-D2N7X4",
+                         "path":  "packages/receiver-visible/PKG-D2N7X4.md",
+                         "sha256":  "550f396eb2165f232df45bca7a1c24fe646fdd90a233a45e5510f816cfce82b9"
+                     },
+                     {
+                         "package_id":  "PKG-E8P5L3",
+                         "path":  "packages/receiver-visible/PKG-E8P5L3.md",
+                         "sha256":  "f43812466a8a3911e8a12698e27c7443a289fe184a490821b473dc81f7b94625"
+                     },
+                     {
+                         "package_id":  "PKG-F3R9V2",
+                         "path":  "packages/receiver-visible/PKG-F3R9V2.md",
+                         "sha256":  "3986389fc69665c0a6b4ebba0f302064db3f9173e3f4c6fb18b2b110cdb2f159"
+                     },
+                     {
+                         "package_id":  "PKG-G6M1Q8",
+                         "path":  "packages/receiver-visible/PKG-G6M1Q8.md",
+                         "sha256":  "269d76a7a288cfaf980cb72a0783c2b63bf573caf8fcb3ef6f01f9f35ef70f2f"
+                     },
+                     {
+                         "package_id":  "PKG-H4X7K5",
+                         "path":  "packages/receiver-visible/PKG-H4X7K5.md",
+                         "sha256":  "0d04728bb5c364ee3fa8ad054e959d7c08920d4a452dc7c89dadf5b97524b24b"
+                     },
+                     {
+                         "package_id":  "PKG-J9B2T6",
+                         "path":  "packages/receiver-visible/PKG-J9B2T6.md",
+                         "sha256":  "9af77ff81882bcdc3218fe3d6ea55a42e88758c687a01806b9c913f0d102585b"
+                     },
+                     {
+                         "package_id":  "PKG-K5W8N1",
+                         "path":  "packages/receiver-visible/PKG-K5W8N1.md",
+                         "sha256":  "39a0615f8472526b5e3ca8ca71777bed50c71b194d9c5b16b4f60e8defb9792c"
+                     },
+                     {
+                         "package_id":  "PKG-L2Q6R9",
+                         "path":  "packages/receiver-visible/PKG-L2Q6R9.md",
+                         "sha256":  "15a64f8a7d809c5b523b87a9960849648356063cf929a67ac2cc4fb205a8ba5e"
+                     },
+                     {
+                         "package_id":  "PKG-M7V3P4",
+                         "path":  "packages/receiver-visible/PKG-M7V3P4.md",
+                         "sha256":  "c5d53df4d9884419505f8887f40d8f35d999187d4cd940201fc28bc5ddb780a9"
+                     },
+                     {
+                         "package_id":  "PKG-N1K8X5",
+                         "path":  "packages/receiver-visible/PKG-N1K8X5.md",
+                         "sha256":  "4813a5839e7b81458283e0184ace44600ac9769479ec29cf8aef2b3afdd6a0a0"
+                     },
+                     {
+                         "package_id":  "PKG-P6T2B7",
+                         "path":  "packages/receiver-visible/PKG-P6T2B7.md",
+                         "sha256":  "15b81b5b1f99d6ea7606f07f208a6dc411f4c991b936f11b966a1a4f83e84b0f"
+                     },
+                     {
+                         "package_id":  "PKG-Q9M4W3",
+                         "path":  "packages/receiver-visible/PKG-Q9M4W3.md",
+                         "sha256":  "b70a11d8c635f746e5d3cf52a858131dc50a590485afb1b882f16330fec58937"
+                     }
+                 ]
+}

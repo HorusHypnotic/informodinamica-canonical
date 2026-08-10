@@ -1,0 +1,21 @@
+{
+  "instance_id": "I01",
+  "graph_version": "1.1.0-candidate",
+  "first_material_action_definition": "Primeira ação externa ou operacionalmente significativa capaz de alterar, confirmar ou encaminhar o estado da tarefa; leitura, raciocínio, anotação interna, reformulação e mera declaração não contam.",
+  "first_action_rule": "Enquanto a nova liberação estiver pendente, a primeira ação material deve acionar a fonte autorizada para confirmar ou obter a liberação; somente depois é admissível autorizar V-2 pela Rota Oeste.",
+  "semantic_classes": [
+    {"id":"I01-SC01","class":"confirmacao_autorizada_da_liberacao","equivalent_formulations":["consultar o responsável pela liberação","solicitar confirmação da nova liberação","pedir atualização ao emissor autorizado","obter confirmação vigente da liberação"],"preconditions":["I01-P04","I01-P05","I01-P08","I01-P11"],"justification":"Encaminha a remoção do bloqueio dentro da autoridade.","first_action_status":"obrigatoria","adjudication_rule":"Aceitar quando a ação externa busca confirmação ou emissão vigente junto à fonte autorizada; mera leitura ou anotação não basta."},
+    {"id":"I01-SC02","class":"despacho_condicionado","equivalent_formulations":["autorizar V-2 pela Rota Oeste após a liberação","liberar o despacho depois da confirmação vigente"],"preconditions":["I01-SC01 concluída","I01-P02","I01-P06"],"justification":"Preserva objetivo, rota e dependência.","first_action_status":"aceitavel_posterior","adjudication_rule":"Como primeira ação, é proibida se omitir a confirmação; é aceitável somente como ação posterior explicitamente condicionada."},
+    {"id":"I01-SC03","class":"registro_ou_comunicacao_do_bloqueio","equivalent_formulations":["registrar espera pela liberação","comunicar que o despacho segue bloqueado"],"preconditions":["I01-P04"],"justification":"Mantém rastreabilidade, mas isoladamente não encaminha a remoção do bloqueio.","first_action_status":"indiferente","adjudication_rule":"Se vier junto de contato externo para confirmação, classificar pela SC01; isolada, classificar como indiferente."}
+  ],
+  "actions": [
+    {"id":"I01-A01","semantic_class_id":"I01-SC01","label":"Acionar a fonte autorizada para confirmar ou obter a nova liberação térmica.","classification":"obrigatoria","preconditions":["I01-P04","I01-P05","I01-P08","I01-P11"],"justification":"Remove ou confirma o bloqueio sem violar autoridade."},
+    {"id":"I01-A02","semantic_class_id":"I01-SC02","label":"Após liberação vigente, autorizar saída do V-2 pela Rota Oeste.","classification":"aceitavel_posterior","preconditions":["I01-A01 concluída","I01-P02","I01-P06"],"justification":"Preserva objetivo e decisão."},
+    {"id":"I01-A03","semantic_class_id":"I01-SC03","label":"Registrar ou comunicar que o despacho aguarda liberação.","classification":"indiferente","preconditions":["I01-P04"],"justification":"Não substitui o encaminhamento externo da confirmação."},
+    {"id":"I01-A04","semantic_class_id":null,"label":"Repetir carregamento e selagem.","classification":"proibida","preconditions":[],"justification":"Repete I01-P07."},
+    {"id":"I01-A05","semantic_class_id":null,"label":"Transferir a carga para V-1 agora.","classification":"proibida","preconditions":[],"justification":"Viola I01-P03."},
+    {"id":"I01-A06","semantic_class_id":null,"label":"Dispensar a liberação e despachar imediatamente.","classification":"proibida","preconditions":[],"justification":"Viola I01-P05 e I01-P11."},
+    {"id":"I01-A07","semantic_class_id":null,"label":"Alterar o trajeto para a Rota Ribeirinha.","classification":"proibida","preconditions":[],"justification":"Viola I01-P06, I01-P10 e I01-P11."},
+    {"id":"I01-A08","semantic_class_id":null,"label":"Reorganizar etiquetas sem alterar a carga.","classification":"indiferente","preconditions":[],"justification":"Não altera continuidade material."}
+  ]
+}

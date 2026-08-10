@@ -1,0 +1,22 @@
+{
+  "map_version": "1.0.0-candidate",
+  "fixture_version": "0.2.0-frozen",
+  "receiver_visible": false,
+  "mappings": [
+    {"package_id":"PKG-A7M2Q9","source":"instances/I01-cold-chain/conditions/C2.md"},
+    {"package_id":"PKG-B4K8R1","source":"instances/I01-cold-chain/conditions/C3.md"},
+    {"package_id":"PKG-C9T3W6","source":"instances/I01-cold-chain/conditions/C3-sham.md"},
+    {"package_id":"PKG-D2N7X4","source":"instances/I01-cold-chain/conditions/C4-A.md"},
+    {"package_id":"PKG-E8P5L3","source":"instances/I01-cold-chain/conditions/C4-F.md"},
+    {"package_id":"PKG-F3R9V2","source":"instances/I02-maintenance-parts/conditions/C2.md"},
+    {"package_id":"PKG-G6M1Q8","source":"instances/I02-maintenance-parts/conditions/C3.md"},
+    {"package_id":"PKG-H4X7K5","source":"instances/I02-maintenance-parts/conditions/C3-sham.md"},
+    {"package_id":"PKG-J9B2T6","source":"instances/I02-maintenance-parts/conditions/C4-A.md"},
+    {"package_id":"PKG-K5W8N1","source":"instances/I02-maintenance-parts/conditions/C4-F.md"},
+    {"package_id":"PKG-L2Q6R9","source":"instances/I03-relief-supplies/conditions/C2.md"},
+    {"package_id":"PKG-M7V3P4","source":"instances/I03-relief-supplies/conditions/C3.md"},
+    {"package_id":"PKG-N1K8X5","source":"instances/I03-relief-supplies/conditions/C3-sham.md"},
+    {"package_id":"PKG-P6T2B7","source":"instances/I03-relief-supplies/conditions/C4-A.md"},
+    {"package_id":"PKG-Q9M4W3","source":"instances/I03-relief-supplies/conditions/C4-F.md"}
+  ]
+}

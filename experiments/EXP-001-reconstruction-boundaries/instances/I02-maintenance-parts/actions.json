@@ -1,0 +1,21 @@
+{
+  "instance_id": "I02",
+  "graph_version": "1.1.0-candidate",
+  "first_material_action_definition": "Primeira ação externa ou operacionalmente significativa capaz de alterar, confirmar ou encaminhar o estado da tarefa; leitura, raciocínio, anotação interna, reformulação e mera declaração não contam.",
+  "first_action_rule": "A primeira ação material deve encaminhar a inspeção vigente para H-2; somente após sua conclusão é admissível liberar T-6 pelo Corredor Sul.",
+  "semantic_classes": [
+    {"id":"I02-SC01","class":"encaminhamento_da_inspecao_para_h2","equivalent_formulations":["atribuir a inspeção a H-2","acionar H-2 para realizar a inspeção","confirmar o aceite de H-2 e encaminhar a inspeção","solicitar que H-2 inicie a inspeção"],"preconditions":["I02-P03","I02-P04","I02-P11"],"justification":"Encaminha o predecessor com o recurso vigente.","first_action_status":"obrigatoria","adjudication_rule":"Aceitar quando há contato, atribuição ou confirmação externa que encaminha a inspeção a H-2; mera anotação da troca não basta."},
+    {"id":"I02-SC02","class":"despacho_pos_inspecao","equivalent_formulations":["liberar T-6 pelo Sul após a inspeção","autorizar o despacho quando a inspeção terminar"],"preconditions":["I02-SC01 concluída","I02-P02","I02-P06"],"justification":"Preserva objetivo, restrição e rota.","first_action_status":"aceitavel_posterior","adjudication_rule":"Como primeira ação, é proibida se antecipar a inspeção; aceitável apenas como ação posterior condicionada."},
+    {"id":"I02-SC03","class":"registro_da_troca_de_equipe","equivalent_formulations":["registrar a troca H-1 para H-2","atualizar a escala com H-2"],"preconditions":["I02-P03"],"justification":"Mantém registro, mas isoladamente não encaminha a inspeção.","first_action_status":"indiferente","adjudication_rule":"Se também encaminhar H-2 externamente, classificar pela SC01; isolada, classificar como indiferente."}
+  ],
+  "actions": [
+    {"id":"I02-A01","semantic_class_id":"I02-SC01","label":"Acionar ou atribuir a H-2 a inspeção dos lacres.","classification":"obrigatoria","preconditions":["I02-P03","I02-P04","I02-P11"],"justification":"Usa o recurso vigente e encaminha o predecessor."},
+    {"id":"I02-A02","semantic_class_id":"I02-SC02","label":"Após inspeção, liberar T-6 pelo Corredor Sul.","classification":"aceitavel_posterior","preconditions":["I02-A01 concluída","I02-P02","I02-P06"],"justification":"Preserva objetivo e restrições."},
+    {"id":"I02-A03","semantic_class_id":"I02-SC03","label":"Registrar a troca H-1 para H-2.","classification":"indiferente","preconditions":["I02-P03"],"justification":"Não substitui o encaminhamento operacional da inspeção."},
+    {"id":"I02-A04","semantic_class_id":null,"label":"Refazer separação e embalagem.","classification":"proibida","preconditions":[],"justification":"Repete P07."},
+    {"id":"I02-A05","semantic_class_id":null,"label":"Atribuir inspeção a H-1.","classification":"proibida","preconditions":[],"justification":"Viola estado temporal P03."},
+    {"id":"I02-A06","semantic_class_id":null,"label":"Liberar T-6 antes da inspeção.","classification":"proibida","preconditions":[],"justification":"Viola P05 e P11."},
+    {"id":"I02-A07","semantic_class_id":null,"label":"Usar o Corredor Norte.","classification":"proibida","preconditions":[],"justification":"Viola P06/P10/P11."},
+    {"id":"I02-A08","semantic_class_id":null,"label":"Reordenar visualmente as caixas.","classification":"indiferente","preconditions":[],"justification":"Sem efeito material."}
+  ]
+}

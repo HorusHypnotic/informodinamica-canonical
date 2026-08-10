@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "exp001-blind-evaluator-package.schema.json",
+  "title": "EXP-001 blind primary evaluator package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["opaque_execution_id","raw_output","reconstruction_rubric_ref","first_action_rubric_ref","semantic_equivalence_ref","package_version"],
+  "properties": {
+    "opaque_execution_id": {"type":"string","pattern":"^[A-Z0-9-]+$"},
+    "raw_output": {"type":"string"},
+    "reconstruction_rubric_ref": {"type":"string","minLength":1},
+    "first_action_rubric_ref": {"type":"string","minLength":1},
+    "semantic_equivalence_ref": {"type":"string","minLength":1},
+    "package_version": {"const":"1.0.0-candidate"}
+  }
+}

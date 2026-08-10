@@ -1,0 +1,371 @@
+{
+    "experiment_id":  "EXP-001",
+    "fixture_name":  "Reconstruction Boundaries",
+    "fixture_version":  "0.2.0-frozen",
+    "date":  "2026-08-10",
+    "state":  "FIXTURE CONGELADO — PRÉ-PILOTO",
+    "confirmatory_status":  "nao_confirmatorio",
+    "execution_status":  "nenhum_receptor_executado",
+    "hash_algorithm":  "SHA-256",
+    "manifest_self_hash":  null,
+    "manifest_self_hash_note":  "O manifesto nÃ£o inclui o prÃ³prio hash; seu hash poderÃ¡ ser registrado somente apÃ³s aprovaÃ§Ã£o humana.",
+    "instances":  [
+                      "I01",
+                      "I02",
+                      "I03"
+                  ],
+    "conditions":  [
+                       "C2",
+                       "C3",
+                       "C3S",
+                       "C4A",
+                       "C4F"
+                   ],
+    "c4a_primary_interpretation":  "estado_obsoleto",
+    "c4a_exploratory_components":  [
+                                       "atraso",
+                                       "substituicao",
+                                       "supressao_de_evidencia"
+                                   ],
+    "deliberately_deferred":  [
+                                  "novas_instancias",
+                                  "novas_deformacoes",
+                                  "diversificacao_topologica",
+                                  "execucao_do_piloto",
+                                  "preregistro_confirmatorio"
+                              ],
+    "blinding_level":  "duplo-cego_parcial",
+    "receiver_exposure_rule":  "um_receptor_uma_execucao_total",
+    "known_limitations":  [
+                              "C3 explicita relaÃ§Ãµes e conserva diferenÃ§a inevitÃ¡vel de conectivos e densidade simbÃ³lica em relaÃ§Ã£o ao sham.",
+                              "C4A mede primariamente estado obsoleto; atraso, substituiÃ§Ã£o e supressÃ£o de evidÃªncia nÃ£o sÃ£o discriminados.",
+                              "C4F pode combinar fragmentaÃ§Ã£o relacional, proximidade, custo de busca e esforÃ§o de integraÃ§Ã£o.",
+                              "O prompt induz reconstruÃ§Ã£o estruturada e pode interagir com C3.",
+                              "O isomorfismo entre instÃ¢ncias limita validade externa.",
+                              "O operador ou custodiante nÃ£o Ã© cego.",
+                              "NÃ£o houve execuÃ§Ã£o, revisÃ£o cega humana ou teste de concordÃ¢ncia das rubricas.",
+                              "O fixture testa uma operacionalizaÃ§Ã£o sintÃ©tica e nÃ£o confirma a TPC."
+                          ],
+    "files":  [
+                  {
+                      "path":  "instances/I01-cold-chain/actions.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "657cbcb7d7c8e9210d99d86f7a34dda48cc6d1ceb17f10280991057d0f19fa67"
+                  },
+                  {
+                      "path":  "instances/I01-cold-chain/conditions/C2.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "c26072c62050ab0faf1fb27f049620392c10e10c6e45209bb9af15f2cf1307d2"
+                  },
+                  {
+                      "path":  "instances/I01-cold-chain/conditions/C3.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "2ee5635b11687e2d9f35533e4a7818dc0d463b68a838139302efa72b15db54c9"
+                  },
+                  {
+                      "path":  "instances/I01-cold-chain/conditions/C3-sham.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "a317d392e4a8fe51a61d328ea2ebe4bf835d7d54b63d6547afcdeb5f2618d55e"
+                  },
+                  {
+                      "path":  "instances/I01-cold-chain/conditions/C4-A.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "d8730ee9120e30fce1bfb839305e8f9d70a8ff541f6df935d8ca3d456df5d27f"
+                  },
+                  {
+                      "path":  "instances/I01-cold-chain/conditions/C4-F.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "4e9f7e6559fac8a55f412fa86ba470f97a2c01eef8a6394ab3f1bb216698eecd"
+                  },
+                  {
+                      "path":  "instances/I01-cold-chain/manipulation-checks.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "74b71511dcc66e30c1a0ec96219e4edc7d324374860dcc9dd45eed2208c9d1d6"
+                  },
+                  {
+                      "path":  "instances/I01-cold-chain/proposition-matrix.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "619f69f4c3c2ad188b4d8091e0543be76b73a3220699c9148e0e6b7c44159c67"
+                  },
+                  {
+                      "path":  "instances/I01-cold-chain/task.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "27617d7eeed021b631677f72d2477772edadaed9f44eec80d5ef8ecac6eb095f"
+                  },
+                  {
+                      "path":  "instances/I01-cold-chain/truth.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "d8edaae958b3d237cf78aba5a5fce790b5857c038e3cfc5808d76b862fc2e2b7"
+                  },
+                  {
+                      "path":  "instances/I02-maintenance-parts/actions.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "ce5eeb141b7173dd394b4eb3984835e04b919442ccb64287f09ca52bb22d99c9"
+                  },
+                  {
+                      "path":  "instances/I02-maintenance-parts/conditions/C2.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "e28fed22165ef55a5a6527c088e7dc362376e4a6da049fdd8a8876d950781ca2"
+                  },
+                  {
+                      "path":  "instances/I02-maintenance-parts/conditions/C3.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "e678e98be2315c2c1d95229272cb6d6b7e751c0da45aebfaee01311f93e5afd6"
+                  },
+                  {
+                      "path":  "instances/I02-maintenance-parts/conditions/C3-sham.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "b08a723a2b5fc589eece27256e433fd7dcdeb48681d0808a9a6468a9c5202502"
+                  },
+                  {
+                      "path":  "instances/I02-maintenance-parts/conditions/C4-A.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "dfc117e33d4b527e1519837ac7f14719ccb4bc674b86aca6941c4db1bad89e3c"
+                  },
+                  {
+                      "path":  "instances/I02-maintenance-parts/conditions/C4-F.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "f07c5adb0e439d61b1d1df4482812aa0aaf3ad4483802be203ace06f3b92ac6e"
+                  },
+                  {
+                      "path":  "instances/I02-maintenance-parts/manipulation-checks.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "9da4b522b5c207d357191e1f16032c08c85f477254f2afae452a4d3b37a3feb8"
+                  },
+                  {
+                      "path":  "instances/I02-maintenance-parts/proposition-matrix.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "269b8b470b7d969a6195e222159a17b4a3343c5bb06c135c4f5cc6b4387b0251"
+                  },
+                  {
+                      "path":  "instances/I02-maintenance-parts/task.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "0b6e03f8e9686c4806554a715e99383535991fe83e7d1a0633049975858c5ddc"
+                  },
+                  {
+                      "path":  "instances/I02-maintenance-parts/truth.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "c4a9dea9185eb977ab599a5284d5dfe537b6fd586f940c43df6e02756712a37a"
+                  },
+                  {
+                      "path":  "instances/I03-relief-supplies/actions.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "35ecff73dd70b42080a90a0c39d6e0c838505be276b6fd3e297c2fcbd81fc440"
+                  },
+                  {
+                      "path":  "instances/I03-relief-supplies/conditions/C2.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "12e5db97fbce5e7a19ae4ba310adf21721944a4689168bfe671a5a379afae8f3"
+                  },
+                  {
+                      "path":  "instances/I03-relief-supplies/conditions/C3.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "413a253d967a676864363ba11a37417612da533fdfe92576cc3917a3352efaa3"
+                  },
+                  {
+                      "path":  "instances/I03-relief-supplies/conditions/C3-sham.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "9a3e92529dccab9a7ae4988849517e82117f951b0df0086594edb4e013de2a78"
+                  },
+                  {
+                      "path":  "instances/I03-relief-supplies/conditions/C4-A.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "6b1085807f3b25bd2112d165397fadc0fad8332a927a4d26e5a238c7a7950cff"
+                  },
+                  {
+                      "path":  "instances/I03-relief-supplies/conditions/C4-F.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "94fd88d1479a060a2b702770377e88c042d15a9d62942011f0587c936ac9b1b8"
+                  },
+                  {
+                      "path":  "instances/I03-relief-supplies/manipulation-checks.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "24c319f90761a6141884a2b86b5a7baa0323e0775bd131967471eee61f56d85d"
+                  },
+                  {
+                      "path":  "instances/I03-relief-supplies/proposition-matrix.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "2f7c34f2e1dbce4ee532755d9a80b340bcd79aa707a25443bb5c0dcf5ac029de"
+                  },
+                  {
+                      "path":  "instances/I03-relief-supplies/task.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "9e422d8120dc5e1fb1c9b3b628c4d2ac8d3a754161f401d0dc76d9414088e02c"
+                  },
+                  {
+                      "path":  "instances/I03-relief-supplies/truth.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "19c49abadca2293d0f16ea0afff774f093edf6c11258f82b5178141eff096770"
+                  },
+                  {
+                      "path":  "packages/audit-map.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "bdb2bb7753406ce1ea8e14bae4797ec3872884c1cbeb3ec810d0f7c07415df46"
+                  },
+                  {
+                      "path":  "packages/evaluator-template.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "07c63700a69dcf38eee10ae6ae9cc62a03bea6fa25e7cdbc76f100aec146a7f6"
+                  },
+                  {
+                      "path":  "packages/receiver-package-manifest.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "2bb110aaaef34356683319563cc1c2a8c81e2365f8320fff6761f9a3fa5f7e7c"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-A7M2Q9.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "c03c9f8aa0476f011e66352b4b890283e8e0e63baaed535cd4e71fa3f7802a28"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-B4K8R1.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "4e20cc303ee2b2deb35247671b04f95e23bcfb507f886b0ae6404cf535dadb42"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-C9T3W6.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "703447be9b01669e6d6ff65348915e3dcf9308808199c9236972574a0869eb31"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-D2N7X4.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "550f396eb2165f232df45bca7a1c24fe646fdd90a233a45e5510f816cfce82b9"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-E8P5L3.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "f43812466a8a3911e8a12698e27c7443a289fe184a490821b473dc81f7b94625"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-F3R9V2.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "3986389fc69665c0a6b4ebba0f302064db3f9173e3f4c6fb18b2b110cdb2f159"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-G6M1Q8.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "269d76a7a288cfaf980cb72a0783c2b63bf573caf8fcb3ef6f01f9f35ef70f2f"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-H4X7K5.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "0d04728bb5c364ee3fa8ad054e959d7c08920d4a452dc7c89dadf5b97524b24b"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-J9B2T6.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "9af77ff81882bcdc3218fe3d6ea55a42e88758c687a01806b9c913f0d102585b"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-K5W8N1.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "39a0615f8472526b5e3ca8ca71777bed50c71b194d9c5b16b4f60e8defb9792c"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-L2Q6R9.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "15a64f8a7d809c5b523b87a9960849648356063cf929a67ac2cc4fb205a8ba5e"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-M7V3P4.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "c5d53df4d9884419505f8887f40d8f35d999187d4cd940201fc28bc5ddb780a9"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-N1K8X5.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "4813a5839e7b81458283e0184ace44600ac9769479ec29cf8aef2b3afdd6a0a0"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-P6T2B7.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "15b81b5b1f99d6ea7606f07f208a6dc411f4c991b936f11b966a1a4f83e84b0f"
+                  },
+                  {
+                      "path":  "packages/receiver-visible/PKG-Q9M4W3.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "b70a11d8c635f746e5d3cf52a858131dc50a590485afb1b882f16330fec58937"
+                  },
+                  {
+                      "path":  "protocol/evaluator-package.schema.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "23577d9c87646c342c370134e12de81f11d314967f07eceeae6bb39016b6e74a"
+                  },
+                  {
+                      "path":  "protocol/first-action-rubric.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "92f997b94ec7e6618f84767f8450c622bc527f945667b4a74ddace9576973f23"
+                  },
+                  {
+                      "path":  "protocol/logging.schema.json",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "0d0e655ce1b676e6dff862f11dbf6375d07378aba618403e2ffff442a438c76c"
+                  },
+                  {
+                      "path":  "protocol/randomization.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "6a69241d555fe6922115f6b2bfb724f0ea230ba4cba948c5ebe274092033287e"
+                  },
+                  {
+                      "path":  "protocol/receiver-prompt.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "fcd7654f7d8323c1977fa6d60db6fb1cf45bed850f3d4204fb7d8b6326fdcd97"
+                  },
+                  {
+                      "path":  "protocol/reconstruction-rubric.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "d4607c6e5ffe8554b352a7530cd0d2977207edf31fd5c18a509720aaa921e35c"
+                  },
+                  {
+                      "path":  "README.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "30c25feb8c09e4a684a1086cede36b34add0407c623377a6450b09582fc49b18"
+                  },
+                  {
+                      "path":  "review/adversarial-review.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "8477fe3465191e8ca94da38f21d7f7295e3f78fc70e5797a265b15513d641044"
+                  },
+                  {
+                      "path":  "review/c3-sham-residual-differences.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "bc15e59d1d17a77010a4eb032061c6ea12119491450fc11c46ab65263f20046e"
+                  },
+                  {
+                      "path":  "review/pre-freeze-corrections.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "ec8eb81a29cd6d805bd8d6d7fc641dabe17b2993371c1c026fe2b08641fb1dac"
+                  },
+                  {
+                      "path":  "review/pre-freeze-reaudit.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "5a63db4a516b7e789ca686b815e00c807da7cd61cae876e7fc7080c7b42c522f"
+                  },
+                  {
+                      "path":  "review/validation-report.md",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "646c54867a6a7f4455eaf899053075d64c59fdba6545e50cb11d7a0a4b0e2d27"
+                  },
+                  {
+                      "path":  "scripts/build-blind-packages.ps1",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "50fa77c8f4b697c024f549fd6eecff810f0b907165775ef93113fdf8e1974539"
+                  },
+                  {
+                      "path":  "scripts/build-evaluator-package.ps1",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "8bfc98e411b6dcda9bec70220c8eeb75837f40cf154d4cfc7547b18346fc8d6e"
+                  },
+                  {
+                      "path":  "scripts/update-manifest.ps1",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "9d075263a24e25bbdec45f55534eca398574dd2a2ae2049494403851bbe78963"
+                  },
+                  {
+                      "path":  "scripts/validate-fixture.ps1",
+                      "purpose":  "artefato versionado do fixture",
+                      "sha256":  "de32b066bd7061336dd9a5ce64f119e81e52051a7f48b809a1b93dc8469e8962"
+                  }
+              ]
+}
