@@ -1,0 +1,28 @@
+{
+    "test_id":  "IT-009",
+    "experimental_run":  false,
+    "fixture_content_used":  false,
+    "container_name":  "exp001-it009-",
+    "container_id":  "e68d17b90eda5bf5d747fbe2f946cb40fc0b70d2e695af287dfcf991453209e2",
+    "image":  "sha256:37a38e48e9338cd7e89dfeb487f37b02ebfcd9cb23111bed2d345e79d37d6dd6",
+    "command_origin":  "operator_initiated_infrastructure_test",
+    "command":  "wget -T 2 -qO- http://example.com 2\u003e\u00261; code=$?; echo NETWORK_CALL_EXIT=$code; test $code -ne 0",
+    "started_at":  "2026-08-10T13:40:02.8809135-03:00",
+    "completed_at":  "2026-08-10T13:40:08.9347828-03:00",
+    "output":  "wget: bad address \u0027example.com\u0027\r\nNETWORK_CALL_EXIT=1",
+    "exit_code":  0,
+    "network_mode":  "none",
+    "mounts":  {
+                   "value":  [
+                                 {
+                                     "Type":  "bind",
+                                     "Source":  "D:\\Projetos Github\\informodinamica-canonical\\experiments\\EXP-001-pilot-orchestration\\e2-sandbox\\fictitious-input",
+                                     "Destination":  "/input",
+                                     "Mode":  "",
+                                     "RW":  false,
+                                     "Propagation":  "rprivate"
+                                 }
+                             ],
+                   "Count":  1
+               }
+}

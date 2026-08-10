@@ -1,0 +1,132 @@
+{
+    "map_version":  "1.0.0-sealed",
+    "fixture_commit":  "90bc761c75fe8f75194eee2bb33b508af4481df7",
+    "fixture_version":  "0.2.0-frozen",
+    "receiver_visible":  false,
+    "evaluator_primary_visible":  false,
+    "algorithm":  "HMAC-SHA256 keyed lexicographic ordering v1",
+    "seed_ref":  "randomization/seed.txt",
+    "seed_hash":  "b5418bfdc46b224066b04727bf539463f3edcd28ebf03bc99fb071baf30c8beb",
+    "mappings":  [
+                     {
+                         "instance_id":  "I01",
+                         "condition_id":  "C2",
+                         "package_id":  "PKG-A7M2Q9",
+                         "package_path":  "packages/receiver-visible/PKG-A7M2Q9.md",
+                         "package_hash":  "c03c9f8aa0476f011e66352b4b890283e8e0e63baaed535cd4e71fa3f7802a28",
+                         "opaque_condition_id":  "OC-DA7681AE7B"
+                     },
+                     {
+                         "instance_id":  "I01",
+                         "condition_id":  "C3",
+                         "package_id":  "PKG-B4K8R1",
+                         "package_path":  "packages/receiver-visible/PKG-B4K8R1.md",
+                         "package_hash":  "4e20cc303ee2b2deb35247671b04f95e23bcfb507f886b0ae6404cf535dadb42",
+                         "opaque_condition_id":  "OC-68B54B9CDA"
+                     },
+                     {
+                         "instance_id":  "I01",
+                         "condition_id":  "C3S",
+                         "package_id":  "PKG-C9T3W6",
+                         "package_path":  "packages/receiver-visible/PKG-C9T3W6.md",
+                         "package_hash":  "703447be9b01669e6d6ff65348915e3dcf9308808199c9236972574a0869eb31",
+                         "opaque_condition_id":  "OC-C9D6B46458"
+                     },
+                     {
+                         "instance_id":  "I01",
+                         "condition_id":  "C4A",
+                         "package_id":  "PKG-D2N7X4",
+                         "package_path":  "packages/receiver-visible/PKG-D2N7X4.md",
+                         "package_hash":  "550f396eb2165f232df45bca7a1c24fe646fdd90a233a45e5510f816cfce82b9",
+                         "opaque_condition_id":  "OC-5054B04293"
+                     },
+                     {
+                         "instance_id":  "I01",
+                         "condition_id":  "C4F",
+                         "package_id":  "PKG-E8P5L3",
+                         "package_path":  "packages/receiver-visible/PKG-E8P5L3.md",
+                         "package_hash":  "f43812466a8a3911e8a12698e27c7443a289fe184a490821b473dc81f7b94625",
+                         "opaque_condition_id":  "OC-A7523BFE00"
+                     },
+                     {
+                         "instance_id":  "I02",
+                         "condition_id":  "C2",
+                         "package_id":  "PKG-F3R9V2",
+                         "package_path":  "packages/receiver-visible/PKG-F3R9V2.md",
+                         "package_hash":  "3986389fc69665c0a6b4ebba0f302064db3f9173e3f4c6fb18b2b110cdb2f159",
+                         "opaque_condition_id":  "OC-5D2CA0E259"
+                     },
+                     {
+                         "instance_id":  "I02",
+                         "condition_id":  "C3",
+                         "package_id":  "PKG-G6M1Q8",
+                         "package_path":  "packages/receiver-visible/PKG-G6M1Q8.md",
+                         "package_hash":  "269d76a7a288cfaf980cb72a0783c2b63bf573caf8fcb3ef6f01f9f35ef70f2f",
+                         "opaque_condition_id":  "OC-4F6083EE71"
+                     },
+                     {
+                         "instance_id":  "I02",
+                         "condition_id":  "C3S",
+                         "package_id":  "PKG-H4X7K5",
+                         "package_path":  "packages/receiver-visible/PKG-H4X7K5.md",
+                         "package_hash":  "0d04728bb5c364ee3fa8ad054e959d7c08920d4a452dc7c89dadf5b97524b24b",
+                         "opaque_condition_id":  "OC-E4D8C6DE62"
+                     },
+                     {
+                         "instance_id":  "I02",
+                         "condition_id":  "C4A",
+                         "package_id":  "PKG-J9B2T6",
+                         "package_path":  "packages/receiver-visible/PKG-J9B2T6.md",
+                         "package_hash":  "9af77ff81882bcdc3218fe3d6ea55a42e88758c687a01806b9c913f0d102585b",
+                         "opaque_condition_id":  "OC-9E71ABA5AD"
+                     },
+                     {
+                         "instance_id":  "I02",
+                         "condition_id":  "C4F",
+                         "package_id":  "PKG-K5W8N1",
+                         "package_path":  "packages/receiver-visible/PKG-K5W8N1.md",
+                         "package_hash":  "39a0615f8472526b5e3ca8ca71777bed50c71b194d9c5b16b4f60e8defb9792c",
+                         "opaque_condition_id":  "OC-60BCA45155"
+                     },
+                     {
+                         "instance_id":  "I03",
+                         "condition_id":  "C2",
+                         "package_id":  "PKG-L2Q6R9",
+                         "package_path":  "packages/receiver-visible/PKG-L2Q6R9.md",
+                         "package_hash":  "15a64f8a7d809c5b523b87a9960849648356063cf929a67ac2cc4fb205a8ba5e",
+                         "opaque_condition_id":  "OC-12578BA871"
+                     },
+                     {
+                         "instance_id":  "I03",
+                         "condition_id":  "C3",
+                         "package_id":  "PKG-M7V3P4",
+                         "package_path":  "packages/receiver-visible/PKG-M7V3P4.md",
+                         "package_hash":  "c5d53df4d9884419505f8887f40d8f35d999187d4cd940201fc28bc5ddb780a9",
+                         "opaque_condition_id":  "OC-EE30721786"
+                     },
+                     {
+                         "instance_id":  "I03",
+                         "condition_id":  "C3S",
+                         "package_id":  "PKG-N1K8X5",
+                         "package_path":  "packages/receiver-visible/PKG-N1K8X5.md",
+                         "package_hash":  "4813a5839e7b81458283e0184ace44600ac9769479ec29cf8aef2b3afdd6a0a0",
+                         "opaque_condition_id":  "OC-2A2FAC0425"
+                     },
+                     {
+                         "instance_id":  "I03",
+                         "condition_id":  "C4A",
+                         "package_id":  "PKG-P6T2B7",
+                         "package_path":  "packages/receiver-visible/PKG-P6T2B7.md",
+                         "package_hash":  "15b81b5b1f99d6ea7606f07f208a6dc411f4c991b936f11b966a1a4f83e84b0f",
+                         "opaque_condition_id":  "OC-C7D0658D36"
+                     },
+                     {
+                         "instance_id":  "I03",
+                         "condition_id":  "C4F",
+                         "package_id":  "PKG-Q9M4W3",
+                         "package_path":  "packages/receiver-visible/PKG-Q9M4W3.md",
+                         "package_hash":  "b70a11d8c635f746e5d3cf52a858131dc50a590485afb1b882f16330fec58937",
+                         "opaque_condition_id":  "OC-74BC3079BD"
+                     }
+                 ]
+}

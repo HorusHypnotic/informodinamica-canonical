@@ -1,0 +1,22 @@
+{
+    "test_id":  "IT-007",
+    "experimental_run":  false,
+    "fixture_content_used":  false,
+    "container_name":  "exp001-it007-b",
+    "container_id":  "bbd3b5b16853ea4d828f891beb72ffcfcbc43f04c9e102cf778f7387652d5cd5",
+    "image":  "sha256:37a38e48e9338cd7e89dfeb487f37b02ebfcd9cb23111bed2d345e79d37d6dd6",
+    "command_origin":  "operator_initiated_infrastructure_test",
+    "command":  "test ! -e /tmp/session-a; echo SESSION_B_CLEAN",
+    "started_at":  "2026-08-10T13:39:57.3688608-03:00",
+    "completed_at":  "2026-08-10T13:39:59.2547991-03:00",
+    "output":  "SESSION_B_CLEAN",
+    "exit_code":  0,
+    "network_mode":  "none",
+    "mounts":  {
+                   "value":  [
+
+                             ],
+                   "Count":  0
+               },
+    "prior_session_output":  "SESSION_A_MARKER"
+}

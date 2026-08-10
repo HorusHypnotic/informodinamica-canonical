@@ -1,0 +1,78 @@
+{
+    "evidence_version":  "pilot-protocol-v0.2.0-candidate",
+    "state":  "E2-F0_NOT_FROZEN",
+    "fixture_commit":  "90bc761c75fe8f75194eee2bb33b508af4481df7",
+    "executions":  0,
+    "test_suite":  "IT-003..IT-009 fictitious infrastructure only",
+    "hash_algorithm":  "SHA-256",
+    "files":  [
+                  {
+                      "path":  "fictitious-input/prompt.md",
+                      "sha256":  "73c233b420c3e2eca91be148e8c43ee0de1acad3c482eef9bf1d7e16c8b0a9bf"
+                  },
+                  {
+                      "path":  "fictitious-input/record.md",
+                      "sha256":  "3cff87cef83bbfafaa7f6540ccd8e311b826a30e6358405803f59d1a02be3d7c"
+                  },
+                  {
+                      "path":  "final-audit.md",
+                      "sha256":  "fe49cc234ba758fa59909cac860eba9101b6fc7e5f79fa1ddf710064ee65ea2a"
+                  },
+                  {
+                      "path":  "operational-amendment-v0.2.0-candidate.md",
+                      "sha256":  "a344417f3d227b706be0cff6b7470eeb0b94239216087d8b247eececaedb2f88"
+                  },
+                  {
+                      "path":  "outside-sentinel/secret.txt",
+                      "sha256":  "fe00019886bcb26c82077b308728e77ab9e2b71a7551ce158a53e926f611d7e1"
+                  },
+                  {
+                      "path":  "results/IT-003.json",
+                      "sha256":  "777661ef5d9aeea2e0f8911e6c73f3f9009bf1de8c16446eeacf947c18cd1f28"
+                  },
+                  {
+                      "path":  "results/IT-004.json",
+                      "sha256":  "a6dacbd9b5e96ab25d803790255d886e74f8b00ec4af1122615d4dc89cc96660"
+                  },
+                  {
+                      "path":  "results/IT-005.json",
+                      "sha256":  "b6aa1aaa75f65cde516047684df1fafe76529e56405fe45ddb7378d82f40cf7c"
+                  },
+                  {
+                      "path":  "results/IT-006.json",
+                      "sha256":  "10ed4825c7e01ec3c69107e913036c76e7943e58e3f59dd2bce850465018efb6"
+                  },
+                  {
+                      "path":  "results/IT-007.json",
+                      "sha256":  "31592c09cefd78ad9c19a5ed0f930ff9ada36a07583a22ca3be94126a509dda9"
+                  },
+                  {
+                      "path":  "results/IT-008.json",
+                      "sha256":  "fa9433186981d387c4defacf9c698b401554a69ae10d5a23249189cad74c0382"
+                  },
+                  {
+                      "path":  "results/IT-009.json",
+                      "sha256":  "daf8fbde6ada5b040c7a7b27217f3554f98444174f7922b7ec99b13b93cccd6c"
+                  },
+                  {
+                      "path":  "results/suite-summary.json",
+                      "sha256":  "e6623fbcaa6f28eae425e589042ab4a3515e3bb31e70f62e064ec180f91c4f37"
+                  },
+                  {
+                      "path":  "runtime-profile.json",
+                      "sha256":  "09a748287b828b275ef15a93dd4c470a1b3111831c4b88a7762b2712d52adfa6"
+                  },
+                  {
+                      "path":  "scripts/run-e2-infrastructure-tests.ps1",
+                      "sha256":  "722a5529cab01d0cc01d6dc7d56c5d8f62d184479d7b1936618e7cba2bfb11e0"
+                  },
+                  {
+                      "path":  "scripts/update-e2-evidence-manifest.ps1",
+                      "sha256":  "dcdffd3c76c5c9e507029b9a9d23d6256d665518b24fdcc561b4b564d3a67e92"
+                  },
+                  {
+                      "path":  "threat-model.md",
+                      "sha256":  "2e3300b6e9c1851411824c4b751633578c7530916e571f5b6b1255685c1e1054"
+                  }
+              ]
+}

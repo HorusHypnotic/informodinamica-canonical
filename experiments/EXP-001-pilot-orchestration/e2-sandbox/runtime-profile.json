@@ -1,0 +1,21 @@
+{
+  "profile_version": "pilot-protocol-v0.2.0-candidate",
+  "state": "E2-F0_NOT_FROZEN",
+  "container_engine": "Docker Desktop 4.84.0",
+  "engine_version": "29.6.2",
+  "runtime": "WSL2 Linux containers",
+  "image": "sha256:37a38e48e9338cd7e89dfeb487f37b02ebfcd9cb23111bed2d345e79d37d6dd6",
+  "container_user": "65534:65534",
+  "network": "none",
+  "root_filesystem": "read_only",
+  "capabilities": "ALL dropped",
+  "no_new_privileges": true,
+  "input_mount": "single read-only bind mount at /input",
+  "temporary_state": "per-container tmpfs /tmp, noexec,nosuid,8m",
+  "resource_limits": {"pids":32,"memory":"128m","cpus":0.5},
+  "runtime_files_visible": ["immutable image root", "/bin", "/lib", "/etc", "/mailpit"],
+  "host_paths_mounted": ["fictitious-input only during infrastructure tests"],
+  "repository_mounted": false,
+  "receiver_integration": "unavailable",
+  "blocking_gap": "The managed Codex receiver and its callable tools cannot be routed into or restricted by this container using the available orchestration interface."
+}

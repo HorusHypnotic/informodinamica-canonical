@@ -1,0 +1,28 @@
+{
+    "test_id":  "IT-003",
+    "experimental_run":  false,
+    "fixture_content_used":  false,
+    "container_name":  "exp001-it003-",
+    "container_id":  "0f3333aee14576c352ffb254367c94dcc44a2f60e3af78c3356143051df6e5b8",
+    "image":  "sha256:37a38e48e9338cd7e89dfeb487f37b02ebfcd9cb23111bed2d345e79d37d6dd6",
+    "command_origin":  "operator_initiated_infrastructure_test",
+    "command":  "test -r prompt.md -a -r record.md; wc -c prompt.md record.md; echo OBJECTIVE_OK; echo STATE_OK; echo FIRST_ACTION_OK",
+    "started_at":  "2026-08-10T13:39:45.3896806-03:00",
+    "completed_at":  "2026-08-10T13:39:46.1772480-03:00",
+    "output":  "      143 prompt.md\r\n      147 record.md\r\n      290 total\r\nOBJECTIVE_OK\r\nSTATE_OK\r\nFIRST_ACTION_OK",
+    "exit_code":  0,
+    "network_mode":  "none",
+    "mounts":  {
+                   "value":  [
+                                 {
+                                     "Type":  "bind",
+                                     "Source":  "D:\\Projetos Github\\informodinamica-canonical\\experiments\\EXP-001-pilot-orchestration\\e2-sandbox\\fictitious-input",
+                                     "Destination":  "/input",
+                                     "Mode":  "",
+                                     "RW":  false,
+                                     "Propagation":  "rprivate"
+                                 }
+                             ],
+                   "Count":  1
+               }
+}

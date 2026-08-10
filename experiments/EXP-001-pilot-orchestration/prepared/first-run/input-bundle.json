@@ -1,0 +1,11 @@
+{
+    "delivery_order":  [
+                           "prompt.md",
+                           "record.md"
+                       ],
+    "prompt_ref":  "prepared/first-run/prompt.md",
+    "prompt_hash":  "fcd7654f7d8323c1977fa6d60db6fb1cf45bed850f3d4204fb7d8b6326fdcd97",
+    "record_ref":  "prepared/first-run/record.md",
+    "record_hash":  "3986389fc69665c0a6b4ebba0f302064db3f9173e3f4c6fb18b2b110cdb2f159",
+    "additional_content":  null
+}

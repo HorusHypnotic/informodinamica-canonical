@@ -1,0 +1,60 @@
+{
+    "suite":  "IT-003..IT-009",
+    "executed_at":  "2026-08-10T13:40:09.1682838-03:00",
+    "experimental_runs":  0,
+    "fixture_content_used":  false,
+    "image":  "sha256:37a38e48e9338cd7e89dfeb487f37b02ebfcd9cb23111bed2d345e79d37d6dd6",
+    "controls":  [
+                     "network=none",
+                     "read-only root",
+                     "cap-drop=ALL",
+                     "no-new-privileges",
+                     "non-root user",
+                     "tmpfs ephemeral",
+                     "single read-only input mount"
+                 ],
+    "results":  [
+                    {
+                        "test_id":  "IT-003",
+                        "exit_code":  0,
+                        "network_mode":  "none",
+                        "output":  "      143 prompt.md\r\n      147 record.md\r\n      290 total\r\nOBJECTIVE_OK\r\nSTATE_OK\r\nFIRST_ACTION_OK"
+                    },
+                    {
+                        "test_id":  "IT-004",
+                        "exit_code":  0,
+                        "network_mode":  "none",
+                        "output":  "cat: can\u0027t open \u0027../../outside-sentinel/secret.txt\u0027: No such file or directory"
+                    },
+                    {
+                        "test_id":  "IT-005",
+                        "exit_code":  0,
+                        "network_mode":  "none",
+                        "output":  "cat: can\u0027t open \u0027/outside-sentinel/secret.txt\u0027: No such file or directory"
+                    },
+                    {
+                        "test_id":  "IT-006",
+                        "exit_code":  0,
+                        "network_mode":  "none",
+                        "output":  ""
+                    },
+                    {
+                        "test_id":  "IT-007",
+                        "exit_code":  0,
+                        "network_mode":  "none",
+                        "output":  "SESSION_B_CLEAN"
+                    },
+                    {
+                        "test_id":  "IT-008",
+                        "exit_code":  0,
+                        "network_mode":  "none",
+                        "output":  "/bin/sh\r\n/bin/cat\r\n/bin/ls\r\n/usr/bin/find\r\n/bin/grep\r\n/usr/bin/wget"
+                    },
+                    {
+                        "test_id":  "IT-009",
+                        "exit_code":  0,
+                        "network_mode":  "none",
+                        "output":  "wget: bad address \u0027example.com\u0027\r\nNETWORK_CALL_EXIT=1"
+                    }
+                ]
+}

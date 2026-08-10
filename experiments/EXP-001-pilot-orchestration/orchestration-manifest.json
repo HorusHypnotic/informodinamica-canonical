@@ -1,0 +1,186 @@
+{
+    "checkpoint":  "EXP-001_PAUSADO_PRE_PILOTO",
+    "date":  "2026-08-10",
+    "fixture_commit":  "90bc761c75fe8f75194eee2bb33b508af4481df7",
+    "fixture_tag":  "exp-001-fixture-v0.2.0-frozen",
+    "fixture_version":  "0.2.0-frozen",
+    "planned_runs":  30,
+    "experimental_runs_started":  0,
+    "experimental_runs_completed":  0,
+    "experimental_outputs_observed":  0,
+    "run_001":  "blocked_preflight_stop6_not_started",
+    "e2":  "E2-F0",
+    "operational_amendment":  "pilot-protocol-v0.2.0-candidate_not_frozen",
+    "hash_algorithm":  "SHA-256",
+    "manifest_self_hash":  null,
+    "files":  [
+                  {
+                      "path":  "BACKLOG.md",
+                      "sha256":  "f97c08c5763e14450976086a1405e55ef0eb4ebf8fc26ebe896427fd8d10897e"
+                  },
+                  {
+                      "path":  "CHECKPOINT-PAUSED.md",
+                      "sha256":  "db1b166cb4c13d25f434d1dc0846690a1438e7ccb5b663a5f858fec1677c41ac"
+                  },
+                  {
+                      "path":  "e2-sandbox/evidence-manifest.json",
+                      "sha256":  "e346213dbe0dc3c81285bc6e8c286fa780e9422922f48a10b8319a2188851f0b"
+                  },
+                  {
+                      "path":  "e2-sandbox/fictitious-input/prompt.md",
+                      "sha256":  "73c233b420c3e2eca91be148e8c43ee0de1acad3c482eef9bf1d7e16c8b0a9bf"
+                  },
+                  {
+                      "path":  "e2-sandbox/fictitious-input/record.md",
+                      "sha256":  "3cff87cef83bbfafaa7f6540ccd8e311b826a30e6358405803f59d1a02be3d7c"
+                  },
+                  {
+                      "path":  "e2-sandbox/final-audit.md",
+                      "sha256":  "fe49cc234ba758fa59909cac860eba9101b6fc7e5f79fa1ddf710064ee65ea2a"
+                  },
+                  {
+                      "path":  "e2-sandbox/operational-amendment-v0.2.0-candidate.md",
+                      "sha256":  "a344417f3d227b706be0cff6b7470eeb0b94239216087d8b247eececaedb2f88"
+                  },
+                  {
+                      "path":  "e2-sandbox/outside-sentinel/secret.txt",
+                      "sha256":  "fe00019886bcb26c82077b308728e77ab9e2b71a7551ce158a53e926f611d7e1"
+                  },
+                  {
+                      "path":  "e2-sandbox/results/IT-003.json",
+                      "sha256":  "777661ef5d9aeea2e0f8911e6c73f3f9009bf1de8c16446eeacf947c18cd1f28"
+                  },
+                  {
+                      "path":  "e2-sandbox/results/IT-004.json",
+                      "sha256":  "a6dacbd9b5e96ab25d803790255d886e74f8b00ec4af1122615d4dc89cc96660"
+                  },
+                  {
+                      "path":  "e2-sandbox/results/IT-005.json",
+                      "sha256":  "b6aa1aaa75f65cde516047684df1fafe76529e56405fe45ddb7378d82f40cf7c"
+                  },
+                  {
+                      "path":  "e2-sandbox/results/IT-006.json",
+                      "sha256":  "10ed4825c7e01ec3c69107e913036c76e7943e58e3f59dd2bce850465018efb6"
+                  },
+                  {
+                      "path":  "e2-sandbox/results/IT-007.json",
+                      "sha256":  "31592c09cefd78ad9c19a5ed0f930ff9ada36a07583a22ca3be94126a509dda9"
+                  },
+                  {
+                      "path":  "e2-sandbox/results/IT-008.json",
+                      "sha256":  "fa9433186981d387c4defacf9c698b401554a69ae10d5a23249189cad74c0382"
+                  },
+                  {
+                      "path":  "e2-sandbox/results/IT-009.json",
+                      "sha256":  "daf8fbde6ada5b040c7a7b27217f3554f98444174f7922b7ec99b13b93cccd6c"
+                  },
+                  {
+                      "path":  "e2-sandbox/results/suite-summary.json",
+                      "sha256":  "e6623fbcaa6f28eae425e589042ab4a3515e3bb31e70f62e064ec180f91c4f37"
+                  },
+                  {
+                      "path":  "e2-sandbox/runtime-profile.json",
+                      "sha256":  "09a748287b828b275ef15a93dd4c470a1b3111831c4b88a7762b2712d52adfa6"
+                  },
+                  {
+                      "path":  "e2-sandbox/scripts/run-e2-infrastructure-tests.ps1",
+                      "sha256":  "722a5529cab01d0cc01d6dc7d56c5d8f62d184479d7b1936618e7cba2bfb11e0"
+                  },
+                  {
+                      "path":  "e2-sandbox/scripts/update-e2-evidence-manifest.ps1",
+                      "sha256":  "dcdffd3c76c5c9e507029b9a9d23d6256d665518b24fdcc561b4b564d3a67e92"
+                  },
+                  {
+                      "path":  "e2-sandbox/threat-model.md",
+                      "sha256":  "2e3300b6e9c1851411824c4b751633578c7530916e571f5b6b1255685c1e1054"
+                  },
+                  {
+                      "path":  "execution-plan.csv",
+                      "sha256":  "286c45f0b53578fe5e8781f48034958d61809b494927154790bdda4b9972e47f"
+                  },
+                  {
+                      "path":  "execution-plan.json",
+                      "sha256":  "b0af29802ac096bfacbc383b44ff67e9687d450e06ab2916b46f55ebd1a80cc8"
+                  },
+                  {
+                      "path":  "infrastructure-tests/IT-002-capability-without-use.json",
+                      "sha256":  "f45a1fc5e9add12ea6fd578ada13334b9d4af36d67ca0b5f5df71c2e236872cf"
+                  },
+                  {
+                      "path":  "ledger/RUN-001/manifest.sha256",
+                      "sha256":  "894805cfc3cfcd381d7ef68253905fdc645d7bc14779a5d44b49e24837fd01bc"
+                  },
+                  {
+                      "path":  "ledger/RUN-001/operational-record.json",
+                      "sha256":  "b586386abd4e6ed55bfb57b8fc7a3ebcc5579b2125f6a7d4376ecfe3052e7af7"
+                  },
+                  {
+                      "path":  "ledger/RUN-001/post-run-audit.md",
+                      "sha256":  "def48af5b07d420581baf8bc88ca3bb1ca2ca762d5036baf02f4642dc060d5bf"
+                  },
+                  {
+                      "path":  "prepared/first-run/input-bundle.json",
+                      "sha256":  "39e4dc9c3727f76f96d5e3c43e60a21d648a93828f4953f594f1b42c622ad23a"
+                  },
+                  {
+                      "path":  "prepared/first-run/pre-run.json",
+                      "sha256":  "c099f073e100b5c13318f7faa12548d30e5d49b804e88f6d2d04b3af2e97bc38"
+                  },
+                  {
+                      "path":  "prepared/first-run/prompt.md",
+                      "sha256":  "fcd7654f7d8323c1977fa6d60db6fb1cf45bed850f3d4204fb7d8b6326fdcd97"
+                  },
+                  {
+                      "path":  "prepared/first-run/record.md",
+                      "sha256":  "3986389fc69665c0a6b4ebba0f302064db3f9173e3f4c6fb18b2b110cdb2f159"
+                  },
+                  {
+                      "path":  "protocol/environment-manifest.json",
+                      "sha256":  "ea8cd82809b7bc1d7753e77f503cf79af4230781f4dc31aa23208f7ddac6599e"
+                  },
+                  {
+                      "path":  "protocol/execution-protocol.md",
+                      "sha256":  "eaaa8c18acad08bab0a889026502579a89321ea9879b79fd864b30d7d23bf13f"
+                  },
+                  {
+                      "path":  "protocol/logging-lifecycle.md",
+                      "sha256":  "4da55b6ef1f2ac0cafc8d96fcd4feea8bb52e9a242b372b026167202c103d3fb"
+                  },
+                  {
+                      "path":  "protocol/preflight-checklist.md",
+                      "sha256":  "b642c74da426a702c09a99d1b7fa56df0f76402d3b4cd256e41a597cb9ae3699"
+                  },
+                  {
+                      "path":  "randomization/condition-map.json",
+                      "sha256":  "20b3c706361b87d8548fd4001aeede0bbbed729565cc027f11d3a50e9da3d38c"
+                  },
+                  {
+                      "path":  "randomization/seed.txt",
+                      "sha256":  "b5418bfdc46b224066b04727bf539463f3edcd28ebf03bc99fb071baf30c8beb"
+                  },
+                  {
+                      "path":  "README.md",
+                      "sha256":  "6379ce4e7eb3135fdd2e27043422f149a4d178586517c4c99136c391c728ea06"
+                  },
+                  {
+                      "path":  "review/checkpoint-precommit-review.md",
+                      "sha256":  "50603ecb9f1c94cd8268d91bd1ebe31c6e18042febf68311132ad91d16499c60"
+                  },
+                  {
+                      "path":  "scripts/materialize-randomization.ps1",
+                      "sha256":  "85ee7e0f5b638d6e54ae24c970fc95871f8db4a3051a5eb1507501b29a5bccf7"
+                  },
+                  {
+                      "path":  "scripts/update-orchestration-manifest.ps1",
+                      "sha256":  "79ebfa8a3148b1681273c1d8eebdbde24f0a2b73030efea46f727d08ac7ccb3f"
+                  },
+                  {
+                      "path":  "scripts/validate-paused-checkpoint.ps1",
+                      "sha256":  "9390bf538bb03f7d355dbc31db02dfcf482094eb1471e3d58a13c310134b75d3"
+                  },
+                  {
+                      "path":  "scripts/validate-preflight.ps1",
+                      "sha256":  "48922d8ccb1c829dd9e171c5125452820f7c4668b18674908b949b0268cb35c4"
+                  }
+              ]
+}

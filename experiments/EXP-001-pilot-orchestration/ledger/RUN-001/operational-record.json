@@ -1,0 +1,63 @@
+{
+  "record_version": "1.0.0",
+  "run_id": "RUN-001",
+  "authorization_received": true,
+  "authorization_scope": "RUN-001 only",
+  "planned_status": "planned_not_started",
+  "operational_status": "blocked_preflight_stop6_not_started",
+  "started": false,
+  "sent_to_receiver": false,
+  "completed": false,
+  "failed_after_start": false,
+  "preflight_timestamp": "2026-08-10T12:25:02.6018357-03:00",
+  "fixture_commit": "90bc761c75fe8f75194eee2bb33b508af4481df7",
+  "fixture_tag": "exp-001-fixture-v0.2.0-frozen",
+  "fixture_version": "0.2.0-frozen",
+  "opaque_condition_id": "OC-5D2CA0E259",
+  "instance_id": "I02",
+  "repetition_id": "R2",
+  "receiver_session_id": "SES-AC2FD3F05378",
+  "receiver_package_id": "PKG-F3R9V2",
+  "receiver_package_hash_expected": "3986389fc69665c0a6b4ebba0f302064db3f9173e3f4c6fb18b2b110cdb2f159",
+  "receiver_package_hash_observed": "3986389fc69665c0a6b4ebba0f302064db3f9173e3f4c6fb18b2b110cdb2f159",
+  "prompt_hash_observed": "fcd7654f7d8323c1977fa6d60db6fb1cf45bed850f3d4204fb7d8b6326fdcd97",
+  "prepared_input_ref": "prepared/first-run/input-bundle.json",
+  "prepared_prompt_ref": "prepared/first-run/prompt.md",
+  "prepared_record_ref": "prepared/first-run/record.md",
+  "raw_output_ref": null,
+  "raw_output_status": "not_created_because_input_was_not_sent",
+  "environment_planned": {
+    "product": "Codex",
+    "model_family": "GPT-5",
+    "model_version_visible": null,
+    "authorized_tools": [],
+    "workspace_access": "none"
+  },
+  "environment_observed": {
+    "product": "Codex",
+    "model_family": "GPT-5",
+    "model_version_visible": null,
+    "model_version_status": "not_exposed_by_runtime",
+    "callable_tools_present": true,
+    "workspace_filesystem_access_potential": true,
+    "capabilities_technically_disableable_by_receiver": false,
+    "probe_used_tools": false,
+    "probe_read_experimental_content": false
+  },
+  "stop": {
+    "code": "STOP-6",
+    "classification": "executor_environment_drift",
+    "materiality": "B_material_operational_drift",
+    "reason": "The available receiver session has callable tools and potential workspace access that cannot be technically disabled, while the sealed environment profile requires no tools and no workspace access.",
+    "decision": "do_not_send_RUN-001",
+    "triggered_before_input_delivery": true
+  },
+  "evaluator_package": {
+    "status": "not_created",
+    "reason": "No receiver output exists. Creating an evaluator package would fabricate an execution artifact."
+  },
+  "next_runs": {
+    "RUN-002_through_RUN-030": "planned_not_started",
+    "authorized": false
+  }
+}

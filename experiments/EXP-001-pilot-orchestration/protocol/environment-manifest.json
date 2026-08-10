@@ -1,0 +1,26 @@
+{
+  "environment_profile_version": "1.0.0",
+  "product": "Codex",
+  "model_family": "GPT-5",
+  "model_version_visible": null,
+  "model_version_status": "not_exposed_by_runtime",
+  "mode": "fresh_isolated_receiver_session",
+  "permissions": "no_workspace_access",
+  "authorized_tools": [],
+  "generation_parameters": {
+    "temperature": null,
+    "top_p": null,
+    "seed": null,
+    "status": "not_exposed_or_not_configurable"
+  },
+  "input_encoding": "UTF-8",
+  "line_endings": "preserve_frozen_artifacts",
+  "state_before_each_run": "new session; no memory; prompt and one record only",
+  "state_after_each_run": "archive immutable raw log; discard session; create new session",
+  "operational_independence": "isolated_session_approximation",
+  "unverified_requirements": [
+    "provider-level statistical independence",
+    "stable hidden model revision across all runs",
+    "availability of a tool-free receiver session"
+  ]
+}

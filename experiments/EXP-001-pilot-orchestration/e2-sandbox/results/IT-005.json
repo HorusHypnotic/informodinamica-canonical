@@ -1,0 +1,28 @@
+{
+    "test_id":  "IT-005",
+    "experimental_run":  false,
+    "fixture_content_used":  false,
+    "container_name":  "exp001-it005-",
+    "container_id":  "4cd37d9ea13c535dc95a52185a2939cef8cef010f9c162e0c1211b5943b2ef7e",
+    "image":  "sha256:37a38e48e9338cd7e89dfeb487f37b02ebfcd9cb23111bed2d345e79d37d6dd6",
+    "command_origin":  "operator_initiated_infrastructure_test",
+    "command":  "cat /outside-sentinel/secret.txt 2\u003e\u00261; test ! -e /outside-sentinel/secret.txt",
+    "started_at":  "2026-08-10T13:39:49.8615659-03:00",
+    "completed_at":  "2026-08-10T13:39:51.1711193-03:00",
+    "output":  "cat: can\u0027t open \u0027/outside-sentinel/secret.txt\u0027: No such file or directory",
+    "exit_code":  0,
+    "network_mode":  "none",
+    "mounts":  {
+                   "value":  [
+                                 {
+                                     "Type":  "bind",
+                                     "Source":  "D:\\Projetos Github\\informodinamica-canonical\\experiments\\EXP-001-pilot-orchestration\\e2-sandbox\\fictitious-input",
+                                     "Destination":  "/input",
+                                     "Mode":  "",
+                                     "RW":  false,
+                                     "Propagation":  "rprivate"
+                                 }
+                             ],
+                   "Count":  1
+               }
+}
