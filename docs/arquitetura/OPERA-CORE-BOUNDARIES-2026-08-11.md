@@ -1,7 +1,7 @@
 # Fronteiras dos OPERA Core Systems — 11/08/2026
 
-**Estado documental:** `ACTIVE` — proposta arquitetural datada, não normativa  
-**Relação:** complementa o mapa de sistemas da mesma data  
+**Estado documental:** `ACTIVE` — proposta arquitetural datada, não normativa
+**Relação:** complementa o mapa de sistemas da mesma data
 **Não faz:** integração, redesenho de produto ou alteração da TPC/TDO
 
 ## 1. Regra de fronteira

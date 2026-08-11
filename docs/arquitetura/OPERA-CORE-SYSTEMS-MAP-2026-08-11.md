@@ -1,7 +1,7 @@
 # Mapa dos OPERA Core Systems — 11/08/2026
 
-**Estado documental:** `ACTIVE` — fotografia arquitetural datada, operacional e não normativa  
-**Escopo:** Copiloto de Obras, OPERA Control, OPERA Atlas e Cofre de Memória Absoluta  
+**Estado documental:** `ACTIVE` — fotografia arquitetural datada, operacional e não normativa
+**Escopo:** Copiloto de Obras, OPERA Control, OPERA Atlas e Cofre de Memória Absoluta
 **Limite:** não altera teoria, produtos, bancos, integrações ou o fechamento real em andamento
 
 ## 1. Veredito executivo
