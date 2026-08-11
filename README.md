@@ -120,6 +120,8 @@ Documentação científica, metodológica e de governança.
 
 A estrutura inclui materiais teóricos, experimentais, validação interdomínios e decisões tomadas durante a evolução do programa.
 
+[Mapa de sistemas e aplicações do ecossistema OPERA](docs/ECOSSISTEMA-OPERA-LINKS.md)
+
 ## `lab/`
 
 Sistemas de referência, código experimental, sensores e simulações utilizados para transformar proposições teóricas em situações observáveis.

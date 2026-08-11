@@ -1,6 +1,7 @@
 # Revisão — inventário de links do ecossistema OPERA
 
-**Data:** 11 de agosto de 2026  
+**Data:** 11 de agosto de 2026
+
 **Escopo:** `ECOSSISTEMA-OPERA-LINKS.md`, índice JSON e link mínimo no README.
 
 ## Compatibilidade de autoridade

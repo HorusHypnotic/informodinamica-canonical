@@ -1,6 +1,7 @@
 # Inventário de links do ecossistema OPERA
 
-**Última verificação:** 11 de agosto de 2026  
+**Última verificação:** 11 de agosto de 2026
+
 **Estado documental:** `ACTIVE` — inventário operacional datado, não normativo
 
 Este documento reúne links públicos e fontes locais comprovadas. `ATIVA` significa somente que a URL respondeu HTTP 200 sem autenticação durante esta verificação; não certifica funcionalidade, segurança ou conteúdo atualizado. URLs não foram inferidas pelo nome do repositório.
@@ -153,4 +154,3 @@ Todos os remotes abaixo foram lidos diretamente dos clones locais em `D:\Projeto
 - Genealogia: `docs/ecossistema-projetos-2026-08-03.md` e decisões de 11/08.
 
 Nenhuma chave, token, senha, connection string ou conteúdo de `.env` foi lido ou registrado.
-
