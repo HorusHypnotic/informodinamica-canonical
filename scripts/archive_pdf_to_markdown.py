@@ -16,7 +16,7 @@ try:
 except ModuleNotFoundError:  # direct execution: python scripts/archive_pdf_to_markdown.py
     from archive_pdf_pipeline import BlockKind, OrderDecision, ReadingOrderEngine, StructureClassifier, TextBlock
 
-CONVERTER_VERSION = "0.5.0"
+CONVERTER_VERSION = "0.5.1"
 PAGE_MARKER = "<!-- source-page: {page} -->"
 CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 NUMBERED_HEADING_RE = re.compile(r"^\d+(?:\.\d+)*\.?\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ]")
@@ -37,10 +37,19 @@ def normalized_chars(text: str) -> int: return sum(c.isalnum() for c in text)
 def normalize_line(line: str) -> str: return re.sub(r"\s+", " ", CONTROL_RE.sub("", line)).strip()
 def margin_key(line: str) -> str: return re.sub(r"\d+", "#", normalize_line(line)).casefold()
 
+def effective_page_width(page) -> float:
+    """Width in the same unrotated PDF user space used by extract_text visitor matrices."""
+    for name in ("cropbox","mediabox"):
+        try:
+            width=float(getattr(page,name).width)
+            if math.isfinite(width) and width>0: return width
+        except (AttributeError,TypeError,ValueError): pass
+    return 0
+
 def extract_layout(page) -> list[LayoutLine]:
     """Collect transient text geometry and merge fragments on the same baseline."""
     ordered=[normalize_line(line) for line in (page.extract_text() or "").splitlines() if normalize_line(line)]
-    fragments=[]; width=float(page.mediabox.width)
+    fragments=[]; width=effective_page_width(page)
     def visitor(text, _cm, tm, _font, size):
         value=CONTROL_RE.sub("", text or "")
         for offset, part in enumerate(value.splitlines()):
@@ -114,7 +123,7 @@ def render_layout(pages: list[list[LayoutLine]]) -> tuple[str,dict]:
     for page_number,raw_lines in enumerate(pages,1):
         output += [PAGE_MARKER.format(page=page_number),""]
         lines=[x for x in raw_lines if x.text and margin_key(x.text) not in margins and not re.fullmatch(r"(?:page|p[aá]gina)?\s*\d+(?:\s+de\s+\d+)?",x.text,re.I)]
-        blocks=[TextBlock(f"{page_number}:{i}",page_number,x.text,(x.x,x.y,x.x+max(1,len(x.text)*max(x.font_size,1)*.48),x.y+max(x.font_size,1)),x.font_size,source_order=i,checklist_state=x.checklist_state) for i,x in enumerate(lines)]
+        blocks=[TextBlock(f"{page_number}:{i}",page_number,x.text,(x.x,x.y,x.x+max(1,len(x.text)*max(x.font_size,1)*.48),x.y+max(x.font_size,1)),x.font_size,source_order=i,checklist_state=x.checklist_state,page_width=x.page_width) for i,x in enumerate(lines)]
         ordered=engine.order(blocks); classified=StructureClassifier().classify(ordered)
         order_bases.update(x.order_basis for x in ordered); class_counts.update(x.kind.value for x in classified)
         arbitration=engine.decisions[0] if engine.decisions else engine.arbitrate_page(blocks)

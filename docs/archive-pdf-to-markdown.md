@@ -1,7 +1,8 @@
 # Piloto local PDF para Markdown
 
 `scripts/archive_pdf_to_markdown.py` converte somente identidades `TEXT_NATIVE` validadas. O
-conversor permanece `0.5.0`; o `ReadingOrderEngine` experimental `0.6.0` permanece separado do
+conversor `0.5.1` integra a largura efetiva da página; o `ReadingOrderEngine` experimental `0.6.0`
+permanece separado do
 `StructureClassifier`. O primeiro
 constrói `source_order` e `geometry_order`, arbitra explicitamente as hipóteses e devolve apenas a
 ordem escolhida; o segundo recebe blocos já ordenados e não pode
@@ -28,3 +29,8 @@ ordem de origem. Parâmetros e métricas ficam no manifesto local. Os warnings s
 O V0.6 substitui centros e largura textual no sinal estrutural por bordas esquerdas, separação entre
 regiões e razões normalizadas pela largura da página. Foi validado somente em fixtures sintéticas;
 PDFs reais permaneceram fechados e ainda não há autorização para expansão.
+
+`page_width` vem de `cropbox.width` quando válido e de `mediabox.width` como fallback. A medida e os
+bboxes do visitor pertencem ao espaço de usuário PDF não rotacionado; por isso rotação de página não
+troca largura e altura neste contrato. Se ambas as caixas forem inválidas, zero preserva o fallback
+do arbiter pela extensão horizontal observada.

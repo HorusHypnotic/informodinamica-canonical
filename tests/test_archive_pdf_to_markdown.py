@@ -3,10 +3,37 @@ from contextlib import closing
 from pathlib import Path
 from pypdf import PdfWriter
 from pypdf.generic import DecodedStreamObject, DictionaryObject, NameObject
-from scripts.archive_pdf_to_markdown import LayoutLine, convert_document, render_layout, render_markdown, resolve_document
+from scripts.archive_pdf_to_markdown import LayoutLine, convert_document, effective_page_width, extract_layout, render_layout, render_markdown, resolve_document
 
 
 class PdfToMarkdownTests(unittest.TestCase):
+    def test_page_width_flows_from_layout_to_arbiter(self):
+        _,stats=render_layout([[LayoutLine("First",10,100,11,420),LayoutLine("Second",10,80,11,420)]])
+        self.assertEqual(stats["reading_order_decisions"][0]["metrics"]["page_width"],420)
+
+    def test_effective_page_width_standard_narrow_wide_scale_and_empty(self):
+        for width in (300,150,900):
+            writer=PdfWriter(); page=writer.add_blank_page(width,width*2)
+            self.assertEqual(effective_page_width(page),width)
+            self.assertEqual(extract_layout(page),[])
+
+    def test_cropbox_precedes_mediabox_and_rotation_keeps_user_space_width(self):
+        writer=PdfWriter(); page=writer.add_blank_page(600,800); page.cropbox.lower_left=(50,20); page.cropbox.upper_right=(450,780)
+        self.assertEqual(effective_page_width(page),400)
+        page.rotate(90)
+        self.assertEqual(effective_page_width(page),400)
+
+    def test_invalid_width_falls_back_to_mediabox_then_zero(self):
+        class Box:
+            def __init__(self,width): self.width=width
+        class Page: pass
+        page=Page(); page.cropbox=Box(0); page.mediabox=Box(500)
+        self.assertEqual(effective_page_width(page),500)
+        page.mediabox=Box(float('nan'))
+        self.assertEqual(effective_page_width(page),0)
+        _,stats=render_layout([[LayoutLine("First",10,100,11,0),LayoutLine("Second",10,80,11,0)]])
+        self.assertGreater(stats["reading_order_decisions"][0]["metrics"]["page_width"],0)
+
     def test_visual_heading_and_plain_heading_uncertainty(self):
         pages=[[LayoutLine("Visual title",10,280,22,300),LayoutLine("Body text continues here.",10,250,11,300)]]
         markdown,stats=render_layout(pages)
