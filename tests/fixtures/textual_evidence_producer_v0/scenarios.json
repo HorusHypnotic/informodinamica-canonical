@@ -1,0 +1,14 @@
+{
+  "fixture_policy": "synthetic-controlled-only",
+  "scenarios": [
+    "explicit-paragraph", "explicit-heading", "visual-heading-not-promoted", "explicit-bullet-list",
+    "explicit-numbered-list", "explicit-multilevel-list", "list-like-not-promoted", "explicit-table",
+    "aligned-text-not-table", "explicit-checklist", "ambiguous-checkbox", "explicit-form",
+    "form-like-not-promoted", "partial-content", "unavailable-content", "conflicting-signals",
+    "known-order", "unknown-order", "text-with-asset", "mandatory-abstention"
+  ],
+  "adversarial": [
+    "uppercase", "leading-number", "literal-hyphen", "spaced-columns", "label-like-words",
+    "literal-checkbox", "short-line", "index-like-sequence", "literal-pipes", "contradictory-structure"
+  ]
+}

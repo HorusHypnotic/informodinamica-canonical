@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://informodinamica.local/schemas/textual-evidence-v0.schema.json",
+  "title": "Textual Evidence Producer V0 Ledger",
+  "type": "object", "additionalProperties": false,
+  "required": ["model_version", "source_ref", "observations", "evidence", "safe_input"],
+  "properties": {
+    "model_version": { "const": "0.1.0" },
+    "source_ref": { "type": "object", "additionalProperties": false, "required": ["doc_id", "source_sha256"],
+      "properties": { "doc_id": { "type": "string", "pattern": "^DOC-[a-f0-9]{8}$" }, "source_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" } } },
+    "observations": { "type": "array", "items": { "$ref": "#/$defs/observation" } },
+    "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+    "safe_input": { "type": "object" }
+  },
+  "$defs": {
+    "observation": { "type": "object", "additionalProperties": false,
+      "required": ["observation_id", "unit_id", "signal_type", "observed_value"],
+      "properties": {
+        "observation_id": { "type": "string", "pattern": "^OBS-[a-f0-9]{16}$" },
+        "unit_id": { "type": "string", "minLength": 1 }, "signal_type": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "observed_value": { "type": ["string", "number", "boolean", "null", "array", "object"] }
+      } },
+    "evidence": { "type": "object", "additionalProperties": false,
+      "required": ["evidence_id", "observation_id", "rule", "status", "supports", "conflicts", "uncertainty_reason", "abstention_reason"],
+      "properties": {
+        "evidence_id": { "type": "string", "pattern": "^EVD-[a-f0-9]{16}$" },
+        "observation_id": { "type": "string", "pattern": "^OBS-[a-f0-9]{16}$" },
+        "rule": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*@0\\.1\\.0$" },
+        "status": { "enum": ["SUFFICIENT", "INSUFFICIENT", "CONFLICTING", "ABSENT"] },
+        "supports": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "conflicts": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "uncertainty_reason": { "type": ["string", "null"] }, "abstention_reason": { "type": ["string", "null"] }
+      } }
+  }
+}
