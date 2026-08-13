@@ -24,7 +24,8 @@ produto OPERA, schema, aplicação, teoria, glossário, lei, hipótese ou métri
 - O gate não consulta Lovable, banco ou APIs externas.
 - A árvore contém arquivos não rastreados preexistentes do owner; eles não pertencem a esta entrega
   e não serão adicionados ao commit.
-- Promoção para `main` depende de revisão canônica posterior.
+- A única pendência vigente é capturar decisões operacionais relevantes futuras em checkpoint
+  commitado; revisão e promoção do release V1 estão concluídas.
 
 ## Resultado
 
@@ -39,3 +40,11 @@ de checkpoint promovida de `WARN` para `BLOCKED`, confronto da metadata JSON do 
 índice e escopo explícito (`repo` ou `index`) para cada regra. Branch divergente permanece `WARN`
 com exit code zero, portanto o CI de pull request não bloqueia por detached HEAD; repositório,
 checkpoint ou regra inválida retorna `BLOCKED` com exit code dois.
+
+## Atualização canônica pós-promoção
+
+O owner confirmou a promoção para `main` e o estado `CONTEXT GATE V1 = CANONICAL GREEN`, tendo como
+referência o commit `e83f45da822bb8e302896f102156af207390ee11`. O checkpoint
+`context-gate-v1-canonical-green` supersede `context-gate-v1-baseline`; o índice vigente deixa de
+exibir a revisão/promoção já concluída como pendência. Não houve alteração de arquitetura, código,
+teoria, glossário, IDs ou produtos OPERA.

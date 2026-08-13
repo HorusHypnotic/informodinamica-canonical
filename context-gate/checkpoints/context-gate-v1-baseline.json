@@ -2,7 +2,7 @@
   "id": "context-gate-v1-baseline",
   "project": "informodinamica-canonical",
   "date": "2026-08-13",
-  "status": "ACTIVE",
+  "status": "SUPERSEDED",
   "commit": "1d9f91af66206a5e57b83b45f2699adf5a5c9a3d",
   "supersedes": null,
   "facts": [
@@ -10,5 +10,5 @@
     "Não existia Context Gate geral antes desta branch.",
     "Arquivos não rastreados preexistentes devem ser preservados e excluídos do commit."
   ],
-  "pending": ["Revisão canônica do Context Gate V1."]
+  "pending": []
 }

@@ -1,0 +1,19 @@
+{
+  "id": "context-gate-v1-canonical-green",
+  "project": "informodinamica-canonical",
+  "date": "2026-08-13",
+  "status": "CANONICAL GREEN",
+  "commit": "e83f45da822bb8e302896f102156af207390ee11",
+  "supersedes": "context-gate-v1-baseline",
+  "facts": [
+    "CONTEXT GATE V1 = CANONICAL GREEN.",
+    "O Context Gate V1 foi promovido para main.",
+    "O release canônico de referência está no commit e83f45da822bb8e302896f102156af207390ee11.",
+    "Arquivos não rastreados preexistentes do owner devem ser preservados e excluídos de commits."
+  ],
+  "provenance": [
+    "Promoção para main e aprovação canônica informadas pelo owner.",
+    "Commit de referência verificado no HEAD de main e em origin/main."
+  ],
+  "pending": []
+}

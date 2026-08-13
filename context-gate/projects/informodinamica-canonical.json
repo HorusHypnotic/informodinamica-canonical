@@ -4,10 +4,10 @@
   "repository": "HorusHypnotic/informodinamica-canonical",
   "expected_branch": "main",
   "checkpoint": {
-    "id": "context-gate-v1-baseline",
-    "path": "context-gate/checkpoints/context-gate-v1-baseline.json",
-    "commit": "1d9f91af66206a5e57b83b45f2699adf5a5c9a3d",
-    "status": "ACTIVE"
+    "id": "context-gate-v1-canonical-green",
+    "path": "context-gate/checkpoints/context-gate-v1-canonical-green.json",
+    "commit": "e83f45da822bb8e302896f102156af207390ee11",
+    "status": "CANONICAL GREEN"
   },
   "canonical_rules": [
     { "id": "constitution", "path": "CONSTITUICAO.md", "scope": "repo" },
@@ -28,18 +28,17 @@
     "human_approval": "owner"
   },
   "pending": [
-    "Revisar e aprovar o Context Gate V1 antes de promover para main.",
-    "Capturar decisões operacionais relevantes em checkpoint commitado."
+    "Capturar decisões operacionais relevantes futuras em checkpoint commitado."
   ],
   "prohibited_actions": [
     "Resolver conflitos de autoridade silenciosamente.",
     "Promover conteúdo conversacional a cânone sem checkpoint e revisão.",
     "Alterar produtos OPERA nesta missão."
   ],
-  "stop_condition": "Context Gate V1 funcional, testado, documentado e publicado em branch de revisão.",
+  "stop_condition": "Context Gate V1 promovido para main e registrado como CANONICAL GREEN.",
   "required_evidence": [
-    "preflight executável",
-    "testes de PASS, WARN/BLOCKED, campo ausente e working tree suja",
-    "dogfooding contra esta missão"
+    "CONTEXT GATE V1 = CANONICAL GREEN",
+    "commit de referência e83f45da822bb8e302896f102156af207390ee11",
+    "preflight executável e testes automatizados aprovados"
   ]
 }
