@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "document": { "doc_id": "DOC-c6dc82ad" },
+  "source": {
+    "source_sha256": "c6dc82ad36e530c381aca1f237d79907bb3610cf05a2ceac5851c6257094b3e1",
+    "source_size_bytes": 27,
+    "source_format": "txt",
+    "discovered_at": "2026-08-13T14:00:00Z",
+    "inventory_id": "synthetic-inventory",
+    "inventory_version": "1.0.0"
+  },
+  "processing": {
+    "event_id": "EVT-fcd0119b26ea5e90",
+    "doc_id": "DOC-c6dc82ad",
+    "source_sha256": "c6dc82ad36e530c381aca1f237d79907bb3610cf05a2ceac5851c6257094b3e1",
+    "operation": "DIRECT_TEXT_EXTRACTION",
+    "tool": "synthetic-pipeline",
+    "tool_version": "1.0.0",
+    "parameters_version": "1.0.0",
+    "parameters": { "mode": "fixture" },
+    "started_at": "2026-08-13T15:00:00Z",
+    "completed_at": "2026-08-13T15:00:01Z",
+    "status": "COMPLETED",
+    "abstention_reason": null
+  },
+  "derivative": {
+    "derivative_id": "DER-0527bbab26274dbe",
+    "derivative_sha256": "0527bbab26274dbeabe4c4e187abfcc3bf82298d55c9a2f9b701e8187cadf57e",
+    "derivative_size_bytes": 50,
+    "derivative_format": "md",
+    "source_doc_id": "DOC-c6dc82ad",
+    "source_sha256": "c6dc82ad36e530c381aca1f237d79907bb3610cf05a2ceac5851c6257094b3e1",
+    "processing_event_id": "EVT-fcd0119b26ea5e90"
+  },
+  "validation": {
+    "validation_status": "PASS",
+    "validation_method": "synthetic-byte-and-lineage-check",
+    "warnings": [],
+    "validated_at": "2026-08-13T15:00:02Z"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://informodinamica.local/schemas/document-provenance-v1.schema.json",
+  "title": "Document Provenance Contract V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "document", "source", "processing", "derivative", "validation"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "document": { "type": "object", "additionalProperties": false, "required": ["doc_id"], "properties": { "doc_id": { "$ref": "#/$defs/doc_id" } } },
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_sha256", "source_size_bytes", "source_format", "discovered_at", "inventory_id", "inventory_version"],
+      "properties": {
+        "source_sha256": { "$ref": "#/$defs/hash" }, "source_size_bytes": { "type": "integer", "minimum": 0 },
+        "source_format": { "$ref": "#/$defs/format_name" }, "discovered_at": { "$ref": "#/$defs/timestamp" },
+        "inventory_id": { "type": "string", "minLength": 1 }, "inventory_version": { "type": "string", "minLength": 1 }
+      }
+    },
+    "processing": {
+      "type": "object", "additionalProperties": false,
+      "required": ["event_id", "doc_id", "source_sha256", "operation", "tool", "tool_version", "parameters_version", "parameters", "started_at", "completed_at", "status", "abstention_reason"],
+      "properties": {
+        "event_id": { "type": "string", "pattern": "^EVT-[a-f0-9]{16}$" }, "doc_id": { "$ref": "#/$defs/doc_id" },
+        "source_sha256": { "$ref": "#/$defs/hash" }, "operation": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "tool": { "type": "string", "minLength": 1 }, "tool_version": { "type": "string", "minLength": 1 },
+        "parameters_version": { "type": "string", "minLength": 1 }, "parameters": { "type": "object" },
+        "started_at": { "$ref": "#/$defs/timestamp" }, "completed_at": { "$ref": "#/$defs/timestamp" },
+        "status": { "enum": ["COMPLETED", "FAILED", "ABSTAINED"] },
+        "abstention_reason": { "oneOf": [
+          { "type": "null" },
+          { "type": "object", "additionalProperties": false, "required": ["code", "message", "details"], "properties": {
+            "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" }, "message": { "type": "string", "minLength": 1 }, "details": { "type": "object" }
+          } }
+        ] }
+      }
+    },
+    "derivative": { "oneOf": [
+      { "type": "null" },
+      { "type": "object", "additionalProperties": false,
+        "required": ["derivative_id", "derivative_sha256", "derivative_size_bytes", "derivative_format", "source_doc_id", "source_sha256", "processing_event_id"],
+        "properties": {
+          "derivative_id": { "type": "string", "pattern": "^DER-[a-f0-9]{16}$" }, "derivative_sha256": { "$ref": "#/$defs/hash" },
+          "derivative_size_bytes": { "type": "integer", "minimum": 0 }, "derivative_format": { "$ref": "#/$defs/format_name" },
+          "source_doc_id": { "$ref": "#/$defs/doc_id" }, "source_sha256": { "$ref": "#/$defs/hash" },
+          "processing_event_id": { "type": "string", "pattern": "^EVT-[a-f0-9]{16}$" }
+        }
+      }
+    ] },
+    "validation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["validation_status", "validation_method", "warnings", "validated_at"],
+      "properties": {
+        "validation_status": { "enum": ["PASS", "PASS_WITH_WARNINGS", "FAIL", "NOT_VALIDATED"] },
+        "validation_method": { "type": ["string", "null"] },
+        "warnings": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "validated_at": { "oneOf": [{ "$ref": "#/$defs/timestamp" }, { "type": "null" }] }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "processing": { "properties": { "status": { "const": "ABSTAINED" } } }
+        }
+      },
+      "then": {
+        "properties": {
+          "derivative": { "type": "null" },
+          "processing": { "properties": { "abstention_reason": { "type": "object" } } },
+          "validation": {
+            "properties": {
+              "validation_status": { "const": "NOT_VALIDATED" },
+              "validation_method": { "type": "null" },
+              "validated_at": { "type": "null" }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "processing": { "properties": { "abstention_reason": { "type": "null" } } }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "processing": { "properties": { "status": { "const": "COMPLETED" } } }
+        }
+      },
+      "then": { "properties": { "derivative": { "type": "object" } } }
+    },
+    {
+      "if": {
+        "properties": {
+          "validation": { "properties": { "validation_status": { "const": "NOT_VALIDATED" } } }
+        }
+      },
+      "then": {
+        "properties": {
+          "validation": {
+            "properties": {
+              "validation_method": { "type": "null" },
+              "validated_at": { "type": "null" }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "validation": {
+            "properties": {
+              "validation_method": { "type": "string", "minLength": 1 },
+              "validated_at": { "$ref": "#/$defs/timestamp" }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }, "doc_id": { "type": "string", "pattern": "^DOC-[a-f0-9]{8}$" },
+    "format_name": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._+-]*$" }, "timestamp": { "type": "string", "format": "date-time" }
+  }
+}

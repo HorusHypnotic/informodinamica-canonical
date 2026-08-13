@@ -1,0 +1,2 @@
+tests/fixtures/document_provenance_v1/source.txt text eol=lf
+tests/fixtures/document_provenance_v1/derivative.md text eol=lf

@@ -1,2 +1,3 @@
 # Local archive tooling; OCR and external services are intentionally excluded.
 pypdf>=6.14,<7
+jsonschema>=4.21,<5

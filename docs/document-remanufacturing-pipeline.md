@@ -83,7 +83,8 @@ reprovado.
 ### P0 — Governança e corpus
 
 - manter este checkpoint consolidado e o mapa de classes;
-- definir contrato de proveniência por `doc_id`, original, transformação, versão e validação;
+- aplicar o `Document Provenance Contract V1` a qualquer nova rota, sem retroagir sobre conteúdo
+  privado;
 - formalizar política de preservação do corpus original e de outputs derivados;
 - distinguir deduplicação lógica de qualquer futura decisão física;
 - definir critérios de abstenção e revisão humana por rota.
