@@ -1,4 +1,6 @@
-# Piloto local PDF para Markdown
+# Piloto local PDF para Markdown — congelado
+
+**Estado final:** `DIRECT_MD = EXPERIMENTAL / RED / FROZEN`.
 
 `scripts/archive_pdf_to_markdown.py` converte somente identidades `TEXT_NATIVE` validadas. O
 conversor `0.5.1` integra a largura efetiva da página; o `ReadingOrderEngine` experimental `0.6.0`
@@ -27,10 +29,16 @@ warning. O arbiter 0.6.0 usa `source_order` como baseline. Cada página recebe
 ordem de origem. Parâmetros e métricas ficam no manifesto local. Os warnings são
 `READING_ORDER_SOURCE_PRESERVED`, `READING_ORDER_GEOMETRY_SELECTED` e `READING_ORDER_UNCERTAIN`.
 O V0.6 substitui centros e largura textual no sinal estrutural por bordas esquerdas, separação entre
-regiões e razões normalizadas pela largura da página. Foi validado somente em fixtures sintéticas;
-PDFs reais permaneceram fechados e ainda não há autorização para expansão.
+regiões e razões normalizadas pela largura da página. Após validação sintética, o teste out-of-sample
+nos sete PDFs congelados foi RED: todas as 64 seleções geométricas foram reversões completas falsas,
+incluindo 12 páginas de controle. Não há autorização para expansão.
 
 `page_width` vem de `cropbox.width` quando válido e de `mediabox.width` como fallback. A medida e os
 bboxes do visitor pertencem ao espaço de usuário PDF não rotacionado; por isso rotação de página não
 troca largura e altura neste contrato. Se ambas as caixas forem inválidas, zero preserva o fallback
 do arbiter pela extensão horizontal observada.
+
+O código, testes, fixtures e relatórios permanecem preservados como evidência. Reabertura exige
+missão explícita e novo ciclo sintético antes de qualquer validação real. O encerramento e o mapa do
+pipeline maior estão em `docs/decisoes/CHECKPOINT-REMANUFATURA-DOCUMENTAL-2026-08-13.md` e
+`docs/document-remanufacturing-pipeline.md`.

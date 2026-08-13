@@ -24,3 +24,10 @@ parsing e extração textual local sem OCR. A faixa reproduzível está em `requ
 Os resultados ficam em `/.local/archive-pdf-classification/`, são operacionais e não canônicos.
 Documentos são referenciados publicamente somente por `DOC-` seguido dos oito primeiros caracteres
 do SHA-256. A classificação não implica interpretação temática nem autorização para conversão.
+
+## Estado consolidado das rotas
+
+A execução V1.1.0 classificou 245 PDFs únicos: 152 `TEXT_NATIVE`, 66 `VISUAL_TECHNICAL`, dois
+`MIXED`, 25 `SCAN` e zero `FAILED` ou `ENCRYPTED_OR_RESTRICTED`. A antiga indicação operacional de
+“conversão automática” para `TEXT_NATIVE` foi falsificada pelos pilotos DIRECT_MD e não deve ser
+interpretada como rota autorizada. O mapa vigente está em `docs/document-remanufacturing-pipeline.md`.

@@ -6,7 +6,8 @@ fragmentação, imagens e operadores vetoriais e produz uma rota operacional loc
 
 ## Rotas
 
-- `LINEAR_TEXT`: candidato a um piloto `DIRECT_MD`; não constitui autorização para lote.
+- `LINEAR_TEXT`: classificação histórica de candidato aos pilotos `DIRECT_MD`; não constitui
+  autorização para lote ou nova conversão.
 - `STRUCTURED_TEXT`: bloqueado para `DIRECT_MD` puro.
 - `STRUCTURAL_REVIEW`: evidência insuficiente ou ambígua; requer revisão.
 
@@ -32,3 +33,11 @@ em processo isolado; falha ou timeout resulta em `STRUCTURAL_REVIEW` e não inte
 Os limiares são heurísticos e calibrados para segurança. Eles não provam fidelidade do Markdown,
 não detectam toda semântica visual e não substituem novo piloto amostral. A rota `LINEAR_TEXT`
 somente define uma população candidata mais restrita.
+
+## Estado após os pilotos
+
+O Structural Router 0.2.0 permanece preservado e GREEN no escopo em que foi validado, mas o
+experimento downstream `DIRECT_MD` terminou `EXPERIMENTAL / RED / FROZEN`. Portanto, `LINEAR_TEXT`
+não implica atualmente uma representação automática aprovada. O pipeline pode se abster e deve
+encaminhar cada classe por rota validada separadamente, conforme
+`docs/document-remanufacturing-pipeline.md`.
