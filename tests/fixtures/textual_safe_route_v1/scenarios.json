@@ -1,0 +1,10 @@
+{
+  "fixture_policy": "synthetic-only",
+  "scenarios": [
+    "linear-paragraph", "multiple-paragraphs", "known-heading", "known-heading-hierarchy",
+    "simple-list", "multilevel-list", "proven-table", "proven-checklist", "proven-form",
+    "partial-content", "uncertain-structure", "unavailable-content", "essential-asset",
+    "mixed-text-asset", "abstention", "contradictory-input", "valid-pass",
+    "valid-pass-with-warnings", "preserved-fail", "complete-provenance-chain"
+  ]
+}

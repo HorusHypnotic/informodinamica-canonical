@@ -64,7 +64,7 @@ falsificaram a equivalência `TEXT_NATIVE → DIRECT_MD`.
 
 | Entrada | Subestado/estratégia | Estado atual | Próximo requisito |
 |---|---|---|---|
-| `TEXT_NATIVE` | estruturalmente simples / `textual-safe` | rota a definir; `DIRECT_MD` congelado | representação segura e validação independente |
+| `TEXT_NATIVE` | estruturalmente simples / `textual-safe` | V1 GREEN somente em fixtures sintéticas; `DIRECT_MD` congelado | experimento separado para produzir evidência de entrada segura |
 | `TEXT_NATIVE` | estruturado | não autorizado para Markdown puro | contrato que preserve relações estruturais |
 | `TEXT_NATIVE` | revisão necessária | ABSTAIN / manual review | evidência adicional sem forçar decisão |
 | `TEXT_NATIVE` | experimental | artefatos DIRECT_MD preservados e FROZEN | missão explícita para eventual reabertura |
