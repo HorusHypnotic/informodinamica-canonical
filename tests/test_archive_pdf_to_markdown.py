@@ -41,6 +41,22 @@ class PdfToMarkdownTests(unittest.TestCase):
         pages=[[LayoutLine("First",100,100,11,300),LayoutLine("Second",10,250,11,300),LayoutLine("Third",50,20,11,300)]]
         markdown,_=render_layout(pages)
         self.assertLess(markdown.index("First"),markdown.index("Second")); self.assertLess(markdown.index("Second"),markdown.index("Third"))
+        self.assertIn("READING_ORDER_UNCERTAIN",_["warnings"])
+        self.assertEqual(_["reading_order_decision_counts"]["ORDER_UNCERTAIN"],1)
+        self.assertEqual(_["reading_order_block_counts"]["ORDER_UNCERTAIN"],3)
+
+    def test_manifest_records_arbiter_decision_parameters_and_warning(self):
+        _,stats=render_layout([[LayoutLine("First",10,100,11,300),LayoutLine("Second",10,80,11,300)]])
+        self.assertEqual(stats["reading_order_arbiter_version"],"0.4.0")
+        self.assertEqual(stats["reading_order_decisions"][0]["decision"],"KEEP_SOURCE_ORDER")
+        self.assertIn("READING_ORDER_SOURCE_PRESERVED",stats["warnings"])
+
+    def test_manifest_warns_when_geometry_is_selected(self):
+        lines=[LayoutLine("L1",10,100,11,300),LayoutLine("R1",210,100,11,300),
+               LayoutLine("L2",10,80,11,300),LayoutLine("R2",210,80,11,300)]
+        markdown,stats=render_layout([lines])
+        self.assertLess(markdown.index("L2"),markdown.index("R1"))
+        self.assertIn("READING_ORDER_GEOMETRY_SELECTED",stats["warnings"])
     def test_structure_headers_utf8_and_retention(self):
         pages=["HEADER\n1 INTRODUÇÃO\nParágrafo com ação e informação.\n- item\nFOOTER",
                "HEADER\n2 MÉTODO\nOutro parágrafo útil.\n- segundo\nFOOTER",

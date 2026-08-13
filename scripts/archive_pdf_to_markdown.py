@@ -12,11 +12,11 @@ from pathlib import Path
 from pypdf import PdfReader
 from pypdf.generic import ContentStream
 try:
-    from scripts.archive_pdf_pipeline import BlockKind, ReadingOrderEngine, StructureClassifier, TextBlock
+    from scripts.archive_pdf_pipeline import BlockKind, OrderDecision, ReadingOrderEngine, StructureClassifier, TextBlock
 except ModuleNotFoundError:  # direct execution: python scripts/archive_pdf_to_markdown.py
-    from archive_pdf_pipeline import BlockKind, ReadingOrderEngine, StructureClassifier, TextBlock
+    from archive_pdf_pipeline import BlockKind, OrderDecision, ReadingOrderEngine, StructureClassifier, TextBlock
 
-CONVERTER_VERSION = "0.3.0"
+CONVERTER_VERSION = "0.4.0"
 PAGE_MARKER = "<!-- source-page: {page} -->"
 CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 NUMBERED_HEADING_RE = re.compile(r"^\d+(?:\.\d+)*\.?\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ]")
@@ -108,16 +108,20 @@ def list_item(line: LayoutLine, base_x: float) -> tuple[str,int,str]|None:
     return output,depth,match.group('body')
 
 def render_layout(pages: list[list[LayoutLine]]) -> tuple[str,dict]:
-    margins=repeated_margins(pages); output=[]; warnings=[]; headings=lists=paragraphs=checklists=0; order_bases=Counter(); class_counts=Counter()
+    margins=repeated_margins(pages); output=[]; warnings=[]; headings=lists=paragraphs=checklists=0; order_bases=Counter(); decision_counts=Counter(); class_counts=Counter(); page_decisions=[]; engine=ReadingOrderEngine()
     all_sizes=[line.font_size for page in pages for line in page if line.font_size>0 and len(line.text)>20]
     body_size=statistics.median(all_sizes) if all_sizes else 0
     for page_number,raw_lines in enumerate(pages,1):
         output += [PAGE_MARKER.format(page=page_number),""]
         lines=[x for x in raw_lines if x.text and margin_key(x.text) not in margins and not re.fullmatch(r"(?:page|p[aá]gina)?\s*\d+(?:\s+de\s+\d+)?",x.text,re.I)]
         blocks=[TextBlock(f"{page_number}:{i}",page_number,x.text,(x.x,x.y,x.x+max(1,len(x.text)*max(x.font_size,1)*.48),x.y+max(x.font_size,1)),x.font_size,source_order=i,checklist_state=x.checklist_state) for i,x in enumerate(lines)]
-        ordered=ReadingOrderEngine().order(blocks); classified=StructureClassifier().classify(ordered)
+        ordered=engine.order(blocks); classified=StructureClassifier().classify(ordered)
         order_bases.update(x.order_basis for x in ordered); class_counts.update(x.kind.value for x in classified)
-        if any(x.order_basis!="SOURCE_ORDER" for x in ordered): warnings.append("READING_ORDER_GEOMETRY_APPLIED")
+        arbitration=engine.decisions[0] if engine.decisions else engine.arbitrate_page(blocks)
+        decision_counts[arbitration.decision.value]+=1
+        warning={OrderDecision.KEEP_SOURCE_ORDER:"READING_ORDER_SOURCE_PRESERVED",OrderDecision.USE_GEOMETRY_ORDER:"READING_ORDER_GEOMETRY_SELECTED",OrderDecision.ORDER_UNCERTAIN:"READING_ORDER_UNCERTAIN"}[arbitration.decision]
+        warnings.append(warning)
+        page_decisions.append({"page":page_number,"decision":arbitration.decision.value,"source_order":list(arbitration.source_order),"geometry_order":list(arbitration.geometry_order),"metrics":arbitration.metrics})
         by_id={f"{page_number}:{i}":x for i,x in enumerate(lines)}
         lines=[by_id[x.block.block_id] for x in ordered]
         base_x=min((x.x for x in lines),default=0); gaps=sorted(lines[i-1].y-lines[i].y for i in range(1,len(lines)) if lines[i-1].y>lines[i].y)
@@ -145,7 +149,8 @@ def render_layout(pages: list[list[LayoutLine]]) -> tuple[str,dict]:
     if not markdown.strip(): warnings.append("EMPTY_OUTPUT")
     return markdown,{"headings":headings,"lists":lists,"checklists":checklists,"paragraphs":paragraphs,"tables":0,
         "source_pages":len(pages),"warnings":sorted(set(warnings)),"repeated_margins_removed":len(margins),"body_font_size":body_size,
-        "reading_order_basis":dict(order_bases),"classified_blocks":dict(class_counts)}
+        "reading_order_arbiter_version":engine.parameters.version,"reading_order_parameters":engine.parameters.__dict__,"reading_order_decisions":page_decisions,
+        "reading_order_decision_counts":dict(decision_counts),"reading_order_block_counts":dict(order_bases),"classified_blocks":dict(class_counts)}
 
 def render_markdown(page_texts: list[str]) -> tuple[str,dict]:
     """Compatibility renderer for plain-text fixtures; geometry is intentionally unavailable."""

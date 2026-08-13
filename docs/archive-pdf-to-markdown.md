@@ -1,8 +1,9 @@
 # Piloto local PDF para Markdown
 
 `scripts/archive_pdf_to_markdown.py` converte somente identidades `TEXT_NATIVE` validadas. A versão
-experimental `0.3.0` separa um `ReadingOrderEngine` de um `StructureClassifier`. O primeiro recebe
-blocos geométricos e devolve apenas ordem; o segundo recebe blocos já ordenados e não pode
+experimental `0.4.0` mantém separados `ReadingOrderEngine` e `StructureClassifier`. O primeiro
+constrói `source_order` e `geometry_order`, arbitra explicitamente as hipóteses e devolve apenas a
+ordem escolhida; o segundo recebe blocos já ordenados e não pode
 reordená-los. Linhas mantêm tamanho de
 fonte, coordenadas, espaçamento e retângulos vetoriais. Preserva fronteiras como
 `<!-- source-page: N -->`, remove apenas margens repetidas em pelo menos 60% das páginas e aplica
@@ -19,6 +20,9 @@ filenames, paths e texto documental não são versionados.
 
 Checklists vetoriais sem estado objetivamente identificável são preservados como itens e geram
 `CHECKLIST_STATE_UNCERTAIN`; nenhum estado é inventado. Tabelas/colunas ambíguas também geram
-warning. O piloto V3 reprovou a versão 0.3.0: a detecção de colunas aplicou geometria de forma
-excessiva e regrediu controles. `READING_ORDER_GEOMETRY_APPLIED` torna essa intervenção explícita.
-Não há autorização para expansão.
+warning. O arbiter 0.4.0 usa `source_order` como baseline. Cada página recebe
+`KEEP_SOURCE_ORDER`, `USE_GEOMETRY_ORDER` ou `ORDER_UNCERTAIN`; incerteza preserva fisicamente a
+ordem de origem. Parâmetros e métricas ficam no manifesto local. Os warnings são
+`READING_ORDER_SOURCE_PRESERVED`, `READING_ORDER_GEOMETRY_SELECTED` e `READING_ORDER_UNCERTAIN`.
+O piloto V4 ficou YELLOW: preservou controles e encaminhou os três adversariais como incertos, sem
+solucioná-los. Não há autorização para expansão.
