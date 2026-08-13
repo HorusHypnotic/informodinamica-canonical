@@ -46,6 +46,11 @@ Siga `PRT-001` para criar, revisar, aprovar, tornar canônico ou tornar obsoleto
 
 ## Antes de qualquer alteração canônica
 
+Antes de iniciar uma missão material, execute o Context Gate descrito em
+`docs/context-gate.md` e confronte a ação proposta com o preflight produzido. O gate aponta para
+as fontes canônicas; ele não substitui a ordem de autoridade deste arquivo nem autoriza resolver
+conflitos silenciosamente.
+
 Verifique e explique:
 
 1. Compatibilidade com a Constituição, Documento Canônico, Glossário e TPC.

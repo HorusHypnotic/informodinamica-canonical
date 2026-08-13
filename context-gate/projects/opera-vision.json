@@ -1,0 +1,42 @@
+{
+  "id": "opera-vision",
+  "name": "OPERA Vision",
+  "repository": "HorusHypnotic/opera-vision",
+  "expected_branch": "main",
+  "checkpoint": {
+    "id": "opera-vision-release-2026-08-13",
+    "path": "context-gate/checkpoints/opera-vision-release-2026-08-13.json",
+    "commit": "736b2c0ea6bb72cbe3fd878225a4e92d9e2ec93e",
+    "status": "RELEASE_GREEN"
+  },
+  "canonical_rules": [
+    { "id": "agents", "path": "AGENTS.md" },
+    { "id": "release-checkpoint", "path": "context-gate/checkpoints/opera-vision-release-2026-08-13.json" }
+  ],
+  "authority": [
+    "Git é autoridade para código e versionamento.",
+    "Estado remoto real é autoridade para backend implantado.",
+    "Lovable é autoridade para ambiente remoto interno.",
+    "Owner é autoridade para Publish e aceite manual.",
+    "Aceite posterior prevalece sobre checkpoint histórico anterior."
+  ],
+  "source_of_truth": {
+    "code_and_version": "Git",
+    "backend_schema": "backend real",
+    "lovable_environment": "Lovable",
+    "publish_and_manual_acceptance": "owner"
+  },
+  "pending": ["RLS multiusuário permanece pendência de segurança separada."],
+  "prohibited_actions": [
+    "Publicar sem decisão explícita do owner.",
+    "Tratar Preview como produção ou mobile web como aceite PWA.",
+    "Implementar PWA Nível 2 sem missão própria.",
+    "Inventar dispositivo, conta, ambiente ou evidência."
+  ],
+  "stop_condition": "Objetivo e cobertura da missão comprovados sem expandir para PWA Nível 2.",
+  "required_evidence": [
+    "Vision Items V0 = RELEASE GREEN",
+    "PWA Nível 1 = RELEASE GREEN",
+    "plataformas indisponíveis registradas como NOT TESTED"
+  ]
+}

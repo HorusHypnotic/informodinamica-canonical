@@ -1,0 +1,20 @@
+{
+  "id": "opera-vision-release-2026-08-13",
+  "project": "opera-vision",
+  "date": "2026-08-13",
+  "status": "RELEASE_GREEN",
+  "commit": "736b2c0ea6bb72cbe3fd878225a4e92d9e2ec93e",
+  "supersedes": "docs/checkpoints/CHECKPOINT-OPERA-2026-08-11.md#OPERA-Vision",
+  "facts": [
+    "Vision Items V0 está em RELEASE GREEN.",
+    "PWA Nível 1 está em RELEASE GREEN.",
+    "RLS multiusuário permanece pendência separada.",
+    "PWA Nível 2 está fora do escopo.",
+    "Publish é decisão do owner.",
+    "Git e Lovable possuem autoridades distintas."
+  ],
+  "provenance": [
+    "Commit promovido e validado tecnicamente no repositório OPERA Vision.",
+    "Estado de release e aceite informado pelo owner e capturado neste checkpoint."
+  ]
+}

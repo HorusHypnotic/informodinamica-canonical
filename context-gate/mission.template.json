@@ -1,0 +1,13 @@
+{
+  "project": "project-id",
+  "objective": "Resultado concreto da missão",
+  "checkpoint": "checkpoint-id",
+  "rules": ["rule-id"],
+  "constraints": ["Fronteira verificável"],
+  "source_of_truth": { "topic": "authority" },
+  "allowed_actions": ["Ação explicitamente permitida"],
+  "prohibited_actions": ["Ação explicitamente proibida"],
+  "validation": ["Evidência necessária"],
+  "stop_condition": "Condição objetiva de encerramento",
+  "requires_clean_worktree": true
+}

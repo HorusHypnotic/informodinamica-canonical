@@ -1,0 +1,45 @@
+{
+  "id": "informodinamica-canonical",
+  "name": "Informodinâmica Aplicada — Núcleo Canônico",
+  "repository": "HorusHypnotic/informodinamica-canonical",
+  "expected_branch": "feat/context-gate-v1",
+  "checkpoint": {
+    "id": "context-gate-v1-baseline",
+    "path": "context-gate/checkpoints/context-gate-v1-baseline.json",
+    "commit": "1d9f91af66206a5e57b83b45f2699adf5a5c9a3d",
+    "status": "ACTIVE"
+  },
+  "canonical_rules": [
+    { "id": "constitution", "path": "CONSTITUICAO.md" },
+    { "id": "canonical-document", "path": "DOCUMENTO_CANONICO.md" },
+    { "id": "glossary", "path": "GLOSSARIO_CANONICO.md" },
+    { "id": "agents", "path": "AGENTS.md" }
+  ],
+  "authority": [
+    "Estado real verificável prevalece para fatos operacionais.",
+    "CONSTITUICAO.md governa evolução canônica.",
+    "Decisão canônica mais recente prevalece sobre checkpoint anterior.",
+    "Checkpoint aplicável prevalece sobre documentação histórica.",
+    "Memória conversacional não versionada é insumo, não fonte canônica."
+  ],
+  "source_of_truth": {
+    "code_and_version": "Git",
+    "canonical_knowledge": "CONSTITUICAO.md e documentos subordinados",
+    "human_approval": "owner"
+  },
+  "pending": [
+    "Revisar e aprovar o Context Gate V1 antes de promover para main.",
+    "Capturar decisões operacionais relevantes em checkpoint commitado."
+  ],
+  "prohibited_actions": [
+    "Resolver conflitos de autoridade silenciosamente.",
+    "Promover conteúdo conversacional a cânone sem checkpoint e revisão.",
+    "Alterar produtos OPERA nesta missão."
+  ],
+  "stop_condition": "Context Gate V1 funcional, testado, documentado e publicado em branch de revisão.",
+  "required_evidence": [
+    "preflight executável",
+    "testes de PASS, WARN/BLOCKED, campo ausente e working tree suja",
+    "dogfooding contra esta missão"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "project": "informodinamica-canonical",
+  "objective": "Implementar memória canônica executável mínima com preflight verificável.",
+  "checkpoint": "context-gate-v1-baseline",
+  "rules": ["constitution", "canonical-document", "glossary", "agents"],
+  "constraints": [
+    "Não alterar produtos OPERA.",
+    "Não reorganizar o repositório.",
+    "Preservar arquivos não rastreados preexistentes."
+  ],
+  "source_of_truth": {
+    "code_and_version": "Git",
+    "canonical_knowledge": "CONSTITUICAO.md e documentos subordinados",
+    "approval": "owner"
+  },
+  "allowed_actions": ["Criar script, índice, checkpoint, testes, documentação e CI leve."],
+  "prohibited_actions": ["Alterar OPERA Vision, banco, Lovable, Constituição ou main."],
+  "validation": [
+    "Testes unitários do gate.",
+    "Caso real OPERA Vision.",
+    "Dogfooding desta missão.",
+    "git diff --check."
+  ],
+  "stop_condition": "V1 funcional, documentado, testado, commitado e enviado em branch de revisão.",
+  "requires_clean_worktree": false
+}
