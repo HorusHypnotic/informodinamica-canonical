@@ -10,8 +10,8 @@
     "status": "RELEASE_GREEN"
   },
   "canonical_rules": [
-    { "id": "agents", "path": "AGENTS.md" },
-    { "id": "release-checkpoint", "path": "context-gate/checkpoints/opera-vision-release-2026-08-13.json" }
+    { "id": "agents", "path": "AGENTS.md", "scope": "repo" },
+    { "id": "release-checkpoint", "path": "context-gate/checkpoints/opera-vision-release-2026-08-13.json", "scope": "index" }
   ],
   "authority": [
     "Git é autoridade para código e versionamento.",

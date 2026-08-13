@@ -2,7 +2,7 @@
   "id": "informodinamica-canonical",
   "name": "Informodinâmica Aplicada — Núcleo Canônico",
   "repository": "HorusHypnotic/informodinamica-canonical",
-  "expected_branch": "feat/context-gate-v1",
+  "expected_branch": "main",
   "checkpoint": {
     "id": "context-gate-v1-baseline",
     "path": "context-gate/checkpoints/context-gate-v1-baseline.json",
@@ -10,10 +10,10 @@
     "status": "ACTIVE"
   },
   "canonical_rules": [
-    { "id": "constitution", "path": "CONSTITUICAO.md" },
-    { "id": "canonical-document", "path": "DOCUMENTO_CANONICO.md" },
-    { "id": "glossary", "path": "GLOSSARIO_CANONICO.md" },
-    { "id": "agents", "path": "AGENTS.md" }
+    { "id": "constitution", "path": "CONSTITUICAO.md", "scope": "repo" },
+    { "id": "canonical-document", "path": "DOCUMENTO_CANONICO.md", "scope": "repo" },
+    { "id": "glossary", "path": "GLOSSARIO_CANONICO.md", "scope": "repo" },
+    { "id": "agents", "path": "AGENTS.md", "scope": "repo" }
   ],
   "authority": [
     "Estado real verificável prevalece para fatos operacionais.",

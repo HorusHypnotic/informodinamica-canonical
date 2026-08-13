@@ -19,6 +19,7 @@ MISSION_FIELDS = {
     "allowed_actions", "prohibited_actions", "validation", "stop_condition",
     "requires_clean_worktree",
 }
+CHECKPOINT_FIELDS = {"id", "project", "status", "commit"}
 
 
 def git(repo: Path, *args: str) -> tuple[int, str]:
@@ -37,6 +38,14 @@ def missing(data: dict, required: set[str]) -> list[str]:
     return sorted(key for key in required if key not in data or data[key] in (None, "", [], {}))
 
 
+def normalize_repository(value: str) -> str:
+    normalized = value.strip().removesuffix(".git").rstrip("/")
+    for marker in ("github.com/", "github.com:"):
+        if marker in normalized:
+            return normalized.split(marker, 1)[1].lower()
+    return normalized.lower()
+
+
 def evaluate(project_file: Path, repo: Path, mission_file: Path | None = None) -> dict:
     project = load_json(project_file)
     errors: list[str] = []
@@ -53,6 +62,10 @@ def evaluate(project_file: Path, repo: Path, mission_file: Path | None = None) -
     _, dirty = git(repo, "status", "--porcelain=v1")
     _, remote = git(repo, "config", "--get", "remote.origin.url")
 
+    expected_repository = project.get("repository", "")
+    if expected_repository and normalize_repository(remote) != expected_repository.lower():
+        errors.append(f"remote does not match project repository: {remote or 'missing'}")
+
     if project.get("expected_branch") and branch != project["expected_branch"]:
         warnings.append(f"expected branch {project['expected_branch']}, found {branch or 'detached'}")
 
@@ -61,18 +74,34 @@ def evaluate(project_file: Path, repo: Path, mission_file: Path | None = None) -
     if checkpoint_commit and head != "UNKNOWN":
         code, _ = git(repo, "cat-file", "-e", f"{checkpoint_commit}^{{commit}}")
         if code:
-            warnings.append(f"checkpoint commit unavailable: {checkpoint_commit}")
+            errors.append(f"checkpoint commit unavailable: {checkpoint_commit}")
         else:
             code, _ = git(repo, "merge-base", "--is-ancestor", checkpoint_commit, "HEAD")
             if code:
                 errors.append("checkpoint commit is not an ancestor of HEAD")
 
     index_root = project_file.parents[2]
+    checkpoint_path = checkpoint.get("path", "")
+    checkpoint_file = index_root / checkpoint_path
+    if checkpoint_path and checkpoint_file.suffix == ".json" and checkpoint_file.exists():
+        checkpoint_data = load_json(checkpoint_file)
+        absent = missing(checkpoint_data, CHECKPOINT_FIELDS)
+        if absent:
+            errors.append("checkpoint missing fields: " + ", ".join(absent))
+        for key in ("id", "status", "commit"):
+            if checkpoint_data.get(key) != checkpoint.get(key):
+                errors.append(f"checkpoint {key} does not match project index")
+        if checkpoint_data.get("project") != project.get("id"):
+            errors.append("checkpoint project does not match project index")
+
     for rule in project.get("canonical_rules", []):
         path = rule.get("path", "")
-        local = index_root / path
-        target = repo / path
-        if not local.exists() and not target.exists():
+        scope = rule.get("scope", "repo")
+        if scope not in {"repo", "index"}:
+            errors.append(f"canonical rule has invalid scope: {rule.get('id', path)}")
+            continue
+        target = (repo if scope == "repo" else index_root) / path
+        if not target.exists():
             errors.append(f"canonical rule path does not exist: {path}")
 
     mission = None

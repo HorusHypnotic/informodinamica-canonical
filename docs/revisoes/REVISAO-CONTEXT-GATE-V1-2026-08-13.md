@@ -30,3 +30,12 @@ produto OPERA, schema, aplicação, teoria, glossário, lei, hipótese ou métri
 
 Revisão favorável para commit na branch `feat/context-gate-v1`, condicionada à passagem dos testes,
 dogfooding, validação JSON e `git diff --check`.
+
+## Revisão adversarial pós-commit
+
+Foram corrigidos riscos de falso resultado sem ampliar a arquitetura: branch permanente do projeto
+ajustada para `main`, validação normalizada do remoto contra o projeto, indisponibilidade do commit
+de checkpoint promovida de `WARN` para `BLOCKED`, confronto da metadata JSON do checkpoint com o
+índice e escopo explícito (`repo` ou `index`) para cada regra. Branch divergente permanece `WARN`
+com exit code zero, portanto o CI de pull request não bloqueia por detached HEAD; repositório,
+checkpoint ou regra inválida retorna `BLOCKED` com exit code dois.

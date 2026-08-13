@@ -24,13 +24,15 @@ O primeiro uso pode retornar `WARN` quando a árvore estiver suja. Uma missão q
 
 ## Contratos
 
-- `context-gate/projects/*.json`: índice operacional vigente por projeto.
+- `context-gate/projects/*.json`: índice operacional vigente por projeto; cada regra declara
+  `scope: repo` ou `scope: index` para impedir resolução ambígua.
 - `context-gate/checkpoints/*.json`: checkpoint estruturado quando o Markdown existente não possui
   metadata suficiente.
 - `context-gate/mission.template.json`: campos mínimos para missão bem formada.
 
-O gate valida campos obrigatórios, paths de regras, branch esperada, existência e ancestralidade do
-commit do checkpoint, referência de regras/checkpoint da missão e compatibilidade da working tree.
+O gate valida campos obrigatórios, repositório remoto, paths de regras, branch esperada, metadata,
+existência e ancestralidade do commit do checkpoint, referência de regras/checkpoint da missão e
+compatibilidade da working tree.
 
 ## Hierarquia operacional
 

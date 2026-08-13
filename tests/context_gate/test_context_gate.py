@@ -8,7 +8,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
-from context_gate import evaluate  # noqa: E402
+from context_gate import evaluate, normalize_repository  # noqa: E402
 
 
 class ContextGateTests(unittest.TestCase):
@@ -19,6 +19,11 @@ class ContextGateTests(unittest.TestCase):
         subprocess.run(["git", "init", "-b", "main"], cwd=self.repo, check=True, capture_output=True)
         subprocess.run(["git", "config", "user.email", "gate@example.invalid"], cwd=self.repo, check=True)
         subprocess.run(["git", "config", "user.name", "Context Gate"], cwd=self.repo, check=True)
+        subprocess.run(
+            ["git", "remote", "add", "origin", "https://github.com/owner/demo.git"],
+            cwd=self.repo,
+            check=True,
+        )
         (self.repo / "RULE.md").write_text("rule\n", encoding="utf-8")
         subprocess.run(["git", "add", "RULE.md"], cwd=self.repo, check=True)
         subprocess.run(["git", "commit", "-m", "baseline"], cwd=self.repo, check=True, capture_output=True)
@@ -80,6 +85,65 @@ class ContextGateTests(unittest.TestCase):
     def test_missing_rule_path_is_detected(self):
         self.write_project(canonical_rules=[{"id": "missing", "path": "MISSING.md"}])
         self.assertEqual(evaluate(self.project_file, self.repo)["status"], "BLOCKED")
+
+    def test_wrong_repository_is_blocked(self):
+        subprocess.run(
+            ["git", "remote", "set-url", "origin", "https://github.com/owner/other.git"],
+            cwd=self.repo,
+            check=True,
+        )
+        result = evaluate(self.project_file, self.repo)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertTrue(any("remote does not match" in error for error in result["errors"]))
+
+    def test_equivalent_github_ssh_remote_is_accepted(self):
+        subprocess.run(
+            ["git", "remote", "set-url", "origin", "ssh://git@github.com/owner/demo.git"],
+            cwd=self.repo,
+            check=True,
+        )
+        self.assertEqual(evaluate(self.project_file, self.repo)["status"], "PASS")
+        self.assertEqual(normalize_repository("git@github.com:OWNER/demo.git"), "owner/demo")
+
+    def test_rule_must_exist_in_declared_scope(self):
+        (Path(self.temp.name) / "INDEX_ONLY.md").write_text("index\n", encoding="utf-8")
+        self.write_project(
+            canonical_rules=[{"id": "rule", "path": "INDEX_ONLY.md", "scope": "repo"}]
+        )
+        self.assertEqual(evaluate(self.project_file, self.repo)["status"], "BLOCKED")
+
+    def test_unavailable_checkpoint_commit_is_blocked(self):
+        self.write_project(
+            checkpoint={
+                "id": "cp-1",
+                "path": "RULE.md",
+                "commit": "0" * 40,
+                "status": "ACTIVE",
+            }
+        )
+        result = evaluate(self.project_file, self.repo)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertTrue(any("commit unavailable" in error for error in result["errors"]))
+
+    def test_checkpoint_metadata_mismatch_is_blocked(self):
+        checkpoint_path = Path(self.temp.name) / "checkpoint.json"
+        checkpoint_path.write_text(
+            json.dumps(
+                {"id": "other", "project": "demo", "status": "ACTIVE", "commit": self.commit}
+            ),
+            encoding="utf-8",
+        )
+        self.write_project(
+            checkpoint={
+                "id": "cp-1",
+                "path": "checkpoint.json",
+                "commit": self.commit,
+                "status": "ACTIVE",
+            }
+        )
+        result = evaluate(self.project_file, self.repo)
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertTrue(any("checkpoint id" in error for error in result["errors"]))
 
     def test_opera_vision_checkpoint_captures_required_release_context(self):
         project = json.loads(
