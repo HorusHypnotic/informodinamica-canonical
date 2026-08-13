@@ -47,7 +47,7 @@ class PdfToMarkdownTests(unittest.TestCase):
 
     def test_manifest_records_arbiter_decision_parameters_and_warning(self):
         _,stats=render_layout([[LayoutLine("First",10,100,11,300),LayoutLine("Second",10,80,11,300)]])
-        self.assertEqual(stats["reading_order_arbiter_version"],"0.5.0")
+        self.assertEqual(stats["reading_order_arbiter_version"],"0.6.0")
         self.assertEqual(stats["reading_order_decisions"][0]["decision"],"KEEP_SOURCE_ORDER")
         self.assertIn("READING_ORDER_SOURCE_PRESERVED",stats["warnings"])
 

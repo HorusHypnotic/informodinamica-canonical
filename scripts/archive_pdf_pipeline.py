@@ -9,7 +9,7 @@ class BlockKind(str,Enum):
 
 @dataclass(frozen=True)
 class TextBlock:
-    block_id:str; page:int; text:str; bbox:tuple[float,float,float,float]; font_size:float; transform:tuple[float,float,float,float,float,float]=(1,0,0,1,0,0); source_order:int=0; checklist_state:str|None=None
+    block_id:str; page:int; text:str; bbox:tuple[float,float,float,float]; font_size:float; transform:tuple[float,float,float,float,float,float]=(1,0,0,1,0,0); source_order:int=0; checklist_state:str|None=None; page_width:float=0
 
 @dataclass(frozen=True)
 class OrderedBlock:
@@ -20,16 +20,16 @@ class OrderDecision(str,Enum):
 
 @dataclass(frozen=True)
 class ArbiterParameters:
-    version:str="0.5.0"
+    version:str="0.6.0"
     coordinate_tolerance:float=2.0
-    column_gap_min:float=80.0
-    column_gap_width_ratio:float=1.5
+    column_gap_page_ratio:float=0.15
+    column_region_gap_ratio:float=0.03
     max_overlap_ratio:float=0.10
     min_quality_improvement:float=0.50
     max_geometry_violation_ratio:float=0.0
     min_source_vertical_violation_ratio:float=0.50
     min_anomalous_jump_ratio:float=1.25
-    max_indentation_span:float=24.0
+    max_left_edge_span_ratio:float=0.04
     min_blocks_per_column:int=2
 
 @dataclass(frozen=True)
@@ -54,16 +54,20 @@ class ReadingOrderEngine:
 
     def _hypotheses(self,source:list[TextBlock]):
         boxes={x.block_id:visual_bbox(x) for x in source}; centers={x.block_id:((boxes[x.block_id][0]+boxes[x.block_id][2])/2,(boxes[x.block_id][1]+boxes[x.block_id][3])/2) for x in source}
-        widths=sorted(max(1,boxes[x.block_id][2]-boxes[x.block_id][0]) for x in source); median_width=statistics.median(widths)
-        ordered_x=sorted(source,key=lambda x:(centers[x.block_id][0],x.source_order)); gaps=[(centers[ordered_x[i].block_id][0]-centers[ordered_x[i-1].block_id][0],i) for i in range(1,len(ordered_x))]
-        largest_gap,split_index=max(gaps,default=(0,0)); threshold=max(self.parameters.column_gap_min,median_width*self.parameters.column_gap_width_ratio)
-        left,right=ordered_x[:split_index],ordered_x[split_index:]; columns=largest_gap>=threshold and len(left)>=self.parameters.min_blocks_per_column and len(right)>=self.parameters.min_blocks_per_column
+        page_width=next((x.page_width for x in source if x.page_width>0),0) or max(1,max(b[2] for b in boxes.values())-min(b[0] for b in boxes.values()))
+        ordered_x=sorted(source,key=lambda x:(boxes[x.block_id][0],x.source_order)); gaps=[(boxes[ordered_x[i].block_id][0]-boxes[ordered_x[i-1].block_id][0],i) for i in range(1,len(ordered_x))]
+        largest_gap,split_index=max(gaps,default=(0,0)); threshold=page_width*self.parameters.column_gap_page_ratio
+        left,right=ordered_x[:split_index],ordered_x[split_index:]
+        region_gap=(min((boxes[x.block_id][0] for x in right),default=0)-max((boxes[x.block_id][2] for x in left),default=0))
+        support=len(left)>=self.parameters.min_blocks_per_column and len(right)>=self.parameters.min_blocks_per_column
+        columns=largest_gap>=threshold and region_gap>=page_width*self.parameters.column_region_gap_ratio and support
         if columns:
             column={x.block_id:0 for x in left}|{x.block_id:1 for x in right}
             geometry=sorted(left,key=lambda x:(-centers[x.block_id][1],centers[x.block_id][0],x.source_order))+sorted(right,key=lambda x:(-centers[x.block_id][1],centers[x.block_id][0],x.source_order))
         else:
             column={x.block_id:0 for x in source}; geometry=sorted(source,key=lambda x:(-centers[x.block_id][1],centers[x.block_id][0],x.source_order))
-        return geometry,boxes,centers,column,columns,largest_gap,threshold
+        structural={"page_width":page_width,"left_edge_gap":largest_gap,"left_edge_gap_ratio":largest_gap/page_width,"region_gap":region_gap,"region_gap_ratio":region_gap/page_width,"cluster_support":support,"left_cluster_size":len(left),"right_cluster_size":len(right)}
+        return geometry,boxes,centers,column,columns,largest_gap,threshold,structural
 
     def _quality(self,order,centers,column):
         comparable=vertical=0; switches=backtracks=0
@@ -92,7 +96,7 @@ class ReadingOrderEngine:
         page=source[0].page if source else 0
         if len(source)<2:
             ids=tuple(x.block_id for x in source); return PageOrderDecision(page,OrderDecision.KEEP_SOURCE_ORDER,ids,ids,{"reason":"INSUFFICIENT_BLOCKS"},self.parameters)
-        geometry,boxes,centers,column,columns,gap,threshold=self._hypotheses(source)
+        geometry,boxes,centers,column,columns,gap,threshold,structural=self._hypotheses(source)
         source_quality=self._quality(source,centers,column); geometry_quality=self._quality(geometry,centers,column)
         conflict=sum(a.block_id!=b.block_id for a,b in zip(source,geometry))/len(source)
         overlap=self._overlap_ratio(source,boxes)
@@ -104,16 +108,16 @@ class ReadingOrderEngine:
         typical_jump=statistics.median(transitions) if transitions else 0
         upward_jumps=[centers[b.block_id][1]-centers[a.block_id][1] for a,b in zip(source,source[1:]) if centers[b.block_id][1]>centers[a.block_id][1]+self.parameters.coordinate_tolerance]
         anomalous_jump=max(upward_jumps,default=0)/max(self.parameters.coordinate_tolerance,typical_jump)
-        indentation_span=max(centers[x.block_id][0] for x in source)-min(centers[x.block_id][0] for x in source)
-        strong_vertical=(not columns and source_quality["vertical_inversions"]>0 and source_quality["violation_ratio"]>=self.parameters.min_source_vertical_violation_ratio and anomalous_jump>=self.parameters.min_anomalous_jump_ratio and indentation_span<=self.parameters.max_indentation_span)
-        strong_columns=(columns and source_quality["column_switches"]>1 and geometry_quality["column_switches"]==1)
+        left_edge_span=max(boxes[x.block_id][0] for x in source)-min(boxes[x.block_id][0] for x in source); left_edge_span_ratio=left_edge_span/structural["page_width"]
+        strong_vertical=(not columns and source_quality["vertical_inversions"]>0 and source_quality["violation_ratio"]>=self.parameters.min_source_vertical_violation_ratio and anomalous_jump>=self.parameters.min_anomalous_jump_ratio and left_edge_span_ratio<=self.parameters.max_left_edge_span_ratio)
+        strong_columns=(columns and structural["cluster_support"] and source_quality["column_switches"]>1 and geometry_quality["column_switches"]==1)
         evidence_gates=(transforms_axis_aligned,geometry_available,stable,overlap<=self.parameters.max_overlap_ratio,geometry_quality["violation_ratio"]<=self.parameters.max_geometry_violation_ratio,improvement>=self.parameters.min_quality_improvement,strong_vertical or strong_columns)
         gates_passed=sum(evidence_gates); objective=conflict>0 and gates_passed==len(evidence_gates)
         if overlap>self.parameters.max_overlap_ratio: decision=OrderDecision.ORDER_UNCERTAIN
         elif conflict==0: decision=OrderDecision.KEEP_SOURCE_ORDER
         elif objective: decision=OrderDecision.USE_GEOMETRY_ORDER
         else: decision=OrderDecision.ORDER_UNCERTAIN
-        metrics={"conflict_ratio":round(conflict,6),"reordering_cost":round(conflict,6),"source_quality":round(source_quality["quality"],6),"geometry_quality":round(geometry_quality["quality"],6),"quality_improvement":round(improvement,6),"geometry_confidence":round(gates_passed/len(evidence_gates),6),"evidence_gates_passed":gates_passed,"evidence_gates_total":len(evidence_gates),"source_vertical_inversions":source_quality["vertical_inversions"],"geometry_vertical_inversions":geometry_quality["vertical_inversions"],"source_column_switches":source_quality["column_switches"],"geometry_column_switches":geometry_quality["column_switches"],"anomalous_jump_ratio":round(anomalous_jump,6),"indentation_span":round(indentation_span,6),"overlap_ratio":round(overlap,6),"columns_detected":columns,"column_gap":round(gap,6),"column_gap_threshold":round(threshold,6),"axis_aligned_transforms":transforms_axis_aligned,"geometry_available":geometry_available,"geometry_stable":stable}
+        metrics={"conflict_ratio":round(conflict,6),"reordering_cost":round(conflict,6),"source_quality":round(source_quality["quality"],6),"geometry_quality":round(geometry_quality["quality"],6),"quality_improvement":round(improvement,6),"geometry_confidence":round(gates_passed/len(evidence_gates),6),"evidence_gates_passed":gates_passed,"evidence_gates_total":len(evidence_gates),"source_vertical_inversions":source_quality["vertical_inversions"],"geometry_vertical_inversions":geometry_quality["vertical_inversions"],"source_column_switches":source_quality["column_switches"],"geometry_column_switches":geometry_quality["column_switches"],"anomalous_jump_ratio":round(anomalous_jump,6),"left_edge_span":round(left_edge_span,6),"left_edge_span_ratio":round(left_edge_span_ratio,6),"left_edge_gap":round(gap,6),"left_edge_gap_ratio":round(structural["left_edge_gap_ratio"],6),"region_gap":round(structural["region_gap"],6),"region_gap_ratio":round(structural["region_gap_ratio"],6),"cluster_support":structural["cluster_support"],"left_cluster_size":structural["left_cluster_size"],"right_cluster_size":structural["right_cluster_size"],"page_width":round(structural["page_width"],6),"overlap_ratio":round(overlap,6),"columns_detected":columns,"column_gap":round(gap,6),"column_gap_threshold":round(threshold,6),"axis_aligned_transforms":transforms_axis_aligned,"geometry_available":geometry_available,"geometry_stable":stable}
         return PageOrderDecision(page,decision,tuple(x.block_id for x in source),tuple(x.block_id for x in geometry),metrics,self.parameters)
 
     def order(self,blocks:list[TextBlock])->list[OrderedBlock]:

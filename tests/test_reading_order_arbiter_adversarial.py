@@ -48,16 +48,16 @@ class AdversarialArbiterTests(unittest.TestCase):
 
     def test_thresholds_are_explicit_and_versioned(self):
         parameters=ArbiterParameters()
-        self.assertEqual(parameters.version,"0.5.0")
+        self.assertEqual(parameters.version,"0.6.0")
         self.assertEqual(parameters.coordinate_tolerance,2.0)
-        self.assertEqual(parameters.column_gap_min,80.0)
-        self.assertEqual(parameters.column_gap_width_ratio,1.5)
+        self.assertEqual(parameters.column_gap_page_ratio,0.15)
+        self.assertEqual(parameters.column_region_gap_ratio,0.03)
         self.assertEqual(parameters.max_overlap_ratio,0.10)
         self.assertEqual(parameters.min_quality_improvement,0.50)
         self.assertEqual(parameters.max_geometry_violation_ratio,0.0)
         self.assertEqual(parameters.min_source_vertical_violation_ratio,0.50)
         self.assertEqual(parameters.min_anomalous_jump_ratio,1.25)
-        self.assertEqual(parameters.max_indentation_span,24.0)
+        self.assertEqual(parameters.max_left_edge_span_ratio,0.04)
         self.assertEqual(parameters.min_blocks_per_column,2)
 
     def test_metrics_expose_cost_confidence_and_gates(self):

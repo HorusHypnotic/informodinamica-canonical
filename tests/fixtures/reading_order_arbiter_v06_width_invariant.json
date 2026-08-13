@@ -1,0 +1,78 @@
+{
+  "dataset_version": "0.6.0",
+  "coordinate_system": "transformed PDF points; higher y precedes lower y",
+  "fixtures": [
+    {
+      "id": "W01_same_left_varied_widths", "expected_decision": "KEEP_SOURCE_ORDER",
+      "expected_order": ["a", "b", "c"], "page_width": 600,
+      "justification": "Identical left edge must remain aligned despite extreme line-width variation.",
+      "blocks": [["a", 40, 100, 80, 110], ["b", 40, 80, 560, 90], ["c", 40, 60, 120, 70]]
+    },
+    {
+      "id": "W02_real_columns_varied_widths", "expected_decision": "USE_GEOMETRY_ORDER",
+      "expected_order": ["l1", "l2", "r1", "r2"], "page_width": 600,
+      "justification": "Stable left-edge clusters and separated regions override alternating source.",
+      "blocks": [["l1", 30, 100, 250, 110], ["r1", 350, 100, 570, 110], ["l2", 30, 80, 180, 90], ["r2", 350, 80, 520, 90]]
+    },
+    {
+      "id": "W03_wide_body_narrow_callout", "expected_decision": "ORDER_UNCERTAIN",
+      "expected_order": ["body1", "body2", "callout"], "page_width": 600,
+      "justification": "A single lateral callout lacks cluster support and cannot interrupt the body.",
+      "blocks": [["body1", 30, 100, 500, 110], ["body2", 30, 70, 560, 80], ["callout", 470, 85, 570, 95]]
+    },
+    {
+      "id": "W04_multilevel_list_varied_widths", "expected_decision": "KEEP_SOURCE_ORDER",
+      "expected_order": ["root", "child", "detail", "root2"], "page_width": 600,
+      "justification": "Indentation sequence and variable widths do not constitute column evidence.",
+      "blocks": [["root", 30, 120, 550, 130], ["child", 55, 100, 180, 110], ["detail", 80, 80, 520, 90], ["root2", 30, 60, 200, 70]]
+    },
+    {
+      "id": "W05_centered_multiline_heading", "expected_decision": "ORDER_UNCERTAIN",
+      "expected_order": ["title2", "title1", "body"], "page_width": 600,
+      "justification": "Conflicting centered lines shift x0 but provide no supported columns, so source is preserved as uncertain.",
+      "blocks": [["title2", 220, 102, 380, 114], ["title1", 120, 120, 480, 132], ["body", 40, 70, 560, 80]]
+    },
+    {
+      "id": "W06_false_columns_from_centers", "expected_decision": "KEEP_SOURCE_ORDER",
+      "expected_order": ["short", "long", "medium"], "page_width": 600,
+      "justification": "Equal x0 with shifted centers caused only by widths must never form columns.",
+      "blocks": [["short", 40, 110, 100, 120], ["long", 40, 90, 560, 100], ["medium", 40, 70, 300, 80]]
+    },
+    {
+      "id": "W07_scale_small", "expected_decision": "USE_GEOMETRY_ORDER",
+      "expected_order": ["top", "mid", "bottom"], "page_width": 300,
+      "justification": "Single-column vertical evidence is invariant at small scale.",
+      "blocks": [["bottom", 15, 30, 180, 40], ["top", 15, 100, 280, 110], ["mid", 15, 65, 100, 75]]
+    },
+    {
+      "id": "W08_scale_large", "expected_decision": "USE_GEOMETRY_ORDER",
+      "expected_order": ["top", "mid", "bottom"], "page_width": 900,
+      "justification": "Geometrically equivalent vertical evidence remains valid after 3x scaling.",
+      "blocks": [["bottom", 45, 90, 540, 120], ["top", 45, 300, 840, 330], ["mid", 45, 195, 300, 225]]
+    },
+    {
+      "id": "W09_columns_narrow_page", "expected_decision": "USE_GEOMETRY_ORDER",
+      "expected_order": ["l1", "l2", "r1", "r2"], "page_width": 400,
+      "justification": "Column separation is normalized to a narrow page.",
+      "blocks": [["l1", 20, 100, 160, 110], ["r1", 240, 100, 380, 110], ["l2", 20, 80, 150, 90], ["r2", 240, 80, 370, 90]]
+    },
+    {
+      "id": "W10_columns_wide_page", "expected_decision": "USE_GEOMETRY_ORDER",
+      "expected_order": ["l1", "l2", "r1", "r2"], "page_width": 1000,
+      "justification": "Equivalent normalized column separation survives a wide page.",
+      "blocks": [["l1", 50, 250, 400, 275], ["r1", 600, 250, 950, 275], ["l2", 50, 200, 375, 225], ["r2", 600, 200, 925, 225]]
+    },
+    {
+      "id": "W11_control_overlap", "expected_decision": "ORDER_UNCERTAIN",
+      "expected_order": ["x", "y", "z"], "page_width": 600,
+      "justification": "Overlap preserves the conservative control behavior.",
+      "blocks": [["x", 40, 100, 300, 110], ["y", 45, 100, 305, 110], ["z", 50, 100, 310, 110]]
+    },
+    {
+      "id": "W12_control_apparent_regions", "expected_decision": "ORDER_UNCERTAIN",
+      "expected_order": ["body1", "body2", "side1", "side2"], "page_width": 600,
+      "justification": "Two x0 groups with horizontal region overlap are not true columns.",
+      "blocks": [["body1", 30, 110, 500, 120], ["body2", 30, 80, 520, 90], ["side1", 350, 100, 570, 110], ["side2", 350, 70, 570, 80]]
+    }
+  ]
+}

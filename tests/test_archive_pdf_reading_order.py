@@ -27,5 +27,5 @@ class ReadingOrderTests(unittest.TestCase):
   self.assertEqual(texts,['0','1','2']); self.assertEqual(decision.decision,OrderDecision.ORDER_UNCERTAIN)
  def test_decision_and_parameters_are_deterministic(self):
   first=self.result([b(0,0,60),b(1,0,100),b(2,0,80)])[1]; second=self.result([b(0,0,60),b(1,0,100),b(2,0,80)])[1]
-  self.assertEqual(first,second); self.assertEqual(first.parameters.version,'0.5.0')
+  self.assertEqual(first,second); self.assertEqual(first.parameters.version,'0.6.0')
 if __name__=='__main__': unittest.main()
