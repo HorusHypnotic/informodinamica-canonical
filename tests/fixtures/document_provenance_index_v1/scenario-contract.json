@@ -1,0 +1,17 @@
+{
+  "fixture_version": "1.0.0",
+  "base_manifest": "../document_provenance_v1/valid-manifest.json",
+  "scenarios": [
+    "VALID_SIMPLE_CHAIN",
+    "ONE_SOURCE_MULTIPLE_EVENTS",
+    "VALID_DERIVATIVE",
+    "FAILED_DERIVATIVE_PRESERVED",
+    "ABSTAINED_WITHOUT_DERIVATIVE",
+    "NOT_VALIDATED",
+    "ORPHAN_EVENT",
+    "ORPHAN_DERIVATIVE",
+    "CONTRADICTORY_IDENTITY",
+    "INVALID_SCHEMA",
+    "DELETE_AND_REBUILD"
+  ]
+}

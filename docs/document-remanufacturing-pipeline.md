@@ -85,6 +85,8 @@ reprovado.
 - manter este checkpoint consolidado e o mapa de classes;
 - aplicar o `Document Provenance Contract V1` a qualquer nova rota, sem retroagir sobre conteúdo
   privado;
+- reconstruir o `Document Provenance Index V1` a partir dos manifests sempre que necessário, sem
+  tratá-lo como fonte única;
 - formalizar política de preservação do corpus original e de outputs derivados;
 - distinguir deduplicação lógica de qualquer futura decisão física;
 - definir critérios de abstenção e revisão humana por rota.
