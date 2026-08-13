@@ -11,8 +11,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from pypdf import PdfReader
 from pypdf.generic import ContentStream
+try:
+    from scripts.archive_pdf_pipeline import BlockKind, ReadingOrderEngine, StructureClassifier, TextBlock
+except ModuleNotFoundError:  # direct execution: python scripts/archive_pdf_to_markdown.py
+    from archive_pdf_pipeline import BlockKind, ReadingOrderEngine, StructureClassifier, TextBlock
 
-CONVERTER_VERSION = "0.2.0"
+CONVERTER_VERSION = "0.3.0"
 PAGE_MARKER = "<!-- source-page: {page} -->"
 CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 NUMBERED_HEADING_RE = re.compile(r"^\d+(?:\.\d+)*\.?\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ]")
@@ -104,41 +108,44 @@ def list_item(line: LayoutLine, base_x: float) -> tuple[str,int,str]|None:
     return output,depth,match.group('body')
 
 def render_layout(pages: list[list[LayoutLine]]) -> tuple[str,dict]:
-    margins=repeated_margins(pages); output=[]; warnings=[]; headings=lists=paragraphs=checklists=0
+    margins=repeated_margins(pages); output=[]; warnings=[]; headings=lists=paragraphs=checklists=0; order_bases=Counter(); class_counts=Counter()
     all_sizes=[line.font_size for page in pages for line in page if line.font_size>0 and len(line.text)>20]
     body_size=statistics.median(all_sizes) if all_sizes else 0
     for page_number,raw_lines in enumerate(pages,1):
         output += [PAGE_MARKER.format(page=page_number),""]
         lines=[x for x in raw_lines if x.text and margin_key(x.text) not in margins and not re.fullmatch(r"(?:page|p[aá]gina)?\s*\d+(?:\s+de\s+\d+)?",x.text,re.I)]
+        blocks=[TextBlock(f"{page_number}:{i}",page_number,x.text,(x.x,x.y,x.x+max(1,len(x.text)*max(x.font_size,1)*.48),x.y+max(x.font_size,1)),x.font_size,source_order=i,checklist_state=x.checklist_state) for i,x in enumerate(lines)]
+        ordered=ReadingOrderEngine().order(blocks); classified=StructureClassifier().classify(ordered)
+        order_bases.update(x.order_basis for x in ordered); class_counts.update(x.kind.value for x in classified)
+        if any(x.order_basis!="SOURCE_ORDER" for x in ordered): warnings.append("READING_ORDER_GEOMETRY_APPLIED")
+        by_id={f"{page_number}:{i}":x for i,x in enumerate(lines)}
+        lines=[by_id[x.block.block_id] for x in ordered]
         base_x=min((x.x for x in lines),default=0); gaps=sorted(lines[i-1].y-lines[i].y for i in range(1,len(lines)) if lines[i-1].y>lines[i].y)
         normal_gap=statistics.median(gaps[:max(1,math.ceil(len(gaps)/2))]) if gaps else (body_size*1.2 or 12); current=[]; previous=None
         def flush():
             nonlocal paragraphs
             if current: output.extend([" ".join(current),""]); current.clear(); paragraphs+=1
-        for line in lines:
-            letters=[c for c in line.text if c.isalpha()]
-            textual_heading=(NUMBERED_HEADING_RE.match(line.text) or (3<=len(letters) and len(line.text)<=100 and all(c.isupper() for c in letters)))
-            visual_ratio=line.font_size/body_size if body_size and line.font_size else 0
-            visual_heading=len(line.text)<=140 and visual_ratio>=1.18
-            item=list_item(line,base_x)
-            if textual_heading or visual_heading:
-                flush(); level=1 if visual_ratio>=1.65 else (2 if visual_ratio>=1.28 or textual_heading else 3)
-                output += [f"{'#'*level} {line.text}",""]; headings+=1
-            elif item:
-                flush(); marker,depth,body=item; output += [f"{'   '*depth}{marker} {body}",""]; lists+=1; checklists+=int(marker.startswith('- ['))
+        for classified_block in classified:
+            line=by_id[classified_block.blocks[0].block.block_id]; text=classified_block.text
+            item=list_item(LayoutLine(text,line.x,line.y,line.font_size,line.page_width,line.checklist_state),base_x)
+            if classified_block.kind==BlockKind.HEADING:
+                flush(); output += [f"{'#'*classified_block.level} {text}",""]; headings+=1
+            elif classified_block.kind in (BlockKind.LIST_ITEM,BlockKind.CHECKLIST_ITEM) and item:
+                flush(); marker,depth,body=item; output += [f"{'   '*depth}{marker} {body}",""]; lists+=1; checklists+=int(classified_block.kind==BlockKind.CHECKLIST_ITEM)
                 if line.checklist_state=="unknown": warnings.append(f"PAGE_{page_number}_CHECKLIST_STATE_UNCERTAIN")
-            elif re.search(r"\S(?:\s{3,}|\t+)\S",line.text):
-                flush(); output += [line.text,""]; warnings.append(f"PAGE_{page_number}_TABLE_OR_COLUMNS_AMBIGUOUS")
+            elif re.search(r"\S(?:\s{3,}|\t+)\S",text):
+                flush(); output += [text,""]; warnings.append(f"PAGE_{page_number}_TABLE_OR_COLUMNS_AMBIGUOUS")
             else:
                 boundary=previous is not None and ((previous.y-line.y)>normal_gap*1.55 or abs(line.x-previous.x)>max(18,body_size*1.5))
                 if boundary: flush()
-                current.append(line.text)
+                current.append(text)
             previous=line
         flush()
     markdown="\n".join(output).rstrip()+"\n"
     if not markdown.strip(): warnings.append("EMPTY_OUTPUT")
     return markdown,{"headings":headings,"lists":lists,"checklists":checklists,"paragraphs":paragraphs,"tables":0,
-        "source_pages":len(pages),"warnings":sorted(set(warnings)),"repeated_margins_removed":len(margins),"body_font_size":body_size}
+        "source_pages":len(pages),"warnings":sorted(set(warnings)),"repeated_margins_removed":len(margins),"body_font_size":body_size,
+        "reading_order_basis":dict(order_bases),"classified_blocks":dict(class_counts)}
 
 def render_markdown(page_texts: list[str]) -> tuple[str,dict]:
     """Compatibility renderer for plain-text fixtures; geometry is intentionally unavailable."""
