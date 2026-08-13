@@ -1,0 +1,24 @@
+{
+  "fixture_version": "1.0.0",
+  "source": {
+    "doc_id": "DOC-c6dc82ad",
+    "source_sha256": "c6dc82ad36e530c381aca1f237d79907bb3610cf05a2ceac5851c6257094b3e1"
+  },
+  "scenarios": [
+    {"id": "linear-text", "expected_status": "REPRESENTED", "feature": "PARAGRAPH"},
+    {"id": "headings", "expected_status": "REPRESENTED", "feature": "HEADING"},
+    {"id": "multilevel-list", "expected_status": "REPRESENTED", "feature": "LIST"},
+    {"id": "known-table", "expected_status": "REPRESENTED", "feature": "TABLE_PRESERVED"},
+    {"id": "uncertain-table", "expected_status": "PARTIAL", "feature": "TABLE_UNCERTAIN"},
+    {"id": "checklist", "expected_status": "PARTIAL", "feature": "CHECKLIST"},
+    {"id": "form", "expected_status": "PARTIAL", "feature": "FORM"},
+    {"id": "essential-image", "expected_status": "REPRESENTED", "feature": "IMAGE_ASSET"},
+    {"id": "diagram", "expected_status": "REPRESENTED", "feature": "DIAGRAM_ASSET"},
+    {"id": "mixed-document", "expected_status": "PARTIAL", "feature": "MIXED"},
+    {"id": "scan-without-text", "expected_status": "PARTIAL", "feature": "PAGE_RENDER"},
+    {"id": "partially-recoverable", "expected_status": "PARTIAL", "feature": "PARTIAL_TEXT"},
+    {"id": "abstention", "expected_status": "ABSTAINED", "feature": "NO_DERIVATIVE_CONTENT"},
+    {"id": "failed-derivative", "expected_status": "PARTIAL", "feature": "PROVENANCE_FAIL"},
+    {"id": "provenance-link", "expected_status": "REPRESENTED", "feature": "PROVENANCE_V1"}
+  ]
+}

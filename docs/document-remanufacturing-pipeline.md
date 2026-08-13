@@ -93,7 +93,8 @@ reprovado.
 
 ### P1 — Rotas úteis
 
-- definir uma representação textual segura sem presumir `DIRECT_MD` geral;
+- adotar o Safe Document Representation V1 como contrato de saída de futuras rotas, sem presumir
+  `DIRECT_MD` geral;
 - experimentar `MD_WITH_ASSETS` em corpus sintético/controlado;
 - definir rota OCR com confiança, provenance e revisão;
 - criar mecanismo de validação separado da transformação;

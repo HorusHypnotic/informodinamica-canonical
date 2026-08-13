@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://informodinamica.local/schemas/safe-document-representation-v1.schema.json",
+  "title": "Safe Document Representation V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "representation_status", "source_ref", "pages", "assets", "uncertainties", "known_losses"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "representation_status": { "enum": ["REPRESENTED", "PARTIAL", "ABSTAINED"] },
+    "source_ref": {
+      "type": "object", "additionalProperties": false, "required": ["doc_id", "source_sha256"],
+      "properties": {
+        "doc_id": { "type": "string", "pattern": "^DOC-[a-f0-9]{8}$" },
+        "source_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "pages": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false, "required": ["page_number", "blocks"],
+        "properties": {
+          "page_number": { "type": "integer", "minimum": 1 },
+          "blocks": { "type": "array", "items": { "$ref": "#/$defs/block" } }
+        }
+      }
+    },
+    "assets": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["asset_id", "sha256", "format", "role", "essential", "description_status", "description"],
+        "properties": {
+          "asset_id": { "type": "string", "pattern": "^AST-[a-f0-9]{16}$" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "format": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._+-]*$" },
+          "role": { "enum": ["IMAGE", "DIAGRAM", "PAGE_RENDER", "OTHER"] },
+          "essential": { "type": "boolean" },
+          "description_status": { "enum": ["OBSERVED", "UNCERTAIN", "UNAVAILABLE"] },
+          "description": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "uncertainties": { "type": "array", "items": { "$ref": "#/$defs/issue" } },
+    "known_losses": { "type": "array", "items": { "$ref": "#/$defs/issue" } }
+  },
+  "$defs": {
+    "issue": {
+      "type": "object", "additionalProperties": false, "required": ["code", "scope", "message"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "scope": { "type": "string", "minLength": 1 },
+        "message": { "type": "string", "minLength": 1 }
+      }
+    },
+    "block": {
+      "type": "object", "additionalProperties": false,
+      "required": ["block_id", "kind", "content_status", "structure_status", "text", "level", "items", "rows", "fields", "asset_refs", "notes"],
+      "properties": {
+        "block_id": { "type": "string", "pattern": "^B[0-9]{4}$" },
+        "kind": { "enum": ["PARAGRAPH", "HEADING", "LIST", "TABLE", "CHECKLIST", "FORM", "ASSET", "UNTRANSFORMED"] },
+        "content_status": { "enum": ["RECOVERED", "PARTIAL", "UNAVAILABLE"] },
+        "structure_status": { "enum": ["PRESERVED", "UNCERTAIN", "UNRECOVERABLE", "NOT_APPLICABLE"] },
+        "text": { "type": ["string", "null"] },
+        "level": { "type": ["integer", "null"], "minimum": 1, "maximum": 6 },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/item" } },
+        "rows": { "type": "array", "items": { "type": "array", "items": { "type": "string" } } },
+        "fields": { "type": "array", "items": { "$ref": "#/$defs/field" } },
+        "asset_refs": { "type": "array", "items": { "type": "string", "pattern": "^AST-[a-f0-9]{16}$" }, "uniqueItems": true },
+        "notes": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "item": {
+      "type": "object", "additionalProperties": false, "required": ["text", "level", "state"],
+      "properties": {
+        "text": { "type": "string" }, "level": { "type": "integer", "minimum": 1 },
+        "state": { "enum": ["NOT_APPLICABLE", "CHECKED", "UNCHECKED", "UNCERTAIN"] }
+      }
+    },
+    "field": {
+      "type": "object", "additionalProperties": false, "required": ["label", "value", "relation_status"],
+      "properties": {
+        "label": { "type": ["string", "null"] }, "value": { "type": ["string", "null"] },
+        "relation_status": { "enum": ["PRESERVED", "UNCERTAIN", "UNRECOVERABLE"] }
+      }
+    }
+  }
+}
