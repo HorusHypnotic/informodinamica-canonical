@@ -53,6 +53,7 @@ pids
 /.local/archive-dedup/
 /.local/archive-pdf-classification/
 /.local/archive-pdf-validation/
+/.local/archive-markdown-pilot/
 
 # Coverage directory used by tools like istanbul
 coverage/
