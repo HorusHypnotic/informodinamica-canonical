@@ -54,6 +54,7 @@ pids
 /.local/archive-pdf-classification/
 /.local/archive-pdf-validation/
 /.local/archive-markdown-pilot/
+/.local/archive-structural-router/
 
 # Coverage directory used by tools like istanbul
 coverage/
