@@ -1,0 +1,2 @@
+# Local archive tooling; OCR and external services are intentionally excluded.
+pypdf>=6.14,<7

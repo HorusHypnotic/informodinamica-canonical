@@ -51,6 +51,7 @@ pids
 *.bak
 /.local/archive-inventory/
 /.local/archive-dedup/
+/.local/archive-pdf-classification/
 
 # Coverage directory used by tools like istanbul
 coverage/
