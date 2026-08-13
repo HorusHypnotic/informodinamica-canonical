@@ -1,0 +1,126 @@
+{
+  "dataset_version": "0.5.0",
+  "coordinate_system": "PDF points; higher y precedes lower y",
+  "fixtures": [
+    {
+      "id": "A_source_correct",
+      "scenario": "source order correto",
+      "expected_decision": "KEEP_SOURCE_ORDER",
+      "expected_order": ["a0", "a1", "a2"],
+      "justification": "Uma coluna, progressão vertical monotônica e hipóteses idênticas.",
+      "signals": ["single_column", "monotonic_vertical", "zero_conflict"],
+      "blocks": [["a0", 0, 100], ["a1", 0, 80], ["a2", 0, 60]]
+    },
+    {
+      "id": "B_source_clearly_wrong",
+      "scenario": "source order claramente incorreto",
+      "expected_decision": "USE_GEOMETRY_ORDER",
+      "expected_order": ["b1", "b2", "b0"],
+      "justification": "Uma coluna alinhada com retorno vertical anômalo e geometria estável sem violações.",
+      "signals": ["single_column", "vertical_inversion", "anomalous_jump", "aligned_indentation"],
+      "blocks": [["b0", 0, 60], ["b1", 0, 100], ["b2", 0, 80]]
+    },
+    {
+      "id": "C_real_two_columns",
+      "scenario": "duas colunas reais",
+      "expected_decision": "USE_GEOMETRY_ORDER",
+      "expected_order": ["c_l1", "c_l2", "c_r1", "c_r2"],
+      "justification": "Dois clusters com dois blocos cada; source alterna três vezes e geometria faz uma transição.",
+      "signals": ["two_stable_clusters", "source_column_alternation", "geometry_consistent"],
+      "blocks": [["c_l1", 0, 100], ["c_r1", 200, 100], ["c_l2", 0, 80], ["c_r2", 200, 80]]
+    },
+    {
+      "id": "D_apparent_columns_linear_source",
+      "scenario": "duas colunas aparentes com source coerente",
+      "expected_decision": "KEEP_SOURCE_ORDER",
+      "expected_order": ["d_l1", "d_l2", "d_r1", "d_r2"],
+      "justification": "Clusters existem, mas source já coincide com a hipótese geométrica conservadora.",
+      "signals": ["two_clusters", "zero_conflict", "coherent_source"],
+      "blocks": [["d_l1", 0, 100], ["d_l2", 0, 80], ["d_r1", 200, 100], ["d_r2", 200, 80]]
+    },
+    {
+      "id": "E_rotation",
+      "scenario": "rotação",
+      "expected_decision": "ORDER_UNCERTAIN",
+      "expected_order": ["e0", "e1", "e2"],
+      "justification": "Transformação rotacional invalida o gate axis-aligned; source é preservado.",
+      "signals": ["rotation", "non_axis_aligned", "unsafe_geometry"],
+      "transform": [0, 1, -1, 0, 0, 0],
+      "blocks": [["e0", 0, 60], ["e1", 0, 100], ["e2", 0, 80]]
+    },
+    {
+      "id": "F_scale_translation",
+      "scenario": "scale e translation",
+      "expected_decision": "KEEP_SOURCE_ORDER",
+      "expected_order": ["f0", "f1", "f2"],
+      "justification": "Transformação axis-aligned preserva progressão e não cria conflito.",
+      "signals": ["axis_aligned", "scale", "translation", "zero_conflict"],
+      "transform": [2, 0, 0, 2, 10, 15],
+      "blocks": [["f0", 0, 100], ["f1", 0, 80], ["f2", 0, 60]]
+    },
+    {
+      "id": "G_adversarial_matrix",
+      "scenario": "matriz de transformação adversarial",
+      "expected_decision": "ORDER_UNCERTAIN",
+      "expected_order": ["g0", "g1", "g2"],
+      "justification": "Shear torna a hipótese geométrica insegura mesmo quando parece melhorar progressão.",
+      "signals": ["shear", "non_axis_aligned", "false_geometry_risk"],
+      "transform": [1, 0.4, 0.3, 1, 0, 0],
+      "blocks": [["g0", 0, 60], ["g1", 0, 100], ["g2", 0, 80]]
+    },
+    {
+      "id": "H_overlap",
+      "scenario": "sobreposição",
+      "expected_decision": "ORDER_UNCERTAIN",
+      "expected_order": ["h0", "h1", "h2"],
+      "justification": "Blocos sobrepostos não fornecem sequência espacial objetiva.",
+      "signals": ["overlap", "insufficient_sequence_evidence"],
+      "blocks": [["h0", 0, 100], ["h1", 5, 100], ["h2", 10, 100]]
+    },
+    {
+      "id": "I_multiline_heading",
+      "scenario": "heading multilinha",
+      "expected_decision": "KEEP_SOURCE_ORDER",
+      "expected_order": ["i0", "i1", "i2"],
+      "justification": "Linhas próximas e monotônicas; o arbiter avalia ordem, não classe semântica.",
+      "signals": ["close_vertical_continuity", "same_indentation", "zero_conflict"],
+      "blocks": [["i0", 0, 100], ["i1", 0, 86], ["i2", 0, 60]]
+    },
+    {
+      "id": "J_multilevel_list",
+      "scenario": "lista multinível",
+      "expected_decision": "KEEP_SOURCE_ORDER",
+      "expected_order": ["j0", "j1", "j2", "j3"],
+      "justification": "Indentações crescentes acompanham progressão vertical; não há conflito de ordem.",
+      "signals": ["indentation_continuity", "monotonic_vertical", "zero_conflict"],
+      "blocks": [["j0", 0, 100], ["j1", 24, 80], ["j2", 48, 60], ["j3", 24, 40]]
+    },
+    {
+      "id": "K_lateral_callout",
+      "scenario": "caixa lateral",
+      "expected_decision": "ORDER_UNCERTAIN",
+      "expected_order": ["k_body1", "k_body2", "k_callout"],
+      "justification": "Um outlier lateral isolado não pode interromper automaticamente o corpo principal.",
+      "signals": ["single_lateral_outlier", "insufficient_column_support", "high_indentation_span"],
+      "blocks": [["k_body1", 0, 100], ["k_body2", 0, 60], ["k_callout", 200, 80]]
+    },
+    {
+      "id": "L_header_footer",
+      "scenario": "cabeçalho e rodapé extremos",
+      "expected_decision": "KEEP_SOURCE_ORDER",
+      "expected_order": ["l_header", "l_body1", "l_body2", "l_footer"],
+      "justification": "Extremos já estão na progressão source e não justificam rearranjo do corpo.",
+      "signals": ["vertical_extremes", "monotonic_vertical", "zero_conflict"],
+      "blocks": [["l_header", 0, 130], ["l_body1", 0, 100], ["l_body2", 0, 80], ["l_footer", 0, 20]]
+    },
+    {
+      "id": "M_genuinely_ambiguous",
+      "scenario": "caso genuinamente ambíguo",
+      "expected_decision": "ORDER_UNCERTAIN",
+      "expected_order": ["m0", "m1", "m2"],
+      "justification": "Oscilação local existe, mas o salto inverso não é forte o bastante para substituir source.",
+      "signals": ["local_oscillation", "marginal_improvement", "ambiguity"],
+      "blocks": [["m0", 0, 100], ["m1", 0, 60], ["m2", 0, 80]]
+    }
+  ]
+}

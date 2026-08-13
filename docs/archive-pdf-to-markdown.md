@@ -1,7 +1,7 @@
 # Piloto local PDF para Markdown
 
 `scripts/archive_pdf_to_markdown.py` converte somente identidades `TEXT_NATIVE` validadas. A versão
-experimental `0.4.0` mantém separados `ReadingOrderEngine` e `StructureClassifier`. O primeiro
+experimental `0.5.0` mantém separados `ReadingOrderEngine` e `StructureClassifier`. O primeiro
 constrói `source_order` e `geometry_order`, arbitra explicitamente as hipóteses e devolve apenas a
 ordem escolhida; o segundo recebe blocos já ordenados e não pode
 reordená-los. Linhas mantêm tamanho de
@@ -20,9 +20,10 @@ filenames, paths e texto documental não são versionados.
 
 Checklists vetoriais sem estado objetivamente identificável são preservados como itens e geram
 `CHECKLIST_STATE_UNCERTAIN`; nenhum estado é inventado. Tabelas/colunas ambíguas também geram
-warning. O arbiter 0.4.0 usa `source_order` como baseline. Cada página recebe
+warning. O arbiter 0.5.0 usa `source_order` como baseline. Cada página recebe
 `KEEP_SOURCE_ORDER`, `USE_GEOMETRY_ORDER` ou `ORDER_UNCERTAIN`; incerteza preserva fisicamente a
 ordem de origem. Parâmetros e métricas ficam no manifesto local. Os warnings são
 `READING_ORDER_SOURCE_PRESERVED`, `READING_ORDER_GEOMETRY_SELECTED` e `READING_ORDER_UNCERTAIN`.
-O piloto V4 ficou YELLOW: preservou controles e encaminhou os três adversariais como incertos, sem
-solucioná-los. Não há autorização para expansão.
+O V0.5 foi calibrado somente em 13 fixtures sintéticas adversariais: 6 KEEP, 2 GEOMETRY e 5
+UNCERTAIN, com matriz de confusão diagonal e zero falso `USE_GEOMETRY_ORDER`. PDFs reais permaneceram
+congelados e ainda não há autorização para expansão.

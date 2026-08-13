@@ -16,7 +16,7 @@ try:
 except ModuleNotFoundError:  # direct execution: python scripts/archive_pdf_to_markdown.py
     from archive_pdf_pipeline import BlockKind, OrderDecision, ReadingOrderEngine, StructureClassifier, TextBlock
 
-CONVERTER_VERSION = "0.4.0"
+CONVERTER_VERSION = "0.5.0"
 PAGE_MARKER = "<!-- source-page: {page} -->"
 CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 NUMBERED_HEADING_RE = re.compile(r"^\d+(?:\.\d+)*\.?\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ]")

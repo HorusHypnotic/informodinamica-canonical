@@ -20,7 +20,7 @@ class OrderDecision(str,Enum):
 
 @dataclass(frozen=True)
 class ArbiterParameters:
-    version:str="0.4.0"
+    version:str="0.5.0"
     coordinate_tolerance:float=2.0
     column_gap_min:float=80.0
     column_gap_width_ratio:float=1.5
@@ -107,11 +107,13 @@ class ReadingOrderEngine:
         indentation_span=max(centers[x.block_id][0] for x in source)-min(centers[x.block_id][0] for x in source)
         strong_vertical=(not columns and source_quality["vertical_inversions"]>0 and source_quality["violation_ratio"]>=self.parameters.min_source_vertical_violation_ratio and anomalous_jump>=self.parameters.min_anomalous_jump_ratio and indentation_span<=self.parameters.max_indentation_span)
         strong_columns=(columns and source_quality["column_switches"]>1 and geometry_quality["column_switches"]==1)
-        objective=(conflict>0 and transforms_axis_aligned and geometry_available and stable and overlap<=self.parameters.max_overlap_ratio and geometry_quality["violation_ratio"]<=self.parameters.max_geometry_violation_ratio and improvement>=self.parameters.min_quality_improvement and (strong_vertical or strong_columns))
-        if conflict==0: decision=OrderDecision.KEEP_SOURCE_ORDER
+        evidence_gates=(transforms_axis_aligned,geometry_available,stable,overlap<=self.parameters.max_overlap_ratio,geometry_quality["violation_ratio"]<=self.parameters.max_geometry_violation_ratio,improvement>=self.parameters.min_quality_improvement,strong_vertical or strong_columns)
+        gates_passed=sum(evidence_gates); objective=conflict>0 and gates_passed==len(evidence_gates)
+        if overlap>self.parameters.max_overlap_ratio: decision=OrderDecision.ORDER_UNCERTAIN
+        elif conflict==0: decision=OrderDecision.KEEP_SOURCE_ORDER
         elif objective: decision=OrderDecision.USE_GEOMETRY_ORDER
         else: decision=OrderDecision.ORDER_UNCERTAIN
-        metrics={"conflict_ratio":round(conflict,6),"source_quality":round(source_quality["quality"],6),"geometry_quality":round(geometry_quality["quality"],6),"quality_improvement":round(improvement,6),"source_vertical_inversions":source_quality["vertical_inversions"],"geometry_vertical_inversions":geometry_quality["vertical_inversions"],"source_column_switches":source_quality["column_switches"],"geometry_column_switches":geometry_quality["column_switches"],"anomalous_jump_ratio":round(anomalous_jump,6),"indentation_span":round(indentation_span,6),"overlap_ratio":round(overlap,6),"columns_detected":columns,"column_gap":round(gap,6),"column_gap_threshold":round(threshold,6),"axis_aligned_transforms":transforms_axis_aligned,"geometry_available":geometry_available,"geometry_stable":stable}
+        metrics={"conflict_ratio":round(conflict,6),"reordering_cost":round(conflict,6),"source_quality":round(source_quality["quality"],6),"geometry_quality":round(geometry_quality["quality"],6),"quality_improvement":round(improvement,6),"geometry_confidence":round(gates_passed/len(evidence_gates),6),"evidence_gates_passed":gates_passed,"evidence_gates_total":len(evidence_gates),"source_vertical_inversions":source_quality["vertical_inversions"],"geometry_vertical_inversions":geometry_quality["vertical_inversions"],"source_column_switches":source_quality["column_switches"],"geometry_column_switches":geometry_quality["column_switches"],"anomalous_jump_ratio":round(anomalous_jump,6),"indentation_span":round(indentation_span,6),"overlap_ratio":round(overlap,6),"columns_detected":columns,"column_gap":round(gap,6),"column_gap_threshold":round(threshold,6),"axis_aligned_transforms":transforms_axis_aligned,"geometry_available":geometry_available,"geometry_stable":stable}
         return PageOrderDecision(page,decision,tuple(x.block_id for x in source),tuple(x.block_id for x in geometry),metrics,self.parameters)
 
     def order(self,blocks:list[TextBlock])->list[OrderedBlock]:
