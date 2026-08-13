@@ -20,7 +20,9 @@ class PdfClassifierTests(unittest.TestCase):
 
     def test_deterministic_heuristics(self):
         cases=[(Signals(10,10,0,10000),"TEXT_NATIVE"),(Signals(10,0,10,0),"SCAN"),
-               (Signals(10,5,5,1000),"MIXED"),(Signals(10,9,9,1000),"VISUAL_TECHNICAL"),(Signals(0,0,0,0),"FAILED")]
+               (Signals(10,5,5,1000),"MIXED"),(Signals(10,9,9,1000),"VISUAL_TECHNICAL"),
+               (Signals(10,10,0,4000,700,50),"VISUAL_TECHNICAL"),
+               (Signals(10,10,0,14000,600,350),"VISUAL_TECHNICAL"),(Signals(0,0,0,0),"FAILED")]
         for signals,expected in cases:
             self.assertEqual(classify(signals),expected); self.assertEqual(classify(signals),expected)
 

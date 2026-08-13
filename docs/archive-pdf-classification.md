@@ -4,10 +4,15 @@
 por sinais estruturais. Texto extraído existe apenas transitoriamente em memória para contagem de
 caracteres; nenhum trecho é persistido, enviado ou interpretado semanticamente.
 
-A heurística `1.0.0` considera página textual aquela com pelo menos 40 caracteres. Proporção textual
+A heurística `1.1.0` considera página textual aquela com pelo menos 40 caracteres. Proporção textual
 de 80% ou mais indica `TEXT_NATIVE`; entre 20% e 80%, `MIXED`; abaixo de 20%, `SCAN`. Um documento
-textual com imagens em pelo menos 60% das páginas e média inferior a 400 caracteres por página é
-`VISUAL_TECHNICAL`. Proteção sem senha vazia gera `ENCRYPTED_OR_RESTRICTED`; falha de parsing ou PDF
+textual com imagens em pelo menos 60% das páginas e média inferior a 800 caracteres por página é
+`VISUAL_TECHNICAL`; documentos com imagem também entram nessa classe quando possuem pelo menos 100
+operadores vetoriais por página. Sem imagem, são usados dois sinais de layout: pelo menos 60
+operadores vetoriais e menos de 500 caracteres por página; ou pelo menos 50 operadores vetoriais,
+30 operadores de pintura e menos de 1.600 caracteres por página. Essas combinações capturam
+formulários e composições diagramadas sem tornar toda decoração vetorial decisiva. Proteção sem
+senha vazia gera `ENCRYPTED_OR_RESTRICTED`; falha de parsing ou PDF
 sem páginas gera `FAILED`.
 
 Cada PDF é analisado em processo isolado com timeout padrão de 30 segundos. Exceder o limite gera

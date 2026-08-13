@@ -3,7 +3,8 @@
 ## Escopo
 
 Classificador local e determinístico dos conteúdos PDF binariamente únicos, usando sinais de páginas,
-texto extraível e objetos de imagem. A versão `1.0.0` da heurística está documentada e testada.
+texto extraível, objetos de imagem e operadores gráficos. A versão validada `1.1.0` da heurística
+está documentada e testada.
 
 ## Coerência, segurança e privacidade
 
@@ -18,13 +19,14 @@ texto extraível e objetos de imagem. A versão `1.0.0` da heurística está doc
 
 - 314 PDFs originais; 245 conteúdos PDF binariamente únicos; 245 classificados.
 - 3.622 páginas: 2.908 com texto detectável e 714 sem texto detectável.
-- Classes: 217 `TEXT_NATIVE`, 25 `SCAN`, 2 `MIXED`, 1 `VISUAL_TECHNICAL`, zero
+- Classes após validação: 152 `TEXT_NATIVE`, 25 `SCAN`, 2 `MIXED`, 66 `VISUAL_TECHNICAL`, zero
   `ENCRYPTED_OR_RESTRICTED` e zero `FAILED`.
 - Execução completa sem erros; SHA-256 faltante foi calculado em streaming para identidades ainda
   não hashadas pela deduplicação.
 
 ## Limites e próxima fase
 
-A classe é operacional e não semântica. Presença de objetos de imagem é aproximação estrutural, e
+A classe é operacional e não semântica. Presença de objetos de imagem e operadores gráficos é
+aproximação estrutural, e
 texto extraível não garante conversão fiel. A próxima fase deve ser decidida pelo owner e separar
 conversão direta, preservação visual, OCR futuro e revisão manual; nenhuma conversão foi iniciada.

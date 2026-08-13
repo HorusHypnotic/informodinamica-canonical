@@ -18,14 +18,21 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from pypdf import PdfReader
+from pypdf.generic import ContentStream
 
 
-CLASSIFIER_VERSION = "1.0.0"
+CLASSIFIER_VERSION = "1.1.0"
 MIN_TEXT_CHARS = 40
 TEXT_NATIVE_RATIO = 0.80
 MIXED_MIN_RATIO = 0.20
 VISUAL_IMAGE_RATIO = 0.60
-VISUAL_MAX_AVG_TEXT_CHARS = 400
+VISUAL_MAX_AVG_TEXT_CHARS = 800
+VISUAL_IMAGE_MIN_GRAPHIC_OPS_PER_PAGE = 100
+VISUAL_FORM_MIN_GRAPHIC_OPS_PER_PAGE = 60
+VISUAL_FORM_MAX_AVG_TEXT_CHARS = 500
+VISUAL_LAYOUT_MIN_GRAPHIC_OPS_PER_PAGE = 50
+VISUAL_LAYOUT_MIN_PAINTED_OPS_PER_PAGE = 30
+VISUAL_LAYOUT_MAX_AVG_TEXT_CHARS = 1600
 
 
 @dataclass(frozen=True)
@@ -34,6 +41,8 @@ class Signals:
     text_pages: int
     image_pages: int
     text_chars: int
+    graphic_ops: int = 0
+    painted_ops: int = 0
 
 
 def doc_id(digest: str) -> str:
@@ -46,13 +55,23 @@ def classify(signals: Signals) -> str:
     text_ratio = signals.text_pages / signals.pages
     image_ratio = signals.image_pages / signals.pages
     average_text = signals.text_chars / signals.pages
+    average_graphics = signals.graphic_ops / signals.pages
+    average_painted = signals.painted_ops / signals.pages
     if text_ratio == 0:
         return "SCAN"
     if MIXED_MIN_RATIO <= text_ratio < TEXT_NATIVE_RATIO:
         return "MIXED"
     if text_ratio < MIXED_MIN_RATIO:
         return "SCAN"
-    if image_ratio >= VISUAL_IMAGE_RATIO and average_text < VISUAL_MAX_AVG_TEXT_CHARS:
+    if image_ratio >= VISUAL_IMAGE_RATIO and (
+        average_text < VISUAL_MAX_AVG_TEXT_CHARS or average_graphics >= VISUAL_IMAGE_MIN_GRAPHIC_OPS_PER_PAGE
+    ):
+        return "VISUAL_TECHNICAL"
+    if average_graphics >= VISUAL_FORM_MIN_GRAPHIC_OPS_PER_PAGE and average_text < VISUAL_FORM_MAX_AVG_TEXT_CHARS:
+        return "VISUAL_TECHNICAL"
+    if (average_graphics >= VISUAL_LAYOUT_MIN_GRAPHIC_OPS_PER_PAGE
+            and average_painted >= VISUAL_LAYOUT_MIN_PAINTED_OPS_PER_PAGE
+            and average_text < VISUAL_LAYOUT_MAX_AVG_TEXT_CHARS):
         return "VISUAL_TECHNICAL"
     return "TEXT_NATIVE"
 
@@ -86,7 +105,7 @@ def analyze_pdf(path: Path) -> tuple[str, Signals, bool, str | None]:
                     return "ENCRYPTED_OR_RESTRICTED", Signals(0, 0, 0, 0), True, None
             except Exception:
                 return "ENCRYPTED_OR_RESTRICTED", Signals(0, 0, 0, 0), True, None
-        pages = text_pages = image_pages = text_chars = 0
+        pages = text_pages = image_pages = text_chars = graphic_ops = painted_ops = 0
         for page in reader.pages:
             pages += 1
             text = page.extract_text() or ""
@@ -94,8 +113,14 @@ def analyze_pdf(path: Path) -> tuple[str, Signals, bool, str | None]:
             text_chars += chars
             text_pages += int(chars >= MIN_TEXT_CHARS)
             image_pages += int(page_has_image(page))
+            try:
+                operations = ContentStream(page.get_contents(), reader).operations
+                graphic_ops += sum(operator in (b"re", b"m", b"l", b"c", b"v", b"y") for _, operator in operations)
+                painted_ops += sum(operator in (b"S", b"s", b"f", b"F", b"f*", b"B", b"B*", b"b", b"b*") for _, operator in operations)
+            except Exception:
+                pass
             del text
-        signals = Signals(pages, text_pages, image_pages, text_chars)
+        signals = Signals(pages, text_pages, image_pages, text_chars, graphic_ops, painted_ops)
         return classify(signals), signals, encrypted, None
     except Exception as error:
         return "FAILED", Signals(0, 0, 0, 0), False, f"{type(error).__name__}: {error}"
@@ -155,12 +180,18 @@ def run_classifier(inventory: Path, dedup: Path, output: Path, progress_every: i
     db.executescript("""
     CREATE TABLE run(key TEXT PRIMARY KEY,value TEXT NOT NULL);
     CREATE TABLE documents(doc_id TEXT PRIMARY KEY,sha256 TEXT UNIQUE,size_bytes INTEGER,class TEXT,
-      pages INTEGER,text_pages INTEGER,image_pages INTEGER,text_chars INTEGER,encrypted INTEGER,error TEXT);
+      pages INTEGER,text_pages INTEGER,image_pages INTEGER,text_chars INTEGER,graphic_ops INTEGER,painted_ops INTEGER,encrypted INTEGER,error TEXT);
     CREATE TABLE paths(doc_id TEXT,relative_path TEXT,PRIMARY KEY(doc_id,relative_path));
     """)
     params = {"classifier_version": CLASSIFIER_VERSION, "min_text_chars": MIN_TEXT_CHARS,
               "text_native_ratio": TEXT_NATIVE_RATIO, "mixed_min_ratio": MIXED_MIN_RATIO,
-              "visual_image_ratio": VISUAL_IMAGE_RATIO, "visual_max_avg_text_chars": VISUAL_MAX_AVG_TEXT_CHARS}
+              "visual_image_ratio": VISUAL_IMAGE_RATIO, "visual_max_avg_text_chars": VISUAL_MAX_AVG_TEXT_CHARS,
+              "visual_image_min_graphic_ops_per_page": VISUAL_IMAGE_MIN_GRAPHIC_OPS_PER_PAGE,
+              "visual_form_min_graphic_ops_per_page": VISUAL_FORM_MIN_GRAPHIC_OPS_PER_PAGE,
+              "visual_form_max_avg_text_chars": VISUAL_FORM_MAX_AVG_TEXT_CHARS,
+              "visual_layout_min_graphic_ops_per_page": VISUAL_LAYOUT_MIN_GRAPHIC_OPS_PER_PAGE,
+              "visual_layout_min_painted_ops_per_page": VISUAL_LAYOUT_MIN_PAINTED_OPS_PER_PAGE,
+              "visual_layout_max_avg_text_chars": VISUAL_LAYOUT_MAX_AVG_TEXT_CHARS}
     db.executemany("INSERT INTO run VALUES (?,?)", [("root",str(root)),("status","RUNNING"),
         ("started_utc",datetime.now(timezone.utc).isoformat()),("parameters",json.dumps(params,sort_keys=True))])
     handler = logging.FileHandler(output / "classifier.log", encoding="utf-8")
@@ -169,8 +200,8 @@ def run_classifier(inventory: Path, dedup: Path, output: Path, progress_every: i
         for index, item in enumerate(sorted(documents, key=lambda x: x["sha256"]), 1):
             identity = doc_id(item["sha256"])
             category, signals, encrypted, error = analyze_with_timeout(root / Path(item["paths"][0]), timeout_seconds)
-            db.execute("INSERT INTO documents VALUES (?,?,?,?,?,?,?,?,?,?)", (identity,item["sha256"],item["size_bytes"],category,
-                signals.pages,signals.text_pages,signals.image_pages,signals.text_chars,int(encrypted),error))
+            db.execute("INSERT INTO documents VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (identity,item["sha256"],item["size_bytes"],category,
+                signals.pages,signals.text_pages,signals.image_pages,signals.text_chars,signals.graphic_ops,signals.painted_ops,int(encrypted),error))
             db.executemany("INSERT INTO paths VALUES (?,?)", [(identity,path) for path in item["paths"]])
             if error: logger.warning("%s %s", identity, error)
             if index % progress_every == 0: db.commit(); print(f"progress classified={index}/{len(documents)}",flush=True)
@@ -185,8 +216,8 @@ def run_classifier(inventory: Path, dedup: Path, output: Path, progress_every: i
              "text_pages":totals[2],"no_text_pages":totals[1]-totals[2],"image_pages":totals[3],"errors":totals[4],
              "hash_bytes":hash_bytes,"elapsed_seconds":elapsed,"peak_python_bytes":peak,"parameters":params}
     with (output/"classification.ndjson.tmp").open("w",encoding="utf-8",newline="\n") as stream:
-        for row in db.execute("SELECT doc_id,sha256,size_bytes,class,pages,text_pages,image_pages,text_chars,encrypted,error FROM documents ORDER BY doc_id"):
-            keys=("doc_id","sha256","size_bytes","class","pages","text_pages","image_pages","text_chars","encrypted","error")
+        for row in db.execute("SELECT doc_id,sha256,size_bytes,class,pages,text_pages,image_pages,text_chars,graphic_ops,painted_ops,encrypted,error FROM documents ORDER BY doc_id"):
+            keys=("doc_id","sha256","size_bytes","class","pages","text_pages","image_pages","text_chars","graphic_ops","painted_ops","encrypted","error")
             record=dict(zip(keys,row)); record["paths"]=[p[0] for p in db.execute("SELECT relative_path FROM paths WHERE doc_id=? ORDER BY relative_path",(row[0],))]
             stream.write(json.dumps(record,ensure_ascii=False)+"\n")
     (output/"classification.ndjson.tmp").replace(output/"classification.ndjson")
