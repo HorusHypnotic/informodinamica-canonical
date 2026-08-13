@@ -3,10 +3,44 @@ from contextlib import closing
 from pathlib import Path
 from pypdf import PdfWriter
 from pypdf.generic import DecodedStreamObject, DictionaryObject, NameObject
-from scripts.archive_pdf_to_markdown import convert_document, render_markdown, resolve_document
+from scripts.archive_pdf_to_markdown import LayoutLine, convert_document, render_layout, render_markdown, resolve_document
 
 
 class PdfToMarkdownTests(unittest.TestCase):
+    def test_visual_heading_and_plain_heading_uncertainty(self):
+        pages=[[LayoutLine("Visual title",10,280,22,300),LayoutLine("Body text continues here.",10,250,11,300)]]
+        markdown,stats=render_layout(pages)
+        self.assertIn("# Visual title",markdown); self.assertEqual(stats["headings"],1)
+
+    def test_broken_paragraph_and_two_distinct_paragraphs(self):
+        pages=[[LayoutLine("First physical line",10,250,11,300),LayoutLine("continues here.",10,237,11,300),
+                LayoutLine("A separate paragraph.",10,205,11,300)]]
+        markdown,stats=render_layout(pages)
+        self.assertIn("First physical line continues here.",markdown)
+        self.assertIn("continues here.\n\nA separate",markdown); self.assertEqual(stats["paragraphs"],2)
+
+    def test_simple_numbered_and_multilevel_lists(self):
+        pages=[[LayoutLine("• simple",10,250,11,300),LayoutLine("1. numbered",10,230,11,300),
+                LayoutLine("1.1 subitem",34,210,11,300),LayoutLine("1.1.1 detail",58,190,11,300)]]
+        markdown,stats=render_layout(pages)
+        self.assertIn("- simple",markdown); self.assertIn("1. numbered",markdown)
+        self.assertIn("   1. subitem",markdown); self.assertIn("      1. detail",markdown); self.assertEqual(stats["lists"],4)
+
+    def test_unicode_and_vector_checklists(self):
+        pages=[[LayoutLine("☐ open",10,250,11,300),LayoutLine("☑ done",10,230,11,300),
+                LayoutLine("vector state",30,210,11,300,checklist_state="unknown")]]
+        markdown,stats=render_layout(pages)
+        self.assertIn("- [ ] open",markdown); self.assertIn("- [x] done",markdown)
+        self.assertIn("- vector state",markdown); self.assertTrue(any("CHECKLIST_STATE_UNCERTAIN" in x for x in stats["warnings"]))
+
+    def test_heading_is_not_invented_without_evidence(self):
+        markdown,stats=render_layout([[LayoutLine("Ordinary short line",10,250,11,300),LayoutLine("body",10,235,11,300)]])
+        self.assertNotIn("# Ordinary",markdown); self.assertEqual(stats["headings"],0)
+
+    def test_emission_order_is_preserved_when_coordinates_are_non_monotonic(self):
+        pages=[[LayoutLine("First",100,100,11,300),LayoutLine("Second",10,250,11,300),LayoutLine("Third",50,20,11,300)]]
+        markdown,_=render_layout(pages)
+        self.assertLess(markdown.index("First"),markdown.index("Second")); self.assertLess(markdown.index("Second"),markdown.index("Third"))
     def test_structure_headers_utf8_and_retention(self):
         pages=["HEADER\n1 INTRODUÇÃO\nParágrafo com ação e informação.\n- item\nFOOTER",
                "HEADER\n2 MÉTODO\nOutro parágrafo útil.\n- segundo\nFOOTER",
