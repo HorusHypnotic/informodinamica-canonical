@@ -33,3 +33,5 @@ Os itens cumpridos, faltantes, blockers e marcos estão no JSON correspondente. 
 Atualização limitada do MM-01: `CURRENT_SPRINT=MM-01_COMPLETE`, `NEXT_SPRINT=MM-02`, `NEXT_MILESTONE=FIRST ORDER`. A distância à receita permanece `MEDIUM`: existe oferta pública, mas ainda não existem Order nem pagamento. Nenhum percentual probabilístico foi inferido.
 
 Atualização MM-02: implementação local validada, sem deploy. `CURRENT_SPRINT=MM-02_YELLOW`, `NEXT_SPRINT=MM-02_DEPLOYMENT_GATE`; `FIRST ORDER` permanece o marco. Os scores técnicos cresceram apenas pela evidência versionada/testada, não por capacidade produtiva presumida.
+
+Deployment Gate de 2026-08-14: `MM-02_DEPLOYMENT_BLOCKED`, próxima ação `BACKEND_AUTHORITY_RESOLUTION`. A distância permanece próxima em código, mas bloqueada operacionalmente; nenhum score foi elevado e produção continua MM-01.

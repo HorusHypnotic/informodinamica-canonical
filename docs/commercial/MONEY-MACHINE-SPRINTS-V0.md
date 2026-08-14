@@ -32,6 +32,8 @@
 
 **Resultado em 2026-08-13:** YELLOW. Domínio, schema, migração, Edge Function, formulário, confirmação, owner lookup e dogfood sintético foram implementados e validados localmente. Deploy retido por ausência de tenancy/ownership/credenciais verificáveis; produção continua MM-01 com `order_enabled=false`.
 
+**Deployment Gate em 2026-08-14:** BLOCKED. O host externo existe, mas sua autoridade/tenancy não foi comprovada; nenhuma credencial ou mecanismo de deploy está disponível. A migration candidata também deve separar criação do schema e ativação da oferta antes de qualquer aplicação.
+
 - **Objective:** criar pedido rastreável com snapshot da oferta.
 - **Input:** Offer ACTIVE.
 - **Output:** `customer_id`, `order_id`, lifecycle e painel mínimo de consulta.
