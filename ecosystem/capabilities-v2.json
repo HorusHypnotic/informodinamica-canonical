@@ -1,0 +1,28 @@
+{
+  "version":"2.0.0",
+  "policy":"Independent reusable contracts may be CANONICAL; review-local mechanisms remain CANDIDATE or SYSTEM_LOCAL.",
+  "capabilities":[
+    {"id":"CAP-001","name":"Context Gate","classification":"CANONICAL","source_system":"informodinamica-canonical","evidence_reference":"docs/context-gate.md"},
+    {"id":"CAP-002","name":"Document Provenance","classification":"CANONICAL","source_system":"SYS-015","evidence_reference":"docs/document-provenance-contract-v1.md"},
+    {"id":"CAP-003","name":"Provenance Index","classification":"CANONICAL","source_system":"SYS-015","evidence_reference":"docs/document-provenance-index-v1.md"},
+    {"id":"CAP-004","name":"Safe Document Representation","classification":"CANONICAL","source_system":"SYS-015","evidence_reference":"docs/safe-document-representation-v1.md"},
+    {"id":"CAP-005","name":"Evidence Ledger","classification":"CANONICAL","source_system":"SYS-015","evidence_reference":"docs/textual-evidence-producer-v0.md"},
+    {"id":"CAP-006","name":"Textual-Safe Route","classification":"CANONICAL","source_system":"SYS-015","evidence_reference":"docs/textual-safe-route-v1.md"},
+    {"id":"CAP-007","name":"Corpus Inventory","classification":"CANONICAL","source_system":"SYS-015","evidence_reference":"docs/archive-inventory.md"},
+    {"id":"CAP-008","name":"Binary Deduplication","classification":"CANONICAL","source_system":"SYS-015","evidence_reference":"docs/archive-deduplication.md"},
+    {"id":"CAP-009","name":"Structural Classification and Routing","classification":"CANONICAL","source_system":"SYS-015","evidence_reference":"docs/archive-structural-router.md"},
+    {"id":"CAP-010","name":"Snapshot, Hash and Audit Patterns","classification":"CANDIDATE","source_system":"SYS-007","evidence_reference":"docs/arquitetura/OPERA-CORE-SYSTEMS-MAP-2026-08-11.md","reason":"implementações locais sem contrato compartilhado"},
+    {"id":"CAP-011","name":"Research Governance and Falsifiability","classification":"CANONICAL","source_system":"SYS-001","evidence_reference":"protocols/PRT-002-cartografia-epistemologica.md"}
+  ],
+  "candidate_families":[
+    {"source_system":"SYS-011","classification":"CANDIDATE","members":["local-first order/receipt ledger","transactional stock derivation","atomic backup/restore","offline PWA"],"maturity":"NEAR","coupling":"MEDIUM","reuse":"supply operations","evidence_reference":"docs/reviews/SPECIAL-REVIEW-OBRA-FLOW-PEDIDOS-COD-2026-08-13.md"},
+    {"source_system":"SYS-016","classification":"SYSTEM_LOCAL","members":["resource custody ledger","movement lifecycle","evidence-linked custody","inventory views"],"maturity":"PARTIAL/NEAR","coupling":"HIGH","reuse":"asset and stock operations","evidence_reference":"docs/reviews/SPECIAL-REVIEW-STOCKFLOW-LOVABLE-BLUEPRINT-BOT-2026-08-13.md"},
+    {"source_system":"SYS-017","classification":"SYSTEM_LOCAL","members":["CAP-VQ-01","CAP-VQ-02","CAP-VQ-03","CAP-VQ-04","CAP-VQ-05","CAP-VQ-06","CAP-VQ-07","CAP-VQ-08","CAP-VQ-09"],"maturity":"PARTIAL","coupling":"MEDIUM/HIGH","reuse":"matching, reputation and allocation","evidence_reference":"docs/reviews/SPECIAL-REVIEW-VAGA-QUENTE-2026-08-13.md"},
+    {"source_system":"SYS-019","classification":"CANDIDATE","members":["CAP-VD-01","CAP-VD-02","CAP-VD-03","CAP-VD-04","CAP-VD-05","CAP-VD-06","CAP-VD-07"],"maturity":"PARTIAL/NEAR","coupling":"LOW/MEDIUM","reuse":"catalog, partner activation and lead generation","evidence_reference":"docs/reviews/SPECIAL-REVIEW-VITRINE-DIGITAL-COD-2026-08-13.md"},
+    {"source_system":"SYS-020","classification":"CANDIDATE","members":["CAP-MV-01","CAP-MV-02","CAP-MV-03","CAP-MV-04","CAP-MV-05","CAP-MV-06","CAP-MV-07","CAP-MV-08"],"maturity":"PARTIAL/NEAR","coupling":"MEDIUM","reuse":"commercial knowledge and learning","evidence_reference":"docs/reviews/SPECIAL-REVIEW-MEMORIA-DE-VENDAS-2026-08-13.md"},
+    {"source_system":"SYS-021","classification":"SYSTEM_LOCAL","members":["CAP-DIR-01","CAP-DIR-02","CAP-DIR-03","CAP-DIR-04","CAP-DIR-05","CAP-DIR-06","CAP-DIR-07","CAP-DIR-08","CAP-DIR-09"],"maturity":"PARTIAL/NEAR","coupling":"MEDIUM/HIGH","reuse":"attention, coordination and operational memory","evidence_reference":"docs/reviews/SPECIAL-REVIEW-DIRECIONE-OPERACIONAL-2026-08-13.md"},
+    {"source_system":"SYS-022","classification":"SYSTEM_LOCAL","members":["CAP-QFD-01","CAP-QFD-02","CAP-QFD-03","CAP-QFD-04","CAP-QFD-05","CAP-QFD-06","CAP-QFD-07","CAP-QFD-08"],"maturity":"EARLY/NEAR","coupling":"MEDIUM/HIGH","reuse":"decision, learning and field reconciliation","evidence_reference":"docs/reviews/SPECIAL-REVIEW-QFD-OS-2026-08-13.md"},
+    {"source_system":"SYS-023","classification":"CANDIDATE","members":["TEMP-MNE-001","TEMP-MNE-002","TEMP-MNE-003","TEMP-MNE-004","TEMP-MNE-005","TEMP-MNE-006"],"maturity":"EARLY/PARTIAL","coupling":"LOW/HIGH","reuse":"evidence metadata, scoring and narrative","evidence_reference":"docs/reviews/SPECIAL-REVIEW-MARGIN-NARRATIVE-ENGINE-2026-08-13.md"}
+  ],
+  "duplicate_assessment":[{"candidate":"evidence ledger variants in SYS-016/SYS-023","classification":"OVERLAP_NOT_DUPLICATE","canonical_reference":"CAP-005","reason":"domain records lack the independent observation/evidence contract"},{"candidate":"snapshot/hash patterns","classification":"OVERLAP","canonical_reference":"CAP-010","reason":"multiple local implementations, no shared contract"}]
+}

@@ -1,0 +1,26 @@
+{
+  "version":"2.0.0",
+  "rule":"Discovery does not authorize activation; frozen assets are patrimony, not active backlog.",
+  "horizons":{
+    "NOW":[
+      {"systems":["SYS-010"],"objective":"Compra Real #001 controlada","axis":"NEAR_TO_REVENUE","authorization":"separate mission required"},
+      {"systems":["SYS-008"],"objective":"validate current release use","axis":"NEAR_TO_USE","authorization":"separate mission required"},
+      {"systems":["SYS-011"],"objective":"Operação Real #001 local-first","axis":"NEAR_TO_USE","authorization":"separate mission required"},
+      {"systems":["SYS-005"],"objective":"resolve frozen preflight blockers only","axis":"NEAR_TO_USE","authorization":"separate mission required"}
+    ],
+    "NEXT":[
+      {"systems":["SYS-001","SYS-002","SYS-003","SYS-004","SYS-014"],"objective":"minimal falsifiable empirical protocol","axis":"NEAR_TO_VALUE"},
+      {"systems":["SYS-006"],"objective":"prove one isolated Control cycle","axis":"NEAR_TO_USE"},
+      {"systems":["SYS-019"],"objective":"owner decision on one assisted commercial test, no feature sprint","axis":"NEAR_TO_REVENUE"},
+      {"systems":["SYS-020"],"objective":"security/preservation and one internal-use proof, no feature sprint","axis":"NEAR_TO_VALUE"}
+    ],
+    "LATER":[
+      {"systems":["SYS-007"],"objective":"independent restore/hash test","axis":"NEAR_TO_USE"},
+      {"systems":["SYS-017"],"objective":"reassess only with consented bilateral supply/demand","axis":"NEAR_TO_REVENUE"}
+    ],
+    "FROZEN":[
+      {"systems":["SYS-009","SYS-012","SYS-013","SYS-015","SYS-016","SYS-018","SYS-021","SYS-022","SYS-023"],"objective":"preserve; reopen only by explicit owner decision and bounded mission"}
+    ]
+  },
+  "remanufacturing":{"state":"BASELINE_ESTABLISHED","direct_md":"EXPERIMENTAL_RED_FROZEN","green_components":["CAP-002","CAP-003","CAP-004","CAP-005","CAP-006"],"real_dogfood":"ABSTAINED","gap":"GAP-P13-001","next_action":"NONE_IN_THIS_CONSOLIDATION"}
+}
