@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "offer_id": "OFFER-OPERA-DIAGNOSTICO-V1",
+  "offer_version": "1.1.0",
+  "status": "APPROVED",
+  "activation_scope": "ORDER_V0_CANDIDATE",
+  "order_enabled": false,
+  "supersedes_on_activation": "1.0.0",
+  "public_name": "Diagnóstico O.P.E.R.A. V1",
+  "price": { "amount": 197, "currency": "BRL", "kind": "FIXED" },
+  "deliverable_identity": "Relatório Diagnóstico O.P.E.R.A.",
+  "sla": "3 dias úteis após todos os inputs necessários estarem disponíveis",
+  "factual_correction": "3 dias úteis após a entrega; somente erro confrontável com informações originalmente fornecidas",
+  "private_channel": "Definido por pedido, sem dependência arquitetural de fornecedor",
+  "fulfillment_owner": "Owner como operador inicial",
+  "capacity": "NOT_MEASURED",
+  "cancellation": "Order pode ser CANCELLED por operador; nenhuma regra financeira ou automática de reembolso",
+  "refund": "NOT_DEFINED_BEFORE_PAYMENT_SPRINT",
+  "activation_requirements": [
+    "tenancy e ownership do backend confirmados",
+    "migração aplicada e verificada",
+    "secrets server-side configurados",
+    "Edge Function implantada e testada",
+    "owner lookup autorizado testado",
+    "storefront configurado e validação E2E sintética em produção aprovada"
+  ]
+}

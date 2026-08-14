@@ -30,6 +30,8 @@
 
 ## MM-02 — Order + Customer
 
+**Resultado em 2026-08-13:** YELLOW. Domínio, schema, migração, Edge Function, formulário, confirmação, owner lookup e dogfood sintético foram implementados e validados localmente. Deploy retido por ausência de tenancy/ownership/credenciais verificáveis; produção continua MM-01 com `order_enabled=false`.
+
 - **Objective:** criar pedido rastreável com snapshot da oferta.
 - **Input:** Offer ACTIVE.
 - **Output:** `customer_id`, `order_id`, lifecycle e painel mínimo de consulta.

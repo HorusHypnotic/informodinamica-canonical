@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://informodinamica.local/schemas/order-v0.schema.json",
+  "title": "Money Machine Order V0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["order_id", "order_code", "customer", "state", "offer_snapshot", "private_channel", "created_at"],
+  "properties": {
+    "order_id": { "type": "string", "format": "uuid" },
+    "order_code": { "type": "string", "pattern": "^ORD-[0-9]{8}-[A-F0-9]{32}$" },
+    "customer": { "$ref": "#/$defs/customer" },
+    "state": { "enum": ["CREATED", "AWAITING_PAYMENT", "CANCELLED", "EXPIRED"] },
+    "offer_snapshot": { "$ref": "#/$defs/offerSnapshot" },
+    "private_channel": { "type": "string", "minLength": 2, "maxLength": 80 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "events": { "type": "array", "items": { "$ref": "#/$defs/event" } }
+  },
+  "$defs": {
+    "customer": {
+      "type": "object", "additionalProperties": false,
+      "required": ["customer_id", "responsible_name", "consent_at", "created_at"],
+      "anyOf": [{ "required": ["email"] }, { "required": ["phone"] }],
+      "properties": {
+        "customer_id": { "type": "string", "format": "uuid" },
+        "responsible_name": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "email": { "type": "string", "format": "email", "maxLength": 180 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "organization": { "type": "string", "maxLength": 160 },
+        "consent_at": { "type": "string", "format": "date-time" },
+        "created_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "offerSnapshot": {
+      "type": "object", "additionalProperties": false,
+      "required": ["offer_id", "offer_version", "public_name", "price", "deliverable_name", "sla", "limits", "snapshotted_at"],
+      "properties": {
+        "offer_id": { "const": "OFFER-OPERA-DIAGNOSTICO-V1" },
+        "offer_version": { "type": "string" },
+        "public_name": { "type": "string" },
+        "price": { "type": "object", "additionalProperties": false, "required": ["amount", "currency"], "properties": { "amount": { "type": "integer", "minimum": 1 }, "currency": { "const": "BRL" } } },
+        "deliverable_name": { "type": "string" },
+        "sla": { "type": "string" },
+        "limits": { "type": "array", "items": { "type": "string" } },
+        "snapshotted_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "event": {
+      "type": "object", "additionalProperties": false,
+      "required": ["event_id", "order_id", "event_type", "to_state", "actor_type", "occurred_at"],
+      "properties": {
+        "event_id": { "type": "string", "format": "uuid" }, "order_id": { "type": "string", "format": "uuid" },
+        "event_type": { "enum": ["ORDER_CREATED", "ORDER_CANCELLED", "ORDER_EXPIRED"] },
+        "from_state": { "type": ["string", "null"] }, "to_state": { "enum": ["AWAITING_PAYMENT", "CANCELLED", "EXPIRED"] },
+        "actor_type": { "enum": ["CUSTOMER", "OPERATOR", "SYSTEM"] }, "occurred_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}
