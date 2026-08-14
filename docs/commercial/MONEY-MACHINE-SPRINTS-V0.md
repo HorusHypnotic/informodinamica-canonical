@@ -1,6 +1,6 @@
 # Money Machine Sprints V0
 
-**Status:** plano; nenhuma sprint iniciada
+**Status:** MM-00 e MM-01 concluídas; MM-02 não iniciada
 
 ## MM-00 — Baseline
 
@@ -15,6 +15,8 @@
 - **Risk/complexity:** baixo / S.
 
 ## MM-01 — One Active Offer
+
+**Resultado em 2026-08-13:** concluída. `OFFER-OPERA-DIAGNOSTICO-V1` V1.0.0 é a única oferta `ACTIVE`, com escopo de ativação limitado à apresentação pública e `order_enabled=false`.
 
 - **Objective:** definir uma única oferta ativa, provavelmente Diagnóstico R$197.
 - **Input:** decisão do owner.
@@ -86,4 +88,4 @@
 - **Dependencies:** MM-01–05 and explicit real-money mission.
 - **Risk/complexity:** money, PII, delivery / M.
 
-MM-01 is the first implementation sprint, but it was not started here. The original nine-step hypothesis was consolidated into seven sprints to avoid separating tightly coupled evidence/confirmation and fulfillment/export work into cosmetic increments.
+MM-01 foi encerrada sem criar pedido ou capacidade de pagamento. A próxima sprint é exclusivamente MM-02 — Order + Customer. A hipótese original de nove etapas permanece consolidada em sete sprints para não separar evidência/confirmação e fulfillment/export em incrementos cosméticos.

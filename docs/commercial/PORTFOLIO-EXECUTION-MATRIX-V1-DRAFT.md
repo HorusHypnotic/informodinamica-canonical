@@ -23,9 +23,11 @@ Confiança `HIGH` exige evidência publicada/executável; `MEDIUM`, documentaç�
 
 | Sistema/oferta | Product | Technical | Operational | Commercial | Payment | Fulfillment | Confiança |
 |---|---:|---:|---:|---:|---:|---:|---|
-| Storefront atual | 60 | 40 | 20 | 40 | 0 | 0 | HIGH |
-| Diagnóstico R$197 | 60 | 20 | 20 | 60 | 0 | 20 | HIGH/MEDIUM |
+| Storefront atual — MM-01 | 80 | 40 | 20 | 60 | 0 | 0 | HIGH |
+| Diagnóstico R$197 — oferta ativa | 100 | 40 | 40 | 80 | 0 | 20 | HIGH/MEDIUM |
 | Smart Cotações | 80 | 80 | 60 | 20 | 0 | 60 | MEDIUM |
 | Vitrine assistida | 80 | 60 | 20 | 40 | 0 | 60 | MEDIUM |
 
 Os itens cumpridos, faltantes, blockers e marcos estão no JSON correspondente. Os 23 sistemas não foram pontuados porque a missão não oferece base uniforme e o contrato prefere `UNKNOWN` a precisão falsa.
+
+Atualização limitada do MM-01: `CURRENT_SPRINT=MM-01_COMPLETE`, `NEXT_SPRINT=MM-02`, `NEXT_MILESTONE=FIRST ORDER`. A distância à receita permanece `MEDIUM`: existe oferta pública, mas ainda não existem Order nem pagamento. Nenhum percentual probabilístico foi inferido.

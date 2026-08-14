@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0.0",
+  "offer_id": "OFFER-OPERA-DIAGNOSTICO-V1",
+  "offer_version": "1.0.0",
+  "status": "ACTIVE",
+  "activation_scope": "PUBLIC_PRESENTATION_ONLY",
+  "order_enabled": false,
+  "public_name": "Diagnóstico O.P.E.R.A. V1",
+  "price": { "amount": 197, "currency": "BRL", "kind": "FIXED" },
+  "buyer": "Responsável pela gestão de uma empresa, obra ou frente operacional com autoridade para fornecer o contexto analisado.",
+  "user": "O comprador e as pessoas por ele designadas para consumir o relatório.",
+  "problem": "Falta de uma leitura inicial, organizada e rastreável dos fatos, relatos, lacunas, riscos e prioridades do contexto operacional informado.",
+  "promise": "Produzir uma análise diagnóstica inicial limitada às informações fornecidas, distinguindo evidência, relato, inferência e ausência de dados, sem prometer resultado operacional.",
+  "inputs": {
+    "required": [
+      "nome e canal de contato do responsável",
+      "organização e contexto operacional a analisar",
+      "papel do responsável e finalidade da análise",
+      "problema principal e período de referência",
+      "origem declarada das informações fornecidas"
+    ],
+    "optional": [
+      "tipo, estágio e porte aproximado da obra ou operação",
+      "equipe e rotinas atuais",
+      "síntese de planejamento, compras, estoque, perdas, retrabalho e registros existentes"
+    ],
+    "conditional": [
+      "documentos ou imagens somente após necessidade justificada e existência de canal privado adequado"
+    ],
+    "not_needed_for_mm01": [
+      "CPF ou CNPJ",
+      "dados bancários",
+      "comprovantes",
+      "documentos e fotografias"
+    ]
+  },
+  "process": [
+    "confirmar escopo e suficiência dos dados",
+    "organizar fatos, relatos, inferências, lacunas e incertezas",
+    "formular prioridades e próximos passos apenas quando sustentados",
+    "revisar limites e entregar o relatório"
+  ],
+  "deliverable": {
+    "name": "Relatório Diagnóstico O.P.E.R.A.",
+    "sections": [
+      "resumo executivo, escopo e fronteira dos dados",
+      "contexto e fontes fornecidas",
+      "fatos observáveis, relatos, lacunas e incertezas",
+      "possíveis gargalos ou ocorrências operacionais, quando classificáveis",
+      "riscos e prioridades qualitativas sustentadas",
+      "ações iniciais recomendadas sujeitas à decisão humana",
+      "limitações e dados faltantes",
+      "conclusão executiva e próximo passo opcional"
+    ]
+  },
+  "delivery_format": "Relatório em PDF; fonte de trabalho preservada pelo operador em formato editável privado.",
+  "delivery_channel": "Canal privado combinado antes do início; definição operacional obrigatória antes de MM-02.",
+  "sla": {
+    "state": "OWNER_DECISION_REQUIRED_BEFORE_MM02",
+    "public_commitment": null,
+    "options_reviewed": ["24 horas", "48 horas", "3 dias úteis", "5 dias úteis"]
+  },
+  "limits": [
+    "não é laudo, auditoria, fiscalização, projeto de engenharia ou parecer contábil ou jurídico",
+    "não inclui visita técnica, implementação ou acompanhamento",
+    "não verifica independentemente informações de terceiros",
+    "não promete economia, redução de perdas ou desempenho",
+    "não produz conclusão além do que os dados fornecidos sustentam",
+    "pode registrar insuficiência de evidência e abster-se de classificar"
+  ],
+  "acceptance": {
+    "delivered": "O relatório correspondente aos dados fornecidos contém as seções aplicáveis, limitações explícitas e foi enviado pelo canal combinado com o evento de entrega registrado.",
+    "accepted": "Confirmação posterior e distinta do cliente; não é condição para caracterizar a entrega.",
+    "revision_requested": "Pedido de correção factual confrontável com os dados originais, sem inclusão material de novo escopo."
+  },
+  "revision_policy": {
+    "scope": "FACTUAL_CORRECTION_ONLY",
+    "new_information": "NEW_SCOPE",
+    "window": "OWNER_DECISION_REQUIRED_BEFORE_MM02"
+  },
+  "cancellation_state": "OWNER_DECISION_REQUIRED_BEFORE_MM02",
+  "refund_state": "OWNER_DECISION_REQUIRED_BEFORE_MM02",
+  "implantation_credit_state": "PUBLISHED_HISTORICAL_NOT_CONTRACTUAL",
+  "upsell_handoff": "Somente opcional, quando sustentado pelo diagnóstico e aceito pelo cliente; sem solução ou contratação automática.",
+  "fulfillment_owner": "Operador humano O.P.E.R.A. autorizado; designação nominal obrigatória antes de MM-02.",
+  "evidence_required": "Proveniência declarada para cada informação material e separação explícita entre fato observado, relato, inferência e ausência.",
+  "data_handling": {
+    "public": ["identidade da oferta", "preço", "promessa", "entregável", "limites"],
+    "customer_private": ["identidade e contato", "contexto operacional", "relatório entregue"],
+    "operator_private": ["notas de análise", "decisões de classificação", "fonte de trabalho"],
+    "business_confidential": ["rotinas, registros, riscos e informações da empresa ou obra"],
+    "financial_sensitive": [],
+    "mm01_collection": "NONE"
+  },
+  "unknowns": [
+    "SLA público",
+    "janela de correção factual",
+    "política de cancelamento",
+    "política de reembolso",
+    "canal privado definitivo",
+    "operador nominal e capacidade simultânea"
+  ]
+}
