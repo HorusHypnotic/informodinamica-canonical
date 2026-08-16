@@ -193,6 +193,20 @@ Sem promoção:
 - comparação interdomínios como estratégia de teste;
 - separação entre restauração representacional e coordenativa.
 
+## Decisões de migração P0 (pendentes de aprovação — branch `fix/p0-canonical-consolidation`)
+
+Registro das cinco decisões de consolidação propostas após a Auditoria E-Prime/Desontologização e a Pré-Canonização P0, executadas em commit único (`fix(tpc): consolidate P0 canonical definitions`). Todas as formulações propostas já existiam na geração canônica vigente (TPC v0.8, GLOSSARIO_CANONICO v0.8, PROTOCOLO_EXPERIMENTAL) ou nos instrumentos operacionais; nenhuma constitui teoria nova.
+
+| P0 | OLD → CURRENT | Classificação |
+|----|---------------|----------------|
+| P0-1 Coordenação | Definição ativa "redução compartilhada de incertezas" (`MANUAL_ECO.md`) → definição relacional vigente (IDR-0001); a leitura de entropia passa a formulação histórica `QUANTITATIVE_HYPOTHESIS` com `SHANNON_FORMALIZATION_PENDING` (variável, espaço de estados, distribuição, medida, baseline, domínio e mecanismo declarados como pendências) | CONSOLIDATION |
+| P0-2 HYP-001 | Três redações canônicas ativas (universal forte no protocolo; condicional na TPC §4.1; probabilística "elevam o risco" no glossário) → versão canônica da TPC §4.1 consolidada no glossário; a universal existente no protocolo é rotulada **HYP-001-U (`DRAFT_EXPERIMENTAL`)**, sem promoção a canônica, com limiar de 20%, janela de detecção e conjunto de mecanismos a declarar, e taxonomia de exceções (`REFUTATION`, `UNOBSERVED_PRECURSOR`, `MISSING_DATA`, `MEASUREMENT_FAILURE`, `OUT_OF_DOMAIN`) que impede conversão automática de evidência contrária em precursor não observado | CLARIFICATION |
+| P0-3 Representação | Tese existencial "uma representação só existe porque coordena agentes" (`01-teoria/FUNDAMENTOS_MATEMATICOS.md` §3.11) → alinhada a IDR-0002 e TPC §1 (existência decorre da relação especificável, não do sucesso coordenacional) | CONSOLIDATION |
+| P0-4 Axiomas | "assumidos como verdadeiros, sem necessidade de prova" → "fundamento de derivação defeasible dentro do sistema e do domínio, revisável diante de incompatibilidade com a evidência", preservando a função lógica (não reclassificados como hipóteses) | CONTROLLED_MIGRATION |
+| P0-5 ECO | "Evento de Corrosão Operacional" (TPC §2.10, MET-001, TDO) → nomenclatura vigente "Evento de Corrosão da Coordenação" (IDR-0010); escopo vigente (evento observável; desfecho candidato) consolidado; nome histórico preservado como sinônimo controlado com nota genealógica; instrumento de registro da MET-001 inalterado | CONTROLLED_MIGRATION |
+
+**NEW_THEORY = 0.** Nenhuma lei (LAW-001–004), métrica (MET-002–005), hipótese (HYP-004–024), protocolo (PRT-001–003) ou experimento (EXP-001) foi alterado. Acoplamento não foi formalizado; Shannon não foi formalizado; HYP-024 e o teste de fronteira ontológica permanecem intocados.
+
 ## Lacunas formais
 
 Faltam definição de processo coordenativo, objeto, domínio, ontologia integrada, papel de EO/K_R/K_C, taxonomia dos processos, relação entre deformação/degradação/desacoplamento, axiomas próprios, revisão das LAW/HYP, decisão sobre métricas v0.8, formalização matemática, observabilidade de T₀–T₄, falseabilidade, hipóteses concorrentes, regularização dos MET-006–009, cartografia epistemológica e decisão constitucional.

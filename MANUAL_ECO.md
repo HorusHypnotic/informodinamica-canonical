@@ -56,11 +56,13 @@ O ECO é uma **ferramenta de diagnóstico**, não uma ferramenta de avaliação 
 
 ---
 
-## 4. Lógica da Coordenação como Distribuição
+## 4. Lógica da Coordenação
 
-A TPC parte de uma premissa simples: **coordenação é a redução compartilhada de incertezas**. Quando agentes compartilham representações compatíveis, suas ações se tornam mutuamente previsíveis. Quando essas representações se degradam, a coordenação se perde.
+A TPC parte de uma premissa simples: coordenação **ocorre quando** agentes produzem ações compatíveis ao interpretar representações suficientemente compatíveis entre si (IDR-0001). Quando essas representações se degradam, a coordenação se perde.
 
-O ECO é o **ponto de observação** dessa perda. Ele marca o momento em que a representação deixou de funcionar como veículo de coordenação.
+Uma leitura quantitativa candidata — coordenação como redução compartilhada de incertezas, inspirada em Shannon — está registrada em `01-teoria/FUNDAMENTOS_MATEMATICOS.md` §3.2 e permanece **hipótese quantitativa pendente de formalização** (`SHANNON_FORMALIZATION_PENDING`), sem status definicional.
+
+O ECO é o **evento observável** dessa perda (IDR-0010), registrado no ciclo em que a falha coordenacional foi detectada.
 
 ---
 

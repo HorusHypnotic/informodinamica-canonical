@@ -86,11 +86,11 @@ Onde:
 **Conceito central:** A informação é a redução de incerteza (entropia). Comunicação é a transmissão de um sinal.
 
 **Conexão com a TPC:**
-- A definição de coordenação como "redução compartilhada de incertezas" é inspirada em Shannon.
+- A formulação histórica "coordenação é a redução compartilhada de incertezas" é inspiração de Shannon para uma **interpretação quantitativa candidata**: a coordenação corresponderia a uma redução de entropia compartilhada entre agentes.
 - Um índice candidato de degradação pode incluir perda de informação, sem reduzir o fenômeno a ela.
-- Entropia da coordenação: quanto maior a entropia, menor a coordenação.
+- Entropia da coordenação (candidata): quanto maior a entropia, menor a coordenação.
 
-**Status:** A teoria de Shannon **inspira a modelagem**, mas ainda falta uma definição formal de como a entropia de Shannon se traduz diretamente em degradação representacional. Esse é um ponto de desenvolvimento futuro.
+**Status:** A teoria de Shannon **inspira a modelagem** (`SHANNON_FORMALIZATION_PENDING`). Essa correspondência carece de variável, espaço de estados, distribuição, medida, baseline, domínio e mecanismo especificados; enquanto não formalizada, não constitui definição nem identidade da Coordenação (IDR-0001), que permanece a definição relacional vigente.
 
 ---
 
@@ -235,7 +235,7 @@ O desenvolvimento matemático deve incluir:
 **Conceito central:** Foco nas relações entre objetos, não nos objetos em si.
 
 **Conexão com a TPC:**
-- Uma representação só existe porque coordena agentes.
+- Na TPC, o interesse analítico recai sobre representações que sustentam coordenação. Uma representação pode existir sem coordenar (TPC §1: "Compartilhamento e sucesso coordenacional não são requisitos definicionais" — IDR-0002); a existência de uma representação decorre de sua relação especificável com objeto, condição, regra ou ação, não de seu sucesso coordenacional.
 - A pergunta não é "o que é a representação", mas "como ela se relaciona com os agentes".
 - Pode fornecer uma linguagem unificadora para descrever a TPC de forma abstrata.
 

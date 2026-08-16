@@ -10,7 +10,7 @@
 
 ## 1. Axiomas
 
-Os axiomas são premissas fundamentais que a teoria assume como verdadeiras, sem necessidade de prova.
+Os axiomas são premissas fundamentais assumidas como fundamento de derivação dentro do sistema e do domínio declarado da TPC, sem necessidade de prova interna; são, porém, defeasible — sujeitos a revisão se suas consequências forem incompatíveis com a evidência (ver regime falibilista em `DOCUMENTO_CANONICO.md`). Não são hipóteses comuns, e sua função lógica dentro do sistema é preservada; apenas sua imunidade empírica não é presumida.
 
 | Axioma | Enunciado |
 |--------|-----------|
