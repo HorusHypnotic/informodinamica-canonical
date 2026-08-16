@@ -19,7 +19,7 @@
 | PREÇO | R$ 197, preço fixo. **Não alterar.** A versão aprovada é `diagnostico-opera-v1.1-approved.json` (status APPROVED, `kind: FIXED`) |
 | OBJETIVO | Análise inicial estruturada de um problema operacional de obra, a partir das informações e evidências fornecidas pelo cliente |
 | ENTREGÁVEL | Um relatório em PDF, entregue por canal privado combinado, seguindo o template da Seção 10 |
-| SLA registrado | `3 dias úteis após todos os inputs necessários estarem disponíveis` (conforme offer v1.1-approved). **O deadline de venda/comunicação ao cliente continua `OWNER_DECISION_REQUIRED` — ver Seção 7** |
+| SLA registrado | `3 dias úteis após todos os inputs necessários estarem disponíveis` (conforme offer v1.1-approved). **Deadline de venda/comunicação: `3_BUSINESS_DAYS` desde 16/08/2026, com relógio iniciado por `SCOPE_CONFIRMED && PAYMENT_CONFIRMED && MINIMUM_INPUT_RECEIVED` — ver Seção 5** |
 | Canal privado | Definido por pedido, sem dependência de fornecedor (offer v1.1-approved) — no experimento: WhatsApp |
 
 O produto **NÃO É**, conforme a copy publicada na página (`#oferta-ativa`), preservada literalmente:
@@ -75,7 +75,7 @@ Formato: enviar as cinco de uma vez ou em bloco curto, sem interrogatório forma
 
 | Estado | Condição | Resposta ao cliente | Próxima ação | Registro |
 |---|---|---|---|---|
-| `ELIGIBLE` | Obra real e definida; problema operacional claro; evidências mínimas existem (≥1 material útil); cliente é o decisor ou o representa; problema cabe no escopo publicado | Confirmar por escrito (WhatsApp) o escopo combinado: o que será analisado, formato, canal de entrega, preço R$ 197 e que a cobrança vem agora | Solicitar pagamento (Seção 6) e dar início ao intake | Atualizar OPP: estado + escopo confirmado (data/hora) |
+| `ELIGIBLE` | Obra real e definida; problema operacional claro; evidências mínimas existem (≥1 material útil); cliente é o decisor ou o representa; problema cabe no escopo publicado | Confirmar por escrito (WhatsApp) o escopo combinado: o que será analisado, formato, canal de entrega, preço R$ 197, prazo de entrega (até 3 dias úteis após o início do prazo, conforme Seção 5) e que a cobrança vem agora | Solicitar pagamento (Seção 6) e dar início ao intake | Atualizar OPP: estado + escopo confirmado (data/hora) |
 | `NEEDS_INFORMATION` | Cliente interessado mas falta insumo mínimo para decidir escopo (ex.: "não sei o que te mandar", problema ainda difuso) | Dizer o que falta em 1 frase e o que adianta mandar (ex.: 3 fotos + descrição de 1 problema) | Aguardar resposta; sem cobrança | Atualizar OPP: estado + o que falta |
 | `OUT_OF_SCOPE` | Não é obra/construção; é pedido de laudo/parecer; é pedido de implementação; é problema fora da capacidade declarada (ex.: jurídico, contábil, fiscalização) | Recusar com educação e, quando genuíno, indicar o caminho certo fora do produto ("para isso o indicado é um engenheiro/auditório de X") | Encerrar; nunca cobrar | Atualizar OPP: estado + motivo |
 
@@ -88,28 +88,45 @@ Formato: enviar as cinco de uma vez ou em bloco curto, sem interrogatório forma
 Fluxo mínimo, totalmente manual:
 
 ```
-ELIGIBLE → CONFIRMAÇÃO DE ESCOPO → COBRANÇA → PAGAMENTO CONFIRMADO → INTAKE
+ELIGIBLE → ESCOPO CONFIRMADO → DADOS PIX ENVIADOS → PAGAMENTO CONFIRMADO → INTAKE
 ```
 
-Confirmar escopo por escrito no WhatsApp (frase de 2–3 linhas: "Análise: X. Entrega: PDF até D. Valor: R$ 197. Pagamento por [método]."). Após o cliente concordar, enviar o pedido de pagamento. Confirmar o recebimento (print/boleto/extrato) **antes** de iniciar a análise. Registrar no OPP a data da confirmação de escopo e a data de pagamento confirmado.
+Confirmar escopo por escrito no WhatsApp (frase de 2–3 linhas). Após o cliente concordar, enviar os dados do PIX pelo canal privado (passo 2 abaixo). Confirmar o recebimento do pagamento **antes** de iniciar a análise. Registrar no OPP a data da confirmação de escopo, do pagamento solicitado e do pagamento confirmado.
 
-**`PAYMENT_METHOD = OWNER_DECISION_REQUIRED`.** O playbook não inventa o método. Opções operacionais já conhecidas do contexto (não canonizadas): PIX pessoal, transferência bancária, PayPal. O owner deve declarar o método antes da primeira cobrança real; até lá, a operação não cobra.
+**`PAYMENT_METHOD = PIX_MANUAL`** (decisão do owner em 16/08/2026 — anterior `OWNER_DECISION_REQUIRED`, agora resolvida).
 
-Nenhuma credencial bancária, chave PIX detalhada ou dado financeiro sensível deve entrar no Git. No Git registra-se apenas "PIX definido — detalhes fora do repositório" ou similar.
+Fluxo executável:
+
+```
+ELIGIBLE → ESCOPO CONFIRMADO → DADOS PIX ENVIADOS → PAGAMENTO CONFIRMADO → INTAKE/EXECUÇÃO
+```
+
+1. Confirmar escopo por escrito no WhatsApp (frase de 2–3 linhas: "Análise: X. Entrega: PDF em até 3 dias úteis após o início do prazo. Valor: R$ 197. Pagamento via PIX.").
+2. Após o cliente concordar: **enviar os dados do PIX pelo canal privado** (mensagem pessoal do WhatsApp com o owner; nunca por fora dele). A mensagem inclui o valor exato e confirma qual obra/problema está sendo pago.
+3. Aguardar confirmação do pagamento (print do comprovante ou confirmação no app bancário do owner). **Nenhum trabalho inicia antes da confirmação do pagamento** (e nunca antes do escopo confirmado — regra dura da Seção 3).
+
+**Nenhuma chave PIX, CPF, banco ou dado financeiro pessoal entra no Git.** No Git registra-se apenas "dados PIX enviados pelo canal privado". No `LOG.md` registra-se por linha append-only: `pagamento_solicitado` (data), `pagamento_confirmado` (data), `valor` (R$ 197) — sem nenhum dado bancário. Se o cliente pedir nota fiscal, tratar caso a caso pelo canal privado (fora do escopo V0).
 
 ---
 
 ## 5. Prazo (Fase 7)
 
-**`DELIVERY_DEADLINE = OWNER_DECISION_REQUIRED`.** O playbook não canoniza prazo sem autorização. Três opções operacionais apresentadas para decisão do owner (todas coerentes com o SLA registrado "3 dias úteis após inputs" da offer v1.1-approved, que só passa a valer quando os inputs existirem):
+**`DELIVERY_DEADLINE = 3_BUSINESS_DAYS`** (decisão do owner em 16/08/2026 — anterior `OWNER_DECISION_REQUIRED`, agora resolvida; coincide com o SLA "3 dias úteis após inputs" da offer v1.1-approved).
 
-| Opção | Definição | Efeito prático |
-|---|---|---|
-| A | Entrega em até 3 dias úteis após o intake completo | Coincide com a offer v1.1-approved; exige disciplina de intake |
-| B | Entrega em até 5 dias úteis após o intake completo | Margem para casos com material desorganizado |
-| C | Entrega em até 7 dias corridos após o pagamento | Simples de comunicar, menos dependente de "inputs completos" |
+**Regra do relógio:** o prazo começa somente quando **todas** as três condições forem verdadeiras:
 
-Quando o owner escolher, a decisão entra aqui e passa a valer para todos os OPPs subsequentes, sem retroatividade explícita a pedidos em curso (registrar a transição no log).
+```
+SCOPE_CONFIRMED = TRUE
+PAYMENT_CONFIRMED = TRUE
+MINIMUM_INPUT_RECEIVED = TRUE
+```
+
+1. No momento em que as três se tornam verdadeiras, registrar no `LOG.md`: `DELIVERY_CLOCK_STARTED_AT` (data/hora) e calcular `DELIVERY_DUE_AT` (3 dias úteis — sábado, domingo e feriados não contam; registrar o cálculo na mesma linha).
+2. "Dias úteis" = dias úteis no Brasil (segunda a sexta, excluídos feriados nacionais).
+3. Se, posteriormente, for necessário um material adicional **indispensável** para a análise: não inventar conclusão nem concluir com qualidade de fachada; registrar `BLOCKED_BY_MISSING_INFORMATION` (o que falta, desde quando), comunicar a pendência ao cliente pelo canal privado, e só retomar o relógio quando o material chegar (registrar `CLOCK_RESUMED_AT` — não retroagir).
+4. Material dispensável que não chegar não bloqueia: o relatório declara a lacuna (`INSUFFICIENT_EVIDENCE` onde aplicável) e é entregue dentro do prazo.
+
+Mecanismo deliberadamente simples: duas marcações de data no log + comunicação ao cliente. Nenhum mecanismo sofisticado de SLA.
 
 ---
 
@@ -148,9 +165,10 @@ Três disciplina operacionais derivadas: o relato do cliente não vira fato auto
 
 ---
 
-## 8. Template do PDF (Fase 10)
+## 8. Template canônico do relatório (Fase 10)
 
-Estrutura mínima reutilizável (arquivo único, Markdown convertido a PDF; nome de arquivo `diagnostico-opera-OPP-XXX.pdf`):
+O template executável existe como arquivo independente: `templates/TEMPLATE-RELATORIO-DIAGNOSTICO-OPERA-R197-V0.md` (mesmo diretório deste playbook). Para um diagnóstico real: copiar o template para um documento privado do cliente, preencher os campos em *[colchetes]*, apagar as instruções e gerar o PDF (`diagnostico-opera-OPP-XXX.pdf`). O anexo QA fica dentro do documento de trabalho do owner — **não vai ao PDF do cliente**. A estrutura mínima é:
+
 
 ```
 # DIAGNÓSTICO O.P.E.R.A.
@@ -188,7 +206,7 @@ Cliente: [pseudônimo ou razão social] · OPP: [OPP-XXX] · Data: [AAAA-MM-DD]
 não promete economia; dados insuficientes não viram classificação inventada)
 ```
 
-Regra econômica: o produto de R$197 deve permanecer entregável — se o caso exigir profundidade de auditoria, a análise declara o limite e o cliente pode ser informado (sem venda automática) de que o caso excede o produto.
+Regras econômicas: o produto de R$197 deve permanecer entregável; `REPORT_LENGTH = FIT_FOR_PURPOSE` (sem número de páginas canonizado — medir páginas em cada caso); se o caso exigir profundidade de auditoria, a análise declara o limite e o cliente pode ser informado (sem venda automática) de que o caso excede o produto.
 
 ---
 
@@ -206,7 +224,25 @@ O cliente não compra confirmação de suspeita: compra análise. `FINDING_NOT_S
 
 ---
 
-## 10. Entrega (Fase 12)
+## 10. Qualidade antes da entrega (QA) e entrega (Fase 12)
+
+**`DELIVERY_QA = PASS / FAIL`.** Antes de gerar qualquer PDF, executar o checklist (também no anexo do template):
+
+[ ] pergunta principal respondida ou explicitamente inconclusiva
+[ ] relato não tratado como observação
+[ ] evidências identificadas
+[ ] inferências marcadas
+[ ] lacunas declaradas
+[ ] nenhuma promessa de economia
+[ ] nenhuma atribuição profissional indevida
+[ ] nenhuma recomendação sem base
+[ ] dados pessoais minimizados
+[ ] PDF legível
+[ ] escopo respeitado
+
+**Somente `PASS` pode ser entregue.** Se falhar, corrigir e refazer o QA — não há "entrega com ressalva" no V0.
+
+Depois do QA, o fluxo de entrega:
 
 ```
 PDF → envio (WhatsApp, canal combinado)
@@ -214,7 +250,40 @@ PDF → envio (WhatsApp, canal combinado)
     → pergunta pós-entrega (registrar resposta literalmente quando possível)
 ```
 
-Pergunta principal do experimento: **"Depois de ler o diagnóstico, qual decisão ficou mais fácil de tomar?"**. A resposta é evidência de valor percebido, não prova de valor econômico: não converter elogio em caso de sucesso comercial sem receita registrada. Registrar a resposta literal no OPP (campo `observacao`).
+Pergunta principal do experimento: **"Depois de ler o diagnóstico, qual decisão ficou mais fácil de tomar?"**. Registrar a resposta literal no OPP (campo `observacao`) como `VALUE_SIGNAL` — a resposta é evidência de valor percebido, não prova de valor econômico: não converter elogio em caso de sucesso comercial sem receita registrada.
+
+**Continuidade (só depois da entrega):** consultar `MATRIZ-DIAGNOSTICO-PARA-OPERA-V0.md` e registrar `CONTINUATION_STATUS` (`NONE`/`POTENTIAL_FIT`/`STRONG_FIT`/`INSUFFICIENT_EVIDENCE`) e `NEXT_BEST_ACTION` (`ENCERRAR`/`PEDIR_INFORMACAO`/`ACOMPANHAR_DEPOIS`/`APRESENTAR_CAPACIDADE_OPERA`/`PROPOSTA_ESPECIFICA`/`OUTRO`). Se `STRONG_FIT` ou `POTENTIAL_FIT` com cliente interessado, usar **somente** a linguagem não coercitiva da Seção 7 da matriz; nunca dentro do relatório. Se o cliente não responder à abertura, não insistir — encerrar bem e registrar `NONE`.
+
+---
+
+## 10.1 Economia unitária (o que medir em cada caso)
+
+No anexo QA do relatório, medir sem estimar: páginas do PDF, tempo de análise, tempo de redação, tempo de revisão, tempo total, dias corridos até a entrega. Depois dos primeiros diagnósticos, decidir limites empiricamente — não canonizar número arbitrário hoje.
+
+---
+
+## 10.2 Preparação para automação futura (Fase 17 — sem implementar nada)
+
+Auditoria por etapa, com tags: `MANUAL_NOW` (operador executa, sem substituto imediato), `AI_ASSIST_CANDIDATE` (IA pode produzir rascunho sob revisão humana), `AUTOMATION_CANDIDATE` (regra determinística, sem IA), `HUMAN_REQUIRED` (julgamento do owner inegociável). Objetivo futuro (dependente de evidência dos primeiros casos): o owner recebe progressivamente apenas casos pagos, casos ambíguos, decisões de alto julgamento e revisão final.
+
+| Etapa | Tag V0 | Justificativa |
+|---|---|---|
+| Chegada do WhatsApp / primeira resposta | MANUAL_NOW | O primeiro contato define confiança; sem evidência para delegar |
+| Qualificação (5 perguntas) | AI_ASSIST_CANDIDATE | Rascunho de síntese por IA, owner valida; decisão de gate é humana |
+| Gate `ELIGIBLE/NEEDS_INFORMATION/OUT_OF_SCOPE` | HUMAN_REQUIRED | Julgamento do owner |
+| Confirmação de escopo + dados PIX | MANUAL_NOW | Canal privado, dados bancários fora do Git |
+| Confirmação de pagamento | MANUAL_NOW | App bancário do owner |
+| Registro no LOG (states, clock) | AI_ASSIST_CANDIDATE | Formato determinístico, owner confere |
+| Intake | MANUAL_NOW | Recebimento de mídia exige curadoria humana |
+| Análise | AI_ASSIST_CANDIDATE | Estrutura guiada pelo template, julgamento e evidência são do owner |
+| Redação do relatório | AI_ASSIST_CANDIDATE | Rascunho sob revisão do owner; QA humano obrigatório |
+| DELIVERY_QA | HUMAN_REQUIRED | O QA é a última linha de defesa do produto |
+| Geração do PDF + envio | AI_ASSIST_CANDIDATE / MANUAL_NOW | Determinística, mas o envio é humano no V0 |
+| Pergunta pós-entrega + VALUE_SIGNAL | MANUAL_NOW | Conversa real |
+| CONTINUATION_STATUS / NEXT_BEST_ACTION | HUMAN_REQUIRED | Decisão comercial de alto julgamento |
+| Mensagem de continuidade (linguagem não coercitiva) | AI_ASSIST_CANDIDATE | Rascunho a partir da matriz, owner edita e envia |
+
+**Nada é automatizado no V0.** As tags são mapa, não roteiro de implementação.
 
 ---
 
@@ -321,7 +390,7 @@ CHEGOU WHATSAPP
 [ ] confirmar pagamento
 [ ] receber material (intake, registrar o que chegou)
 [ ] registrar evidências (DECLARADO/OBSERVADO/INFERIDO/DESCONHECIDO)
-[ ] analisar (protocolo da Seção 7)
+[ ] analisar (protocolo da Seção 8)
 [ ] produzir PDF (template da Seção 8)
 [ ] revisar (limites, classes, sem promessa)
 [ ] entregar (WhatsApp)
