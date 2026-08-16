@@ -71,9 +71,11 @@ Coordenação preservada que se traduziu em valor econômico.
 
 Mecanismo de transferência de coordenação entre ciclos operacionais.
 
-### 2.10. ECO — Evento de Corrosão Operacional (IDR-0010)
+### 2.10. ECO — Evento de Corrosão da Coordenação (IDR-0010)
 
 Evento observável em que a coordenação necessária à ação falhou. É desfecho candidato de degradação representacional, não medida direta de toda degradação.
+
+> **Nota genealógica:** nomenclatura anterior "Evento de Corrosão Operacional" (geração v0.9; `metrics/MET-001-ECO.md`, `02-aplicacoes/TDO.md` e `MANUAL_ECO.md` antigos mantêm o nome histórico como sinônimo controlado), com escopo "ponto onde a persistência falhou". O nome e o escopo vigentes são os desta seção (IDR-0010).
 
 ### 2.11. ICO — Índice de Corrosão Operacional (IDR-0011)
 

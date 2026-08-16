@@ -9,9 +9,11 @@
 
 ## 1. Objetivo
 
-Testar a **Consequência Fundamental (HYP-001)** da Teoria da Persistência da Coordenação:
+Testar a versão operacional da **Consequência Fundamental (HYP-001)** da TPC, conforme registrada em `01-teoria/TPC.md` §4.1:
 
-> Toda falha de coordenação observável foi precedida por uma deformação não corrigida da representação que orientava aquela ação.
+> No domínio da TPC, falhas internas de coordenação tendem a ser precedidas por perda não corrigida de atributos ou da capacidade coordenadora das representações relevantes.
+
+Para fins operacionais deste protocolo, adota-se a formulação testável **HYP-001-U (versão operacional, DRAFT_EXPERIMENTAL)**: "toda falha de coordenação observável, dentro do domínio da TPC e dentro da janela de detecção declarada, foi precedida por uma deformação não corrigida da representação relevante, dentro do conjunto de mecanismos de detecção declarados". HYP-001-U não se torna hipótese canônica; sua versão canônica é a condicional da TPC §4.1. A janela de detecção e o conjunto de mecanismos de detecção devem ser declarados no relatório do experimento.
 
 E testar a **HYP-002** (Pesquisa de Campo):
 
@@ -94,7 +96,7 @@ Quase-experimental com grupo piloto e grupo controle.
 ### 4.4. Fase 4 — Análise
 
 1. Comparar ECOs, ICO, IFX e Capital Preservado entre grupos.
-2. Testar se a HYP-001 se sustenta (todo ECO tem deformação representacional associada).
+2. Testar se a HYP-001-U se sustenta, classificando cada exceção como `REFUTATION` (deformação comprovadamente inexistente), `UNOBSERVED_PRECURSOR` (existente e não detectada), `MISSING_DATA` ou `MEASUREMENT_FAILURE` — apenas `REFUTATION` conta para o critério de refutação do §5; casos fora do domínio da TPC são `OUT_OF_DOMAIN`. A taxonomia impede que evidência contrária seja automaticamente convertida em `UNOBSERVED_PRECURSOR`.
 3. Testar se a HYP-002 se sustenta (grupo piloto tem menos ECOs e maior Capital Preservado).
 
 ---
@@ -103,7 +105,7 @@ Quase-experimental com grupo piloto e grupo controle.
 
 A TPC será refutada se:
 
-1. **HYP-001 refutada:** Mais de 20% dos ECOs registrados no grupo controle não tiverem deformação representacional identificável como causa.
+1. **HYP-001-U refutada:** Mais de 20% dos ECOs registrados no grupo controle não tiverem deformação representacional identificável como causa, e as exceções não forem majoritariamente classificadas como `UNOBSERVED_PRECURSOR`, `MISSING_DATA` ou `MEASUREMENT_FAILURE`.
 2. **HYP-002 refutada:** O grupo piloto não apresentar redução estatisticamente significativa (p < 0.05) no número de ECOs ou no ICO após a implementação do OPERA.
 3. **Axioma refutado:** For encontrada coordenação persistente sem representação persistente (incluindo regras locais codificadas).
 

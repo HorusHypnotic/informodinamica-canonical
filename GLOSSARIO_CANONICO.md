@@ -19,7 +19,7 @@
 
 | IDR | Termo | Definição |
 |-----|-------|-----------|
-| **IDR-0001** | Coordenação | Resultado relacional emergente no qual agentes ou mecanismos produzem ações compatíveis ao interpretar representações sob condições operacionais determinadas. |
+| **IDR-0001** | Coordenação | Resultado relacional emergente no qual agentes ou mecanismos produzem ações compatíveis ao interpretar representações sob condições operacionais determinadas. Nota: a formulação "redução compartilhada de incertezas" (geração anterior; `MANUAL_ECO.md`) não é a definição vigente e não deve ser usada como definiens; permanece como interpretação quantitativa candidata (`SHANNON_FORMALIZATION_PENDING`; `01-teoria/FUNDAMENTOS_MATEMATICOS.md` §3.2). |
 | **IDR-0002** | Representação Operacional | Estrutura portadora de estado que mantém relação especificável com um objeto, condição, regra ou ação e pode ser interpretada por agentes ou mecanismos. |
 | **IDR-0003** | Estado Coordenado | Condição em que agentes compartilham representações compatíveis para produzir uma ação coerente sem retrabalho. |
 | **IDR-0004** | Deformação Representacional | Alteração que reduz atributos do estado operacional ou a capacidade de uma representação sustentar interpretações compatíveis, por mecanismos como perda, atraso, substituição, ambiguidade ou fragmentação. |
@@ -28,7 +28,7 @@
 | **IDR-0007** | Fliflexação | Capacidade de restaurar atributos e relações de representações degradadas; recuperação da coordenação é desfecho separado. |
 | **IDR-0008** | Capital Preservado | Coordenação preservada que se traduziu em valor econômico. |
 | **IDR-0009** | Slektip | Representação persistente e acionável destinada a transferir contexto coordenador entre ciclos operacionais. |
-| **IDR-0010** | ECO (Evento de Corrosão da Coordenação) | Evento observável de falha coordenacional; desfecho candidato, não medida direta de toda degradação representacional. |
+| **IDR-0010** | ECO (Evento de Corrosão da Coordenação) | Evento observável de falha coordenacional; desfecho candidato, não medida direta de toda degradação representacional. Nota genealógica: nomenclatura anterior "Evento de Corrosão Operacional" (`01-teoria/TPC.md` §2.10, `metrics/MET-001-ECO.md`, `02-aplicacoes/TDO.md`; geração v0.9), com escopo "ponto onde a persistência falhou". O nome e o escopo vigentes são os desta entrada; os documentos históricos preservam a versão antiga como sinônimo controlado. |
 | **IDR-0011** | ICO (Índice de Corrosão Operacional) | Medida da gravidade da falha de persistência (Impacto × Recorrência × Persistência). |
 | **IDR-0012** | IFX (Índice de Fliflexação) | Medida da maturidade da Fliflexação (Sensibilidade + Precisão + Velocidade + Aprendizado). |
 
@@ -70,7 +70,7 @@ Os IDs abaixo são permanentes, mas os conceitos permanecem em elaboração e n�
 
 | HYP | Título | Enunciado |
 |-----|--------|-----------|
-| **HYP-001** | Consequência Fundamental | No domínio da TPC, perdas não corrigidas no estado ou na capacidade de representações relevantes elevam o risco de falhas internas de coordenação. |
+| **HYP-001** | Consequência Fundamental | No domínio da TPC, falhas internas de coordenação tendem a ser precedidas por perda não corrigida de atributos ou da capacidade coordenadora das representações relevantes (redação canônica; `01-teoria/TPC.md` §4.1). A versão operacional **HYP-001-U** (`03-pesquisa/PROTOCOLO_EXPERIMENTAL.md`) é `DRAFT_EXPERIMENTAL` e não se torna hipótese canônica. Nota: a redação anterior "elevam o risco de falhas internas de coordenação" (probabilística, sem precedência temporal) não é vigente. |
 | **HYP-002** | Pesquisa de Campo | Intervenções OPERA que preservem atributos representacionais produzirão diferenças mensuráveis em capacidade coordenadora, ECOs e valor, comparadas a condições de controle. |
 | **HYP-003** | Inércia Representacional | Quanto maior a capacidade coordenadora observada de uma representação, maior pode ser sua naturalização e menor a detecção de deformações silenciosas. |
 

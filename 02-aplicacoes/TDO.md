@@ -43,12 +43,14 @@ Coordenação → Persistência → [Deformação] → ECO → Fliflexação →
 | Coordenação | Alinhamento inicial entre agentes e representações. | — |
 | Persistência | Manutenção da integridade das representações ao longo do tempo. | — |
 | Deformação | Perda, atraso, substituição, ambiguidade ou fragmentação de uma representação. | — |
-| ECO | Evento de Corrosão Operacional — ponto onde a coordenação falhou. | ECO (MET-001) |
+| ECO | Evento de Corrosão da Coordenação — evento observável de falha coordenacional (geração anterior: "Evento de Corrosão Operacional", sinônimo histórico controlado). | ECO (MET-001) |
 | Fliflexação | Restauração da coordenação e aprendizado. | IFX (MET-003) |
 
 ### 3.2. Métricas da TDO
 
-#### ECO (MET-001) — Evento de Corrosão Operacional
+#### ECO (MET-001) — Evento de Corrosão da Coordenação
+
+> **Nota genealógica:** nomenclatura anterior "Evento de Corrosão Operacional" (geração v0.9); o nome histórico é preservado como sinônimo controlado. O instrumento de registro (data/hora, tipo de deformação, representação afetada, impacto) permanece inalterado.
 
 Cada ECO é registrado como uma unidade de falha de persistência, contendo:
 
