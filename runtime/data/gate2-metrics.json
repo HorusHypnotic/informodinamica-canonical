@@ -1,0 +1,14 @@
+{
+ "pacotes_processados": 18,
+ "pass": 18,
+ "safe_fail": 0,
+ "unsafe_fail": 0,
+ "schema_valid_rate": 1.0,
+ "latencia_media_s": 32.75,
+ "latencia_p95_s": 53.42,
+ "latencia_max_s": 53.42,
+ "perguntas_abertas": 0,
+ "nao_conformidade_llm_passados": 13,
+ "nao_conformidade_total": 13,
+ "verdict_final": "APROVADO"
+}

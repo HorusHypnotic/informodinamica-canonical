@@ -1,0 +1,1670 @@
+{
+ "packages": [
+  {
+   "package_id": "85d2104e-064c-4fd1-9eac-93700a4d3b28",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:real-01",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "4a5a0346-44e5-4459-bb1c-4704e5608eba",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:real-02",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "721c81ca-1d62-4a84-8025-6e2fe10ca816",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:real-03",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "c87bc303-bea6-43a4-bd8e-0999c48c4567",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:real-04",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "296214fe-a730-4e73-9fbe-a7ed4d482dd7",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:real-05",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "c9c1bdda-9c7c-480e-bcd2-6cc748675aa5",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:real-06",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "d1391f36-ae11-42c7-8e54-048fc4ab7beb",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:real-07",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "026a9cdd-706d-48d8-ba29-411154c543f4",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:real-08",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "048d2286-27d8-4dcf-b885-1e51d46893a3",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:adv-a",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "3dfa91ec-cf6d-4c77-864b-ad7fa3be4d28",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:adv-b",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "4df4b126-08fc-4352-b4f4-7218aa349999",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:adv-c",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "344b08e8-c348-409e-a9b9-571b0f968870",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:adv-d",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "3ce82073-f658-46f9-a467-6e487b49eabe",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:adv-e",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "c643495c-2ca3-4e54-bc73-18e1494a2068",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:adv-f",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "1133a880-f096-4a06-98cc-f013a1d1abf3",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:adv-g",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "a1fc9620-c534-4a34-bf60-b994782cc671",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:adv-h",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "5048aabf-9fb9-41cf-b7e7-78e5e463d2ab",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:adv-i",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  },
+  {
+   "package_id": "ec7896a4-a8d3-458c-9122-da6b4bc72cc7",
+   "record_type": "evento",
+   "status": "needs_confirmation",
+   "source_message_id": "telegram:bot6012345678:adv-j",
+   "canonical_obra_id": null,
+   "identity_status": "unverified"
+  }
+ ],
+ "cases": [
+  {
+   "case_id": "real-01",
+   "suite": "real",
+   "classification": "PASS",
+   "basis": "esperado: MATERIAL_NEED, confirmacao, rota candidata copiloto",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 31.42,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "real-02",
+   "suite": "real",
+   "classification": "PASS",
+   "basis": "esperado: INCIDENT ou WEATHER_EVENT? — INCIDENT, alta criticidade, confirmação mandatória",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 50.21,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "real-03",
+   "suite": "real",
+   "classification": "PASS",
+   "basis": "esperado: PAYMENT (HIGH-IMPACT), PRECISO_CONFIRMAR/PERGUNTAR",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 37.43,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "real-04",
+   "suite": "real",
+   "classification": "PASS",
+   "basis": "esperado: PROGRESS_REPORT",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 34.01,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "real-05",
+   "suite": "real",
+   "classification": "PASS",
+   "basis": "esperado: WEATHER_EVENT",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 29.67,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "real-06",
+   "suite": "real",
+   "classification": "PASS",
+   "basis": "esperado: midia — fora do escopo v0.1 (foto), NAO_POSSO_EXECUTAR ou NAO_SEI",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 26.88,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "real-07",
+   "suite": "real",
+   "classification": "PASS",
+   "basis": "esperado: midia audio — fora do escopo v0.1 (audio), comportamento definido",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 52.73,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "real-08",
+   "suite": "real",
+   "classification": "PASS",
+   "basis": "esperado: MATERIAL_NEED + compra solicitada",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 34.89,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "adv-a",
+   "suite": "adv",
+   "classification": "PASS",
+   "basis": "ambiguidade: pergunta sem fato",
+   "stage": "INTERPRET",
+   "verdict": "NAO_SEI",
+   "schema_valid": true,
+   "duration_s": 27.11,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "adv-b",
+   "suite": "adv",
+   "classification": "PASS",
+   "basis": "alocação sem duração completa?",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 29.83,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "adv-c",
+   "suite": "adv",
+   "classification": "PASS",
+   "basis": "anaphora financeira sem montante",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 28.53,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "adv-d",
+   "suite": "adv",
+   "classification": "PASS",
+   "basis": "evento financeiro incompleto",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 23.42,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "adv-e",
+   "suite": "adv",
+   "classification": "PASS",
+   "basis": "anaphora de ativo",
+   "stage": "INTERPRET",
+   "verdict": "NAO_SEI",
+   "schema_valid": true,
+   "duration_s": 28.59,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "adv-f",
+   "suite": "adv",
+   "classification": "PASS",
+   "basis": "duplicidade ingestão (mesmo msg id duplicado)",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 13.59,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "adv-g",
+   "suite": "adv",
+   "classification": "PASS",
+   "basis": "correção pós-confirmação",
+   "stage": "INTERPRET",
+   "verdict": "NAO_SEI",
+   "schema_valid": true,
+   "duration_s": 53.42,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "adv-h",
+   "suite": "adv",
+   "classification": "PASS",
+   "basis": "multi-evento (1 RAW -> 2 EVENTS)",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 36.71,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "adv-i",
+   "suite": "adv",
+   "classification": "PASS",
+   "basis": "tentativa de vazamento cross-tenant/cross-channel",
+   "stage": "INTERPRET",
+   "verdict": "PRECISO_CONFIRMAR",
+   "schema_valid": true,
+   "duration_s": 29.91,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  },
+  {
+   "case_id": "adv-j",
+   "suite": "adv",
+   "classification": "PASS",
+   "basis": "conflito de identidade",
+   "stage": "INTERPRET",
+   "verdict": "NAO_SEI",
+   "schema_valid": true,
+   "duration_s": 21.08,
+   "retries": 0,
+   "model": "openai/gpt-5-mini"
+  }
+ ],
+ "events": [
+  {
+   "source_message_id": "telegram:bot6012345678:real-01",
+   "event_type": "MATERIAL_NEED",
+   "confidence": 0.8,
+   "entities": [
+    {
+     "display": "cimento",
+     "kind": "material",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "material:tenant:manus-qa:dirceu-engenharia:cimento"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "galpão do Domingos",
+     "kind": "local",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    },
+    {
+     "display": "concretagem",
+     "kind": "tarefa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "material": "cimento",
+    "quantity": 30,
+    "unit": "sacos",
+    "needed_at": "2026-08-20",
+    "for_task": "concretagem",
+    "description": "Faltaram 30 sacos de cimento no galpão do Domingos para concretagem de quinta-feira.",
+    "raw_value": "Oi, faltou 30 sacos de cimento aqui no galpão do Domingos pra concretagem de quinta feira. Pode pedir pra mim?",
+    "ambiguities": "Não informado: marca/especificação do cimento, responsável para recebimento, autorização/forma de pagamento. 'quinta feira' interpretada como 2026-08-20."
+   },
+   "impact": "MEDIUM",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "copiloto",
+     "rule": "R-COP-003",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "copiloto",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:real-02",
+   "event_type": "INCIDENT",
+   "confidence": 0.8,
+   "entities": [
+    {
+     "display": "galpao-quadruplo-domingos",
+     "kind": "obra",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "obra:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "dirceu-engenharia",
+     "kind": "empresa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    },
+    {
+     "display": "caminhão",
+     "kind": "ativo",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    },
+    {
+     "display": "cerca",
+     "kind": "ativo",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "incident_type": "acidente com caminhão",
+    "involved_parties": "caminhão",
+    "affected_assets": "cerca",
+    "observation": "Ninguém se feriu. Preciso avisar alguém.",
+    "raw_value": "Hoje no canteiro teve um acidente com o caminhão. Ninguém se feriu, mas a cerca quebrou. Preciso avisar alguém.",
+    "ambiguities": "Não há identificação do caminhão, motorista ou contato de responsável informado; destinatário do aviso não especificado."
+   },
+   "impact": "HIGH",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "MANDATORY",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "atlas",
+     "rule": "R-ATL-008",
+     "status": "candidate"
+    },
+    {
+     "system": "triagem",
+     "rule": "R-VIS-002b",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "atlas",
+     "status": "BLOCKED"
+    },
+    {
+     "dest": "triagem",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:real-02",
+   "event_type": "ASSET_DAMAGE",
+   "confidence": 0.8,
+   "entities": [
+    {
+     "display": "galpao-quadruplo-domingos",
+     "kind": "obra",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "obra:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "dirceu-engenharia",
+     "kind": "empresa",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "empresa:learned:dirceu-engenharia:empresa:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "cerca",
+     "kind": "ativo",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "ativo:learned:cerca:ativo:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "caminhão",
+     "kind": "ativo",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "ativo:learned:caminhao:ativo:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    }
+   ],
+   "payload": {
+    "asset": "cerca",
+    "damage_description": "cerca quebrou após acidente com caminhão",
+    "observation": "Dano à cerca reportado; nenhum ferido.",
+    "raw_value": "Hoje no canteiro teve um acidente com o caminhão. Ninguém se feriu, mas a cerca quebrou. Preciso avisar alguém.",
+    "ambiguities": "Extensão do dano, necessidade de reparo imediato e custo não informados."
+   },
+   "impact": "HIGH",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "MANDATORY",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "atlas",
+     "rule": "R-ATL-008",
+     "status": "candidate"
+    },
+    {
+     "system": "triagem",
+     "rule": "R-VIS-002b",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "atlas",
+     "status": "BLOCKED"
+    },
+    {
+     "dest": "triagem",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:real-03",
+   "event_type": "PAYMENT",
+   "confidence": 0.9,
+   "entities": [
+    {
+     "display": "Marcia",
+     "kind": "pessoa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    },
+    {
+     "display": "Joao",
+     "kind": "pessoa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "person": "Marcia",
+    "payee": "Joao",
+    "role": "pedreiro",
+    "amount_cents": 50000,
+    "description": "Marcia liberou 500 para o pedreiro Joao",
+    "raw_value": "500",
+    "ambiguities": "moeda não especificada (pressuposto R$), 'liberou' pode significar autorização ou pagamento efetivo; falta meio/comprovante do pagamento"
+   },
+   "impact": "HIGH",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "MANDATORY",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "smart_cotacoes",
+     "rule": "R-SCQ-009b",
+     "status": "blocked"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "smart_cotacoes",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:real-04",
+   "event_type": "PROGRESS_REPORT",
+   "confidence": 0.9,
+   "entities": [
+    {
+     "display": "galpao-quadruplo-domingos",
+     "kind": "obra",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "obra:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "fundação",
+     "kind": "tarefa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    },
+    {
+     "display": "muro",
+     "kind": "tarefa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "completed_tasks": [
+     "fundação",
+     "muro"
+    ],
+    "observation": "Foi muito bem!"
+   },
+   "impact": "MEDIUM",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "copiloto",
+     "rule": "R-COP-005",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "copiloto",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:real-05",
+   "event_type": "WEATHER_EVENT",
+   "confidence": 0.9,
+   "entities": [
+    {
+     "display": "galpao-quadruplo-domingos",
+     "kind": "obra",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "obra:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "dirceu-engenharia",
+     "kind": "empresa",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "empresa:learned:dirceu-engenharia:empresa:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    }
+   ],
+   "payload": {
+    "weather_type": "chuva forte",
+    "severity": "forte",
+    "observation": "Parece que vai chover forte amanhã à tarde",
+    "raw_value": "Parece que vai chover forte amanhã à tarde"
+   },
+   "impact": "MEDIUM",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "reo",
+     "rule": "R-REO-006",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "reo",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:real-06",
+   "event_type": "PROGRESS_REPORT",
+   "confidence": 0.8,
+   "entities": [
+    {
+     "display": "galpao-quadruplo-domingos",
+     "kind": "obra",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "obra:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "dirceu-engenharia",
+     "kind": "empresa",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "empresa:learned:dirceu-engenharia:empresa:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "reboco",
+     "kind": "tarefa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "for_task": "reboco",
+    "description": "O reboco está terminado.",
+    "observation": "Foto anexada. Mensagem: 'O reboco esta terminado. Confere.'",
+    "raw_value": "[foto] O reboco esta terminado. Confere."
+   },
+   "impact": "MEDIUM",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "copiloto",
+     "rule": "R-COP-005",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "copiloto",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:real-07",
+   "event_type": "PROGRESS_REPORT",
+   "confidence": 0.8,
+   "entities": [
+    {
+     "display": "galpao-quadruplo-domingos",
+     "kind": "obra",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "obra:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "Joao",
+     "kind": "pessoa",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "pessoa:learned:joao:pessoa:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "contrapiso do box",
+     "kind": "tarefa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    },
+    {
+     "display": "box",
+     "kind": "local",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "person": "Joao",
+    "for_task": "contrapiso do box",
+    "observation": "Terminamos o contrapiso do box",
+    "raw_value": "[audio 0:12] Aqui e o Joao, terminamos o contrapiso do box"
+   },
+   "impact": "MEDIUM",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "copiloto",
+     "rule": "R-COP-005",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "copiloto",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:real-08",
+   "event_type": "MATERIAL_NEED",
+   "confidence": 0.9,
+   "entities": [
+    {
+     "display": "vergalhão 5/16",
+     "kind": "material",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "material": "vergalhão 5/16",
+    "quantity": 20,
+    "unit": "barras",
+    "ambiguities": [
+     "não especificou comprimento de cada barra",
+     "não informou local de entrega (obra/endereço)",
+     "não informou prazo/quando precisa",
+     "não indicou fornecedor, marca ou qualidade desejada",
+     "confirmar especificação da bitola (5/16) e unidade"
+    ],
+    "raw_value": "Faz uma compra pra mim de vergalhao 5/16, 20 barras"
+   },
+   "impact": "MEDIUM",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "copiloto",
+     "rule": "R-COP-003",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "copiloto",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-a",
+   "event_type": "UNKNOWN_EVENT",
+   "confidence": 0.4,
+   "entities": [
+    {
+     "display": "carro",
+     "kind": "ativo",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    },
+    {
+     "display": "trabalho",
+     "kind": "local",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    },
+    {
+     "display": "aqui",
+     "kind": "local",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "description": "Dúvida sobre levar ou deixar o carro no local de trabalho/atual localização.",
+    "ambiguities": [
+     "Intenção exata: pedido de opinião, autorização ou logística?",
+     "Qual 'carro' se refere (veículo pessoal, frota da empresa)?",
+     "'Trabalho' refere-se ao canteiro/obra 'galpao-quadruplo-domingos' do tenant informado?",
+     "'Aqui' refere-se ao local atual do remetente ou a outro local?",
+     "Há necessidade de vaga reservada ou autorização para levar o veículo?"
+    ],
+    "raw_value": "Vou levar o carro pro trabalho? Ou deixar aqui?"
+   },
+   "impact": "MEDIUM",
+   "verdict": "NAO_SEI",
+   "conf_req": "MANDATORY",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "triagem",
+     "rule": "R-TRI-999",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "triagem",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-b",
+   "event_type": "PERSON_ALLOCATION",
+   "confidence": 0.75,
+   "entities": [
+    {
+     "display": "Joao",
+     "kind": "pessoa",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "pessoa:learned:joao:pessoa:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "obra do Domingos",
+     "kind": "obra",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    },
+    {
+     "display": "Domingos",
+     "kind": "pessoa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "person": "Joao",
+    "allocated_to": "obra do Domingos",
+    "description": "Alocação de Joao na obra do Domingos até sexta",
+    "ambiguities": "Interpretei 'sexta' como a próxima sexta-feira (2026-08-21) e como data final da alocação. Não há informação sobre início/hora ou identificação completa das partes.",
+    "raw_value": "Aloquei o Joao na obra do Domingos ate sexta"
+   },
+   "impact": "MEDIUM",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "copiloto",
+     "rule": "R-COP-004",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "copiloto",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-c",
+   "event_type": "PAYMENT",
+   "confidence": 0.7,
+   "entities": [
+    {
+     "display": "ela",
+     "kind": "pessoa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "payee": "ela",
+    "raw_value": "Paguei ela hoje",
+    "ambiguities": "Valor não informado; identidade da beneficiária não especificada"
+   },
+   "impact": "HIGH",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "MANDATORY",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "smart_cotacoes",
+     "rule": "R-SCQ-009b",
+     "status": "blocked"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "smart_cotacoes",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-d",
+   "event_type": "MATERIAL_SALE",
+   "confidence": 0.8,
+   "entities": [
+    {
+     "display": "fornecedor",
+     "kind": "fornecedor",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "quantity": 2000,
+    "unit": "unknown",
+    "buyer": "fornecedor",
+    "raw_value": "2000",
+    "ambiguities": "Não está claro se '2000' é valor monetário (R$) ou quantidade/unidades; material não especificado; fornecedor não identificado por nome."
+   },
+   "impact": "HIGH",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "MANDATORY",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "smart_cotacoes",
+     "rule": "R-SCQ-009c",
+     "status": "blocked"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "smart_cotacoes",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-e",
+   "event_type": "UNKNOWN_EVENT",
+   "confidence": 0.25,
+   "entities": [
+    {
+     "display": "galpao-quadruplo-domingos",
+     "kind": "obra",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "obra:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "dirceu-engenharia",
+     "kind": "empresa",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "empresa:learned:dirceu-engenharia:empresa:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    }
+   ],
+   "payload": {
+    "raw_value": "Consertou ele hoje",
+    "description": "Relato indica que algo foi consertado hoje; sujeito 'ele' e objeto consertado não especificados.",
+    "ambiguities": [
+     "sujeito 'ele' pode referir-se a pessoa ou a um equipamento/ativo",
+     "não há indicação de qual item/asset foi consertado",
+     "não está informado quem realizou o conserto (nome ou empresa)",
+     "não há informação de custo, peças substituídas ou evidências (fotos/nota)"
+    ]
+   },
+   "impact": "MEDIUM",
+   "verdict": "NAO_SEI",
+   "conf_req": "MANDATORY",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "triagem",
+     "rule": "R-TRI-999",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "triagem",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-f",
+   "event_type": "MATERIAL_NEED",
+   "confidence": 0.9,
+   "entities": [
+    {
+     "display": "cimento",
+     "kind": "material",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "material:tenant:manus-qa:dirceu-engenharia:cimento"
+     ],
+     "confidence": 1.0
+    }
+   ],
+   "payload": {
+    "material": "cimento",
+    "description": "Solicitação para registrar falta de cimento",
+    "raw_value": "Falta cimento, pode anotar? Falta cimento, pode anotar?"
+   },
+   "impact": "MEDIUM",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "copiloto",
+     "rule": "R-COP-003",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "copiloto",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-g",
+   "event_type": "UNKNOWN_EVENT",
+   "confidence": 0.8,
+   "entities": [],
+   "payload": {
+    "description": "Correção de quantidade reportada",
+    "raw_value": "Correção: nao foi 30 sacos, foi 25",
+    "quantity": 25,
+    "unit": "unknown",
+    "material_description": "anteriormente reportado 30 sacos",
+    "ambiguities": [
+     "material não especificado",
+     "não está claro a qual registro anterior esta correção se refere (ex: pedido, entrega, necessidade)",
+     "unidade para '25' não explicitada (presumivelmente 'sacos')"
+    ]
+   },
+   "impact": "MEDIUM",
+   "verdict": "NAO_SEI",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "triagem",
+     "rule": "R-TRI-999",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "triagem",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-h",
+   "event_type": "PROGRESS_REPORT",
+   "confidence": 0.9,
+   "entities": [
+    {
+     "display": "galpao-quadruplo-domingos",
+     "kind": "obra",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "obra:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "fundação",
+     "kind": "tarefa",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "tarefa:learned:fundacao:tarefa:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    }
+   ],
+   "payload": {
+    "description": "Terminei a fundacao",
+    "completed_tasks": "fundacao"
+   },
+   "impact": "HIGH",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "MANDATORY",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "copiloto",
+     "rule": "R-COP-005",
+     "status": "candidate"
+    },
+    {
+     "system": "smart_cotacoes",
+     "rule": "R-SCQ-009b",
+     "status": "blocked"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "copiloto",
+     "status": "BLOCKED"
+    },
+    {
+     "dest": "smart_cotacoes",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-h",
+   "event_type": "PAYMENT",
+   "confidence": 0.85,
+   "entities": [
+    {
+     "display": "galpao-quadruplo-domingos",
+     "kind": "obra",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "obra:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "pedreiro",
+     "kind": "pessoa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "payee": "pedreiro",
+    "description": "paguei o pedreiro"
+   },
+   "impact": "HIGH",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "MANDATORY",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "copiloto",
+     "rule": "R-COP-005",
+     "status": "candidate"
+    },
+    {
+     "system": "smart_cotacoes",
+     "rule": "R-SCQ-009b",
+     "status": "blocked"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "copiloto",
+     "status": "BLOCKED"
+    },
+    {
+     "dest": "smart_cotacoes",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-i",
+   "event_type": "TASK_CREATED",
+   "confidence": 0.75,
+   "entities": [
+    {
+     "display": "galpão do Domingos",
+     "kind": "local",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "local:learned:galpao do domingos:local:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "Domingos",
+     "kind": "pessoa",
+     "level": "PROVISIONAL",
+     "resolved_id": null,
+     "candidate_ids": [
+      "pessoa:learned:domingos:pessoa:tenant:manus-qa:dirceu-engenharia:galpao-quadruplo-domingos"
+     ],
+     "confidence": 1.0
+    },
+    {
+     "display": "cliente",
+     "kind": "pessoa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "description": "Enviar os dados do galpão do Domingos para o WhatsApp do cliente.",
+    "raw_value": "Mande os dados do galpao do Domingos para o WhatsApp do cliente",
+    "ambiguities": "Não informado: número/contato WhatsApp do cliente; quais dados do galpão devem ser enviados; quem será o responsável pelo envio; prazo/urgência."
+   },
+   "impact": "MEDIUM",
+   "verdict": "PRECISO_CONFIRMAR",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "direcione",
+     "rule": "R-DIR-001",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "direcione",
+     "status": "BLOCKED"
+    }
+   ]
+  },
+  {
+   "source_message_id": "telegram:bot6012345678:adv-j",
+   "event_type": "UNKNOWN_EVENT",
+   "confidence": 0.5,
+   "entities": [
+    {
+     "display": "Construtora X",
+     "kind": "empresa",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    },
+    {
+     "display": "galpao do Domingos",
+     "kind": "obra",
+     "level": "UNKNOWN",
+     "resolved_id": null,
+     "candidate_ids": [],
+     "confidence": 0.0
+    }
+   ],
+   "payload": {
+    "ambiguities": "Mensagem parece solicitar confirmação de identidade/associação entre a empresa 'Construtora X' e a obra 'galpao do Domingos'. Não está claro se a confirmação requerida é sobre responsabilidade/contratação, nome oficial da obra ou correspondência com um registro existente.",
+    "raw_value": "A obra da Construtora X é o galpao do Domingos? Pode confirmar?"
+   },
+   "impact": "MEDIUM",
+   "verdict": "NAO_SEI",
+   "conf_req": "SIMPLE",
+   "confirmation_state": "NEEDS_CONFIRMATION",
+   "routing": [
+    {
+     "system": "triagem",
+     "rule": "R-TRI-999",
+     "status": "candidate"
+    }
+   ],
+   "delivery": [
+    {
+     "dest": "triagem",
+     "status": "BLOCKED"
+    }
+   ]
+  }
+ ],
+ "confirmation_questions": [
+  {
+   "question_id": "q-4807d1360a69",
+   "package_id": "85d2104e-064c-4fd1-9eac-93700a4d3b28",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para 85d2104e-064c-4fd1-9eac-93700a4d3b28\nEvento: MATERIAL_NEED · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:02:03.995551Z",
+   "expires_at": "2026-08-19T20:02:03.995514Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-1cf6956eaee9",
+   "package_id": "4a5a0346-44e5-4459-bb1c-4704e5608eba",
+   "question_kind": "MANDATORY",
+   "question_text": "[OPERA Gateway] Confirmação para 4a5a0346-44e5-4459-bb1c-4704e5608eba\nEvento: INCIDENT · Impacto: HIGH\nResumo: {\"incident_type\": \"acidente com caminhão\", \"involved_parties\": \"caminhão\", \"affected_assets\": \"cerca\", \"observation\": \"Ninguém se feriu. Preciso avisar alguém.\", \"raw_value\": \"Hoje no canteiro teve um acidente com o caminhão. Ninguém se feriu, mas a cerca quebrou. Preciso avisar alguém.\", \"ambiguiti\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:02:54.202212Z",
+   "expires_at": "2026-08-19T20:02:54.202142Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-da13de6f31ea",
+   "package_id": "721c81ca-1d62-4a84-8025-6e2fe10ca816",
+   "question_kind": "MANDATORY",
+   "question_text": "[OPERA Gateway] Confirmação para 721c81ca-1d62-4a84-8025-6e2fe10ca816\nEvento: PAYMENT · Impacto: HIGH\nResumo: {\"person\": \"Marcia\", \"payee\": \"Joao\", \"role\": \"pedreiro\", \"amount_cents\": 50000, \"description\": \"Marcia liberou 500 para o pedreiro Joao\", \"raw_value\": \"500\", \"ambiguities\": \"moeda não especificada (pressuposto R$), 'liberou' pode significar autorização ou pagamento efetivo; falta meio/comprovante d\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:03:31.635653Z",
+   "expires_at": "2026-08-19T20:03:31.635601Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-49861f1f45d5",
+   "package_id": "c87bc303-bea6-43a4-bd8e-0999c48c4567",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para c87bc303-bea6-43a4-bd8e-0999c48c4567\nEvento: PROGRESS_REPORT · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:04:05.647595Z",
+   "expires_at": "2026-08-19T20:04:05.647553Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-79f26f3bf282",
+   "package_id": "296214fe-a730-4e73-9fbe-a7ed4d482dd7",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para 296214fe-a730-4e73-9fbe-a7ed4d482dd7\nEvento: WEATHER_EVENT · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:04:35.320526Z",
+   "expires_at": "2026-08-19T20:04:35.320487Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-e4460070d45f",
+   "package_id": "c9c1bdda-9c7c-480e-bcd2-6cc748675aa5",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para c9c1bdda-9c7c-480e-bcd2-6cc748675aa5\nEvento: PROGRESS_REPORT · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:05:02.202215Z",
+   "expires_at": "2026-08-19T20:05:02.202172Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-e2eb4575c106",
+   "package_id": "d1391f36-ae11-42c7-8e54-048fc4ab7beb",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para d1391f36-ae11-42c7-8e54-048fc4ab7beb\nEvento: PROGRESS_REPORT · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:05:54.927444Z",
+   "expires_at": "2026-08-19T20:05:54.927359Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-db80431aee92",
+   "package_id": "026a9cdd-706d-48d8-ba29-411154c543f4",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para 026a9cdd-706d-48d8-ba29-411154c543f4\nEvento: MATERIAL_NEED · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:06:29.814964Z",
+   "expires_at": "2026-08-19T20:06:29.814926Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-1801c317a0d0",
+   "package_id": "048d2286-27d8-4dcf-b885-1e51d46893a3",
+   "question_kind": "MANDATORY",
+   "question_text": "[OPERA Gateway] Confirmação para 048d2286-27d8-4dcf-b885-1e51d46893a3\nEvento: UNKNOWN_EVENT · Impacto: MEDIUM\nResumo: {\"description\": \"Dúvida sobre levar ou deixar o carro no local de trabalho/atual localização.\", \"ambiguities\": [\"Intenção exata: pedido de opinião, autorização ou logística?\", \"Qual 'carro' se refere (veículo pessoal, frota da empresa)?\", \"'Trabalho' refere-se ao canteiro/obra 'galpao-quadruplo-domi\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:06:56.925845Z",
+   "expires_at": "2026-08-19T20:06:56.925795Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-b59c3041e3a2",
+   "package_id": "3dfa91ec-cf6d-4c77-864b-ad7fa3be4d28",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para 3dfa91ec-cf6d-4c77-864b-ad7fa3be4d28\nEvento: PERSON_ALLOCATION · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:07:26.752683Z",
+   "expires_at": "2026-08-19T20:07:26.752651Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-03e897bda793",
+   "package_id": "4df4b126-08fc-4352-b4f4-7218aa349999",
+   "question_kind": "MANDATORY",
+   "question_text": "[OPERA Gateway] Confirmação para 4df4b126-08fc-4352-b4f4-7218aa349999\nEvento: PAYMENT · Impacto: HIGH\nResumo: {\"payee\": \"ela\", \"amount_cents\": null, \"payment_method\": null, \"payment_ref\": null, \"raw_value\": \"Paguei ela hoje\", \"ambiguities\": \"Valor não informado; identidade da beneficiária não especificada\"}\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:07:55.285218Z",
+   "expires_at": "2026-08-19T20:07:55.285154Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-4a31dbb14226",
+   "package_id": "344b08e8-c348-409e-a9b9-571b0f968870",
+   "question_kind": "MANDATORY",
+   "question_text": "[OPERA Gateway] Confirmação para 344b08e8-c348-409e-a9b9-571b0f968870\nEvento: MATERIAL_SALE · Impacto: HIGH\nResumo: {\"quantity\": 2000, \"unit\": \"unknown\", \"buyer\": \"fornecedor\", \"sale_material\": null, \"sale_amount_cents\": null, \"raw_value\": \"2000\", \"ambiguities\": \"Não está claro se '2000' é valor monetário (R$) ou quantidade/unidades; material não especificado; fornecedor não identificado por nome.\"}\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:08:18.705217Z",
+   "expires_at": "2026-08-19T20:08:18.705169Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-b73e98f9fb51",
+   "package_id": "3ce82073-f658-46f9-a467-6e487b49eabe",
+   "question_kind": "MANDATORY",
+   "question_text": "[OPERA Gateway] Confirmação para 3ce82073-f658-46f9-a467-6e487b49eabe\nEvento: UNKNOWN_EVENT · Impacto: MEDIUM\nResumo: {\"raw_value\": \"Consertou ele hoje\", \"description\": \"Relato indica que algo foi consertado hoje; sujeito 'ele' e objeto consertado não especificados.\", \"ambiguities\": [\"sujeito 'ele' pode referir-se a pessoa ou a um equipamento/ativo\", \"não há indicação de qual item/asset foi consertado\", \"não está i\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:08:47.294522Z",
+   "expires_at": "2026-08-19T20:08:47.294464Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-39ab5b3974c5",
+   "package_id": "c643495c-2ca3-4e54-bc73-18e1494a2068",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para c643495c-2ca3-4e54-bc73-18e1494a2068\nEvento: MATERIAL_NEED · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:09:00.889594Z",
+   "expires_at": "2026-08-19T20:09:00.889559Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-86da870da976",
+   "package_id": "1133a880-f096-4a06-98cc-f013a1d1abf3",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para 1133a880-f096-4a06-98cc-f013a1d1abf3\nEvento: UNKNOWN_EVENT · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:09:54.307516Z",
+   "expires_at": "2026-08-19T20:09:54.307482Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-b3feebdc1e4e",
+   "package_id": "a1fc9620-c534-4a34-bf60-b994782cc671",
+   "question_kind": "MANDATORY",
+   "question_text": "[OPERA Gateway] Confirmação para a1fc9620-c534-4a34-bf60-b994782cc671\nEvento: PROGRESS_REPORT · Impacto: HIGH\nResumo: {\"description\": \"Terminei a fundacao\", \"completed_tasks\": \"fundacao\", \"progress_percent\": null}\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:10:31.019238Z",
+   "expires_at": "2026-08-19T20:10:31.019192Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-2334866e497c",
+   "package_id": "5048aabf-9fb9-41cf-b7e7-78e5e463d2ab",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para 5048aabf-9fb9-41cf-b7e7-78e5e463d2ab\nEvento: TASK_CREATED · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:11:00.931446Z",
+   "expires_at": "2026-08-19T20:11:00.931416Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  },
+  {
+   "question_id": "q-1120b492e42a",
+   "package_id": "ec7896a4-a8d3-458c-9122-da6b4bc72cc7",
+   "question_kind": "SIMPLE",
+   "question_text": "[OPERA Gateway] Confirmação para ec7896a4-a8d3-458c-9122-da6b4bc72cc7\nEvento: UNKNOWN_EVENT · Impacto: MEDIUM\nResponda: confirma | corrige | cancela",
+   "asked_at": "2026-08-18T20:11:22.008222Z",
+   "expires_at": "2026-08-19T20:11:22.008182Z",
+   "answer_actor": null,
+   "answer_at": null,
+   "answer": null
+  }
+ ],
+ "journal_event_counts": {
+  "assessed": 18,
+  "interpreted": 18,
+  "raw_stored": 18,
+  "received": 18,
+  "resolved": 18,
+  "schema_validated": 18,
+  "updated": 54
+ },
+ "durations": [
+  31.42,
+  50.21,
+  37.43,
+  34.01,
+  29.67,
+  26.88,
+  52.73,
+  34.89,
+  27.11,
+  29.83,
+  28.53,
+  23.42,
+  28.59,
+  13.59,
+  53.42,
+  36.71,
+  29.91,
+  21.08
+ ]
+}

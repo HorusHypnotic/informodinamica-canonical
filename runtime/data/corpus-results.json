@@ -1,0 +1,380 @@
+[
+ {
+  "case_id": "real-01",
+  "suite": "real",
+  "classification": "PASS",
+  "classification_basis": "esperado: MATERIAL_NEED, confirmacao, rota candidata copiloto",
+  "expected_basis": "esperado: MATERIAL_NEED, confirmacao, rota candidata copiloto",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:02:03.988363+00:00"
+  },
+  "duration_s": 31.42
+ },
+ {
+  "case_id": "real-02",
+  "suite": "real",
+  "classification": "PASS",
+  "classification_basis": "esperado: INCIDENT ou WEATHER_EVENT? — INCIDENT, alta criticidade, confirmação mandatória",
+  "expected_basis": "esperado: INCIDENT ou WEATHER_EVENT? — INCIDENT, alta criticidade, confirmação mandatória",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:02:54.193027+00:00"
+  },
+  "duration_s": 50.21
+ },
+ {
+  "case_id": "real-03",
+  "suite": "real",
+  "classification": "PASS",
+  "classification_basis": "esperado: PAYMENT (HIGH-IMPACT), PRECISO_CONFIRMAR/PERGUNTAR",
+  "expected_basis": "esperado: PAYMENT (HIGH-IMPACT), PRECISO_CONFIRMAR/PERGUNTAR",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:03:31.629563+00:00"
+  },
+  "duration_s": 37.43
+ },
+ {
+  "case_id": "real-04",
+  "suite": "real",
+  "classification": "PASS",
+  "classification_basis": "esperado: PROGRESS_REPORT",
+  "expected_basis": "esperado: PROGRESS_REPORT",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:04:05.640935+00:00"
+  },
+  "duration_s": 34.01
+ },
+ {
+  "case_id": "real-05",
+  "suite": "real",
+  "classification": "PASS",
+  "classification_basis": "esperado: WEATHER_EVENT",
+  "expected_basis": "esperado: WEATHER_EVENT",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:04:35.312590+00:00"
+  },
+  "duration_s": 29.67
+ },
+ {
+  "case_id": "real-06",
+  "suite": "real",
+  "classification": "PASS",
+  "classification_basis": "esperado: midia — fora do escopo v0.1 (foto), NAO_POSSO_EXECUTAR ou NAO_SEI",
+  "expected_basis": "esperado: midia — fora do escopo v0.1 (foto), NAO_POSSO_EXECUTAR ou NAO_SEI",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:05:02.193912+00:00"
+  },
+  "duration_s": 26.88
+ },
+ {
+  "case_id": "real-07",
+  "suite": "real",
+  "classification": "PASS",
+  "classification_basis": "esperado: midia audio — fora do escopo v0.1 (audio), comportamento definido",
+  "expected_basis": "esperado: midia audio — fora do escopo v0.1 (audio), comportamento definido",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:05:54.915636+00:00"
+  },
+  "duration_s": 52.73
+ },
+ {
+  "case_id": "real-08",
+  "suite": "real",
+  "classification": "PASS",
+  "classification_basis": "esperado: MATERIAL_NEED + compra solicitada",
+  "expected_basis": "esperado: MATERIAL_NEED + compra solicitada",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:06:29.809400+00:00"
+  },
+  "duration_s": 34.89
+ },
+ {
+  "case_id": "adv-a",
+  "suite": "adv",
+  "classification": "PASS",
+  "classification_basis": "ambiguidade: pergunta sem fato",
+  "expected_basis": "ambiguidade: pergunta sem fato",
+  "stage": "INTERPRET",
+  "verdict": "NAO_SEI",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:06:56.920464+00:00"
+  },
+  "duration_s": 27.11
+ },
+ {
+  "case_id": "adv-b",
+  "suite": "adv",
+  "classification": "PASS",
+  "classification_basis": "alocação sem duração completa?",
+  "expected_basis": "alocação sem duração completa?",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:07:26.746266+00:00"
+  },
+  "duration_s": 29.83
+ },
+ {
+  "case_id": "adv-c",
+  "suite": "adv",
+  "classification": "PASS",
+  "classification_basis": "anaphora financeira sem montante",
+  "expected_basis": "anaphora financeira sem montante",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:07:55.278996+00:00"
+  },
+  "duration_s": 28.53
+ },
+ {
+  "case_id": "adv-d",
+  "suite": "adv",
+  "classification": "PASS",
+  "classification_basis": "evento financeiro incompleto",
+  "expected_basis": "evento financeiro incompleto",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:08:18.699931+00:00"
+  },
+  "duration_s": 23.42
+ },
+ {
+  "case_id": "adv-e",
+  "suite": "adv",
+  "classification": "PASS",
+  "classification_basis": "anaphora de ativo",
+  "expected_basis": "anaphora de ativo",
+  "stage": "INTERPRET",
+  "verdict": "NAO_SEI",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:08:47.287301+00:00"
+  },
+  "duration_s": 28.59
+ },
+ {
+  "case_id": "adv-f",
+  "suite": "adv",
+  "classification": "PASS",
+  "classification_basis": "duplicidade ingestão (mesmo msg id duplicado)",
+  "expected_basis": "duplicidade ingestão (mesmo msg id duplicado)",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:09:00.882057+00:00"
+  },
+  "duration_s": 13.59
+ },
+ {
+  "case_id": "adv-g",
+  "suite": "adv",
+  "classification": "PASS",
+  "classification_basis": "correção pós-confirmação",
+  "expected_basis": "correção pós-confirmação",
+  "stage": "INTERPRET",
+  "verdict": "NAO_SEI",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:09:54.303113+00:00"
+  },
+  "duration_s": 53.42
+ },
+ {
+  "case_id": "adv-h",
+  "suite": "adv",
+  "classification": "PASS",
+  "classification_basis": "multi-evento (1 RAW -> 2 EVENTS)",
+  "expected_basis": "multi-evento (1 RAW -> 2 EVENTS)",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:10:31.010223+00:00"
+  },
+  "duration_s": 36.71
+ },
+ {
+  "case_id": "adv-i",
+  "suite": "adv",
+  "classification": "PASS",
+  "classification_basis": "tentativa de vazamento cross-tenant/cross-channel",
+  "expected_basis": "tentativa de vazamento cross-tenant/cross-channel",
+  "stage": "INTERPRET",
+  "verdict": "PRECISO_CONFIRMAR",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:11:00.925727+00:00"
+  },
+  "duration_s": 29.91
+ },
+ {
+  "case_id": "adv-j",
+  "suite": "adv",
+  "classification": "PASS",
+  "classification_basis": "conflito de identidade",
+  "expected_basis": "conflito de identidade",
+  "stage": "INTERPRET",
+  "verdict": "NAO_SEI",
+  "validation": {
+   "valid": true,
+   "errors": []
+  },
+  "questions": [],
+  "route": null,
+  "interpreter_meta": {
+   "model_ref": "openai/gpt-5-mini",
+   "retries": 0,
+   "ts": "2026-08-18T20:11:22.001100+00:00"
+  },
+  "duration_s": 21.08
+ }
+]

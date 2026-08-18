@@ -1,0 +1,67 @@
+[
+ {
+  "id": "NC-01",
+  "passed": true,
+  "detail": "interpretation/events/0/event_type: 'PAGAMENTO_APROVADO_XYZ' is not one of ['TASK_CREATED', 'ASSET_TRANSFER', 'ASSET_DAMAGE', 'MATERIAL_NEED', 'MATERIAL_SALE', 'PERSON_ALLOCATION', 'PROGRESS_REPORT', 'FIELD_OBSERVATION', 'WEATHER_EVENT' | event_type fora da taxonomia: 'PAGAMENTO_APROVADO_XYZ'"
+ },
+ {
+  "id": "NC-02",
+  "passed": true,
+  "detail": "(root): 'multi_event' is a required property"
+ },
+ {
+  "id": "NC-03",
+  "passed": true,
+  "detail": "interpretation/events/0/confidence: 1.7 is greater than the maximum of 1"
+ },
+ {
+  "id": "NC-04",
+  "passed": true,
+  "detail": "rejeitado pre-interpretacao"
+ },
+ {
+  "id": "NC-05",
+  "passed": true,
+  "detail": "is_high_impact(PAYMENT)=True assessment corrigido: impact=HIGH verdict=PRECISO_CONFIRMAR conf=MANDATORY"
+ },
+ {
+  "id": "NC-06",
+  "passed": true,
+  "detail": "PAYMENT→R-SCQ-009b:blocked | desconhecido→R-TRI-999"
+ },
+ {
+  "id": "NC-07",
+  "passed": true,
+  "detail": "tenant ausente"
+ },
+ {
+  "id": "NC-08",
+  "passed": true,
+  "detail": "envelope.package_id=a324507c-910e-4def-8114-d9b321 vs índice=a324507c-910e-4def-8 — divergência detectável por comparação direta"
+ },
+ {
+  "id": "NC-09",
+  "passed": true,
+  "detail": "raw intacto=True sha256_consistente=True"
+ },
+ {
+  "id": "NC-10",
+  "passed": true,
+  "detail": "schema valid=True; entities vazias passam no schema (fraco) — o assessment deve marcar NAO_SEI/PRECISO_PERGUNTAR quando entities vazias"
+ },
+ {
+  "id": "NC-11",
+  "passed": true,
+  "detail": "interpretation/events/0/event_id: 'id-invalido' does not match '^[0-9a-f-]{36}:\\\\d+$'"
+ },
+ {
+  "id": "NC-12",
+  "passed": true,
+  "detail": "events/0/payload: Additional properties are not allowed ('campo_extra_malicioso' was unexpected)"
+ },
+ {
+  "id": "NC-13",
+  "passed": true,
+  "detail": "rejeitado pre-interpretacao (nem interpretou)"
+ }
+]
