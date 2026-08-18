@@ -32,6 +32,8 @@ R = metadados completos / total exigido. A auditoria sustenta que **R não é um
 
 X = 1 − erros de interpretação/consultas. É o caso mais grave (ver TPC-LEAKAGE-AUDIT.md): **X não é propriedade do artefato, é propriedade da interação agente-artefato**, e sua definição usa o próprio desfecho (erros de interpretação ≈ ECOs) como medida. Mesmo em uso não contaminado, X pertence ao nível I (interpretação), não ao nível R (estado da representação), na arquitetura R→I→A→ECO da missão (seção 9). Deve ser retirado do vetor EO ou movido para um instrumento próprio de interpretação.
 
+**Patch 2 aplicado (decisão explícita):** X é dividido e retirado do vetor preditivo do piloto. **X₁** (registro objetivo de consultas/acessos — logs) entra como **covariável de uso**, objetivamente pré-outcome. **X₂** (julgamento de erro de interpretação) é reclassificado como **subclasse descritiva de ECOB** e nunca preditor. O instrumento de interpretação I permanece adiado para fase futura. Vetor preditivo do piloto: (P, U, F, C + R moderador) + X₁. O baseline congelado TPC-A002/TPC-F001 (vetor de 6 atributos) **não foi alterado** — a aplicação registra a decisão de medição; o axioma histórico permanece documentado como origem da taxonomia H-EO.
+
 ## 3. Síntese estrutural
 
 | Atributo | Propriedade do artefato? | Dimensão independente? | Risco principal | Recomendação |
@@ -48,3 +50,5 @@ X = 1 − erros de interpretação/consultas. É o caso mais grave (ver TPC-LEAK
 ## 4. Consequência para a cadeia causal
 
 A cadeia R(t0)→I(t1)→A(t2)→ECO(t3) fica então operacionalizada como: medir (P+U, F, C, + R como moderador) em t0 no artefato; medir interpretação/agente em t1 (novo instrumento, incluindo X); registrar ação e desfecho ECO em t2–t3 com classificação cega. A cadeia é **modelo candidato**, não fato (seção 9 da missão).
+
+**Patch 7 aplicado (decisão explícita):** a cadeia R→I→A→ECO é reclassificada de "cadeia causal do fenômeno" para **protocolo de medição**. O snapshot R é congelado em t₀ e é **inalterável dentro da janela** — qualquer edição, revisão ou loop R↔I↔A observado durante a janela é registrado como **covariável de processo**, não como deformação adicional (imunização proibida). A sequência temporal da cadeia é **ordem de medição, não ontologia**: feedback A→R, loops I↔R e ação sem deformação prévia (caso #20 dos sintéticos) permanecem observáveis como covariáveis, mas não podem "explicar" o desfecho depois do fato. Esta reclassificação remove o caminho de imunização pós-hoc e torna os loops testáveis em vez de absorvíveis.

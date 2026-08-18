@@ -17,12 +17,15 @@
 | Componente | Conteúdo | Status |
 |------------|----------|--------|
 | Domínio | Sistemas sociotécnicos deliberativos com artefatos representacionais compartilhados | Definição operacional |
-| Arquitetura | R (estado da representação) → I (interpretação) → A (ação) → ECO (desfecho coordenacional) — cadeia candidata | Modelo (Gate 0) |
+| Arquitetura | R (estado da representação) → I (interpretação) → A (ação) → ECO (desfecho coordenacional) — reclassificada (Patch 7) como **protocolo de medição**: R congelado em t₀, loops como covariáveis, ordem de medição ≠ ontologia | Modelo (Gate 0) |
 | H-EO | Taxonomia candidata de propriedades do estado representacional (fator temporal P+U, fidelidade F com referente declarado, coerência C sobre grafo; R como camada de metadados; I separado) | Hipótese (Gate 1) |
-| ECP-V0 | Protocolo de classificação de ECO: 6 critérios, 4 dimensões separadas, cegamento, kappa mínimo | Instrumento (Gate 2) |
+| ECP-V0 (pós-patches) | Protocolo de classificação: **ECOA** (5 critérios, causalmente neutro) + **ECOB** (atribuição separada, nunca preditiva); partição de 6 regras; cegamento em dois mundos, kappa mínimo | Instrumento (Gate 2) |
+| Vetor preditivo (pós-patches) | (P, U, F, C + R moderador) + X₁ (logs de consulta); X₂ removido para ECOB (Patch 2) | Instrumento (Gate 1) |
 | Núcleo empírico | Associação prospectiva + incremento sobre baselines B0–B6 (decisivo: B6) | Hipótese (Gates 4–5) |
 | Hipótese causal | Intervenções representacionais alteram ECOs (régua equivalente entre braços) | Hipótese (Gate 6) |
-| Programa | Gates G0–G8 com critérios de abandono explícitos | Roadmap |
+| Programa | Gates G0–G8 com critérios de abandono explícitos; G0 aberto após red team PASS_WITH_REVISIONS; patches 1–7 aplicados por decisão humana; campo não iniciado | Roadmap |
+
+**Registro de aplicação (18/08/2026):** patches 1–7 aceitos por decisão explícita e aplicados nos documentos de instrumentos; baseline congelado intocado; pré-registro P0-PRE-REGISTRY produzido; missão parada antes do campo.
 
 **Explicitamente removido da v0.8:** axioma A2 (→ H-EO), B(S,t), D(S,t) como índice único, g/h como funções, K_R/K_C, HYP-003, ICO como métrica nova, Slektip/Capital Preservado/Fliflexação como conceitos, limiar de 20%, N≥20, "se e somente se HYP-001-U", exclusão de sabotagem, coverage cardinal do Doppelgänger, e toda a nomenclatura histórico-retórica que não gera teste.
 

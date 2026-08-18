@@ -18,11 +18,13 @@
 
 ## 2. Estado atual de cada gate
 
-Todos os gates estão **bloqueados** no momento desta consolidação. O que existe para destravá-los: G0 tem como entrada os documentos V0 desta reconstrução (revisão red team pendente); G1–G2 exigem estudo piloto de instrumentação (2–3 obras, medição prospectiva cega); G3 exige os dados do piloto para estimar ICC e incidência; G4–G5 exigem dimensionamento por poder (seção 5 do TPC-STATISTICAL-ARCHITECTURE-V0); G6 exige redesenho de HYP-002 (régua equivalente); G7–G8 não existem antes de G4–G6.
+Estado atualizado (aplicação dos patches, 18/08/2026): G0 **aberto** — o red team do Gate 0 retornou PASS_WITH_REVISIONS, os 7 patches foram aceitos por decisão humana explícita e aplicados nos instrumentos (ECP-V0, TPC-CONSTRUCT-VALIDITY, TPC-STATISTICAL-ARCHITECTURE-V0; registro em P0-PRE-REGISTRY). G1–G2 seguem exigindo o estudo piloto de instrumentação (2–3 obras, medição prospectiva cega, pré-registrado); o campo permanece **bloqueado até decisão humana** (esta missão aplica patches e pré-registra, mas **para antes do campo**). G3 exige os dados do piloto; G4–G5 exigem dimensionamento por poder; G6 exige redesenho de HYP-002 (régua equivalente); G7–G8 não existem antes de G4–G6.
 
 ## 3. O experimento logicamente primeiro
 
 Não é um teste de hipótese grande: é o **piloto de instrumentação (G1+G2)** — 2–3 obras, protocolo ECP-V0 cego, EO medido prospectivamente nas dimensões candidatas, episódios coordenacionais delimitados, sem qualquer pretensão preditiva. Saídas: confiabilidade dos instrumentos, estimativas de ICC e incidência (que dimensionam G3–G5), e a primeira base de negativos. Este é o próximo experimento logicamente necessário (pergunta 7 do critério de sucesso da missão).
+
+**Pós-patches (registro):** o piloto é executado conforme o pré-registro P0-PRE-REGISTRY: episódios abertos pré-outcome, amostragem universal, snapshot congelado em t₀, vetor preditivo sem X₂ (X₁ como covariável de uso), partição de classificação V1 (a célula de derrota é somável), dois mundos de cegamento com `BLINDING=IMPOSSIBLE` para equipes ≤2 (braço descritivo), metas de kappa ≥ 0.7 e as seis condições de abandono publicadas (seção 4). A autorização de campo é etapa final: decisão humana + pré-registro assinado + piloto de confiabilidade — esta missão **para antes**.
 
 ## 4. Critérios de abandono por hipótese (pergunta 8)
 

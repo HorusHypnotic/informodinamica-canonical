@@ -24,6 +24,8 @@ Proposta (seção 16 da missão): a unidade estatística natural é o **episódi
 4. Um horizonte futuro é definido (janela em que o desfecho pode ocorrer);
 5. O desfecho pode ou não ocorrer dentro da janela.
 
+**Patches 3 e 4 aplicados (decisão explícita):** a abertura do episódio é **pré-outcome** — um episódio abre quando os objetos observáveis existem em t₀ (tarefa interdependente, agentes, inventário documental vinculado, snapshot congelado, janela declarada), **antes** de qualquer desfecho. O fechamento é por fim natural da tarefa ou horizonte fixo. **Amostragem universal:** todos os episódios abertos na janela de coleta entram no estudo — não há seleção por falha; a célula "não/não" (verdadeiros negativos) é garantida por desenho, e o denominador de P(ECOA) existe. As escolhas de julgamento (referente por tipo de artefato, inventário e emparelhamento por tipo de episódio, rubricas-âncora) são **pré-registradas antes da coleta** (P0-PRE-REGISTRY). Episódios aninhados têm granularidade fixada antes da abertura.
+
 O episódio transforma o estudo de "correlação entre dois agregados" em **cohorte prospectiva por episódio**: mede-se EO em t₀, segue-se até o desfecho na janela. Vantagens: (i) define corretamente o denominador de P(ECO); (ii) força a precedência temporal por construção (leakage pré-outcome da seção 3); (iii) permite sobrevivência/análise de tempo até evento; (iv) episódios aninham naturalmente na hierarquia (episódios dentro de obras dentro de empresas). **Status: unidade candidata — não canonizar antes de testar utilidade** (seção 16); o Gate 3 inclui o teste de adequação da unidade.
 
 ## 4. Modelos candidatos (escada de complexidade)
@@ -37,6 +39,10 @@ O episódio transforma o estudo de "correlação entre dois agregados" em **coho
 | M4 | Modelo flexível nos mesmos dados brutos (sem EO) | Baseline B6 — o teste decisivo de informação adicional |
 
 Nenhum modelo é declarado preferido a priori; a escolha pertence ao Gate 3 com comparação formal (AIC/LOO-CV) e validação temporal (treino em períodos anteriores, teste no posterior).
+
+## 4b. Estado dos gates após aplicação dos patches (18/08/2026)
+
+G0 **destravado pelo Gate 0 red team** (veredito PASS_WITH_REVISIONS; 7 patches aceitos e aplicados; 10 invariantes revalidados). O piloto G1+G2 permanece **bloqueado até decisão humana de campo** (HUMAN DECISION REQUIRED nesta missão): instrumentos corrigidos existem, mas nenhum dado foi coletado. G1–G2 exigem o piloto; G3 exige os dados do piloto; G4–G5 exigem dimensionamento por poder; G6 exige desenho de régua equivalente; G7–G8 não existem antes de G4–G6.
 
 ## 5. Dimensionamento amostral — regras em vez de números
 
