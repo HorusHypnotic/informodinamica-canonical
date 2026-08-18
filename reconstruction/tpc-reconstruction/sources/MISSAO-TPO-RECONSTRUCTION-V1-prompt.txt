@@ -1,0 +1,1313 @@
+MISSÃO MANUS — TPC RECONSTRUCTION V1
+
+DO MASSACRE AO NOVO BASELINE CIENTÍFICO
+
+Contexto
+
+A TPC passou por duas camadas adversariais sucessivas:
+
+CAMADA A — TPC BREAKER
+
+18 adversários atacaram 40 proposições congeladas da TPC v0.8.
+
+O campeonato produziu 27 artefatos, incluindo:
+
+- baseline congelado;
+- leaderboard;
+- rounds adversariais;
+- Doppelgänger;
+- autópsia;
+- Minimum Survivable TPC;
+- mutações candidatas;
+- boss Multiverso;
+- página visual.
+
+Resultado original do Breaker:
+
+- 326 pontos de dano;
+- A Própria TPC como TOP 1;
+- Sistemas Distribuídos como principal ameaça externa;
+- Doppelgänger estimado originalmente em 81–99%;
+- MST-1/MST-2/MST-3 como núcleo sobrevivente;
+- HYP-001-U apontada como teste decisivo.
+
+Depois disso ocorreu uma:
+
+CAMADA B — AUDITORIA DO BREAKER
+
+Uma segunda investigação adversarial revisou os próprios golpes do campeonato.
+
+Ela encontrou ataques válidos, ataques superestimados, pseudoquantificação e vulnerabilidades da TPC que o próprio Breaker não havia explorado suficientemente.
+
+Esta missão existe para consolidar AS DUAS CAMADAS.
+
+---
+
+0. PRINCÍPIO CONSTITUCIONAL
+
+NÃO DEFENDA A TPC.
+
+NÃO DEFENDA O BREAKER.
+
+Trate:
+
+- TPC v0.8;
+- TPC BREAKER;
+- auditoria posterior;
+
+como objetos igualmente criticáveis.
+
+Nenhuma conclusão ganha autoridade apenas porque apareceu:
+
+- no repositório canônico;
+- no campeonato;
+- em relatório de IA;
+- numa auditoria posterior.
+
+Autoridade deve vir de:
+
+evidência + lógica + metodologia + proveniência.
+
+---
+
+1. OBJETIVO
+
+Transformar a carnificina adversarial em um estado científico consolidado.
+
+A missão deve responder:
+
+«Depois de atacar a TPC e depois atacar os próprios ataques, o que realmente sabemos?»
+
+E depois:
+
+«Qual é a menor arquitetura de pesquisa defensável que merece avançar?»
+
+NÃO tente restaurar a antiga TPC.
+
+NÃO tente preservar quantidade de axiomas, leis ou conceitos.
+
+NÃO existe obrigação de continuar chamando o sobrevivente de “teoria”.
+
+Se o estado correto for:
+
+- hipótese;
+- família de hipóteses;
+- modelo;
+- framework;
+- programa de pesquisa;
+- instrumento experimental;
+
+declare isso.
+
+---
+
+2. PROTEÇÃO DO CANÔNICO
+
+REGRA ABSOLUTA:
+
+Não alterar imediatamente a TPC canônica.
+
+Não sobrescrever documentos antigos.
+
+Não apagar o TPC BREAKER.
+
+Não apagar resultados negativos.
+
+Não fazer merge automático.
+
+Não reescrever a história.
+
+Trabalhe em branch isolada:
+
+"reconstruction/tpc-v0.9"
+
+ou equivalente seguro.
+
+A TPC v0.8, o Breaker e a reconstrução precisam permanecer recuperáveis.
+
+---
+
+3. FONTES OBRIGATÓRIAS
+
+Leia integralmente:
+
+A. TPC CANÔNICA
+
+especialmente:
+
+- CONSTITUICAO
+- DOCUMENTO_CANONICO
+- GLOSSARIO_CANONICO
+- 01-teoria/TPC.md
+- hipóteses
+- métricas
+- protocolo experimental
+- auditorias históricas
+- decisões conceituais relevantes
+
+B. TODOS OS ARTEFATOS DO TPC BREAKER
+
+Incluindo os 27 documentos produzidos.
+
+C. AUDITORIA POSTERIOR AO BREAKER
+
+Reconstrua documentalmente os rounds posteriores descritos nesta missão.
+
+Não trate este prompt como evidência primária quando existir artefato correspondente.
+
+---
+
+4. RECONSTRUA A LINHA DE SOBREVIVÊNCIA
+
+Crie:
+
+"TPC-RECONSTRUCTION-TRACE.md"
+
+Para cada proposição importante:
+
+TPC v0.8
+↓
+ataque do Breaker
+↓
+julgamento original
+↓
+auditoria do julgamento
+↓
+estado atual
+
+Classificação final permitida:
+
+DESTRUÍDA
+
+REBAIXADA
+
+SOBREVIVE
+
+INDETERMINADA
+
+REDUNDÂNCIA PROVÁVEL
+
+REDUNDÂNCIA DEMONSTRADA
+
+PRECISA DE EXPERIMENTO
+
+ATAQUE INVALIDADO
+
+Não transforme “não demonstrado” em “falso”.
+
+---
+
+5. CORREÇÕES OBRIGATÓRIAS DO BREAKER
+
+A reconstrução DEVE revisar explicitamente os seguintes pontos.
+
+---
+
+5.1 PAXOS / RAFT
+
+O Breaker tratou consenso distribuído com réplica degradada e ausência de intérprete humano como contraexemplo forte a LAW-001.
+
+Reavaliar.
+
+O baseline congelado permite que representações sejam interpretadas por:
+
+agentes OU mecanismos.
+
+Portanto:
+
+“não há intérprete humano”
+
+não é suficiente.
+
+Investigue se:
+
+- logs;
+- estados replicados;
+- mensagens;
+- protocolos;
+
+satisfazem a definição congelada de representação operacional.
+
+Distinguir:
+
+coordenação sem representação
+
+de
+
+coordenação resiliente apesar de degradação local de representação.
+
+Hipótese de revisão:
+
+Paxos/Raft pode ser mais útil como teste de:
+
+- redundância;
+- quorum;
+- degradação local;
+- resiliência estrutural;
+
+do que como falsificador de LAW-001.
+
+Não aceite esta hipótese sem verificar.
+
+---
+
+5.2 D(S,t)
+
+O Breaker mostrou não-monotonicidade utilizando pesos iguais.
+
+Mas o baseline congelado já permitia:
+
+"αᵢ(domínio)"
+
+Portanto distinguir:
+
+falsificação da família D
+
+de
+
+falha de uma parametrização específica não calibrada.
+
+Além disso, investigar:
+
+- double counting;
+- dependência entre dimensões;
+- ausência de calibração;
+- falta de unidade;
+- validade dimensional.
+
+---
+
+5.3 DOPPELGÄNGER 81–99%
+
+Reavaliar completamente.
+
+O próprio Doppelgänger utiliza julgamento ordinal.
+
+Não transformar:
+
+ALTA / MÉDIA / BAIXA
+
+automaticamente em precisão percentual.
+
+Se não existir fundamento quantitativo:
+
+REMOVER a interpretação cardinal 81–99%.
+
+Substituir por classificação metodologicamente defensável.
+
+Por exemplo:
+
+sobreposição conceitual substancial
+
+se for isso que a evidência suporta.
+
+Também remover inferências como:
+
+“<5% de resíduo”
+
+quando não forem matematicamente deriváveis.
+
+---
+
+5.4 HUTCHINS
+
+Preservar o ataque real.
+
+Investigar cuidadosamente a precedência e sobreposição entre TPC e Distributed Cognition.
+
+Distinguir:
+
+precedência
+
+sobreposição
+
+reconstrução
+
+equivalência
+
+redundância
+
+Não declarar redundância integral apenas por similaridade conceitual.
+
+Pergunta decisiva:
+
+«Existe alguma consequência empiricamente discriminante da TPC que não decorra simplesmente de Hutchins + teorias existentes?»
+
+---
+
+5.5 IMUNIZAÇÃO ADAPTATIVA
+
+O Breaker encontrou sucessivo enfraquecimento histórico das proposições.
+
+Esse achado permanece importante.
+
+Mas distinguir:
+
+correção conceitual legítima
+
+de
+
+restrição de domínio
+
+de
+
+refinamento após crítica
+
+de
+
+imunização ad hoc.
+
+Não chamar toda mudança histórica de imunização automaticamente.
+
+Criar critérios explícitos.
+
+Uma mudança deve ser considerada suspeita de imunização especialmente quando:
+
+- surge após ameaça;
+- reduz falsificabilidade;
+- não cria novo risco empírico;
+- não possui justificativa independente.
+
+---
+
+5.6 “SE E SOMENTE SE HYP-001-U”
+
+RETIRAR esta formulação salvo se houver demonstração lógica.
+
+HYP-001-U não é simultaneamente condição necessária e suficiente para toda a sobrevivência da TPC.
+
+Separar as hipóteses empíricas.
+
+---
+
+6. DECOMPOR A SOBREVIVÊNCIA
+
+Não produzir mais:
+
+TPC = viva/morta
+
+Criar dimensões independentes.
+
+TPC-F — FENÔMENO
+
+Existe associação mensurável entre estado representacional e falhas coordenacionais?
+
+TPC-P — PREDIÇÃO
+
+Estado representacional observado prospectivamente prevê falhas futuras?
+
+TPC-I — INCREMENTO
+
+Essas medidas acrescentam poder preditivo sobre modelos concorrentes adequados?
+
+TPC-C — CAUSALIDADE
+
+Intervir no estado representacional altera probabilisticamente falhas coordenacionais?
+
+TPC-T — TRANSPORTABILIDADE
+
+O efeito se replica fora da população original?
+
+Cada uma deve poder:
+
+SOBREVIVER
+
+FALHAR
+
+ou
+
+PERMANECER INDETERMINADA
+
+independentemente.
+
+---
+
+7. VALIDADE DE CONSTRUTO — EO
+
+Este ponto foi insuficientemente explorado no Breaker.
+
+O vetor atual:
+
+"EO = P,F,U,C,R,X"
+
+não deve ser tratado automaticamente como seis dimensões científicas.
+
+Investigar:
+
+- independência conceitual;
+- sobreposição;
+- correlação esperada;
+- double counting;
+- relações hierárquicas.
+
+Perguntas obrigatórias:
+
+P e U são empiricamente distinguíveis?
+
+F e C são distinguíveis?
+
+R é uma dimensão ou infraestrutura que sustenta outras dimensões?
+
+X é propriedade do artefato ou interação agente-artefato?
+
+---
+
+8. REBAIXAR A2 PROVISORIAMENTE
+
+Não assumir como axioma:
+
+«EO é composto por exatamente seis dimensões.»
+
+Tratar como hipótese/taxonomia candidata até validação.
+
+Criar:
+
+H-EO
+
+«P, F, U, C, R e X constituem uma taxonomia candidata de propriedades relevantes do estado representacional; sua estrutura dimensional deve ser determinada empiricamente.»
+
+Comparar futuramente:
+
+1 fator
+2 fatores
+3 fatores
+6 fatores
+estrutura hierárquica
+checklist sem estrutura latente
+
+---
+
+9. SEPARAR TRÊS NÍVEIS
+
+Evitar sopa ontológica.
+
+Criar provisoriamente:
+
+R — ESTADO DA REPRESENTAÇÃO
+
+Propriedades observáveis do artefato independentes do resultado.
+
+I — ESTADO DE INTERPRETAÇÃO
+
+Interação agente-representação.
+
+A — ESTADO DA AÇÃO
+
+Consequência operacional.
+
+Depois:
+
+ECO
+
+Desfecho coordenacional definido independentemente.
+
+Arquitetura candidata:
+
+"R(t0) → I(t1) → A(t2) → ECO(t3)"
+
+NÃO declarar essa cadeia causal como fato.
+
+Tratar como modelo candidato.
+
+---
+
+10. DATA LEAKAGE
+
+Auditar cada atributo.
+
+Especialmente X.
+
+Se:
+
+"X = 1 − erros de interpretação/consultas"
+
+investigar se o predictor contém parte do próprio desfecho.
+
+Nenhuma variável utilizada para prever ECO deve depender de informação posterior ao instante de previsão.
+
+Criar:
+
+"TPC-LEAKAGE-AUDIT.md"
+
+Classificar cada variável:
+
+SAFE PRE-OUTCOME
+
+POTENTIAL LEAKAGE
+
+OUTCOME-DERIVED
+
+UNDETERMINED
+
+---
+
+11. ECO PRECISA VIRAR INSTRUMENTO
+
+Não tratar ECO apenas como conceito.
+
+Criar proposta de:
+
+ECO CLASSIFICATION PROTOCOL V0
+
+Sem ainda canonizar.
+
+Definir critérios independentes.
+
+Exemplo estrutural:
+
+- ação interdependente existente;
+- necessidade verificável de compatibilidade;
+- incompatibilidade observável;
+- consequência operacional;
+- janela temporal;
+- evidência mínima.
+
+Investigar cegamento:
+
+O avaliador de ECO pode classificar o desfecho sem conhecer EO?
+
+Se não puder, registrar risco de common-method bias.
+
+---
+
+12. HETEROGENEIDADE DO ECO
+
+Não presumir que ECO seja outcome homogêneo.
+
+Investigar classes:
+
+- retrabalho;
+- espera;
+- execução incompatível;
+- compra errada;
+- conflito de versão;
+- parada;
+- desperdício;
+- atraso;
+- decisão contraditória.
+
+Separar:
+
+"P(ECO)"
+
+"Severity(ECO)"
+
+"Duration(ECO)"
+
+"Recurrence(ECO)"
+
+Não misturar ocorrência com gravidade.
+
+---
+
+13. REGRA DOS 20%
+
+Reavaliar completamente:
+
+««20% de ECOs sem deformação = refutação.»»
+
+Perguntar:
+
+Por que 20%?
+
+Existe justificativa:
+
+- teórica?
+- estatística?
+- empírica?
+
+Se não:
+
+marcar como limiar arbitrário.
+
+Uma teoria probabilística pode possuir efeito forte sem explicar 100% dos casos.
+
+Não confundir:
+
+coverage
+
+com
+
+effect size
+
+com
+
+predictive power
+
+com
+
+causal contribution.
+
+---
+
+14. UNOBSERVED_PRECURSOR
+
+Este continua sendo um dos riscos metodológicos mais sérios.
+
+Pré-registrar critérios independentes para:
+
+REFUTATION
+
+UNOBSERVED_PRECURSOR
+
+MISSING_DATA
+
+MEASUREMENT_FAILURE
+
+Nenhuma classificação pode depender de salvar ou destruir a hipótese.
+
+Especial atenção:
+
+UNOBSERVED_PRECURSOR não pode virar buraco negro para absorver casos negativos.
+
+---
+
+15. UNIDADE DE ANÁLISE
+
+O Breaker propôs:
+
+"N≥20 obras"
+
+sem demonstrar que “obra” é a unidade estatística correta.
+
+Investigar estrutura:
+
+empresa
+→ obra
+→ equipe
+→ processo
+→ artefato
+→ versão
+→ decisão/interação
+→ ECO
+→ tempo
+
+Não permitir pseudorreplicação.
+
+---
+
+16. EPISÓDIO COORDENACIONAL
+
+Investigar como unidade candidata:
+
+EPISÓDIO COORDENACIONAL
+
+Janela na qual:
+
+1. existe tarefa/decisão interdependente;
+2. agentes identificáveis dependem de representações identificáveis;
+3. estado representacional pode ser congelado em t0;
+4. horizonte futuro é definido;
+5. outcome pode ou não ocorrer.
+
+Não canonizar antes de testar utilidade.
+
+---
+
+17. N≥20
+
+RETIRAR como requisito científico enquanto não houver justificativa.
+
+Tamanho amostral deve depender de:
+
+- unidade de análise;
+- clustering;
+- ICC;
+- incidência esperada;
+- tamanho de efeito mínimo relevante;
+- número de clusters;
+- poder estatístico;
+- modelo escolhido.
+
+Não inventar N.
+
+---
+
+18. p<0,05
+
+Não utilizar como selo de sobrevivência.
+
+Definir primeiro:
+
+- hipótese estatística;
+- estimando;
+- modelo;
+- tamanho do efeito;
+- intervalo de incerteza;
+- desempenho fora da amostra.
+
+Priorizar:
+
+effect size
+
+uncertainty
+
+out-of-sample performance
+
+calibration
+
+replication
+
+antes de significância ritual.
+
+---
+
+19. BASELINES
+
+MST-2 não deve competir apenas com RPN + rotinas.
+
+Construir escada de concorrentes.
+
+Exemplo:
+
+B0 — taxa histórica simples
+
+B1 — RPN
+
+B2 — variáveis operacionais básicas
+
+B3 — cronograma + equipe + estoque + mudanças
+
+B4 — qualidade documental sem construtos TPC
+
+B5 — modelos organizacionais existentes
+
+B6 — modelo flexível usando os mesmos dados brutos da TPC, sem EO
+
+TPC — construtos representacionais
+
+Pergunta decisiva:
+
+«A estrutura TPC acrescenta informação além dos próprios dados brutos que organiza?»
+
+---
+
+20. PRECEDÊNCIA ≠ PREDIÇÃO ≠ CAUSALIDADE
+
+Manter separadas.
+
+H1 — PRECEDÊNCIA
+
+Degradação antecede falha?
+
+H2 — PREDIÇÃO
+
+Degradação prevê falha futura?
+
+H3 — INCREMENTO
+
+Acrescenta previsão além dos baselines?
+
+H4 — CAUSALIDADE
+
+Intervenções representacionais alteram a probabilidade de falha?
+
+Não permitir inferência automática entre H1/H2/H3/H4.
+
+---
+
+21. HYP-002
+
+Reavaliar importância.
+
+HYP-002 pode ser mais importante para causalidade do que HYP-001-U.
+
+Porém existe viés conhecido:
+
+piloto automatizado via Copiloto
+
+versus
+
+controle manual.
+
+Isso mistura:
+
+intervenção
+
+com
+
+instrumentação.
+
+Para inferência causal:
+
+A régua precisa ser equivalente.
+
+A intervenção pode mudar.
+
+---
+
+22. VALIDADE EXTERNA
+
+Não generalizar automaticamente resultados de obras para:
+
+- saúde;
+- software;
+- indústria;
+- logística;
+- finanças;
+- qualquer sistema sociotécnico.
+
+Criar:
+
+TPC TRANSPORTABILITY LADDER
+
+Nível 0 — mesma obra/mesma população
+
+Nível 1 — outras obras da mesma empresa
+
+Nível 2 — outras empresas do mesmo setor
+
+Nível 3 — tipos diferentes de obra
+
+Nível 4 — setor operacional vizinho
+
+Nível 5 — domínio distante
+
+Cada salto exige nova evidência.
+
+---
+
+23. PARAMETRIZAÇÃO LOCAL
+
+Investigar hipótese:
+
+O mecanismo pode generalizar enquanto:
+
+- pesos;
+- escalas;
+- janelas temporais;
+- atributos relevantes;
+- tipos de ECO;
+
+variam por domínio.
+
+Não confundir:
+
+mecanismo transportável
+
+com
+
+métrica universal.
+
+---
+
+24. NOVO NÚCLEO PROVISÓRIO
+
+Não canonizar automaticamente.
+
+Use como candidato adversarial:
+
+«Em determinadas classes de sistemas sociotécnicos dependentes de artefatos representacionais, propriedades observáveis desses artefatos, medidas antes e independentemente dos desfechos, podem estar associadas ao risco futuro de falhas coordenacionais; a magnitude, estrutura, causalidade e transportabilidade dessa associação são questões empíricas.»
+
+Tente quebrar esta formulação.
+
+Se conseguir reduzi-la ainda mais sem trivializá-la:
+
+reduza.
+
+---
+
+25. NÃO PRESERVAR O NOME TPC POR OBRIGAÇÃO
+
+Ao final classifique o sobrevivente como:
+
+THEORY
+
+PROTO-THEORY
+
+MODEL
+
+FRAMEWORK
+
+EMPIRICAL HYPOTHESIS FAMILY
+
+RESEARCH PROGRAM
+
+INSTRUMENT DEVELOPMENT PROGRAM
+
+ou combinação justificada.
+
+Não escolher “THEORY” por tradição.
+
+---
+
+26. ARTEFATOS OBRIGATÓRIOS
+
+Produzir:
+
+"TPC-RECONSTRUCTION-EXECUTIVE.md"
+
+Resumo legível do estado pós-massacre.
+
+"TPC-RECONSTRUCTION-TRACE.md"
+
+TPC → Breaker → Auditoria → estado atual.
+
+"TPC-BREAKER-AUDIT.md"
+
+Golpes confirmados, reduzidos, invalidados e ampliados.
+
+"TPC-SURVIVOR-MAP.md"
+
+Mapa das proposições sobreviventes.
+
+"TPC-CONSTRUCT-VALIDITY.md"
+
+Análise EO/P/F/U/C/R/X.
+
+"TPC-LEAKAGE-AUDIT.md"
+
+Auditoria temporal e de leakage.
+
+"ECO-CLASSIFICATION-PROTOCOL-V0.md"
+
+Proposta de instrumento independente.
+
+"TPC-STATISTICAL-ARCHITECTURE-V0.md"
+
+Unidades, clustering, episódios, possíveis modelos.
+
+"TPC-TRANSPORTABILITY-LADDER.md"
+
+Estratégia de validade externa.
+
+"TPC-RESEARCH-GATES-V1.md"
+
+Gates experimentais.
+
+"TPC-V0.9-CANDIDATE.md"
+
+Nova formulação mínima candidata.
+
+NÃO canônica.
+
+---
+
+27. GATES DE PESQUISA
+
+Estruture o programa futuro como:
+
+GATE 0 — COERÊNCIA
+
+Definições não circulares.
+
+GATE 1 — INSTRUMENTO EO/R
+
+Confiabilidade e validade de construto.
+
+GATE 2 — INSTRUMENTO ECO
+
+Classificação independente e reproduzível.
+
+GATE 3 — ARQUITETURA ESTATÍSTICA
+
+Unidade de análise, clustering e modelo.
+
+GATE 4 — PREDIÇÃO PROSPECTIVA
+
+Teste fora da amostra.
+
+GATE 5 — INCREMENTO
+
+TPC contra melhores baselines.
+
+GATE 6 — CAUSALIDADE
+
+Intervenção/quase-experimento.
+
+GATE 7 — REPLICAÇÃO
+
+Outra empresa.
+
+GATE 8 — TRANSPORTABILIDADE
+
+Outro domínio.
+
+Nenhum gate deve ser declarado aprovado sem evidência.
+
+---
+
+28. ULTIMATE BREAKER
+
+NÃO executar imediatamente.
+
+Apenas preparar.
+
+Depois da reconstrução, deverá existir um campeonato final com somente três adversários:
+
+📊 ESTATÍSTICA
+
+Ataca:
+
+- instrumento;
+- dimensionalidade;
+- clustering;
+- leakage;
+- overfitting;
+- calibration;
+- baselines;
+- replicação.
+
+🔬 DESENHO EXPERIMENTAL
+
+Ataca:
+
+- causalidade;
+- seleção;
+- confounding;
+- instrumentation bias;
+- outcome classification;
+- preregistration.
+
+🌍 VALIDADE EXTERNA
+
+Ataca:
+
+- generalização;
+- transportabilidade;
+- heterogeneidade;
+- domínio.
+
+Não execute esse campeonato nesta missão.
+
+Primeiro construa algo digno de apanhar.
+
+---
+
+29. REGRA DE REPORTE INDEPENDENTE
+
+A regra constitucional do TPC BREAKER permanece.
+
+Se a reconstrução concluir:
+
+não sobra teoria
+
+REPORTAR.
+
+Se concluir:
+
+sobra apenas hipótese operacional
+
+REPORTAR.
+
+Se concluir:
+
+há estrutura teórica defensável
+
+REPORTAR.
+
+Se descobrir que nossa auditoria posterior errou:
+
+REPORTAR.
+
+Não otimizar o resultado para preservar nenhuma narrativa.
+
+---
+
+30. PROVENIÊNCIA
+
+Toda mudança de julgamento deve registrar:
+
+CLAIM
+
+ORIGINAL SOURCE
+
+BREAKER JUDGMENT
+
+AUDIT JUDGMENT
+
+CURRENT JUDGMENT
+
+EVIDENCE
+
+CONFIDENCE
+
+OPEN QUESTION
+
+Quero conseguir reconstruir por que cada pedaço morreu ou sobreviveu.
+
+---
+
+31. PÁGINA VISUAL
+
+Criar:
+
+"TPC-RECONSTRUCTION.html"
+
+Quero visualizar a reconstrução.
+
+Tela principal:
+
+TPC AFTER THE MASSACRE
+
+Mostrar:
+
+ANTES
+
+TPC v0.8
+
+↓
+
+BREAKER
+
+o que foi destruído
+
+↓
+
+BREAKER AUDIT
+
+quais golpes foram confirmados/invalidados
+
+↓
+
+SURVIVOR
+
+o que realmente sobrou
+
+↓
+
+RESEARCH GATES
+
+o que precisa acontecer agora
+
+Use cores/status para:
+
+🔴 destruído
+🟠 rebaixado
+🟡 indeterminado
+🟢 sobrevivente
+🔵 precisa de experimento
+⚫ ataque invalidado
+
+Pouco texto por card.
+
+Detalhes expansíveis.
+
+---
+
+32. NÃO FAZER
+
+Não:
+
+- inventar matemática;
+- criar equações decorativas;
+- preencher lacunas com números arbitrários;
+- escolher N arbitrariamente;
+- transformar ordinal em percentual;
+- usar p<0,05 como selo;
+- generalizar obra → universo;
+- confundir associação com causalidade;
+- esconder resultados negativos;
+- alterar silenciosamente o baseline;
+- defender a TPC;
+- defender o Breaker;
+- canonizar automaticamente a reconstrução.
+
+---
+
+33. CHECKPOINTS
+
+A cada grande etapa, registrar:
+
+O QUE FOI ANALISADO
+
+O QUE MUDOU
+
+POR QUE MUDOU
+
+EVIDÊNCIA
+
+INCERTEZAS
+
+PRÓXIMO PASSO
+
+Se a missão for interrompida, quero conseguir continuar exatamente do último checkpoint.
+
+---
+
+34. CRITÉRIO DE SUCESSO
+
+A missão NÃO termina quando existir uma nova TPC bonita.
+
+Termina quando conseguirmos responder:
+
+1.
+
+O que a TPC v0.8 afirmava?
+
+2.
+
+O que o Breaker realmente destruiu?
+
+3.
+
+Onde o Breaker exagerou ou errou?
+
+4.
+
+Quais vulnerabilidades adicionais apareceram?
+
+5.
+
+O que sobrevive sem mover a trave?
+
+6.
+
+O sobrevivente é teoria, modelo, hipótese ou programa de pesquisa?
+
+7.
+
+Qual é o próximo experimento logicamente necessário?
+
+8.
+
+Qual resultado faria abandonarmos cada hipótese?
+
+9.
+
+Até onde os resultados poderiam ser generalizados?
+
+10.
+
+Estamos prontos para o Ultimate Breaker?
+
+---
+
+35. PRINCÍPIO FINAL
+
+O objetivo não é reconstruir o castelo.
+
+É descobrir:
+
+QUAL É A MENOR ESTRUTURA QUE MERECE SER RECONSTRUÍDA.
+
+Se forem três tijolos:
+
+documente três tijolos.
+
+Se não sobrar nenhum:
+
+documente o terreno vazio.
+
+Se surgir uma hipótese pequena, mensurável e perigosa:
+
+preserve-a.
+
+E só depois:
+
+VOLTAMOS A BATER.
+
+---
+
+ORDEM DE EXECUÇÃO
+
+1. Ler integralmente as fontes.
+2. Reconstruir proveniência.
+3. Auditar o Breaker.
+4. Consolidar os rounds posteriores.
+5. Validar/rebaixar conclusões.
+6. Construir mapa de sobrevivência.
+7. Propor arquitetura experimental.
+8. Produzir TPC v0.9 CANDIDATE.
+9. Produzir página visual.
+10. Para

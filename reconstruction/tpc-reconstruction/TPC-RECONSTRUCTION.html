@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TPC AFTER THE MASSACRE — Reconstrução V1</title>
+<style>
+  :root{
+    --bg:#0b0e16; --panel:#131826; --border:#27314a; --ink:#d6dde9; --muted:#8794ad;
+    --accent:#5b8def;
+    --red:#e15759; --orange:#f2994a; --yellow:#e3c15f; --green:#57b374; --blue:#4fb8d1; --black:#9aa3b5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 20px 70px}
+  header{border-bottom:2px solid var(--border);padding-bottom:16px;margin-bottom:22px}
+  h1{font-size:1.9rem;margin:0 0 3px} h1 span{color:var(--red)}
+  .sub{color:var(--muted);font-size:.9rem}
+  h2{font-size:1.25rem;margin:28px 0 12px;border-left:4px solid var(--accent);padding-left:11px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px}
+  .lg{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
+  .dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+  .d-red{background:var(--red)}.d-orange{background:var(--orange)}.d-yellow{background:var(--yellow)}.d-green{background:var(--green)}.d-blue{background:var(--blue)}.d-black{background:var(--black)}
+  .flow{display:flex;flex-direction:column;gap:10px}
+  .stage{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+  .stage .st{font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:8px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:9px}
+  .card{background:#10141f;border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:.84rem}
+  .card b{display:block;margin-bottom:3px}
+  .card .s{font-size:.74rem;color:var(--muted)}
+  .arrow{text-align:center;color:var(--muted);font-size:1rem;line-height:1}
+  details{margin-top:6px;font-size:.78rem}
+  summary{cursor:pointer;color:var(--accent)}
+  details p{margin:6px 0 0;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:.85rem;background:var(--panel);border:1px solid var(--border)}
+  th,td{padding:6px 10px;border-bottom:1px solid var(--border);text-align:left}
+  th{background:#1a2132;color:var(--accent);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px}
+  .tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:.72rem;font-weight:600;white-space:nowrap}
+  .t-destruida{background:rgba(225,87,89,.18);color:var(--red)}
+  .t-rebaixada{background:rgba(242,153,74,.18);color:var(--orange)}
+  .t-indeterminada{background:rgba(227,193,95,.16);color:var(--yellow)}
+  .t-sobrevive{background:rgba(87,179,116,.16);color:var(--green)}
+  .t-experimento{background:rgba(79,184,209,.18);color:var(--blue)}
+  .t-ataqueinv{background:rgba(154,163,181,.18);color:var(--black)}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:16px 0}
+  .kpi .c{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:13px}
+  .kpi .v{font-size:1.6rem;font-weight:700;color:var(--accent)}
+  .kpi .k{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px}
+  footer{margin-top:38px;color:var(--muted);font-size:.78rem;border-top:1px solid var(--border);padding-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>TPC <span>AFTER THE MASSACRE</span> — Reconstrução V1</h1>
+  <div class="sub">Camada A (TPC BREAKER, 18 adversários) + Camada B (auditoria do Breaker) → estado consolidado · Branch isolada <code>reconstruction/tpc-v0.9</code> · Canônico intocado</div>
+</header>
+
+<div class="legend">
+  <div class="lg"><span class="dot d-red"></span>Destruído</div>
+  <div class="lg"><span class="dot d-orange"></span>Rebaixado</div>
+  <div class="lg"><span class="dot d-yellow"></span>Indeterminado</div>
+  <div class="lg"><span class="dot d-green"></span>Sobrevive</div>
+  <div class="lg"><span class="dot d-blue"></span>Precisa de experimento</div>
+  <div class="lg"><span class="dot d-black"></span>Ataque invalidado</div>
+</div>
+
+<section>
+<h2>TPC v0.8 — o que foi atacado</h2>
+<div class="cards">
+  <div class="card"><b>Postulado fundamental</b>Coordenação depende de representações persistentes<div class="s">Domínio: sistemas produtivos/digitais/híbridos</div><details><summary>Destino</summary><p>Atacado pelo Breaker (D4, casos naturais). Auditoria: sobrevive condicionado ao domínio declarado (D2). Conteúdo empírico vazio até TPC-F.</p></details></div>
+  <div class="card"><b>4 leis LAW</b>Mediação · Persistência · Deformação · Resiliência<div class="s">Modais "podem" já fracos</div><details><summary>Destino</summary><p>LAW-001 rebaixada a modelo candidato R→I→A→ECO. 002/004 rebaixadas a observações. 003 a taxonomia candidata.</p></details></div>
+  <div class="card"><b>5 axiomas A1–A5</b>Incluindo EO = P,F,U,C,R,X<div class="s">A2 = "exatamente 6 dimensões"</div><details><summary>Destino</summary><p>A2 rebaixado a H-EO (hipótese taxonômica). A1/A3/A5 triviais e sobrevivem. A4 redundância provável.</p></details></div>
+  <div class="card"><b>Formalização F001–F006</b>D(S,t), B(S,t), g, h, K_R<div class="s">Nunca calibrados</div><details><summary>Destino</summary><p>B(S,t) destruída (adimensional). D(S,t) rebaixada a família candidata. g/h/K_R indeterminados. Leak em X.</p></details></div>
+  <div class="card"><b>3 hipóteses HYP</b>HYP-001-U · HYP-002 · HYP-003<div class="s">Zero dados prospectivos</div><details><summary>Destino</summary><p>HYP-001-U: precisa de experimento (pré-registro). HYP-002: precisa de desenho corrigido (AUD-04). HYP-003: redundância demonstrada.</p></details></div>
+  <div class="card"><b>Métricas MET</b>ECO · ICO · IFX · Capital · Slektip<div class="s">ICO ≈ RPN re-rotulado</div><details><summary>Destino</summary><p>ICO redundância demonstrada. IFX/Slektip/Capital rebaixados. ECO: precisa virar instrumento (ECP-V0).</p></details></div>
+</div>
+</section>
+
+<section>
+<h2>BREAKER — o que destruiu (e onde exagerou)</h2>
+<div class="kpi">
+  <div class="c"><div class="v">326</div><div class="k">Dano original</div></div>
+  <div class="c"><div class="v">≈235</div><div class="k">Dano pós-auditoria</div></div>
+  <div class="c"><div class="v">4</div><div class="k">Exageros corrigidos</div></div>
+  <div class="c"><div class="v">8</div><div class="k">Golpes novos (AUD)</div></div>
+</div>
+<div class="cards">
+  <div class="card"><b>+ Imunização adaptativa</b>Enfraquecimento histórico documentado<div class="s">TOP 1 do campeonato</div><details><summary>Auditoria</summary><p>Confirmado com nuance: 2 casos suspeitos (A6/A7, exclusão de sabotagem), 3 refinamentos legítimos.</p></details></div>
+  <div class="card"><b>+ Reconstrução conceitual</b>Hutchins 1995 precede e cobre o núcleo<div class="s">Sobreposição substancial</div><details><summary>Auditoria</summary><p>Precedência e sobreposição confirmadas; equivalência/redundância integral NÃO demonstradas. Cardinal 81–99% invalidada.</p></details></div>
+  <div class="card"><b>+ Aparato quantitativo</b>D(S,t), B(S,t), g, h, K_R<div class="s">Não operacional</div><details><summary>Auditoria</summary><p>Mantido. Mais: validade dimensional, double counting (P,U,R encadeados), leakage em X.</p></details></div>
+  <div class="card"><b>− Paxos como falsificador</b>"Consensus sem representação"<div class="s"><span class="tag t-ataqueinv">ataque invalidado</span></div><details><summary>Por quê</summary><p>O baseline permite interpretação por MECANISMOS. Protocolo/regras de transição satisfazem IDR-0002. Reclassificado: caso-limite de teste de redundância e resiliência.</p></details></div>
+  <div class="card"><b>− Casos naturais (D4)</b>Formigueiros, Turing 1952, flocking<div class="s"><span class="tag t-ataqueinv">ataque invalidado (no v0.8)</span></div><details><summary>Por quê</summary><p>Valem contra a TPC histórica v0.7 (universalista). A v0.8 declarou domínio restrito e primariedade analítica.</p></details></div>
+  <div class="card"><b>− "Se e somente se HYP-001-U"</b>Formulação do Breaker<div class="s"><span class="tag t-ataqueinv">ataque invalidado</span></div><details><summary>Por quê</summary><p>Sem demonstração lógica. Sobrevivência decomposta em 5 dimensões independentes: F, P, I, C, T.</p></details></div>
+  <div class="card"><b>− N≥20 / p&lt;0,05</b>Requisitos do desenho do Breaker<div class="s"><span class="tag t-ataqueinv">ataque invalidado</span></div><details><summary>Por quê</summary><p>N inventado sem cálculo de poder; p como selo. Substituídos por estimandos: effect size, IC, out-of-sample, calibração.</p></details></div>
+</div>
+</section>
+
+<section>
+<h2>BREAKER AUDIT — vulnerabilidades novas que o Breaker não viu</h2>
+<table>
+  <tr><th>ID</th><th>Golpe</th><th>Alvo</th><th>Severidade</th></tr>
+  <tr><td>AUD-01</td><td><b>Leakage de desfecho:</b> X = 1−erros de interpretação usa o próprio ECO como preditor</td><td>F002, HYP-001-U</td><td><span class="tag t-rebaixada">D3 estrutural</span></td></tr>
+  <tr><td>AUD-02</td><td>Validade de construto EO inexistente: P/U acoplados, F colapsa em C, R é infraestrutura, X é interação</td><td>A002, F001</td><td><span class="tag t-rebaixada">D3</span></td></tr>
+  <tr><td>AUD-03</td><td>Limiar de 20% sem justificativa teórica/estatística</td><td>Protocolo HYP-001-U</td><td><span class="tag t-indeterminada">D2</span></td></tr>
+  <tr><td>AUD-04</td><td>Confounding intervenção × instrumentação em HYP-002 (Copiloto auto vs. manual)</td><td>HYP-002</td><td><span class="tag t-rebaixada">D3</span></td></tr>
+  <tr><td>AUD-05</td><td>Pseudorreplicação: ECOs aninhados em obras/empresas</td><td>Desenho N≥20</td><td><span class="tag t-indeterminada">golpe estrutural</span></td></tr>
+  <tr><td>AUD-06</td><td>ECO tratado como outcome homogêneo (ocorrência ≠ severidade ≠ duração ≠ recorrência)</td><td>MET-001</td><td><span class="tag t-indeterminada">D2</span></td></tr>
+  <tr><td>AUD-07</td><td>Common-method bias: avaliador de ECO conhecendo EO</td><td>HYP-001-U</td><td><span class="tag t-indeterminada">D2</span></td></tr>
+  <tr><td>AUD-08</td><td>Baselines insuficientes: o teste decisivo é B6 (mesmos dados brutos, sem EO)</td><td>MST-2</td><td><span class="tag t-indeterminada">D2</span></td></tr>
+</table>
+</section>
+
+<section>
+<h2>SURVIVOR — o que realmente sobrou</h2>
+<div class="cards">
+  <div class="card"><b>TPC-F Fenômeno</b>Associação estado representacional ↔ falhas<div class="s"><span class="tag t-indeterminada">indeterminado</span></div><details><summary>Evidência</summary><p>Casos retrotivos sugerem; zero estudo prospectivo. Critério de abandono: OR≈1 com IC estreito em coorte de episódios.</p></details></div>
+  <div class="card"><b>TPC-P Predição</b>EO em t₀ prevê ECO na janela<div class="s"><span class="tag t-indeterminada">indeterminado</span></div><details><summary>Evidência</summary><p>Exige episódio coordenacional + congelamento em t₀ + validação temporal. Nunca testado.</p></details></div>
+  <div class="card"><b>TPC-I Incremento</b>Mais que os baselines B0–B6<div class="s"><span class="tag t-indeterminada">indeterminado</span></div><details><summary>Evidência</summary><p>Teste decisivo: B6 (mesmos dados brutos sem EO). Se empatar, a TPC como instrumento é redundante.</p></details></div>
+  <div class="card"><b>TPC-C Causalidade</b>Intervir altera falhas<div class="s"><span class="tag t-indeterminada">indeterminado</span></div><details><summary>Evidência</summary><p>HYP-002 redesenhada: régua equivalente entre braços. Nunca testada sem confounding.</p></details></div>
+  <div class="card"><b>TPC-T Transportabilidade</b>Replica fora da população<div class="s"><span class="tag t-destruida">falha declarada</span></div><details><summary>Evidência</summary><p>Escada L0–L5; L0 (replicação interna) nem foi alcançada. Nenhum salto autorizado sem evidência nova.</p></details></div>
+  <div class="card"><b>Arquitetura documental</b>Hierarquia, auditorias, IDs, falibilismo<div class="s"><span class="tag t-sobrevive">sobrevive</span></div><details><summary>Por quê</summary><p>Ativo independente do conteúdo; raro em teorias emergentes. Sem condição.</p></details></div>
+</div>
+<p style="color:var(--muted);font-size:.85rem;margin:14px 0 0"><b>Classificação final do sobrevivente:</b> <span class="tag t-experimento">EMPIRICAL HYPOTHESIS FAMILY</span> + <span class="tag t-experimento">INSTRUMENT DEVELOPMENT PROGRAM</span>, dentro de um RESEARCH PROGRAM — não é THEORY.</p>
+</section>
+
+<section>
+<h2>RESEARCH GATES — o que precisa acontecer agora</h2>
+<table>
+  <tr><th>Gate</th><th>O que exige</th><th>Evidência mínima</th><th>Estado</th></tr>
+  <tr><td>G0</td><td>Coerência (definições não circulares, R/I/A/ECO, H-EO)</td><td>Red team sem circularidade residual</td><td><span class="tag t-indeterminada">bloqueado</span></td></tr>
+  <tr><td>G1</td><td>Instrumento EO/R</td><td>ICC ≥ 0.7; estrutura dimensional testada</td><td><span class="tag t-blue">precisa de experimento</span></td></tr>
+  <tr><td>G2</td><td>Instrumento ECO</td><td>Kappa ≥ 0.7 cego ao EO</td><td><span class="tag t-blue">precisa de experimento</span></td></tr>
+  <tr><td>G3</td><td>Arquitetura estatística (unidade, clustering, modelo)</td><td>Piloto com ICC e incidência estimados</td><td><span class="tag t-indeterminada">bloqueado</span></td></tr>
+  <tr><td>G4</td><td>Predição prospectiva out-of-sample</td><td>AUC/calibração com IC em janela posterior</td><td><span class="tag t-indeterminada">bloqueado</span></td></tr>
+  <tr><td>G5</td><td>Incremento vs. baselines B0–B6</td><td>Delta-AUC vs. B6 com IC excluindo zero</td><td><span class="tag t-indeterminada">bloqueado</span></td></tr>
+  <tr><td>G6</td><td>Causalidade (quase-experimento)</td><td>Instrumentação equivalente entre braços</td><td><span class="tag t-indeterminada">bloqueado</span></td></tr>
+  <tr><td>G7</td><td>Replicação (outra empresa)</td><td>Efeito na mesma direção, IC sobreposto</td><td><span class="tag t-indeterminada">bloqueado</span></td></tr>
+  <tr><td>G8</td><td>Transportabilidade (outro domínio)</td><td>Evidência nova por salto na escada</td><td><span class="tag t-indeterminada">bloqueado</span></td></tr>
+</table>
+<p style="color:var(--muted);font-size:.85rem;margin:12px 0 0"><b>Próximo experimento logicamente necessário:</b> piloto de instrumentação G1+G2 — 2–3 obras, medição prospectiva cega, sem pretensão preditiva; saídas = confiabilidade, ICC e incidência base (que dimensionam G3–G5).</p>
+<p style="color:var(--muted);font-size:.85rem;margin:6px 0 0"><b>Ultimate Breaker (preparado, não executado):</b> 3 adversários — 📊 ESTATÍSTICA, 🔬 DESENHO EXPERIMENTAL, 🌍 VALIDADE EXTERNA — executável apenas após G0–G2 entregarem instrumentos reais.</p>
+</section>
+
+<footer>
+TPC RECONSTRUCTION V1 · Autor: Manus AI · 18/08/2026 · Branch isolada <code>reconstruction/tpc-v0.9</code> (nada canônico) · Artefatos: TPC-RECONSTRUCTION-EXECUTIVE · TPC-BREAKER-AUDIT · TPC-RECONSTRUCTION-TRACE · TPC-SURVIVOR-MAP · TPC-CONSTRUCT-VALIDITY · TPC-LEAKAGE-AUDIT · ECO-CLASSIFICATION-PROTOCOL-V0 · TPC-STATISTICAL-ARCHITECTURE-V0 · TPC-TRANSPORTABILITY-LADDER · TPC-RESEARCH-GATES-V1 · TPC-V0.9-CANDIDATE · CHECKPOINT-RECONSTRUCTION
+</footer>
+
+</div>
+</body>
+</html>
