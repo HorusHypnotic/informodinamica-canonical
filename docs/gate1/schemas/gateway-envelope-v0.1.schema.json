@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "opera-gateway-envelope-v0.1",
+  "title": "OPERA Gateway Event Envelope",
+  "description": "Envelope canônico v0.1 — extensão estritamente aditiva do OPERA-CORE-INTEROPERABILITY-CONTRACT-V0. RAW FIRST: raw nunca é alterado; interpretação, resolução e eventos são camadas derivadas.",
+  "type": "object",
+  "required": ["contract", "package_id", "record_type", "tenant", "channel", "actor", "recorded_at", "raw", "interpretation", "assessment", "confirmation", "routing", "delivery", "lineage", "evidence", "integrity", "created_at", "updated_at"],
+  "properties": {
+    "contract": { "type": "string", "const": "opera-gateway-event-contract/0.1", "description": "Versão rígida do contrato; valor diferente é rejeição imediata" },
+    "package_id": { "type": "string", "format": "uuid", "description": "Imutável; unidade de idempotência documental e genealogia" },
+    "record_type": { "type": "string", "enum": ["evento", "correcao", "rejeicao", "heartbeat"] },
+    "event_type": { "$ref": "event-types-v0.1.json#/event_type" },
+    "tenant": {
+      "type": "string",
+      "description": "Obrigatório e resolvido ANTES de qualquer interpretação ou roteamento; nunca inferido por fuzzy matching"
+    },
+    "canonical_obra_id": {
+      "type": ["string", "null"],
+      "description": "Referência de correlação governada por manifesto (V0). 'unresolved' quando não vinculada"
+    },
+    "identity_status": { "type": "string", "enum": ["verified", "provisional", "unverified", "conflicted"] },
+    "channel": {
+      "type": "object",
+      "required": ["transport", "channel_message_id", "source_message_id"],
+      "properties": {
+        "transport": { "type": "string", "enum": ["telegram", "whatsapp", "discord", "web"] },
+        "channel_account_id": { "type": "string", "description": "ID opaco do bot/conta de origem" },
+        "channel_message_id": { "type": "string", "description": "ID estável da mensagem no canal" },
+        "source_message_id": {
+          "type": "string",
+          "pattern": "^(telegram|whatsapp|discord|web):[^:]+:[^:]+$",
+          "description": "UNIQUE global na ingestão; protege webhook duplicado e reenvio"
+        },
+        "edited": { "type": "boolean" },
+        "deleted": { "type": "boolean" },
+        "edited_at": { "type": ["string", "null"], "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "actor": { "type": "string", "description": "Referência opaca (telefone, username, user_id); e-mail nunca é identidade canônica" },
+    "sender_binding": { "type": "string", "enum": ["bound", "unbound"] },
+    "occurred_at": { "type": ["string", "null"], "format": "date-time", "description": "RFC3339; null quando desconhecido (nunca inventado)" },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "raw": {
+      "type": "object",
+      "description": "RELATO HUMANO ORIGINAL — nunca atualizado, nunca substituído por interpretação",
+      "required": ["content", "received_at"],
+      "properties": {
+        "content": { "type": "string" },
+        "derived_from_audio": { "type": "boolean" },
+        "audio_locator": { "type": ["string", "null"] },
+        "audio_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "locator", "sensitivity", "availability"],
+            "properties": {
+              "kind": { "type": "string", "enum": ["photo", "audio", "document"] },
+              "locator": { "type": "string" },
+              "sha256": { "type": ["string", "null"] },
+              "sensitivity": { "type": "string", "enum": ["public", "internal", "restricted"] },
+              "availability": { "type": "string", "enum": ["available", "missing", "inaccessible", "not_collected"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "received_at": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "interpretation": {
+      "type": "object",
+      "required": ["version", "model_ref", "interpretation_version", "events"],
+      "properties": {
+        "version": { "type": "integer", "const": 1 },
+        "model_ref": { "type": "string", "pattern": "^[a-z0-9/.-]+/[a-z0-9_-]+(-[0-9]{4}-[0-9]{2}-[0-9]{2})?$" },
+        "interpretation_version": { "type": "integer", "minimum": 1, "description": "Incrementa em cada reinterpretação; versões anteriores permanecem acessíveis" },
+        "events": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["event_id", "event_type", "entities", "confidence", "payload"],
+            "properties": {
+              "event_id": { "type": "string", "pattern": "^[0-9a-f-]{36}:\\d+$" },
+              "event_type": { "$ref": "event-types-v0.1.json#/event_type" },
+              "entities": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["kind", "display", "resolution_level", "confidence"],
+                  "properties": {
+                    "kind": { "type": "string", "enum": ["obra", "pessoa", "material", "ativo", "fornecedor", "empresa", "local", "tarefa"] },
+                    "display": { "type": "string" },
+                    "resolved_id": { "type": ["string", "null"], "description": "Preenchido somente em DETERMINISTIC" },
+                    "candidate_ids": { "type": "array", "items": { "type": "string" } },
+                    "resolution_level": { "type": "string", "enum": ["DETERMINISTIC", "PROVISIONAL", "CONFLICTED", "UNKNOWN"] },
+                    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+              "occurred_at_estimated": { "type": "boolean" },
+              "location": { "type": ["string", "null"] },
+              "occurred_at": { "type": ["string", "null"], "format": "date-time" },
+              "payload": { "type": "object" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "assessment": {
+      "type": "object",
+      "required": ["overall_confidence", "impact", "confirmation_requirement", "verdict"],
+      "properties": {
+        "overall_confidence": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+        "impact": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH"] },
+        "high_impact_reasons": { "type": "array", "items": { "type": "string" } },
+        "confirmation_requirement": { "type": "string", "enum": ["NOT_REQUIRED", "SIMPLE", "MANDATORY", "BLOCKED_ASK"] },
+        "verdict": { "type": "string", "enum": ["SEI", "NAO_SEI", "PRECISO_CONFIRMAR", "PRECISO_PERGUNTAR", "NAO_POSSO_EXECUTAR"] }
+      },
+      "additionalProperties": false
+    },
+    "confirmation": {
+      "type": "object",
+      "required": ["state"],
+      "properties": {
+        "state": { "type": "string", "enum": ["NOT_REQUIRED", "NEEDS_CONFIRMATION", "CONFIRMED", "CORRECTED", "CANCELLED", "EXPIRED"] },
+        "requested_at": { "type": ["string", "null"], "format": "date-time" },
+        "responded_at": { "type": ["string", "null"], "format": "date-time" },
+        "responded_by": { "type": ["string", "null"] },
+        "expires_at": { "type": ["string", "null"], "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "routing": {
+      "type": "object",
+      "required": ["rules_version", "destinations"],
+      "properties": {
+        "rules_version": { "type": "string", "const": "0.1" },
+        "destinations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["system", "rule_id", "write_spec", "status"],
+            "properties": {
+              "system": { "type": "string", "enum": ["direcione", "copiloto", "vision", "reo", "control", "smart_cotacoes", "atlas", "triagem"] },
+              "rule_id": { "type": "string" },
+              "write_spec": { "type": "object" },
+              "status": { "type": "string", "enum": ["pending", "candidate", "blocked"] }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "delivery": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["destination", "package_id", "status"],
+        "properties": {
+          "destination": { "type": "string", "enum": ["direcione", "copiloto", "vision", "reo", "control", "smart_cotacoes", "atlas"] },
+          "package_id": { "type": "string", "format": "uuid" },
+          "status": { "type": "string", "enum": ["PENDING", "DELIVERED", "FAILED", "RETRYING", "EXPIRED", "BLOCKED"] },
+          "attempt": { "type": "integer", "minimum": 0 },
+          "delivered_at": { "type": ["string", "null"], "format": "date-time" },
+          "error": { "type": ["string", "null"] },
+          "next_retry_at": { "type": ["string", "null"], "format": "date-time" },
+          "write_ref": { "type": ["string", "null"], "description": "Referência ao write aceito pelo destino; sem write_ref não há DELIVERED" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "required": ["parent_package_id", "transformation"],
+      "properties": {
+        "parent_package_id": { "type": ["string", "null"], "format": "uuid" },
+        "parent_external_id": { "type": ["string", "null"] },
+        "transformation": { "type": "string", "enum": ["captured", "interpreted", "confirmed", "superseded", "corrected", "reconciled", "rejected"] },
+        "superseded_by": { "type": "array", "items": { "type": "string", "format": "uuid" } },
+        "supercedes": { "type": "array", "items": { "type": "string", "format": "uuid" } }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "locator", "availability"],
+        "properties": {
+          "kind": { "type": "string" },
+          "locator": { "type": "string" },
+          "sha256": { "type": ["string", "null"] },
+          "availability": { "type": "string", "enum": ["available", "missing", "inaccessible", "not_collected"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "required": ["serialization"],
+      "properties": {
+        "serialization": { "type": "string", "enum": ["none", "json-c14n"] },
+        "sha256": { "type": ["string", "null"] },
+        "frozen_at": { "type": ["string", "null"], "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "audit": {
+      "type": "object",
+      "required": ["received_at"],
+      "properties": {
+        "received_at": { "type": "string", "format": "date-time" },
+        "parsed_at": { "type": ["string", "null"], "format": "date-time" },
+        "confirmed_at": { "type": ["string", "null"], "format": "date-time" },
+        "routed_at": { "type": ["string", "null"], "format": "date-time" },
+        "corrections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["correction_package_id", "applied_at"],
+            "properties": {
+              "correction_package_id": { "type": "string", "format": "uuid" },
+              "applied_at": { "type": "string", "format": "date-time" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "retries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["destination", "attempt", "at", "result"],
+            "properties": {
+              "destination": { "type": "string" },
+              "attempt": { "type": "integer", "minimum": 1 },
+              "at": { "type": "string", "format": "date-time" },
+              "result": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time", "description": "Metadata de envelope; nunca altera raw nem eventos" }
+  },
+  "additionalProperties": false
+}

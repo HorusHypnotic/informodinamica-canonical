@@ -1,0 +1,135 @@
+{
+  "contract": "opera-gateway-event-contract/0.1",
+  "package_id": "00000000-0000-0000-0000-0000000003f2",
+  "record_type": "evento",
+  "tenant": "dirceu-engenharia",
+  "canonical_obra_id": "obra:dirceu-engenharia:galpao-quadruplo-domingos",
+  "identity_status": "provisional",
+  "channel": {
+    "transport": "telegram",
+    "channel_account_id": "bot-gateway-test",
+    "channel_message_id": "msg-1010",
+    "source_message_id": "telegram:bot-gateway-test:msg-1010",
+    "edited": false,
+    "deleted": false,
+    "edited_at": null
+  },
+  "actor": "operador-alfa",
+  "sender_binding": "bound",
+  "occurred_at": null,
+  "recorded_at": "2026-08-18T14:00:00Z",
+  "raw": {
+    "content": "João saiu da Domingos e foi pro Fábio.",
+    "derived_from_audio": false,
+    "audio_locator": null,
+    "audio_sha256": null,
+    "attachments": [],
+    "received_at": "2026-08-18T14:00:00Z"
+  },
+  "interpretation": {
+    "version": 1,
+    "model_ref": "openai/gpt-5-2026-06-01",
+    "interpretation_version": 1,
+    "events": [
+      {
+        "event_id": "00000000-0000-0000-0000-0000000003f2:1",
+        "event_type": "PERSON_ALLOCATION",
+        "entities": [
+          {
+            "kind": "pessoa",
+            "display": "João",
+            "resolved_id": null,
+            "candidate_ids": [
+              "pessoa:domingos:joao-silva",
+              "pessoa:fabio:joao-santos"
+            ],
+            "resolution_level": "CONFLICTED",
+            "confidence": 0.45
+          },
+          {
+            "kind": "obra",
+            "display": "Domingos",
+            "resolved_id": null,
+            "candidate_ids": [
+              "obra:dirceu-engenharia:galpao-quadruplo-domingos"
+            ],
+            "resolution_level": "PROVISIONAL",
+            "confidence": 0.6
+          },
+          {
+            "kind": "obra",
+            "display": "Fábio",
+            "resolved_id": null,
+            "candidate_ids": [
+              "obra:dirceu-engenharia:obra-fabio"
+            ],
+            "resolution_level": "PROVISIONAL",
+            "confidence": 0.55
+          }
+        ],
+        "confidence": 0.5,
+        "occurred_at_estimated": false,
+        "location": null,
+        "occurred_at": null,
+        "payload": {
+          "person": "João",
+          "from": "Domingos",
+          "to": "Fábio",
+          "departure_at": null,
+          "duration_kind": "unknown"
+        }
+      }
+    ]
+  },
+  "assessment": {
+    "overall_confidence": "MEDIUM",
+    "impact": "HIGH",
+    "high_impact_reasons": [
+      "mudança crítica de equipe + pessoa CONFLICTED em duas equipes"
+    ],
+    "confirmation_requirement": "BLOCKED_ASK",
+    "verdict": "NAO_POSSO_EXECUTAR"
+  },
+  "confirmation": {
+    "state": "NEEDS_CONFIRMATION",
+    "requested_at": "2026-08-18T14:00:05Z",
+    "responded_at": null,
+    "responded_by": null,
+    "expires_at": "2026-08-19T14:00:05Z"
+  },
+  "routing": {
+    "rules_version": "0.1",
+    "destinations": [
+      {
+        "system": "copiloto",
+        "rule_id": "R-COP-004",
+        "write_spec": {},
+        "status": "blocked"
+      }
+    ]
+  },
+  "delivery": [],
+  "lineage": {
+    "parent_package_id": null,
+    "parent_external_id": null,
+    "transformation": "captured",
+    "superseded_by": [],
+    "supercedes": []
+  },
+  "evidence": [],
+  "integrity": {
+    "serialization": "none",
+    "sha256": null,
+    "frozen_at": null
+  },
+  "audit": {
+    "received_at": "2026-08-18T14:00:00Z",
+    "parsed_at": null,
+    "confirmed_at": null,
+    "routed_at": null,
+    "corrections": [],
+    "retries": []
+  },
+  "created_at": "2026-08-18T14:00:00Z",
+  "updated_at": "2026-08-18T14:00:05Z"
+}

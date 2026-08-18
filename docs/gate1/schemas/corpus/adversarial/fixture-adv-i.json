@@ -1,0 +1,112 @@
+{
+  "contract": "opera-gateway-event-contract/0.1",
+  "package_id": "00000000-0000-0000-0000-0000000003f1",
+  "record_type": "evento",
+  "tenant": "dirceu-engenharia",
+  "canonical_obra_id": null,
+  "identity_status": "unverified",
+  "channel": {
+    "transport": "telegram",
+    "channel_account_id": "bot-gateway-test",
+    "channel_message_id": "msg-1009",
+    "source_message_id": "telegram:bot-gateway-test:msg-1009",
+    "edited": false,
+    "deleted": false,
+    "edited_at": null
+  },
+  "actor": "remetente-desconhecido",
+  "sender_binding": "unbound",
+  "occurred_at": null,
+  "recorded_at": "2026-08-18T14:00:00Z",
+  "raw": {
+    "content": "Faltam 30 sacos de cimento para a concretagem de quinta.",
+    "derived_from_audio": false,
+    "audio_locator": null,
+    "audio_sha256": null,
+    "attachments": [],
+    "received_at": "2026-08-18T14:00:00Z"
+  },
+  "interpretation": {
+    "version": 1,
+    "model_ref": "openai/gpt-5-2026-06-01",
+    "interpretation_version": 1,
+    "events": [
+      {
+        "event_id": "00000000-0000-0000-0000-0000000003f1:1",
+        "event_type": "MATERIAL_NEED",
+        "entities": [
+          {
+            "kind": "material",
+            "display": "cimento",
+            "resolved_id": null,
+            "candidate_ids": [
+              "mat:copiloto:cimento-cpii"
+            ],
+            "resolution_level": "PROVISIONAL",
+            "confidence": 0.9
+          }
+        ],
+        "confidence": 0.75,
+        "occurred_at_estimated": true,
+        "location": null,
+        "occurred_at": "2026-08-20T14:00:00Z",
+        "payload": {
+          "material": "cimento",
+          "quantity": 30,
+          "unit": "saco",
+          "needed_by": "2026-08-20T14:00:00Z",
+          "context": "concretagem de quinta"
+        }
+      }
+    ]
+  },
+  "assessment": {
+    "overall_confidence": "MEDIUM",
+    "impact": "MEDIUM",
+    "high_impact_reasons": [],
+    "confirmation_requirement": "SIMPLE",
+    "verdict": "PRECISO_CONFIRMAR"
+  },
+  "confirmation": {
+    "state": "NEEDS_CONFIRMATION",
+    "requested_at": "2026-08-18T14:00:05Z",
+    "responded_at": null,
+    "responded_by": null,
+    "expires_at": "2026-08-19T14:00:05Z"
+  },
+  "routing": {
+    "rules_version": "0.1",
+    "destinations": [
+      {
+        "system": "copiloto",
+        "rule_id": "R-COP-003",
+        "write_spec": {},
+        "status": "blocked"
+      }
+    ]
+  },
+  "delivery": [],
+  "lineage": {
+    "parent_package_id": null,
+    "parent_external_id": null,
+    "transformation": "captured",
+    "superseded_by": [],
+    "supercedes": []
+  },
+  "evidence": [],
+  "integrity": {
+    "serialization": "none",
+    "sha256": null,
+    "frozen_at": null
+  },
+  "audit": {
+    "received_at": "2026-08-18T14:00:00Z",
+    "parsed_at": null,
+    "confirmed_at": null,
+    "routed_at": null,
+    "corrections": [],
+    "retries": []
+  },
+  "created_at": "2026-08-18T14:00:00Z",
+  "updated_at": "2026-08-18T14:00:05Z"
+}

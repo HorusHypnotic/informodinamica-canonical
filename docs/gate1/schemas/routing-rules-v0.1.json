@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "routing-rules-v0.1",
+  "title": "OPERA Gateway Routing Rules",
+  "version": "0.1",
+  "description": "Tabela fechada de rotas v0.1. Regras de governança: rota nova só com contrato de escrita declarado do destino; rota inativa é marcada inactive (nunca deletada); unknown/sem rota vai para R-TRI-999.",
+  "rules_version": "0.1",
+  "fallback_rule": "R-TRI-999",
+  "rules": [
+    { "rule_id": "R-DIR-001", "event_type": "TASK_CREATED", "destination": "direcione", "write_spec_ref": "DIR-001", "status": "candidate", "note": "candidata do MVP; endpoint /api/public/hooks/gateway não implementado (pré-requisito p do doc 07)" },
+    { "rule_id": "R-DIR-002", "event_type": "ASSET_TRANSFER", "destination": "triagem", "write_spec_ref": null, "status": "candidate", "note": "até existir master de ativos (ER-B1) ou StockFlow" },
+    { "rule_id": "R-VIS-002b", "event_type": "ASSET_DAMAGE", "destination": "triagem", "write_spec_ref": null, "status": "candidate", "note": "Vision aceita binding por source_system + external_obra_id, mas sem master de ativo o destino parcial permanece indefinido" },
+    { "rule_id": "R-COP-003", "event_type": "MATERIAL_NEED", "destination": "copiloto", "write_spec_ref": "COP-001", "status": "candidate", "note": "condicionada à correção do preflight RED do Copiloto; alternativa REO" },
+    { "rule_id": "R-COP-004", "event_type": "PERSON_ALLOCATION", "destination": "copiloto", "write_spec_ref": "COP-002", "status": "candidate", "note": "idêntica à R-COP-003" },
+    { "rule_id": "R-COP-005", "event_type": "PROGRESS_REPORT", "destination": "copiloto", "write_spec_ref": "COP-003", "status": "candidate" },
+    { "rule_id": "R-REO-006", "event_type": "WEATHER_EVENT", "destination": "reo", "write_spec_ref": "REO-001", "status": "candidate", "note": "alternativa de 2º destino do MVP" },
+    { "rule_id": "R-COP-007", "event_type": "FIELD_OBSERVATION", "destination": "copiloto", "write_spec_ref": "COP-004", "status": "candidate", "note": "também mapeável a reo via eventos_operacionais" },
+    { "rule_id": "R-ATL-008", "event_type": "INCIDENT", "destination": "atlas", "write_spec_ref": "ATL-001", "status": "candidate", "note": "+ Control para ECO quando needs_eco=true" },
+    { "rule_id": "R-SCQ-009", "event_type": "PAYMENT_NEED", "destination": "smart_cotacoes", "write_spec_ref": "SCQ-001", "status": "blocked", "note": "HIGH-IMPACT financeiro; fora do MVP; requer contrato SCQ-001 estabilizado" },
+    { "rule_id": "R-SCQ-009b", "event_type": "PAYMENT", "destination": "smart_cotacoes", "write_spec_ref": "SCQ-001", "status": "blocked", "note": "idêntico" },
+    { "rule_id": "R-SCQ-009c", "event_type": "MATERIAL_SALE", "destination": "smart_cotacoes", "write_spec_ref": "SCQ-001", "status": "blocked", "note": "valor relevante é HIGH-IMPACT; write de teste fora do MVP" },
+    { "rule_id": "R-CTRL-010", "event_type": "DECISION", "destination": "control", "write_spec_ref": "CTRL-001", "status": "candidate" },
+    { "rule_id": "R-TRI-999", "event_type": "UNKNOWN_EVENT", "destination": "triagem", "write_spec_ref": null, "status": "always", "note": "fallback universal: todo evento sem rota ou sem tipo termina aqui; nenhum write" }
+  ],
+  "destination_contracts": {
+    "DIR-001": { "doc": "07-DESTINATION-CONTRACT-DIRECIONE-V0.1.md", "status": "candidate" },
+    "COP-001": { "status": "pending", "note": "especificar após decisão sobre preflight RED do Copiloto" },
+    "COP-002": { "status": "pending" },
+    "COP-003": { "status": "pending" },
+    "COP-004": { "status": "pending" },
+    "REO-001": { "status": "pending", "note": "REO aceita registro com cadeia de hash; write_spec deve preservar o hash chain" },
+    "ATL-001": { "status": "pending", "note": "atlas audit_logs_db append-only; writes devem ser imutáveis" },
+    "SCQ-001": { "status": "blocked", "note": "blocker SECURITY DEFINER do Smart Cotações deve ser resolvido primeiro" },
+    "CTRL-001": { "status": "pending" }
+  }
+}

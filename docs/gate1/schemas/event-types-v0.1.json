@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "event-types-v0.1",
+  "title": "OPERA Gateway Event Taxonomy",
+  "version": "event-types/0.1",
+  "description": "Taxonomia fechada v0.1 — derivada exclusivamente de enums/tabelas existentes em código (docs 01/03 do Gate 0). Novo event_type só com semântica distinguível, evidência de necessidade e destino atual ou triagem explícita. UNKNOWN_EVENT é obrigatório.",
+  "event_type": { "type": "string", "enum": [
+    "TASK_CREATED", "ASSET_TRANSFER", "ASSET_DAMAGE",
+    "MATERIAL_NEED", "MATERIAL_SALE", "PERSON_ALLOCATION",
+    "PROGRESS_REPORT", "FIELD_OBSERVATION", "WEATHER_EVENT", "INCIDENT",
+    "PAYMENT_NEED", "PAYMENT", "DECISION", "UNKNOWN_EVENT"
+  ] },
+  "properties": {
+    "TASK_CREATED": {
+      "description": "Criação de missão/comissão/direcionamento com responsável e prazo",
+      "origin": "direcione missoes (status capturada)",
+      "impact_default": "LOW",
+      "payload": {
+        "required": ["description"],
+        "properties": {
+          "description": { "type": "string", "maxLength": 500 },
+          "task_kind": { "type": ["string", "null"], "description": "transporte|aquisicao|servico|outro" },
+          "quantity": { "type": ["number", "null"] },
+          "unit": { "type": ["string", "null"] },
+          "needed_by": { "type": ["string", "null"], "format": "date-time" },
+          "estimated_cost": { "type": ["object", "null"], "properties": { "amount": { "type": "integer" }, "currency": { "type": "string", "const": "BRL" } } }
+        }
+      }
+    },
+    "ASSET_TRANSFER": {
+      "description": "Movimento físico de ativo/ferramenta entre locais ou para responsável",
+      "origin": "direcione missao_recursos (sem master de ativos — bloqueio ER-B1)",
+      "impact_default": "MEDIUM",
+      "payload": {
+        "required": ["asset_class", "quantity", "unit", "from", "to"],
+        "properties": {
+          "asset_class": { "type": "string", "description": "classe do ativo (ex: martelete); ID individual impossível até existir master" },
+          "quantity": { "type": "number" },
+          "unit": { "type": "string" },
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "responsible": { "type": ["string", "null"] },
+          "condition_note": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "ASSET_DAMAGE": {
+      "description": "Dano/perda relevante de ativo com descrição e evidência",
+      "origin": "direcione missao_impacto_tipo; reo perda_material",
+      "impact_default": "HIGH",
+      "payload": {
+        "required": ["asset_class", "quantity", "unit", "damage_description"],
+        "properties": {
+          "asset_class": { "type": "string" },
+          "quantity": { "type": "number" },
+          "unit": { "type": "string" },
+          "damage_description": { "type": "string" },
+          "disposal_implication": { "type": ["string", "null"], "enum": ["repair", "scrap", "replace", "unknown"] }
+        }
+      }
+    },
+    "MATERIAL_NEED": {
+      "description": "Déficit de material quantitativo com prazo de necessidade",
+      "origin": "copiloto materiais/movimentacoes_estoque; smart-cotacoes quotations",
+      "impact_default": "MEDIUM",
+      "payload": {
+        "required": ["material", "quantity", "unit", "needed_by"],
+        "properties": {
+          "material": { "type": "string", "description": "alias de material; prefere canonical_materials do Smart Cotações" },
+          "quantity": { "type": "number" },
+          "unit": { "type": "string" },
+          "needed_by": { "type": ["string", "null"], "format": "date-time" },
+          "context": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "MATERIAL_SALE": {
+      "description": "Compra realizada (qtd, unidade, valor, fornecedor)",
+      "origin": "smart-cotacoes quotations/cashback_ledger",
+      "impact_default": "HIGH",
+      "payload": {
+        "required": ["material", "quantity", "unit", "cost"],
+        "properties": {
+          "material": { "type": "string" },
+          "quantity": { "type": "number" },
+          "unit": { "type": "string" },
+          "cost": { "type": "object", "properties": { "amount": { "type": "integer" }, "currency": { "type": "string", "const": "BRL" } } },
+          "supplier": { "type": ["string", "null"], "description": "fornecedor implícito é parte, nunca inventado" },
+          "receipt_ref": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "PERSON_ALLOCATION": {
+      "description": "Alocação/deslocamento de pessoa entre obras ou frentes",
+      "origin": "copiloto alocacoes/equipes",
+      "impact_default": "MEDIUM",
+      "payload": {
+        "required": ["person", "from", "to"],
+        "properties": {
+          "person": { "type": "string" },
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "departure_at": { "type": ["string", "null"], "format": "date-time" },
+          "duration_kind": { "type": ["string", "null"], "enum": ["visit", "shift", "daily", "permanent", "unknown"], "description": "qualificar 'ajudar'; ambíguo -> PRECISO_PERGUNTAR" }
+        }
+      }
+    },
+    "PROGRESS_REPORT": {
+      "description": "Atualização de frente: produção, avanço físico, status",
+      "origin": "copiloto producoes; atlas registros_diarios",
+      "impact_default": "LOW",
+      "payload": {
+        "required": ["description"],
+        "properties": {
+          "description": { "type": "string" },
+          "front": { "type": ["string", "null"] },
+          "quantity": { "type": ["number", "null"] },
+          "unit": { "type": ["string", "null"] },
+          "status": { "type": ["string", "null"], "enum": ["in_progress", "completed", "blocked"] }
+        }
+      }
+    },
+    "FIELD_OBSERVATION": {
+      "description": "Fato/observação de campo não coberto por outro tipo (catch-all de campo)",
+      "origin": "copiloto ocorrencias; qfd-os field_events",
+      "impact_default": "LOW",
+      "payload": {
+        "required": ["description"],
+        "properties": {
+          "description": { "type": "string" },
+          "observation_kind": { "type": ["string", "null"], "enum": ["blocking", "risk", "info", "unknown"] }
+        }
+      }
+    },
+    "WEATHER_EVENT": {
+      "description": "Evento climático com efeito operacional",
+      "origin": "reo registros (choveu/intensidade/paralisou)",
+      "impact_default": "LOW",
+      "payload": {
+        "required": ["phenomenon"],
+        "properties": {
+          "phenomenon": { "type": "string" },
+          "intensity": { "type": ["string", "null"], "enum": ["leve", "moderado", "forte", "severo", "unknown"] },
+          "operational_effect": { "type": ["string", "null"] },
+          "started_at": { "type": ["string", "null"], "format": "date-time" },
+          "ended_at": { "type": ["string", "null"], "format": "date-time" }
+        }
+      }
+    },
+    "INCIDENT": {
+      "description": "Incidente com consequência mensurável: segurança, retrabalho, custo, atraso",
+      "origin": "atlas incidentes_seguranca/retrabalhos; reo consequencia",
+      "impact_default": "HIGH",
+      "payload": {
+        "required": ["description"],
+        "properties": {
+          "description": { "type": "string" },
+          "incident_kind": { "type": ["string", "null"], "enum": ["safety", "rework", "extra_cost", "delay", "unknown"] },
+          "measurable_effect": { "type": ["object", "null"], "description": "tipo+medida da consequência" },
+          "needs_eco": { "type": "boolean" }
+        }
+      }
+    },
+    "PAYMENT_NEED": {
+      "description": "Necessidade de pagamento (obrigação, prazo, credor)",
+      "origin": "smart-cotacoes payments; atlas lancamentos_financeiros",
+      "impact_default": "HIGH",
+      "payload": {
+        "properties": {
+          "payee": { "type": ["string", "null"], "description": "credor; NÃO identificado silenciosamente" },
+          "amount": { "type": ["object", "null"], "properties": { "amount": { "type": "integer" }, "currency": { "type": "string", "const": "BRL" } } },
+          "due_at": { "type": ["string", "null"], "format": "date-time" },
+          "invoice_ref": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "PAYMENT": {
+      "description": "Pagamento realizado (comprovante)",
+      "origin": "smart-cotacoes payments (pix, comprovante)",
+      "impact_default": "HIGH",
+      "payload": {
+        "required": ["payee", "cost"],
+        "properties": {
+          "payee": { "type": "string" },
+          "cost": { "type": "object", "properties": { "amount": { "type": "integer" }, "currency": { "type": "string", "const": "BRL" } } },
+          "method": { "type": ["string", "null"], "enum": ["pix", "boleto", "cash", "card", "transfer", "unknown"] },
+          "receipt_ref": { "type": ["string", "null"] },
+          "paid_at": { "type": ["string", "null"], "format": "date-time" }
+        }
+      }
+    },
+    "DECISION": {
+      "description": "Decisão registrada com justificativa",
+      "origin": "control decisoes_economicas",
+      "impact_default": "MEDIUM",
+      "payload": {
+        "required": ["description", "rationale"],
+        "properties": {
+          "description": { "type": "string" },
+          "rationale": { "type": "string" },
+          "decision_kind": { "type": ["string", "null"], "enum": ["economic", "operational", "unknown"] }
+        }
+      }
+    },
+    "UNKNOWN_EVENT": {
+      "description": "Relato sem tipo conhecido — NUNCA associado silenciosamente; vai para triagem humana",
+      "impact_default": "UNRATED",
+      "payload": {
+        "required": ["ambiguities"],
+        "properties": {
+          "ambiguities": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "lista explícita do que falta para classificar (unidade? obra? destinatário?)"
+          }
+        }
+      }
+    }
+  }
+}
