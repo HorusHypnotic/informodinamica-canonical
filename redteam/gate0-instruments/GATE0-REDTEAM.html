@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAN OUR RULER LIE TO US? — GATE 0 RED TEAM</title>
+<style>
+  :root{
+    --bg:#0b0e16; --panel:#131826; --border:#27314a; --ink:#d6dde9; --muted:#8794ad;
+    --accent:#5b8def;
+    --red:#e15759; --orange:#f2994a; --yellow:#e3c15f; --green:#57b374; --blue:#4fb8d1; --black:#9aa3b5; --purple:#b37bdb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 20px 70px}
+  header{border-bottom:2px solid var(--border);padding-bottom:16px;margin-bottom:22px}
+  h1{font-size:2rem;margin:0 0 3px;letter-spacing:1px} h1 span{color:var(--red)}
+  .sub{color:var(--muted);font-size:.88rem}
+  h2{font-size:1.25rem;margin:30px 0 12px;border-left:4px solid var(--accent);padding-left:11px}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 18px}
+  .lg{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted)}
+  .dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+  .d-red{background:var(--red)}.d-orange{background:var(--orange)}.d-yellow{background:var(--yellow)}.d-green{background:var(--green)}.d-blue{background:var(--blue)}.d-purple{background:var(--purple)}
+  .chain{display:flex;align-items:stretch;gap:0;margin:18px 0;flex-wrap:wrap}
+  .stage{background:var(--panel);border:2px solid var(--border);border-radius:12px;padding:14px 16px;flex:1;min-width:190px;position:relative}
+  .stage .t{font-size:.75rem;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;font-weight:700}
+  .stage .n{font-size:1.15rem;font-weight:700;margin:2px 0}
+  .stage .d{font-size:.8rem;color:var(--muted)}
+  .link{display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--muted);padding:0 6px}
+  .tag{display:inline-block;padding:2px 9px;border-radius:10px;font-size:.7rem;font-weight:600;white-space:nowrap;margin:2px 2px 0 0}
+  .t-circular{background:rgba(225,87,89,.18);color:var(--red)}
+  .t-leak{background:rgba(242,153,74,.18);color:var(--orange)}
+  .t-subj{background:rgba(227,193,95,.16);color:var(--yellow)}
+  .t-blind{background:rgba(87,179,116,.16);color:var(--green)}
+  .t-noblind{background:rgba(179,123,219,.18);color:var(--purple)}
+  .t-ambig{background:rgba(79,184,209,.18);color:var(--blue)}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0}
+  .kpi .c{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:13px}
+  .kpi .v{font-size:1.55rem;font-weight:700}
+  .kpi .k{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px}
+  .kpi .c.pass .v{color:var(--green)}.kpi .c.fail .v{color:var(--red)}.kpi .c.cond .v{color:var(--yellow)}.kpi .c.fix .v{color:var(--accent)}
+  table{width:100%;border-collapse:collapse;font-size:.84rem;background:var(--panel);border:1px solid var(--border)}
+  th,td{padding:6px 10px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+  th{background:#1a2132;color:var(--accent);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px}
+  details{margin-top:5px;font-size:.76rem}
+  summary{cursor:pointer;color:var(--accent)}
+  details p{margin:5px 0 0;color:var(--muted)}
+  .matrix{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+  .cell{background:var(--panel);border:2px solid var(--border);border-radius:10px;padding:12px 14px}
+  .cell b{display:block;margin-bottom:4px}
+  .cell .s{font-size:.8rem;color:var(--muted)}
+  .cell .st{font-size:.7rem;margin-top:6px}
+  .verdict{background:linear-gradient(135deg,#151c2e,#131826);border:2px solid var(--yellow);border-radius:12px;padding:16px 18px;margin:18px 0}
+  .verdict .t{font-size:.8rem;letter-spacing:2px;color:var(--yellow);font-weight:700}
+  .verdict .v{font-size:1.3rem;font-weight:700;margin:4px 0}
+  .verdict .d{font-size:.85rem;color:var(--muted)}
+  footer{margin-top:40px;color:var(--muted);font-size:.76rem;border-top:1px solid var(--border);padding-top:14px}
+  code{background:#1a2132;padding:1px 5px;border-radius:4px;font-size:.85em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>CAN OUR <span>RULER</span> LIE TO US?</h1>
+  <div class="sub">GATE 0 RED TEAM — ataque aos instrumentos antes do campo · SHA-base fd1accf (<code>reconstruction/tpc-v0.9</code>) · branch adversarial <code>redteam/gate0-instruments</code> · canônico intocado</div>
+</header>
+
+<div class="legend">
+  <div class="lg"><span class="dot d-red"></span>Circularidade</div>
+  <div class="lg"><span class="dot d-orange"></span>Leakage</div>
+  <div class="lg"><span class="dot d-yellow"></span>Subjetividade do julgador</div>
+  <div class="lg"><span class="dot d-green"></span>Cegável</div>
+  <div class="lg"><span class="dot d-purple"></span>Não cegável</div>
+  <div class="lg"><span class="dot d-blue"></span>Ambiguidade registrada</div>
+</div>
+
+<section>
+<h2>A cadeia de medição — onde a régua pode mentir</h2>
+<div class="chain">
+  <div class="stage">
+    <div class="t">Representação</div>
+    <div class="n">R(t0)</div>
+    <div class="d">Snapshot congelado em t0; P, U, R cegáveis; F, C dependem de julgamento</div>
+    <span class="tag t-blind">P·U·R cegáveis</span>
+    <span class="tag t-subj">F·C julgamento (pré-registrado)</span>
+    <span class="tag t-purple">escolha de referente não cegável</span>
+    <details><summary>Ataque H-EO</summary><p>X removido do vetor (outcome-derived); dividido em X₁ covariável de uso + X₂ subclasse de ECOB. P/U sozinhos não servem (caso #10: documento velho porém correto).</p></details>
+  </div>
+  <div class="link">→</div>
+  <div class="stage">
+    <div class="t">Interpretação</div>
+    <div class="n">I(t1)</div>
+    <div class="d">Instrumento adiado; feedback I↔R real (loops espirais)</div>
+    <span class="tag t-blue">I↔R loop real</span>
+    <span class="tag t-blue">ambiguidade intrínseca não capturada (caso #7)</span>
+    <details><summary>Ataque</summary><p>Julgamento de erro é parte do desfecho, não do preditor. Nenhum componente de I entra no modelo do piloto.</p></details>
+  </div>
+  <div class="link">→</div>
+  <div class="stage">
+    <div class="t">Ação</div>
+    <div class="n">A(t2)</div>
+    <div class="d">Medível sem ECO; mas pode alterar R (feedback A→R)</div>
+    <span class="tag t-blue">A→R feedback</span>
+    <span class="tag t-blind">ação registrável pré-consequência</span>
+    <details><summary>Ataque</summary><p>Caso #20: ação fiel a documento ruim gera ECO — R congelado em t0 não captura deformações criadas pela própria ação.</p></details>
+  </div>
+  <div class="link">→</div>
+  <div class="stage">
+    <div class="t">Outcome</div>
+    <div class="n">ECOA(t3) + ECOB</div>
+    <div class="d">ECOA causalmente neutra (critérios 1–5); ECOB separada, nunca preditiva</div>
+    <span class="tag t-red">V0: critério 6 circular → FAIL</span>
+    <span class="tag t-green">corrigido: 4 células possíveis</span>
+    <span class="tag t-purple">ECOB causal nunca totalmente cegável</span>
+    <details><summary>Ataque ECO</summary><p>ECP-V0 exigia causa representacional como pré-requisito: "ECOA=1 sem degradação" era impossível por definição — hipótese imunizada por construção.</p></details>
+  </div>
+</div>
+<p style="color:var(--muted);font-size:.82rem;margin:6px 0 0">Feedback ignorado pelo modelo linear: A→R (ação altera artefato), I↔R (espiral documental), ECO→revisão documental. Consequência: a cadeia é <b>protocolo de medição</b> (R congelado em t0, inalterável na janela), não ontologia do fenômeno — Patch 7.</p>
+</section>
+
+<section>
+<h2>A matriz R × ECOA — os quatro quadrantes devem ser possíveis</h2>
+<div class="matrix">
+  <div class="cell"><b>Representação OK · ECOA OK</b><span class="s">Verdadeiro negativo candidato — observável via amostragem universal de episódios</span><span class="tag t-green">possível (pós-Patch 4)</span></div>
+  <div class="cell"><b>Representação DEGRADADA · ECOA OK</b><span class="s">Exposição sem outcome — caso #2/#6/#10/#17: experiência compensa documento ruim</span><span class="tag t-green">possível</span></div>
+  <div class="cell"><b>Representação OK · ECOA FALHA</b><span class="s">Contraexemplo importante — caso #1 (conduta oral), #8 (força maior), #22 (busca ativa negativa)</span><span class="tag t-red">impossível no V0 → derrota real pós-patches</span></div>
+  <div class="cell"><b>Representação DEGRADADA · ECOA FALHA</b><span class="s">Associação candidata — caso #9/#11/#20; HYP-001-U em teste</span><span class="tag t-blue">célula de interesse</span></div>
+</div>
+<p style="color:var(--muted);font-size:.82rem;margin:2px 0 0">Com o ECP-V0 vigente, o quadrante "degradada não · falha sim" era fechada por definição (critério 6) — a régua mentia a favor da hipótese. Com ECOA neutra, todos os quatro quadrantes existem e são somáveis.</p>
+</section>
+
+<section>
+<h2>Vereditos por instrumento</h2>
+<div class="kpi">
+  <div class="c fail"><div class="v">FAIL</div><div class="k">ECP-V0 (vigente) — circular</div></div>
+  <div class="c cond"><div class="v">PASS c/ REV.</div><div class="k">H-EO / vetor R</div></div>
+  <div class="c pass"><div class="v">PASS</div><div class="k">Cadeia como protocolo de medição</div></div>
+  <div class="c cond"><div class="v">PASS c/ REV.</div><div class="k">Episódio coordenacional</div></div>
+  <div class="c pass"><div class="v">PASS</div><div class="k">Regras de classificação (UNOBSERVED fechada)</div></div>
+  <div class="c cond"><div class="v">VEREDITO GERAL</div><div class="k">PASS_WITH_REVISIONS</div></div>
+</div>
+<table>
+  <tr><th>Patch</th><th>Problema</th><th>Efeito sobre falseabilidade</th></tr>
+  <tr><td>1 — ECOA/ECOB</td><td>Critério 6 exige causa representacional para existir ECO (outcome contém a hipótese)</td><td>Cria a célula de derrota; REFUTATION torna-se somável</td></tr>
+  <tr><td>2 — X removido (C+D)</td><td>X = 1−erros de interpretação é outcome-derived</td><td>Elimina o preditor que garantia falsos positivos</td></tr>
+  <tr><td>3 — Pré-registro de F/C</td><td>Referente/inventário/emparelhamento à escolha do avaliador (teste verde×vermelho: caso #10 manipulável)</td><td>Julgamento residual limitado e reportado; classificação única</td></tr>
+  <tr><td>4 — Episódio pré-outcome</td><td>Abertura implícita pelo outcome → selection bias; sem verdadeiros negativos</td><td>Habilita denominador de P(ECOA) e o braço preditivo</td></tr>
+  <tr><td>5 — Checklist de cobertura</td><td>UNOBSERVED_PRECURSOR era válvula: dois avaliadores divergiam sem violar o protocolo</td><td>Derrota contável; taxa de REFUTATION é métrica primária</td></tr>
+  <tr><td>6 — Cegamento operacional</td><td>Cegamento declarado sem regra; comum-method bias residual</td><td>Mundos separados; BLINDING=IMPOSSIBLE exclui braços preditivos</td></tr>
+  <tr><td>7 — Cadeia como medição</td><td>Linearidade causal falsificada por feedback/loops (casos #9/#20)</td><td>Loops viram covariáveis testáveis, não imunização</td></tr>
+</table>
+</section>
+
+<section>
+<h2>22 casos sintéticos — manipulação antes e depois</h2>
+<p style="color:var(--muted);font-size:.84rem;margin:0 0 10px">O teste do pesquisador verde (quer provar que funciona) contra o pesquisador vermelho (quer provar que falha), com os mesmos casos:</p>
+<table>
+  <tr><th>Casos manipuláveis no V0</th><th>V0: resultados opostos permitidos?</th><th>Pós-patches</th></tr>
+  <tr><td>#1 Desvio de conduta oral com documentação perfeita</td><td><span class="tag t-red">SIM — Verde exclui como "não ECO"</span></td><td>ECOA=1 obrigatório (critérios neutros); ECOB-representacional não entra no modelo</td></tr>
+  <tr><td>#10 Documento velho porém correto</td><td><span class="tag t-red">SIM — P baixo conta como "degradação" se convier</span></td><td>Vetor completo: F alto, divergência baixa → associação não confirmada</td></tr>
+  <tr><td>#22 Cobertura alta + busca ativa negativa + ECO</td><td><span class="tag t-red">SIM — Verde invoca UNOBSERVED_PRECURSOR</span></td><td>Checklist fecha: REFUTATION obrigatória — derrota genuína somável</td></tr>
+  <tr><td>#13 Falha pega a tempo (quase-ECOA)</td><td><span class="tag t-orange">Verde registra como ECO para inflar base</span></td><td>Quase-ECO = covariável de processo, nunca outcome</td></tr>
+</table>
+<p style="color:var(--muted);font-size:.82rem;margin:8px 0 0">Com os patches, todos os 22 casos têm <b>classificação única obrigatória</b>. A discricionariedade residual (julgamento F/C, atribuição ECOB) é separada do modelo preditivo e reportada como métrica pública (`DISPUTED`, taxa de `indeterminado`).</p>
+</section>
+
+<section>
+<h2>A régua pode dizer que estamos errados?</h2>
+<div class="verdict">
+  <div class="t">VEREDITO GERAL</div>
+  <div class="v">PASS_WITH_REVISIONS — campo NÃO autorizado ainda</div>
+  <div class="d">Nove das dez perguntas do critério de sucesso respondem SIM após os patches; a décima (autorização para G1+G2) responde NÃO até aplicação explícita dos patches e pré-registro. Seis hipóteses têm condição de abandono publicada. A taxa de REFUTATION é somável. A hipótese pode realmente perder — casos #1 e #22 são derrota genuína se observados no campo. Não otimizamos a régua: criamos caminhos de derrota que o instrumento vigente fechava.</div>
+</div>
+<table>
+  <tr><th>#</th><th>Pergunta crítica</th><th>Resposta</th></tr>
+  <tr><td>1</td><td>Medir R antes do outcome?</td><td>SIM (F/C com pré-registro)</td></tr>
+  <tr><td>2</td><td>Classificar ECO sem conhecer R?</td><td>SIM após Patch 1</td></tr>
+  <tr><td>3</td><td>ECO sem degradação representacional?</td><td>SIM após Patch 1</td></tr>
+  <tr><td>4</td><td>Degradação sem ECO?</td><td>SIM (exposição sem outcome)</td></tr>
+  <tr><td>5</td><td>Episódios abertos antes do outcome?</td><td>SIM após Patch 4</td></tr>
+  <tr><td>6</td><td>Verdadeiros negativos observáveis?</td><td>SIM após Patch 4 (amostragem universal)</td></tr>
+  <tr><td>7</td><td>Dois avaliadores aplicam independentemente?</td><td>SIM para outcome/snapshot; parcial em julgamento (reportado)</td></tr>
+  <tr><td>8</td><td>UNOBSERVED_PRECURSOR fechado?</td><td>SIM após Patch 5 (checklist + busca ativa)</td></tr>
+  <tr><td>9</td><td>A hipótese pode realmente perder?</td><td>SIM — abandono publicado + REFUTATION somável</td></tr>
+  <tr><td>10</td><td>Autorizados a iniciar G1+G2?</td><td>NÃO ainda — condicionado a patches + pré-registro</td></tr>
+</table>
+</section>
+
+<footer>
+GATE 0 RED TEAM · Autor: Manus AI · 18/08/2026 · TPC v0.8 canonical = untouched · reconstruction/tpc-v0.9 = candidate (inalterada; patches não aplicados automaticamente) · redteam/gate0-instruments = adversarial work · Nenhum campo autorizado · Artefatos: GATE0-VERDICT · GATE0-REDTEAM-EXECUTIVE · GATE0-ECO-CIRCULARITY-AUDIT · GATE0-REPRESENTATION-INSTRUMENT-AUDIT · GATE0-RIAECO-AUDIT · GATE0-EPISODE-AUDIT · GATE0-BLINDING-PROTOCOL-V0 · GATE0-CLASSIFICATION-RULES-V0 · GATE0-SYNTHETIC-CASES · GATE0-ABANDONMENT-CRITERIA · GATE0-PATCHES
+</footer>
+
+</div>
+</body>
+</html>
