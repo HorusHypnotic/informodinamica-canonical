@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TPC BREAKER — Campeonato Adversarial de Sobrevivência Teórica</title>
+<style>
+  :root{
+    --bg:#0a0d14; --panel:#121723; --border:#26304a; --ink:#d6dde9; --muted:#8794ad;
+    --accent:#5b8def; --red:#e15759; --orange:#f2994a; --green:#57b374; --gold:#e3c15f;
+    --d0:#57b374; --d1:#7fbf94; --d2:#e3c15f; --d3:#f2994a; --d4:#e15759; --d5:#ff3d6e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.55}
+  .wrap{max-width:1150px;margin:0 auto;padding:28px 22px 80px}
+  header{border-bottom:2px solid var(--border);padding-bottom:18px;margin-bottom:30px}
+  h1{font-size:2.1rem;margin:0 0 4px;letter-spacing:.5px}
+  h1 span{color:var(--red)}
+  .sub{color:var(--muted);font-size:.95rem}
+  h2{font-size:1.35rem;margin:38px 0 14px;border-left:4px solid var(--accent);padding-left:12px}
+  table{width:100%;border-collapse:collapse;font-size:.92rem;background:var(--panel);border:1px solid var(--border)}
+  th,td{padding:8px 11px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+  th{background:#1a2132;color:var(--accent);text-transform:uppercase;font-size:.78rem;letter-spacing:.6px}
+  tr:hover td{background:#171e2e}
+  .num{font-variant-numeric:tabular-nums}
+  .score{font-weight:700;color:var(--gold)}
+  .medal{font-size:1.1rem}
+  .badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.76rem;font-weight:600;white-space:nowrap}
+  .b-d0{background:rgba(87,179,116,.15);color:var(--d0)}
+  .b-d1{background:rgba(127,191,148,.15);color:var(--d1)}
+  .b-d2{background:rgba(227,193,95,.15);color:var(--d2)}
+  .b-d3{background:rgba(242,153,74,.18);color:var(--d3)}
+  .b-d4{background:rgba(225,87,89,.18);color:var(--d4)}
+  .b-d5{background:rgba(255,61,110,.22);color:var(--d5)}
+  .b-green{background:rgba(87,179,116,.15);color:var(--green)}
+  .b-red{background:rgba(225,87,89,.18);color:var(--red)}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:20px 0}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .card .v{font-size:1.9rem;font-weight:700;color:var(--accent)}
+  .card .k{color:var(--muted);font-size:.82rem;text-transform:uppercase;letter-spacing:.5px}
+  /* bracket */
+  .bracket{display:flex;justify-content:space-between;gap:8px;overflow-x:auto;padding:10px 0}
+  .round-col{min-width:235px;display:flex;flex-direction:column;justify-content:space-around;flex:1;gap:10px}
+  .round-title{text-align:center;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+  .match{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:.82rem}
+  .match .t1,.match .t2{display:flex;justify-content:space-between;gap:8px}
+  .match .t2{border-top:1px solid var(--border);margin-top:5px;padding-top:5px}
+  .match .w{color:var(--gold);font-weight:600}
+  .match .l{color:var(--muted)}
+  /* proposal bars */
+  .prop-row{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:.86rem}
+  .prop-id{width:92px;flex-shrink:0;color:var(--accent);font-weight:600}
+  .bar{height:16px;border-radius:8px}
+  .dmg-label{width:56px;flex-shrink:0;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+  footer{margin-top:44px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border);padding-top:16px}
+  details{background:var(--panel);border:1px solid var(--border);border-radius:8px;margin:10px 0;padding:10px 14px}
+  summary{cursor:pointer;font-weight:600;color:var(--accent)}
+  .quote{border-left:3px solid var(--border);padding:4px 14px;color:var(--muted);font-style:italic;margin:14px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>🥊 TPC <span>BREAKER</span></h1>
+  <div class="sub">Campeonato Adversarial de Sobrevivência Teórica · Baseline congelado em 17/08/2026 (commit aad9af9, branch isolada <code>breaker/tpc-breaker-championship</code>) · Fonte primária: repositório <code>informodinamica-canonical</code> (TPC v0.8)</div>
+</header>
+
+<section>
+<h2>Placar em tempo real</h2>
+<div class="kpi">
+  <div class="card"><div class="v num">18</div><div class="k">Adversários</div></div>
+  <div class="card"><div class="v num">40</div><div class="k">Proposições congeladas</div></div>
+  <div class="card"><div class="v num">326</div><div class="k">Pontos de dano acumulados</div></div>
+  <div class="card"><div class="v num">81–99%</div><div class="k">TPC Coverage (Doppelgänger)</div></div>
+  <div class="card"><div class="v num">53</div><div class="k">Pontos do TOP 1 (a própria TPC)</div></div>
+</div>
+
+<table>
+  <tr><th>Pos.</th><th>Adversário</th><th class="num">Dano bruto</th><th class="num">Bônus</th><th class="num">Penal.</th><th class="num">TOTAL</th><th>Melhor golpe</th></tr>
+  <tr><td class="medal">🥇</td><td><b>A Própria TPC</b> (auditoria interna)</td><td class="num">53</td><td class="num">0</td><td class="num">0</td><td class="score num">53</td><td>Padrão de imunização adaptativa + válvula UNOBSERVED_PRECURSOR + exclusão ad hoc de sabotagem</td></tr>
+  <tr><td class="medal">🥈</td><td><b>Sistemas Distribuídos</b></td><td class="num">19</td><td class="num">+20</td><td class="num">0</td><td class="score num">39</td><td>Contraexemplo Paxos/Raft reproduzível (consenso persiste com réplica degradada, sem intérprete humano)</td></tr>
+  <tr><td class="medal">🥉</td><td><b>Neuro + Cognição + Linguística</b></td><td class="num">12</td><td class="num">+15</td><td class="num">0</td><td class="score num">27</td><td>Hutchins (1995) precede e cobre o núcleo mediacional</td></tr>
+  <tr><td>4.</td><td>Evolução Darwiniana</td><td class="num">24</td><td class="num">0</td><td class="num">0</td><td class="score num">24</td><td>Coordenação persistente natural sem representação (formigueiros, Turing 1952, flocking)</td></tr>
+  <tr><td>5.</td><td>Sistemas Dinâmicos + Caos</td><td class="num">12</td><td class="num">+10</td><td class="num">0</td><td class="score num">22</td><td>Não-monotonicidade D(S,t)↔desfecho formalizada (script reproduzível)</td></tr>
+  <tr><td>6.</td><td>Morfogênese + Colônias + Ecologia</td><td class="num">21</td><td class="num">0</td><td class="num">0</td><td class="score num">21</td><td>Organização persistente sem representação global (Turing 1952; May 1973)</td></tr>
+  <tr><td>7.</td><td>Teoria de Controle</td><td class="num">10</td><td class="num">+10</td><td class="num">0</td><td class="score num">20</td><td>Reconstrução 1:1 por realimentação/observabilidade</td></tr>
+  <tr><td>8.</td><td>Game Theory</td><td class="num">12</td><td class="num">0</td><td class="num">0</td><td class="score num">12</td><td>Coordenação emergente sem objetivos comuns (Schelling; Crawford–Sobel)</td></tr>
+  <tr><td>8.</td><td>Instituições</td><td class="num">12</td><td class="num">0</td><td class="num">0</td><td class="score num">12</td><td>Rotinas organizacionais cobrem Slektip e persistência</td></tr>
+  <tr><td>8.</td><td>MAS + Teoria Organizacional</td><td class="num">12</td><td class="num">0</td><td class="num">0</td><td class="score num">12</td><td>Frameworks MAS com mais rigor formal (Cohen–Levesque; MOISE+)</td></tr>
+  <tr><td>8.</td><td>Termodinâmica + Física Estatística</td><td class="num">12</td><td class="num">0</td><td class="num">0</td><td class="score num">12</td><td>Ordem emergente estatística sem representação (Ising; Prigogine)</td></tr>
+  <tr><td>12.</td><td>Adversário Zero (null model)</td><td class="num">8</td><td class="num">0</td><td class="num">0</td><td class="score num">8</td><td>Domínio aplicado redutível; ICO = RPN re-rotulado</td></tr>
+  <tr><td>13.</td><td>Shannon / Teoria da Informação</td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="score num">7</td><td>B(S,t) adimensional; g e h indefinidas</td></tr>
+  <tr><td>13.</td><td>Teoria de Redes</td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="score num">7</td><td>Cascatas/percolação cobrem deformação e resiliência</td></tr>
+  <tr><td>13.</td><td>Bayes</td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="score num">7</td><td>Estado coordenado = convergência de posteriors (Aumann 1976)</td></tr>
+  <tr><td>16.</td><td>Cosmologia + Buracos Negros</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="score num">4</td><td>Colapso das 4 noções: persistência/observabilidade/acessibilidade/recuperabilidade</td></tr>
+  <tr><td>16.</td><td>Quântica + Relatividade</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="score num">4</td><td>Tempo global idealizado nunca declarado como idealização</td></tr>
+  <tr><td>16.</td><td>🌌 Multiverso (BOSS)</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="score num">4</td><td>"Persistência" como substantivo vs. processo — incoerência com a própria nomenclatura</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Bracket — eliminatórias</h2>
+<div class="bracket">
+  <div class="round-col">
+    <div class="round-title">Top 16</div>
+    <div class="match"><div class="t1"><span class="w">A Própria TPC · 53</span><span class="l">Cosmologia/BN · 4</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Sist. Distribuídos · 39</span><span class="l">Quântica/Relat. · 4</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Neuro/Cognição · 27</span><span class="l">Termodinâmica · 12</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Evolução · 24</span><span class="l">Bayes · 7</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Sis. Dinâmicos/Caos · 22</span><span class="l">Adversário Zero · 8</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Morfogênese/Colônias · 21</span><span class="l">Instituições · 12</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Controle · 20</span><span class="l">MAS/Teoria Org. · 12</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Game Theory · 12</span><span class="l">Redes · 7</span></div></div>
+  </div>
+  <div class="round-col">
+    <div class="round-title">Top 8</div>
+    <div class="match"><div class="t1"><span class="w">A Própria TPC · 53</span><span class="l">Morfogênese/Colônias · 21</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Sist. Distribuídos · 39</span><span class="l">Controle · 20</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Neuro/Cognição · 27</span><span class="l">Sis. Dinâmicos/Caos · 22</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Evolução · 24</span><span class="l">Game Theory · 12</span></div></div>
+  </div>
+  <div class="round-col">
+    <div class="round-title">Top 4</div>
+    <div class="match"><div class="t1"><span class="w">A Própria TPC · 53</span><span class="l">Evolução · 24</span></div></div>
+    <div class="match"><div class="t1"><span class="w">Sist. Distribuídos · 39</span><span class="l">Neuro/Cognição · 27</span></div></div>
+  </div>
+  <div class="round-col">
+    <div class="round-title">Final</div>
+    <div class="match"><div class="t1"><span class="w">🏆 A Própria TPC · 53</span><span class="l">Sist. Distribuídos · 39</span></div><div class="t2" style="color:var(--muted);font-size:.78rem">TOP 1 = MAIOR AMEAÇA CONHECIDA À TPC</div></div>
+  </div>
+</div>
+<p class="quote">Os eliminados preservam seus golpes: Evolução (D4 contra o postulado), Neuro (redundância Hutchins), Morfogênese (D4 contra organização persistente), Controle (reconstrução 1:1) — cada um permanece registrado em <code>rounds/</code>.</p>
+</section>
+
+<section>
+<h2>Dano por proposição (baseline congelado)</h2>
+<div class="prop-row"><div class="prop-id">TPC-C013</div><div class="bar" style="width:200px;background:var(--d4)"></div><div class="dmg-label">D4 (20 pts)</div><div>Postulado: organização persistente sem representação na natureza (Turing 1952, formigueiros, flocking, vagalumes)</div></div>
+<div class="prop-row"><div class="prop-id">TPC-L001</div><div class="bar" style="width:160px;background:var(--d3)"></div><div class="dmg-label">D3 (8 pts)</div><div>Mediação representacional reconstruída por Hutchins 1995, Cohen–Levesque, jogos de coordenação</div></div>
+<div class="prop-row"><div class="prop-id">TPC-H001</div><div class="bar" style="width:160px;background:var(--d3)"></div><div class="dmg-label">D3 (8 pts)</div><div>Válvula UNOBSERVED_PRECURSOR absorve evidência contrária; zero dados</div></div>
+<div class="prop-row"><div class="prop-id">TPC-F001–F006</div><div class="bar" style="width:160px;background:var(--d3)"></div><div class="dmg-label">D3 (8 pts)</div><div>Sem monotonicidade, sem unidade, g e h indefinidas (script reproduzível)</div></div>
+<div class="prop-row"><div class="prop-id">TPC-C015</div><div class="bar" style="width:160px;background:var(--d3)"></div><div class="dmg-label">D3 (8 pts)</div><div>Falseador blindado por "incluindo regras locais codificadas" — quase insatisfazível</div></div>
+<div class="prop-row"><div class="prop-id">TPC-C014</div><div class="bar" style="width:130px;background:var(--d2)"></div><div class="dmg-label">D2 (3 pts)</div><div>Contraexemplo Paxos/Raft dentro do domínio declarado; exclusão ad hoc de sabotagem</div></div>
+<div class="prop-row"><div class="prop-id">TPC-L002/004</div><div class="bar" style="width:130px;background:var(--d2)"></div><div class="dmg-label">D2 (3 pts)</div><div>Modais "podem": verdadeiras por um caso, não informativas</div></div>
+<div class="prop-row"><div class="prop-id">TPC-L003</div><div class="bar" style="width:130px;background:var(--d2)"></div><div class="dmg-label">D2 (3 pts)</div><div>Taxonomia mapeável a falhas de sensor/transmissão sem validação distintiva</div></div>
+<div class="prop-row"><div class="prop-id">TPC-H003</div><div class="bar" style="width:130px;background:var(--d2)"></div><div class="dmg-label">D2 (3 pts)</div><div>Redundante com ETTO (Hollnagel) e infraestrutura invisível (Star & Ruhleder)</div></div>
+<div class="prop-row"><div class="prop-id">TPC-M001–M005</div><div class="bar" style="width:130px;background:var(--d2)"></div><div class="dmg-label">D2 (3 pts)</div><div>ECO/ICO precedidos por Reason/ICAO/RPN; IFX escala dupla; EPI não reprodutível</div></div>
+<div class="prop-row"><div class="prop-id">TPC-A001–A005</div><div class="bar" style="width:90px;background:var(--d1)"></div><div class="dmg-label">D1 (1 pt)</div><div>Triviais: satisfeitos por qualquer teoria de estado+interpretação</div></div>
+<div class="prop-row"><div class="prop-id">Docs. históricos</div><div class="bar" style="width:90px;background:var(--d1)"></div><div class="dmg-label">D1 (1 pt)</div><div>Definição morta ("redução compartilhada de incertezas") preservada no DOCUMENTO_CANONICO.md</div></div>
+</section>
+
+<section>
+<h2>Evidências-chave (gols reproduzíveis)</h2>
+<details><summary>R12-SD2 — Script de não-monotonicidade de D(S,t)</summary>
+<pre style="font-size:.82rem;color:var(--muted)">
+alpha = 1/6 para 6 atributos
+S1b = (P=1.0, F=0.2, U=1.0, C=1.0, R=1.0, X=1.0)  -> D = 0.1333
+S2b = (P=1.0, F=0.6, U=0.6, C=0.6, R=0.6, X=0.6)  -> D = 0.4667
+D(S1b) < D(S2b), mas se a tarefa depende de fidelidade (F), o desfecho
+coordenacional de S1b é PIOR que o de S2b. A monotonicidade D->desfecho
+exige hipótese adicional de pesos dependentes da tarefa, jamais calibrada.
+</pre>
+</details>
+<details><summary>R03-DS2 — Contraexemplo computacional (Paxos/Raft)</summary>
+3 réplicas de um registro; réplica A com crash parcial (stale); B e C alcançam consenso correto via quorum de maioria — coordenação persiste com degradação local não corrigida e sem nenhum agente humano interpretando representação. Dentro do domínio declarado (ONTOLOGIA.md §1: "sistemas digitais, arranjos híbridos, desde que representação, interpretação e ação sejam operacionalizáveis").
+</details>
+<details><summary>Doppelgänger — Matriz de reconstrução</summary>
+Cobertura por bloco: conceitos C001–C009 = ALTA (≥70–90%); axiomas = ALTA (≥90%); leis = ALTA/MÉDIA (60–85%); hipóteses = MÉDIA-ALTA (50–90%, HYP-002 90% pois o desenho é padrão quasi-experimental); formalizações = MÉDIA (60%, indefinidas não são reconstruíveis por serem indefinidas). Total: 81–99% — risco severo de redundância. Resíduo não reconstruível (&lt;5%): (1) empacotagem aplicada integrada para canteiros; (2) resultado empírico de HYP-001-U operacional.
+</details>
+</section>
+
+<section>
+<h2>O que sobreviveu</h2>
+<table>
+  <tr><th>Sobrevivente</th><th>Por quê</th><th>Condição de sobrevivência</th></tr>
+  <tr><td>Arquitetura documental (hierarquia de autoridade, auditorias, IDs versionados)</td><td>Raros em teorias emergentes; reduz custo de reparo</td><td>Sem condição — ativo independente do conteúdo</td></tr>
+  <tr><td>Honestidade das indefinições (SHANNON_FORMALIZATION_PENDING, g/h indefinidas, Riemann "filosófico")</td><td>Selvou a TPC nos rounds quântico-entrópicos (D0)</td><td>Sem condição</td></tr>
+  <tr><td>Protocolo experimental com critério de refutação (＞20% de ECOs sem deformação no controle)</td><td>Falsificável de verdade</td><td>Sem condição — o que distingue a TPC de frameworks puramente retóricos</td></tr>
+  <tr><td>A pergunta central (artefatos degradam → predizem falhas?)</td><td>Boa pergunta, ainda sem resposta</td><td>Dados</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Mutações candidatas (MUT)</h2>
+<table>
+  <tr><th>ID</th><th>Reparo</th><th>Ad hoc?</th><th>Reduz falsificabilidade?</th></tr>
+  <tr><td>MUT-001</td><td>ECO com protocolo externo independente (tipo ICAO)</td><td>Não</td><td>Não</td></tr>
+  <tr><td>MUT-002</td><td>IFX em escala única (0–1) com rubricas</td><td>Não</td><td>Não</td></tr>
+  <tr><td>MUT-003</td><td>EPI por baseline contrafactual pareado</td><td>Não</td><td>Não</td></tr>
+  <tr><td>MUT-004</td><td>K_R via função teste padronizada</td><td>Parcial</td><td>Não</td></tr>
+  <tr><td>MUT-005</td><td>Família de modelos para D(S,t) com comparação formal (AIC)</td><td>Não</td><td>Não</td></tr>
+  <tr><td>MUT-006</td><td>Slektip como objeto operacional (SLK); lições aprendidas como sinônimo controlado</td><td>Não</td><td>Não</td></tr>
+  <tr><td>MUT-007</td><td>"Janela de inconsistência" como 7º atributo de EO</td><td>Parcial</td><td>Não</td></tr>
+  <tr><td>MUT-008</td><td>Conceito "persistência morta" + 4 modos de CS-2</td><td>Não</td><td>Não</td></tr>
+  <tr><td>MUT-009</td><td>Remover exclusão ad hoc de sabotagem; tratar desinformação como deformação por substituição</td><td>Não</td><td><b>AUMENTA</b></td></tr>
+  <tr><td>MUT-010</td><td>Unificar falseadores (eliminar C2/C3 do DOCUMENTO_CANONICO.md)</td><td>Não</td><td>Levemente reduz</td></tr>
+  <tr><td>MUT-011</td><td>Revisão sistemática de originalidade (compromisso do próprio autor, TPC.md §4.1)</td><td>Não</td><td>Não</td></tr>
+  <tr><td>MUT-012</td><td>Protocolo MST-2 registrado: EO prospectivo prediz ECOs com variância residual sobre RPN, p&lt;0.05</td><td>Não</td><td>Não</td></tr>
+  <tr><td style="color:var(--red)">MUT-013–016</td><td>REJEITADAS: estender "representação" a regularidades implícitas; domínio tautológico; HYP-001 vazia; regras de protocolo = representação</td><td>—</td><td>Transformariam a teoria em trivialmente verdadeira</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Minimum Survivable TPC (a rapa do coco da mosca)</h2>
+<div class="quote">
+<b>MST-1.</b> Existe uma classe de sistemas sócio-técnicos deliberativos em que a coordenação de ações depende, em grau mensurável, do estado de artefatos representacionais compartilhados.<br><br>
+<b>MST-2.</b> O estado desses artefatos pode ser descrito por atributos (P, F, U, C, R, X) e degradar por processos identificáveis; medir esses atributos prospectivamente pode acrescentar poder preditivo para falhas de coordenação além dos baselines padrão (RPN) e do registro de rotinas organizacionais.<br><br>
+<b>MST-3.</b> MST-2 é uma hipótese empírica, testável por desenho quasi-experimental com critérios de refutação publicados.
+</div>
+<p>Verificação: coerente ✓ · distinguível ✓ (pelo objeto — artefatos representacionais sociais) · operacionalizável △ (exige MUT-004/005 antes de campo) · potencialmente falsificável ✓ · não trivial △ (MST-1 quase trivial; MST-2 não trivial — é onde reside todo o valor restante).</p>
+</section>
+
+<section>
+<h2>🏆 TOP 1 — MAIOR AMEAÇA CONHECIDA À TPC</h2>
+<p><b>A PRÓPRIA TPC (53 pts).</b> A auditoria interna identificou o padrão estrutural mais danoso: sucessivo enfraquecimento adaptativo das proposições (universais → "tendem a" → "podem" → "candidato" → "modelo concorrente"), a válvula classificatória UNOBSERVED_PRECURSOR capaz de absorver quase toda evidência contrária à HYP-001-U, e a exclusão ad hoc do caso de sabotagem — exatamente o fenômeno que a própria taxonomia de deformação ("substituição") deveria explicar melhor. O único antídoto são os dados (HYP-002).</p>
+<p><b>Maior ameaça externa:</b> Sistemas Distribuídos (39 pts) — contraexemplo Paxos/Raft reproduzível dentro do domínio declarado pela própria ONTOLOGIA.md, mais os teoremas FLP/CAP/Byzantine que mapeiam o fenômeno com precisão que a TPC não possui.</p>
+<div class="quote">Veredicto final (Regra 25): a menor coisa intelectualmente defensável que sobra é uma hipótese empírica bem formulada apoiada por infraestrutura documental exemplar e protocolo de refutação quantitativo já publicado. <b>A TPC sobrevive se e somente se HYP-001-U for confirmada. Até lá, a TPC é um programa de pesquisa, não uma teoria.</b></div>
+</section>
+
+<footer>
+TPC BREAKER · Investigação adversarial independente · Relatório: TPC-CAMPEONATO-RELATORIO-FINAL.md · Artefatos: TPC-BASELINE.md · TPC-DOPPELGANGER.md · TPC-MULTIVERSE-BOSS.md · TPC-BREAKER-LEADERBOARD.md · TPC-BREAKER-ATTACKS.md · TPC-MINIMUM-SURVIVABLE.md · TPC-AUTOPSY.md · TPC-MUTATIONS.md · rounds/R00–R16 · CHECKPOINT.md · Repositório canônico intocado (branch isolada breaker/tpc-breaker-championship, commit aad9af9).
+</footer>
+
+</div>
+</body>
+</html>
