@@ -1,18 +1,17 @@
-# SCIENCE-RADAR-002 — Registro de proveniência
+# PRESERVATION-RECORD.md
 
 | Campo | Valor |
 |---|---|
-| ID | `SCIENCE-RADAR-002` |
+| ID | `TPC-RETRO-002R` |
 | Data | 2026-08-22 |
 | Agente executor | Manus AI |
-| Fonte canônica da TPC | `HorusHypnotic/informodinamica-canonical`, revisão `48000f3269e07e3c9d80b84de3cbcbff0ef77e5e` |
-| Fonte do Science Radar-001 | `03-pesquisa/science-radar/001/` no mesmo repositório |
-| Objetivo | Confrontar o núcleo sobrevivente da TPC com a cartografia científica anterior, testar a teoria e o teste, e classificar claims como C/D/E/M. |
-| Status | Documentos produzidos; preservação Git pendente de commit e push. |
-| Entregáveis | `TPC-CANONICAL-EXTRACT.md`; `ADVERSARIAL-CROSSWALK.md`; `TEST-THE-TEST.md`; `CDEM-MATRIX.md`; `EXISTING-DATA-OPPORTUNITIES.md`; `NEXT-EXPERIMENT.md`. |
-| Resultado do gate | Nenhum C demonstrado; D localizado no sinal X/C do RETRO-002; E para o núcleo forte; M em operacionalizações atuais. |
-| Limitação central | A TPC permanece sem confirmação diferenciadora; o RETRO-002 não mede diretamente o estado representacional canônico. |
-| Próximo gate | Reanalisar RETRO-002 sem O_first_update_hours; validar medida independente de representação; só então decidir sobre nova coleta. |
+| Base canônica | `HorusHypnotic/informodinamica-canonical@e48daac4a2ee1c67786ceb1a34af42585ff71b24` |
+| Objetivo | Reanalisar destrutivamente o RETRO-002 sem O_first_update_hours antes de qualquer nova coleta |
+| Status | Análise concluída; artefatos prontos para preservação Git |
+| Entregáveis | Seis arquivos da missão, mais o script de reexecução e resultados derivados de suporte |
+| Resultado | D local contra X/C sobrevive à remoção de O; nenhuma medida direta independente de EO foi encontrada |
+| Decisão | `NO_NEW_COLLECTION` |
+| Próximo gate | Validar medida independente de estado representacional e pré-especificar teste discriminante |
 
-> A regra anti-imunização foi aplicada: falha de mensuração não foi convertida em confirmação da TPC.
+A reexecução foi feita em ambiente isolado com cópia do código canônico. O script original e os resultados originais não foram alterados nem apagados. O suporte preservado inclui `src/analyze_retro002_without_o.py`, `results/model_results_without_o.csv`, `results/stability_without_o.csv`, `results/placebo_without_o.csv` e `results/delta_24_summary_without_o.csv`.
 
