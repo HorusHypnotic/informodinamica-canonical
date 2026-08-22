@@ -1,0 +1,66 @@
+model_set,feature,source_event,cutoff_rule,outcome_dependence,leakage_status
+M0,target_weight,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,prev_score,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,hist_mean_score,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,hist_median_score,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,hist_n,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,days_since_prev_submission,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,prev_assessment_date,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,prev_submission_date,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,hist_weighted_mean,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,num_of_prev_attempts,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,studied_credits,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,date_registration,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,date_unregistration,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,gender_F,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,gender_M,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,gender_nan,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_East Anglian Region,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_East Midlands Region,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_Ireland,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_London Region,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_North Region,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_North Western Region,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_Scotland,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_South East Region,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_South Region,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_South West Region,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_Wales,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_West Midlands Region,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_Yorkshire Region,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,region_nan,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,highest_education_A Level or Equivalent,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,highest_education_HE Qualification,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,highest_education_Lower Than A Level,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,highest_education_No Formal quals,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,highest_education_Post Graduate Qualification,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,highest_education_nan,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_0-10%,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_10-20,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_20-30%,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_30-40%,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_40-50%,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_50-60%,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_60-70%,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_70-80%,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_80-90%,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_90-100%,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_?,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,imd_band_nan,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,age_band_0-35,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,age_band_35-55,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,age_band_55<=,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,age_band_nan,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,disability_N,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,disability_Y,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M0,disability_nan,studentAssessment.csv + studentInfo.csv + studentRegistration.csv,strictly before target assessment date,NO,PASS
+M1,clicks_pre,studentVle.csv,strictly before target assessment date,NO,PASS
+M1,sites_pre,studentVle.csv,strictly before target assessment date,NO,PASS
+M1,active_days_pre,studentVle.csv,strictly before target assessment date,NO,PASS
+M2,clicks_7,studentVle.csv,strictly before target assessment date,NO,PASS
+M2,active_days_7,studentVle.csv,strictly before target assessment date,NO,PASS
+M2,clicks_30,studentVle.csv,strictly before target assessment date,NO,PASS
+M2,active_days_30,studentVle.csv,strictly before target assessment date,NO,PASS
+M2,activity_rate_7,studentVle.csv,strictly before target assessment date,NO,PASS
+M2,activity_rate_30,studentVle.csv,strictly before target assessment date,NO,PASS
+M2,activity_ratio_7_30,studentVle.csv,strictly before target assessment date,NO,PASS

@@ -1,0 +1,13 @@
+{
+  "dataset": "OULAD UCI 349",
+  "script": "science-radar-006-reconstruct.py",
+  "raw_inputs": [
+    "assessments.csv",
+    "studentAssessment.csv",
+    "studentInfo.csv",
+    "studentRegistration.csv",
+    "studentVle.csv"
+  ],
+  "derived_tables_used": false,
+  "seed": 2026
+}

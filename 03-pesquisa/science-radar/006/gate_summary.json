@@ -1,0 +1,24 @@
+{
+  "n_target_rows": 42663,
+  "n_students": 12952,
+  "n_train_rows": 34149,
+  "n_test_rows": 8514,
+  "n_train_students": 10361,
+  "n_test_students": 2591,
+  "exclusions": {
+    "outcome_not_after_assessment_date": 98875,
+    "no_strict_prior_submission": 3517
+  },
+  "tc": "assessment date in days from presentation start",
+  "ty": "studentAssessment.date_submitted",
+  "outcome": "studentAssessment.score",
+  "split": "student-level deterministic 80/20, seed 2026",
+  "chronological_sensitivity": {
+    "n_early": 34130,
+    "n_late": 8533,
+    "tc_early_max": 187,
+    "tc_late_min": 187,
+    "student_overlap": 5885
+  },
+  "data_sha256": "f2ed1902616c1fe8d2824d872c0b7d2d72be435bf0124d077044fe4be2c6d3e4"
+}
