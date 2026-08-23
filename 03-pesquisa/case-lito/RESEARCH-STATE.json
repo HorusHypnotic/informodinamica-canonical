@@ -1,0 +1,12 @@
+{
+  "case": "CASE-LITO",
+  "checkpoint": "2026-08-23",
+  "execution": "RESEARCHING",
+  "authorization": "HUMAN_GATE",
+  "preservation": "PRESERVED_ON_BRANCH",
+  "clinical_authority": "NONE",
+  "current_verdict": "INSUFFICIENT_EVIDENCE_FOR_PATIENT_SPECIFIC_PHENOTYPE",
+  "prior_signal": "WEAKENED_BY_HEIDENHAIN_COUNTEREVIDENCE",
+  "next_mission": "NH-002_NATURAL_HISTORY_PHENOTYPE_BREAKER",
+  "canonical_merge": "HOLD"
+}
