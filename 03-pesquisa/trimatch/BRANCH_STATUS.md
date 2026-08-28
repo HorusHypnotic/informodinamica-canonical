@@ -1,0 +1,1 @@
+Mission prepared for local corpus recovery. Heavy extraction remains pending.
