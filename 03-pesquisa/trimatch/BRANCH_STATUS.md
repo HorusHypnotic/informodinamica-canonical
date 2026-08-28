@@ -1,1 +1,3 @@
-Mission prepared for local corpus recovery. Heavy extraction remains pending.
+Mission prepared for local corpus recovery.
+Gate: CODEX_TERMINAL_PACKET_READY
+Heavy extraction remains pending.
