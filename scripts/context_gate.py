@@ -118,6 +118,23 @@ def evaluate(project_file: Path, repo: Path, mission_file: Path | None = None) -
         unknown = sorted(set(mission.get("rules", [])) - known_rules)
         if unknown:
             errors.append("mission references unknown rules: " + ", ".join(unknown))
+
+        mission_allowed = set(mission.get("allowed_actions", []))
+        project_prohibited = set(project.get("prohibited_actions", []))
+        mission_prohibited = set(mission.get("prohibited_actions", []))
+        project_conflicts = sorted(mission_allowed & project_prohibited)
+        mission_conflicts = sorted(mission_allowed & mission_prohibited)
+        if project_conflicts:
+            errors.append(
+                "mission allowed_actions conflict with project prohibited_actions: "
+                + ", ".join(project_conflicts)
+            )
+        if mission_conflicts:
+            errors.append(
+                "mission allowed_actions conflict with mission prohibited_actions: "
+                + ", ".join(mission_conflicts)
+            )
+
         if mission.get("requires_clean_worktree") and dirty:
             errors.append("mission requires a clean working tree")
     elif dirty:

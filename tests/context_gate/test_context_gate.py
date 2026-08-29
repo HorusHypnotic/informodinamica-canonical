@@ -145,6 +145,28 @@ class ContextGateTests(unittest.TestCase):
         self.assertEqual(result["status"], "BLOCKED")
         self.assertTrue(any("checkpoint id" in error for error in result["errors"]))
 
+    def test_project_prohibited_action_blocks_mission_allowlist(self):
+        result = evaluate(
+            self.project_file,
+            self.repo,
+            self.mission(allowed_actions=["read", "force push"]),
+        )
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertTrue(
+            any("project prohibited_actions" in error and "force push" in error for error in result["errors"])
+        )
+
+    def test_mission_cannot_both_allow_and_prohibit_same_action(self):
+        result = evaluate(
+            self.project_file,
+            self.repo,
+            self.mission(allowed_actions=["read", "publish"], prohibited_actions=["publish"]),
+        )
+        self.assertEqual(result["status"], "BLOCKED")
+        self.assertTrue(
+            any("mission prohibited_actions" in error and "publish" in error for error in result["errors"])
+        )
+
     def test_opera_vision_checkpoint_captures_required_release_context(self):
         project = json.loads(
             (ROOT / "context-gate/projects/opera-vision.json").read_text(encoding="utf-8")
