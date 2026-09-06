@@ -1,8 +1,9 @@
 name: Auditoria documental diaria
 
+# COST_GUARD 2026-09-06:
+# Scheduled execution paused while GITHUB-ACTIONS-BUDGET-001 is active.
+# Keep manual dispatch available for evidence-driven audits.
 on:
-  schedule:
-    - cron: "0 9 * * *"
   workflow_dispatch:
 
 permissions:
@@ -24,7 +25,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate daily report
+      - name: Generate report
         run: |
           python scripts/auditoria_documental_diaria.py --output artifacts/auditoria-documental.md
           cat artifacts/auditoria-documental.md >> "$GITHUB_STEP_SUMMARY"
