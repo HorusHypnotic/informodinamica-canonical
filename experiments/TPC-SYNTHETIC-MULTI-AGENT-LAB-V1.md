@@ -1,12 +1,13 @@
-# TPC SYNTHETIC MULTI-AGENT LAB V1
+# PETECO — TPC SYNTHETIC MULTI-AGENT LAB V1
 
+Codename: PETECO
 Status: PREREGISTERED_DESIGN_ONLY
 Branch: experiment/tpc-synthetic-multi-agent-lab-v1
 Authority: experimental branch only; canonical theory remains untouched.
 
 ## Purpose
 
-Use a controlled multi-agent environment as a cheap, repeatable laboratory for the surviving empirical TPC program. This experiment does not treat multi-agent systems, trading dashboards, social-media claims, or agent profits as evidence for TPC. They are architecture inspiration only.
+Use a controlled multi-agent environment as a cheap, repeatable laboratory for the surviving empirical TPC program. PETECO is the operational name of this synthetic lab. This experiment does not treat multi-agent systems, trading dashboards, social-media claims, or agent profits as evidence for TPC. They are architecture inspiration only.
 
 The target is MST-2: test whether prospectively measured state of shared representational artifacts adds predictive information about coordination failures beyond simpler baselines.
 
@@ -98,7 +99,7 @@ Evidence begins when preregistered artifact-state variables prospectively and re
 
 ## First implementation lot
 
-LAB-001 is intentionally small:
+PETECO-LAB-001 is intentionally small:
 
 1. one synthetic coordination task;
 2. 3-5 agents before scaling to 10+;
@@ -110,7 +111,7 @@ LAB-001 is intentionally small:
 
 ## Relationship to Tower Operator
 
-This lab is also a workload for Tower Operator. The infrastructure is successful when it can queue repetitions, route them to cheap compatible executors, resume after ordinary failures, preserve evidence, stop at authority gates and summarize only decisions requiring human attention.
+PETECO is also a workload for Tower Operator. The infrastructure is successful when it can queue repetitions, route them to cheap compatible executors, resume after ordinary failures, preserve evidence, stop at authority gates and summarize only decisions requiring human attention.
 
 Operational metric: validated experimental work per minute of human attention.
 
@@ -122,4 +123,4 @@ Operational metric: validated experimental work per minute of human attention.
 - It does not claim agent profitability.
 - It does not replace prospective field validation.
 
-The lab exists to make the surviving claims cheaper to attack.
+PETECO exists to make the surviving claims cheaper to attack.
