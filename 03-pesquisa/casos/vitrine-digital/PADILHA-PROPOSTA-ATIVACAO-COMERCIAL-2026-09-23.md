@@ -75,27 +75,31 @@ Custos externos são separados e previamente aprovados. O cliente poderá conhec
 
 Quantidade de inserções **não equivale** a audiência ou alcance. Métricas de alcance só serão apresentadas como comprovadas quando houver fonte verificável.
 
-## Capacidade de mídia — referências levantadas
+## Capacidade de mídia — procedência auditada
 
-| Canal / ativação | Valor de referência | Entrega conhecida | Status |
+Os valores abaixo não têm o mesmo nível de evidência. A tabela separa **preço comercial da Vitrine**, **orçamento/cotação efetivamente levantado**, **referência pública/benchmark** e **valor ainda desconhecido**. Antes de contratar qualquer terceiro, o valor deve ser reconfirmado com o fornecedor.
+
+| Canal / ativação | Valor | Entrega conhecida | Procedência / status |
 |---|---:|---|---|
-| Vitrine Digital | R$ 1.500/mês | Operação comercial | Confirmado |
-| Piloto audiovisual | R$ 600 | 10 vídeos de até 1min30 | Confirmado |
-| Rádio Você FM 92.1 | R$ 3.750/mês | spot 30s; 5 inserções/dia + 2 bonificadas/dia; até 210/mês | Cotação levantada |
-| Rádio Redenção | R$ 624/mês | 3 inserções/dia × 26 dias = 78 | Cotação levantada |
-| Rádio Redenção ampliado | R$ 1.040/mês | 5 inserções/dia × 26 dias = 130 | Cotação levantada |
-| Produção de spot simples | R$ 50 | produção de áudio | Cotação levantada |
-| Produção de spot personalizado | R$ 100 | produção personalizada | Cotação levantada |
-| Spot avulso Rádio Redenção | R$ 68,67 | rotativo, até 1 min | Cotação levantada |
-| Spot com horário determinado | R$ 131,67 | até 1 min | Cotação levantada |
-| Carro de som | R$ 80/h | rota personalizável | Cotação levantada |
-| Carro de som em volume | R$ 70/h | conforme volume | Cotação levantada |
-| Locução ao vivo | R$ 90/h | durante a rota | Cotação levantada |
-| Influenciador local | referência R$ 600 | formato/alcance por campanha | Benchmark |
-| 2 windbanners | EM COTAÇÃO | 2 peças | UNKNOWN |
-| Outdoor | EM COTAÇÃO | ponto/período/impressão/instalação | UNKNOWN |
-| Meta / Instagram Ads | A DEFINIR | público e território por campanha | Sob demanda |
-| Google Ads | A DEFINIR | busca/intenção | Sob demanda |
+| Vitrine Digital | R$ 1.500/mês | Operação comercial | **PREÇO COMERCIAL VITRINE — CONFIRMADO** |
+| Piloto audiovisual | R$ 600 | 10 vídeos de até 1min30 | **CONDIÇÃO COMERCIAL DO PILOTO — CONFIRMADO NA PROPOSTA** |
+| Rádio Você FM 92.1 | R$ 3.750/mês | spot 30s; 5 inserções/dia = 150/mês + 2 bonificadas/dia = 60 adicionais; até 210 inserções/mês | **ORÇAMENTO/COTAÇÃO FORNECIDO — RECONFIRMAR NA CONTRATAÇÃO** |
+| Rádio Redenção | R$ 624/mês | 3 inserções/dia × 26 dias = 78 inserções | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
+| Rádio Redenção ampliado | R$ 1.040/mês | 5 inserções/dia × 26 dias = 130 inserções | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
+| Produção de spot simples | R$ 50 | produção de áudio | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
+| Produção de spot personalizado | R$ 100 | produção personalizada | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
+| Spot avulso Rádio Redenção | R$ 68,67 | rotativo, até 1 min | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
+| Spot com horário determinado | R$ 131,67 | até 1 min | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
+| Carro de som | R$ 80/h | rota personalizável | **REFERÊNCIA LEVANTADA — PROCEDÊNCIA DO ORÇAMENTO NÃO COMPROVADA NESTE REGISTRO** |
+| Carro de som em volume | R$ 70/h | conforme volume | **REFERÊNCIA LEVANTADA — PROCEDÊNCIA DO ORÇAMENTO NÃO COMPROVADA NESTE REGISTRO** |
+| Locução ao vivo | R$ 90/h | durante a rota | **REFERÊNCIA LEVANTADA — PROCEDÊNCIA DO ORÇAMENTO NÃO COMPROVADA NESTE REGISTRO** |
+| Influenciador local | R$ 600 | referência local de ativação; formato e alcance dependem da campanha | **BENCHMARK — NÃO É ORÇAMENTO PADILHA** |
+| 2 windbanners | EM COTAÇÃO | 2 peças | **UNKNOWN / AGUARDANDO ORÇAMENTO** |
+| Outdoor | EM COTAÇÃO | ponto, período, impressão e instalação | **UNKNOWN / AGUARDANDO ORÇAMENTO** |
+| Meta / Instagram Ads | A DEFINIR | público e território por campanha | **VERBA A APROVAR** |
+| Google Ads | A DEFINIR | busca/intenção | **VERBA A APROVAR** |
+
+**Regra:** quantidade de inserções é inventário de mídia, não audiência. Nenhum alcance será inferido a partir de 78, 130 ou 210 inserções.
 
 ## Mensalidade Vitrine
 
@@ -290,7 +294,8 @@ Referência de operação-base para 90 dias: **R$ 4.500**, acrescida apenas das 
 
 ## Classificação epistemológica
 
-- Valores marcados **Confirmado**: referências comerciais já consolidadas nesta proposta.
-- **Cotação levantada / Benchmark**: referência sujeita a reconfirmação antes da compra.
+- **PREÇO COMERCIAL VITRINE / CONDIÇÃO COMERCIAL DO PILOTO**: valores internos desta proposta.
+- **ORÇAMENTO/COTAÇÃO FORNECIDO**: valor apoiado em orçamento/cotação efetivamente recebido, ainda sujeito a reconfirmação antes da contratação.
+- **REFERÊNCIA PÚBLICA / BENCHMARK / REFERÊNCIA LEVANTADA**: inteligência comercial, não apresentar ao cliente como orçamento emitido para a Padilha.
 - **UNKNOWN / A DEFINIR / EM COTAÇÃO**: não presumir preço, alcance ou contratação.
 - O roadmap T0–T4 é plano operacional estimado, não garantia de resultado.
