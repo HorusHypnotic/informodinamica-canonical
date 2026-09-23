@@ -150,6 +150,64 @@ A proposta comercial, portanto, não é somente gerar divulgação. É construir
 
 A própria proposta já nasce dentro desse modelo: sua documentação, evolução e revisão estão versionadas no GitHub antes do início da operação comercial.
 
+## Melhoria de método — branding, negociação e retroalimentação
+
+A operação passa a observar branding e aquisição como partes do mesmo sistema comercial, sem atribuir causalidade onde houver apenas sinal ou associação.
+
+### Hipótese de trabalho
+
+Quanto mais a marca acumula **disponibilidade mental, disponibilidade comercial e evidência verificável de valor**, menor pode se tornar o atrito entre descoberta e contratação. Esta relação será tratada como hipótese a investigar, não como promessa.
+
+### Category Entry Points candidatos
+
+Situações iniciais a validar no campo:
+
+- **CEP-01:** tenho terreno e quero construir;
+- **CEP-02:** quero construir para vender, alugar ou investir;
+- **CEP-03:** minha empresa precisa ampliar ou reformar;
+- **CEP-04:** não quero administrar a obra sozinho;
+- **CEP-05:** preciso regularizar Segurança do Trabalho;
+- **CEP-06:** preciso de treinamento, documentação ou ART aderente ao serviço;
+- **CEP-07:** quero entender quanto custa construir;
+- **CEP-08:** preciso de um engenheiro/empresa técnica em quem confiar.
+
+Status: **CANDIDATE**. A lista deverá ser corrigida conforme conversas, buscas, contatos e negociações reais.
+
+### Ledger de negociação
+
+Quando houver dados e autorização adequados, registrar progressivamente:
+
+**CEP → ORIGEM → EXPOSIÇÃO CONHECIDA → CONTATO → QUALIFICAÇÃO → PROPOSTA → OBJEÇÃO → CONTRAPROPOSTA → CONCESSÃO → VALOR FINAL → GANHO/PERDA → MOTIVO**
+
+Variáveis candidatas incluem origem do lead, ticket, tempo de fechamento, objeção, desconto/concessão e resultado. Correlações futuras não serão tratadas automaticamente como causalidade.
+
+### Brand Asset Ledger
+
+Ativos distintivos candidatos da Padilha também poderão ser observados e documentados, como logo, cores, rosto/porta-voz, uniforme, obras, linguagem, assinatura verbal, elementos visuais, windbanners e formatos de vídeo.
+
+O objetivo é descobrir quais ativos acumulam reconhecimento e associação com a marca, evitando tratar identidade apenas como decoração.
+
+### Escada de evidência
+
+Para proteger a qualidade das conclusões:
+
+**REGISTRO → SINAL → ASSOCIAÇÃO → CORRELAÇÃO RECORRENTE → EXPERIMENTO → EVIDÊNCIA CAUSAL**
+
+Uma campanha seguida de venda não será registrada automaticamente como causa da venda. O nível de evidência deverá acompanhar o desenho e os dados disponíveis.
+
+### Loop de branding retroalimentado
+
+**CEP → BRANDING → DISPONIBILIDADE MENTAL → VITRINE / GOOGLE / WHATSAPP → DISPONIBILIDADE COMERCIAL → LEAD → NEGOCIAÇÃO → CONTRATO → ENTREGA → EVIDÊNCIA → NOVO ATIVO DE BRANDING → NOVO CICLO**
+
+Esse loop permite que uma obra gere prova, a prova gere conteúdo, o conteúdo fortaleça a marca, a marca gere novas oportunidades e as negociações revelem novas objeções e mensagens para o ciclo seguinte.
+
+### Famílias de métricas
+
+1. **Marca:** CEPs, reconhecimento quando mensurável, buscas pela marca e ativos distintivos.
+2. **Aquisição:** origem, contato, qualificação, agenda e custo.
+3. **Negociação:** proposta, objeção, concessão/desconto, ciclo e fechamento.
+4. **Economia:** ticket, margem quando disponível, CAC quando mensurável, receita e reinvestimento.
+
 ## Roadmap inicial — T0 → T4
 
 Horizonte inicial: **90 dias**, com fases sobrepostas e ajustes durante o ciclo.
