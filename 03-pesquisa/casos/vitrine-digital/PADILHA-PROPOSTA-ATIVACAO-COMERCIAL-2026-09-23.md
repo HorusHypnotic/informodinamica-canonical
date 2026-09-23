@@ -13,6 +13,74 @@ Fluxo de referência:
 
 **PRESENÇA → CONFIANÇA → CONTATO → OPORTUNIDADE → ORÇAMENTO → CONTRATO → APRENDIZADO**
 
+## Prioridade comercial imediata — venda das duas casas
+
+A venda das **duas casas concluídas** passa a ser uma frente comercial prioritária da operação. Cada imóvel deve funcionar simultaneamente como:
+
+1. **produto imobiliário a ser vendido**;
+2. **showroom construído da capacidade da Padilha**;
+3. **prova comercial para captar novos clientes de construção**.
+
+Fluxo operacional:
+
+**CASA → PÁGINA / CONTEÚDO → INTERESSADO → QUALIFICAÇÃO → VISITA → PROPOSTA → NEGOCIAÇÃO → VENDA**
+
+A Vitrine atua em presença, divulgação, geração e organização de interesse. Eventual atividade de corretagem/intermediação imobiliária permanece separada e deve ser conduzida por profissional habilitado quando legalmente exigido.
+
+### Intake obrigatório — CASA-01 e CASA-02
+
+Antes da ativação comercial, coletar para **cada imóvel**:
+
+#### Dados que podem alimentar a comunicação pública após aprovação
+- identificação comercial do imóvel;
+- bairro/localização comercial;
+- área do terreno;
+- área construída;
+- quartos e suítes;
+- banheiros;
+- vagas/garagem;
+- principais ambientes;
+- diferenciais construtivos e de acabamento;
+- situação/estágio do imóvel;
+- preço de venda autorizado para divulgação;
+- condições de pagamento autorizadas;
+- possibilidade de financiamento, se confirmada;
+- disponibilidade para visitas;
+- responsável e canal de contato;
+- fotos externas e internas;
+- fachada;
+- cozinha;
+- quartos;
+- banheiros;
+- garagem/quintal/área externa;
+- planta ou representação autorizada, se disponível;
+- vídeos vertical e horizontal;
+- imagens da execução/obra, se disponíveis e autorizadas;
+- projetos, responsabilidades técnicas e demais provas que possam ser divulgadas.
+
+#### Dados comerciais internos — NÃO PUBLICAR
+- custo do terreno;
+- custo de construção;
+- custos adicionais relevantes;
+- investimento total;
+- margem bruta estimada em R$ e %;
+- preço mínimo aceitável;
+- limites e regras de negociação;
+- concessões possíveis;
+- informações pessoais, documentais ou estratégicas não destinadas ao comprador.
+
+**Regra de segurança:** o repositório desta proposta é público. Margem, custo, piso de negociação e demais informações comerciais sensíveis não devem ser registrados neste documento público. Caso sejam necessários à análise, devem permanecer em ambiente restrito apropriado.
+
+### Instrumentação por imóvel
+
+Criar identificadores **CASA-01** e **CASA-02** para separar origem e evolução dos interessados. Quando tecnicamente viável, cada imóvel deverá possuir página/link próprio e CTA rastreável.
+
+Ledger candidato:
+
+**IMÓVEL → ORIGEM → CONTEÚDO/MÍDIA → CONTATO → QUALIFICAÇÃO → VISITA → PROPOSTA → NEGOCIAÇÃO → VENDA/PERDA → MOTIVO**
+
+Além da venda direta, registrar quando o imóvel gerar um interessado em **construir uma casa semelhante em terreno próprio**, pois esse resultado pertence à frente de Construção Civil mesmo que a casa anunciada não seja vendida para aquele contato.
+
 ## Frentes operadas
 
 ### Vitrine Digital em destaque
@@ -214,14 +282,14 @@ Horizonte inicial: **90 dias**, com fases sobrepostas e ajustes durante o ciclo.
 ### T0 — Diagnosticar e definir
 **Prazo:** semana 1.
 
-Consolidar serviço prioritário, quatro perfis, ofertas, território, capacidade, agenda, ativos, duas casas e métricas.
+Consolidar serviço prioritário, quatro perfis, ofertas, território, capacidade, agenda e métricas. **Prioridade imediata:** completar o intake CASA-01 e CASA-02, separar dados públicos dos confidenciais e preparar os dois imóveis para ativação comercial.
 
 Saída: saber **o que oferecer, para quem, onde, com qual mensagem, qual ação desejada e o que medir**.
 
 ### T1 — Estruturar a presença
 **Prazo:** semanas 1–3.
 
-Estruturar Vitrine, Construção Civil, Segurança do Trabalho, portfólio, provas, casas, Instagram, Google, WhatsApp, agenda e rastreamento quando possível. Iniciar piloto audiovisual e, se aprovado, windbanners.
+Estruturar Vitrine, Construção Civil, Segurança do Trabalho, portfólio, provas, Instagram, Google, WhatsApp, agenda e rastreamento quando possível. Para CASA-01 e CASA-02, estruturar página/link próprio, fotos, informações comerciais aprovadas, CTA e caminho para visita/contato. Iniciar piloto audiovisual e, se aprovado, windbanners.
 
 Saída: **DESCOBERTA → PROVA → CONFIANÇA → CONTATO**.
 
