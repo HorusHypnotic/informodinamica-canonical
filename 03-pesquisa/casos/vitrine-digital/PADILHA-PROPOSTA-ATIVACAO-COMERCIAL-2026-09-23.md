@@ -118,6 +118,38 @@ Inclui:
 
 Não inclui verba de tráfego, rádio, outdoor, windbanners, influenciadores, impressão, fornecedores externos ou produções adicionais contratadas separadamente.
 
+## GitHub como central da operação
+
+A operação será documentada no GitHub, que funciona como **central de inteligência, decisões, evidências e evolução do projeto**.
+
+Tudo que for materialmente relevante deve deixar rastro verificável. Sempre que aplicável, cada ação poderá registrar:
+
+- o que foi feito;
+- por que foi feito;
+- qual hipótese ou objetivo motivou a ação;
+- público e território envolvidos;
+- custo conhecido;
+- evidência de execução;
+- resultado observado;
+- aprendizado;
+- decisão seguinte.
+
+Quando fizer sentido, a Padilha poderá receber o **link direto do GitHub** para acompanhar o documento, ação, experimento, revisão ou evolução correspondente.
+
+Fluxo de documentação:
+
+**DECISÃO → MOTIVO → EXECUÇÃO → EVIDÊNCIA → RESULTADO → APRENDIZADO → PRÓXIMA DECISÃO**
+
+### GitHub e branding
+
+O GitHub não será tratado apenas como ferramenta técnica. Ele será a **memória operacional da marca e da relação Padilha × Vitrine**.
+
+Obras, treinamentos, experimentos de mídia, conteúdos, melhorias de presença, decisões e resultados podem formar um histórico cumulativo. Esse histórico pode alimentar novos conteúdos, cases, provas comerciais e decisões futuras, respeitando confidencialidade e o que puder ser tornado público.
+
+A proposta comercial, portanto, não é somente gerar divulgação. É construir progressivamente um **patrimônio digital documentado, rastreável e cumulativo**.
+
+A própria proposta já nasce dentro desse modelo: sua documentação, evolução e revisão estão versionadas no GitHub antes do início da operação comercial.
+
 ## Roadmap inicial — T0 → T4
 
 Horizonte inicial: **90 dias**, com fases sobrepostas e ajustes durante o ciclo.
