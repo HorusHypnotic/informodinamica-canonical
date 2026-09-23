@@ -275,6 +275,73 @@ Esse loop permite que uma obra gere prova, a prova gere conteúdo, o conteúdo f
 3. **Negociação:** proposta, objeção, concessão/desconto, ciclo e fechamento.
 4. **Economia:** ticket, margem quando disponível, CAC quando mensurável, receita e reinvestimento.
 
+## Operação acompanhável e melhoria contínua
+
+A Padilha não recebe apenas divulgação. A operação comercial será acompanhada como um ciclo de trabalho observável, no qual decisões, ações, custos conhecidos, evidências e resultados podem alimentar as próximas decisões.
+
+Fluxo simples para o cliente:
+
+**PLANEJAMOS → EXECUTAMOS → MEDIMOS → APRENDEMOS → MELHORAMOS A PRÓXIMA AÇÃO**
+
+Isso significa que a estratégia não precisa permanecer congelada durante os 90 dias. Quando surgirem dados suficientes, a próxima ação poderá ser ajustada a partir do que foi observado, preservando o histórico do que havia sido decidido antes.
+
+### Como cada ação pode ser acompanhada
+
+Quando aplicável, registrar:
+- objetivo da ação;
+- público e território;
+- mensagem/oferta;
+- canal utilizado;
+- investimento conhecido;
+- execução realizada;
+- evidência disponível;
+- contatos e oportunidades associados quando rastreáveis;
+- objeções e fricções observadas;
+- resultado;
+- aprendizado proposto;
+- próxima decisão.
+
+**Resultado observado não será automaticamente tratado como causa.** Uma venda após uma campanha, por exemplo, não prova sozinha que aquela campanha causou a venda. O nível de evidência deve acompanhar a conclusão.
+
+### Retroalimentação comercial
+
+O aprendizado de um ciclo pode gerar uma proposta de melhoria para o ciclo seguinte:
+
+**AÇÃO N → EVIDÊNCIA → RESULTADO → APRENDIZADO → AJUSTE PROPOSTO → AÇÃO N+1**
+
+A versão anterior permanece preservada. Mudanças relevantes devem ser identificáveis, permitindo entender **o que mudou e por quê**.
+
+### Aplicação imediata às casas
+
+Para CASA-01 e CASA-02:
+
+**DADOS + FOTOS + PREÇO AUTORIZADO → PÁGINA/CONTEÚDO → ATIVAÇÃO → INTERESSADOS → QUALIFICAÇÃO → VISITAS → PROPOSTAS → OBJEÇÕES → RESULTADO → AJUSTE**
+
+Exemplos de retroalimentação:
+- dúvida recorrente pode revelar informação que precisa ganhar destaque;
+- objeção recorrente pode gerar hipótese de mudança na mensagem ou qualificação;
+- origem de leads qualificados pode orientar redistribuição de mídia;
+- interessado que não compra o imóvel, mas deseja construir algo semelhante, pode gerar oportunidade de Construção Civil;
+- ausência de informação crítica deve aparecer como pendência e indicar qual decisão ela impede.
+
+### Andaimes para evitar decisões no escuro
+
+Os checklists da operação não devem funcionar apenas como lista de campos vazios. Quando uma informação importante estiver ausente, o acompanhamento deve indicar, quando possível:
+
+**O QUE FALTA → QUAL DECISÃO DEPENDE DISSO → O QUE PODE CONTINUAR → QUEM PRECISA RESPONDER → O QUE DESTRAVA A ETAPA**
+
+Exemplo: a ausência da margem de uma casa não impede sua divulgação, mas impede uma análise econômica segura sobre piso de negociação e concessões. A ausência de fotos adequadas não impede organizar o imóvel, mas limita ativações visuais que dependam delas.
+
+### GitHub por baixo, acompanhamento simples por cima
+
+O GitHub permanece como memória versionada da operação e fonte de evidências quando apropriado. O cliente não precisa operar tecnicamente o GitHub para acompanhar o trabalho.
+
+A camada comercial deve responder de forma simples:
+
+**O que decidimos? O que executamos? Quanto investimos? O que aconteceu? O que aprendemos? O que faremos diferente agora?**
+
+Esta abordagem está sendo aplicada como **método operacional em validação**. Ela não constitui promessa de resultado nem declara como comprovada uma relação causal ainda não testada.
+
 ## Roadmap inicial — T0 → T4
 
 Horizonte inicial: **90 dias**, com fases sobrepostas e ajustes durante o ciclo.
