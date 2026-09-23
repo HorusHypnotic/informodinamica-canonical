@@ -275,6 +275,21 @@ Referência de operação-base para 90 dias: **R$ 4.500**, acrescida apenas das 
 - preservar evidências de execução quando disponíveis;
 - retroalimentar cada novo ciclo com os resultados observados.
 
+## Faturamento, pagamento e nota fiscal
+
+A contratação da Vitrine será tratada como operação empresarial.
+
+- contrato e cobrança vinculados ao **CNPJ da Vitrine / empresa contratada**;
+- pagamento da operação realizado em **conta empresarial informada no aceite**, sem exposição de dados bancários neste repositório público;
+- emissão de **NFS-e** referente aos serviços faturados pela Vitrine, conforme enquadramento fiscal aplicável;
+- a mensalidade de **R$ 1.500/mês** corresponde à operação Vitrine descrita nesta proposta;
+- o piloto audiovisual de **R$ 600** será faturado pela parte responsável pela prestação do serviço, conforme definição comercial e fiscal antes da contratação;
+- mídia, impressão, rádio, windbanner, outdoor, influenciador e demais fornecedores externos permanecem separados da mensalidade e, preferencialmente, são contratados/faturados diretamente pelo fornecedor quando aplicável;
+- quando houver contratação de terceiro por intermédio operacional da Vitrine, fornecedor, valor, escopo e forma de faturamento deverão ser explicitados antes da aprovação;
+- orçamento, comprovante, recibo, nota fiscal quando emitida pelo fornecedor e evidências de execução poderão compor o registro da operação conforme disponibilidade e pertinência.
+
+**Dados bancários não são publicados no GitHub.** Serão fornecidos ao cliente somente no fluxo de aceite, contrato ou cobrança.
+
 ## Próximo passo comercial
 
 **APROVAÇÃO → ESTRUTURAÇÃO → PILOTO AUDIOVISUAL → ATIVAÇÃO → MEDIÇÃO → RETROALIMENTAÇÃO**
