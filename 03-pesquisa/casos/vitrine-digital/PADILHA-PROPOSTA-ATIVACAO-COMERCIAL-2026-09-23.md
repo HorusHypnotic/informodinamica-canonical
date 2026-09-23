@@ -84,12 +84,7 @@ Os valores abaixo não têm o mesmo nível de evidência. A tabela separa **pre�
 | Vitrine Digital | R$ 1.500/mês | Operação comercial | **PREÇO COMERCIAL VITRINE — CONFIRMADO** |
 | Piloto audiovisual | R$ 600 | 10 vídeos de até 1min30 | **CONDIÇÃO COMERCIAL DO PILOTO — CONFIRMADO NA PROPOSTA** |
 | Rádio Você FM 92.1 | R$ 3.750/mês | spot 30s; 5 inserções/dia = 150/mês + 2 bonificadas/dia = 60 adicionais; até 210 inserções/mês | **ORÇAMENTO/COTAÇÃO FORNECIDO — RECONFIRMAR NA CONTRATAÇÃO** |
-| Rádio Redenção | R$ 624/mês | 3 inserções/dia × 26 dias = 78 inserções | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
-| Rádio Redenção ampliado | R$ 1.040/mês | 5 inserções/dia × 26 dias = 130 inserções | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
-| Produção de spot simples | R$ 50 | produção de áudio | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
-| Produção de spot personalizado | R$ 100 | produção personalizada | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
-| Spot avulso Rádio Redenção | R$ 68,67 | rotativo, até 1 min | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
-| Spot com horário determinado | R$ 131,67 | até 1 min | **REFERÊNCIA PÚBLICA LEVANTADA — NÃO TRATAR COMO ORÇAMENTO PADILHA** |
+| Produção de spot Vitrine | R$ 150 | produção de spot; opção de até 150 vozes | **REFERÊNCIA COMERCIAL VITRINE** |
 | Carro de som | R$ 80/h | rota personalizável | **REFERÊNCIA LEVANTADA — PROCEDÊNCIA DO ORÇAMENTO NÃO COMPROVADA NESTE REGISTRO** |
 | Carro de som em volume | R$ 70/h | conforme volume | **REFERÊNCIA LEVANTADA — PROCEDÊNCIA DO ORÇAMENTO NÃO COMPROVADA NESTE REGISTRO** |
 | Locução ao vivo | R$ 90/h | durante a rota | **REFERÊNCIA LEVANTADA — PROCEDÊNCIA DO ORÇAMENTO NÃO COMPROVADA NESTE REGISTRO** |
@@ -99,7 +94,7 @@ Os valores abaixo não têm o mesmo nível de evidência. A tabela separa **pre�
 | Meta / Instagram Ads | A DEFINIR | público e território por campanha | **VERBA A APROVAR** |
 | Google Ads | A DEFINIR | busca/intenção | **VERBA A APROVAR** |
 
-**Regra:** quantidade de inserções é inventário de mídia, não audiência. Nenhum alcance será inferido a partir de 78, 130 ou 210 inserções.
+**Regra:** quantidade de inserções é inventário de mídia, não audiência. Nenhum alcance será inferido a partir da quantidade de inserções.
 
 ## Mensalidade Vitrine
 
