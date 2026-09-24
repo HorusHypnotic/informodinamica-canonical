@@ -156,7 +156,7 @@ Para o primeiro ciclo da Padilha, a recomendação comercial da Vitrine é come�
 3. **2 windbanners personalizados — EM COTAÇÃO**  
    Presença física inicial recomendada, com uma peça orientada à Construção Civil e outra à Segurança do Trabalho, podendo utilizar CTA/link rastreável quando adequado.
 
-**Investimento conhecido do pacote recomendado: R$ 2.100 + valor dos 2 windbanners.**
+**Investimento conhecido do pacote recomendado: R$ 2.790 (R$ 1.500 da operação Vitrine + R$ 600 do piloto audiovisual + R$ 690 dos 2 windbanners).**
 
 Esta é a **recomendação inicial da Vitrine**, não uma obrigação de contratação de todas as mídias disponíveis. Rádio, outdoor, influenciadores, tráfego pago, carro de som e demais ativações permanecem como opções posteriores, condicionadas à necessidade, evidência, orçamento e aprovação do cliente.
 
