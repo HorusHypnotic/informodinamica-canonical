@@ -127,7 +127,13 @@ Regra de mídia:
 
 ## Presença física
 
-Piloto previsto: **2 windbanners personalizados**, valor ainda **EM COTAÇÃO**.
+Piloto previsto: **2 windbanners personalizados — R$ 690** (**R$ 345/unidade** na condição para 2 ou mais unidades). Cotação recebida em **24/09/2026**. A condição informada é promocional desta semana e deve ser reconfirmada antes da contratação.
+
+Condições informadas pelo fornecedor:
+- 1 unidade completa: **R$ 360** (preço promocional; referência anterior R$ 420);
+- 2 ou mais unidades: **R$ 345 por unidade**;
+- arte da bandeira inclusa, mediante envio da logo em qualidade adequada;
+- entrega na empresa em Redenção quando pronta.
 
 Hipótese inicial:
 - peça 1: Construção Civil;
@@ -153,8 +159,8 @@ Para o primeiro ciclo da Padilha, a recomendação comercial da Vitrine é come�
 2. **Piloto audiovisual — R$ 600**  
    **10 vídeos de até 1min30** para formar o primeiro acervo comercial, alimentar Vitrine, Instagram, Google e campanhas e identificar quais temas e formatos produzem melhores sinais.
 
-3. **2 windbanners personalizados — EM COTAÇÃO**  
-   Presença física inicial recomendada, com uma peça orientada à Construção Civil e outra à Segurança do Trabalho, podendo utilizar CTA/link rastreável quando adequado.
+3. **2 windbanners personalizados — R$ 690**  
+   Cotação de campo recebida em 24/09/2026: **R$ 345/unidade para 2 ou mais unidades**. Arte inclusa mediante envio da logo em qualidade adequada e entrega na empresa em Redenção quando prontas. Condição promocional da semana, sujeita a reconfirmação antes da contratação. Presença física inicial recomendada, com uma peça orientada à Construção Civil e outra à Segurança do Trabalho, podendo utilizar CTA/link rastreável quando adequado.
 
 **Investimento conhecido do pacote recomendado: R$ 2.790 (R$ 1.500 da operação Vitrine + R$ 600 do piloto audiovisual + R$ 690 dos 2 windbanners).**
 
@@ -176,7 +182,7 @@ Os valores abaixo não têm o mesmo nível de evidência. A tabela separa **pre�
 | Carro de som em volume | R$ 70/h | conforme volume | **REFERÊNCIA LEVANTADA — PROCEDÊNCIA DO ORÇAMENTO NÃO COMPROVADA NESTE REGISTRO** |
 | Locução ao vivo | R$ 90/h | durante a rota | **REFERÊNCIA LEVANTADA — PROCEDÊNCIA DO ORÇAMENTO NÃO COMPROVADA NESTE REGISTRO** |
 | Influenciador local | R$ 600 | referência local de ativação; formato e alcance dependem da campanha | **BENCHMARK — NÃO É ORÇAMENTO PADILHA** |
-| 2 windbanners | EM COTAÇÃO | 2 peças | **UNKNOWN / AGUARDANDO ORÇAMENTO** |
+| 2 windbanners | R$ 690 | 2 peças completas; R$ 345/unidade para 2 ou mais; arte inclusa; entrega em Redenção | **ORÇAMENTO/COTAÇÃO FORNECIDO EM 24/09/2026 — PROMOCIONAL DA SEMANA; RECONFIRMAR NA CONTRATAÇÃO** |
 | Outdoor | EM COTAÇÃO | ponto, período, impressão e instalação | **UNKNOWN / AGUARDANDO ORÇAMENTO** |
 | Meta / Instagram Ads | A DEFINIR | público e território por campanha | **VERBA A APROVAR** |
 | Google Ads | A DEFINIR | busca/intenção | **VERBA A APROVAR** |
@@ -413,9 +419,9 @@ Produzir evidência para responder:
 
 - **Operação Vitrine Digital:** R$ 1.500/mês.
 - **Primeiro piloto audiovisual:** R$ 600.
-- **2 windbanners:** EM COTAÇÃO.
+- **2 windbanners:** R$ 690 (**R$ 345/unidade**, condição para 2 ou mais; cotação recebida em 24/09/2026, promocional da semana e sujeita a reconfirmação).
 
-**Investimento inicial conhecido: R$ 2.100 + windbanners.**
+**Investimento inicial conhecido do primeiro ciclo: R$ 2.790** (R$ 1.500 operação Vitrine + R$ 600 piloto audiovisual + R$ 690 pelos 2 windbanners).
 
 Referência de operação-base para 90 dias: **R$ 4.500**, acrescida apenas das ativações externas aprovadas.
 
@@ -450,7 +456,6 @@ A contratação da Vitrine será tratada como operação empresarial.
 
 ## Pendências abertas
 
-- valor final dos 2 windbanners;
 - eventual seleção da primeira mídia paga;
 - orçamento de mídia aprovado pelo cliente;
 - métricas auditáveis de audiência/alcance quando fornecidas pelos veículos;
