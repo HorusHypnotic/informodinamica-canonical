@@ -210,6 +210,28 @@ Inclui:
 
 Não inclui verba de tráfego, rádio, outdoor, windbanners, influenciadores, impressão, fornecedores externos ou produções adicionais contratadas separadamente.
 
+## Efeito de rede observado antes da ativação
+
+A relação com Pedro já produziu um sinal comercial relevante para a própria Vitrine antes do início formal da operação Padilha.
+
+Por indicação de **Pedro Henrique**, foi iniciada uma cadeia de contato que passou por **quatro pessoas** até localizar o responsável pela **Fazenda Esperança**. A partir dessa conexão, foi informada a intenção de entrada da Fazenda Esperança na Vitrine.
+
+Este registro deve ser tratado como **evidência de origem de conexão e expansão de rede**, e não como resultado causado por mídia ou pela operação contratada da Padilha.
+
+Fluxo observado:
+
+**PEDRO → INDICAÇÃO → 4 CONEXÕES → RESPONSÁVEL FAZENDA ESPERANÇA → INTENÇÃO DE ENTRADA NA VITRINE**
+
+### Nova métrica operacional
+
+Passa a ser candidato o registro de **origem da conexão/indicação**, permitindo preservar quem abriu cada caminho comercial e quantos saltos foram necessários até chegar ao decisor.
+
+Ledger candidato:
+
+**ORIGEM/INDICADOR → CONTATO 1 → ... → DECISOR → ORGANIZAÇÃO → STATUS → RESULTADO**
+
+**Status epistemológico:** OBSERVADO para a cadeia de indicação e localização do responsável, conforme registro operacional informado; a entrada efetiva da Fazenda Esperança somente deve ser promovida a adesão confirmada quando houver aceite/cadastro verificável.
+
 ## GitHub como central da operação
 
 A operação será documentada no GitHub, que funciona como **central de inteligência, decisões, evidências e evolução do projeto**.
