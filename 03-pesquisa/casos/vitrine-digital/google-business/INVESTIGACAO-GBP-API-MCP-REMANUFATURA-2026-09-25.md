@@ -206,3 +206,81 @@ Nenhuma escrita pública antes de 1–9.
 - Arquitetura V0: CANDIDATE pronta para implementação mock.
 - Acesso Google real: BLOCKED por ação humana externa ainda não comprovada.
 - Custo obrigatório de SaaS: R$ 0 identificado até este estágio.
+
+
+---
+
+## Lote 03 — E0 real: projeto Cloud, APIs, quota e submissão do acesso
+Data: 2026-09-25
+
+### Projeto dedicado
+Criado e selecionado no Google Cloud:
+- Nome: `Canteiro GBP Control Tower`
+- Project ID: `canteiro-gbp-control-tower`
+- Project number: `552505356775`
+
+O projeto dedicado substitui o uso acidental de projetos genéricos para esta frente.
+
+### APIs habilitadas
+Evidência visual fornecida pelo operador confirmou status **Ativado** para:
+1. Business Profile Performance API — `businessprofileperformance.googleapis.com`
+2. My Business Account Management API — `mybusinessaccountmanagement.googleapis.com`
+3. My Business Business Information API — `mybusinessbusinessinformation.googleapis.com`
+
+Nenhuma credencial OAuth foi criada neste lote.
+
+### Quota observada
+Na My Business Business Information API:
+- Create Location requests per day: 100
+- Requests per minute: **0**
+- SearchGoogleLocation requests per day: 200
+- Update Location requests per day: 10.000
+
+Classificação: **BLOCKED / acesso básico ainda não concedido**. Não solicitar aumento de quota enquanto o projeto estiver sem acesso básico.
+
+### Fluxo oficial de solicitação
+A documentação oficial direcionou ao formulário de suporte da Google Business Profile API e ao tipo **Pedido de acesso básico às APIs**.
+
+O formulário reconheceu o perfil **Canteiro de Obras Digital** como:
+- Empresa de serviço local;
+- Status: **Verificada**.
+
+O formulário informou como condição que o perfil esteja verificado e ativo há pelo menos 60 dias. O operador declarou **Sim** para essa condição e o fluxo aceitou a submissão. Esta informação é registrada como declaração do operador aceita pelo formulário, não como verificação independente da Torre.
+
+Dados usados no pedido:
+- Google Cloud project number: `552505356775`
+- site comercial: `https://vitrinedigital-cod.lovable.app/`
+- origem do formulário: documentação oficial das APIs do Google Business Profile;
+- motivo declarado: integrar o perfil do Canteiro aos sistemas internos para consulta programática de informações e desempenho, acompanhamento de métricas e futura gestão autorizada via APIs oficiais.
+
+### Evidência de submissão
+O Google confirmou na tela:
+- progresso do fluxo: **100%**;
+- solicitação recebida e caso de suporte aberto;
+- Case ID: `0-6079000041107`;
+- prazo informado nessa confirmação: aproximadamente **7 a 10 dias úteis** devido ao volume de pedidos de inclusão na lista de permissões.
+
+Classificação correta:
+- pedido Basic API Access: **SUBMITTED / PASS de submissão**;
+- aprovação/allowlist: **PENDING**;
+- quota operacional > 0: **FAIL no estado atual / aguardando aprovação**;
+- acesso real à API: **BLOCKED externo**;
+- OAuth: **NOT STARTED**;
+- mutações públicas: **PROIBIDAS no E0**.
+
+### Atualização do gate E0
+1. projeto Cloud dedicado conhecido — **PASS**;
+2. pedido Basic API Access submetido — **PASS**;
+3. quota > 0 / aprovação — **PENDING**;
+4. APIs necessárias habilitadas — **PASS** para as 3 APIs-base selecionadas;
+5. OAuth client criado — **NOT STARTED**;
+6. consentimento do proprietário — **PENDING para o fluxo OAuth**;
+7. `GET /v1/accounts` = 200 — **BLOCKED por 3–6**;
+8. location do Canteiro identificada via API — **BLOCKED**;
+9. primeira leitura preservada no ledger — **BLOCKED**.
+
+### Condição de parada
+Não executar escrita pública no Perfil da Empresa. Não interpretar submissão como aprovação. Não forçar quota manualmente. O próximo gate externo é a decisão do Google sobre o caso `0-6079000041107`.
+
+### Trabalho permitido enquanto a aprovação não chega
+Prosseguir offline/mock com o GBP-ADAPTER V0: contratos READ/PREPARE/WRITE, mock fixtures, dry-run, mutation guard, fingerprints e ledger before/after. Isso não prova integração real com o Google e deve permanecer classificado como mock até o teste oficial autenticado.
