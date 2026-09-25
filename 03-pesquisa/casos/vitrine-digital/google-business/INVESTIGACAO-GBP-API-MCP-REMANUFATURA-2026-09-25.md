@@ -284,3 +284,32 @@ Não executar escrita pública no Perfil da Empresa. Não interpretar submissão
 
 ### Trabalho permitido enquanto a aprovação não chega
 Prosseguir offline/mock com o GBP-ADAPTER V0: contratos READ/PREPARE/WRITE, mock fixtures, dry-run, mutation guard, fingerprints e ledger before/after. Isso não prova integração real com o Google e deve permanecer classificado como mock até o teste oficial autenticado.
+
+
+---
+
+## Lote 04 — Implementação mock-first do GBP Adapter V0
+Data: 2026-09-25
+
+Implementação iniciada no repositório `HorusHypnotic/vitrinedigital-cod` sem usar Lovable AI, créditos ou GitHub Actions.
+
+Branch isolada: `feat/gbp-adapter-v0-mock`
+Draft PR: #324
+Head observado ao abrir PR: `38158993c3361857971ce1f7e203f7b1e5ce78fa`
+
+Entregas:
+- `src/lib/gbp-adapter/contracts.ts`: contratos de preflight, snapshot, prepared mutation e ledger;
+- `src/lib/gbp-adapter/guard.ts`: gate fail-closed para mutações;
+- `src/lib/gbp-adapter/mock.ts`: estado E0 explicitamente MOCK/PENDING, sem alegar leitura Google;
+- `src/lib/gbp-adapter/guard.test.ts`: testes do bloqueio por mutations disabled, ausência de confirmação humana e passagem somente com todos os gates;
+- `docs/gbp-adapter-v0.md`: boundary e stop conditions.
+
+Classificação:
+- scaffold em Git: **PASS**;
+- PR criado: **PASS**;
+- testes no PETECO: **PENDING**;
+- build PETECO: **PENDING**;
+- integração Google real: **BLOCKED externo**;
+- escrita pública: **PROIBIDA**.
+
+Próximo gate operacional: PETECO executar o teste unitário específico e, se verde, build. Nenhum merge antes da evidência fresca do executor.
