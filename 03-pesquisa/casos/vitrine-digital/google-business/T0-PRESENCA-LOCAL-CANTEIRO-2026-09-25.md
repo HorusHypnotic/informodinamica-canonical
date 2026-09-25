@@ -119,3 +119,62 @@ Para cada avanço material, preservar ao menos um rastro versionado: commit, doc
 6. Executar e registrar a matriz T0 em Pesquisa e Maps.
 7. Classificar cada consulta como PASS/FAIL/UNKNOWN.
 8. Só então abrir T1 com intervenções rastreáveis.
+
+
+---
+
+## Evidência E1 — Descoberta pública / 2026-09-25
+
+### Busca nominal na web
+Foram executadas consultas públicas por:
+
+- `"Canteiro de Obras Digital" Redenção PA`
+- `"Canteiro de Obras Digital" "Redenção" construção`
+- `"Canteiro de Obras Digital" Vitrine Digital`
+
+O mecanismo de busca consultado **não retornou uma página oficial do Canteiro entre os resultados observados**. Em uma consulta pública relacionada, apareceu um diretório de terceiros (GuiaFix) contendo cadastro do Canteiro.
+
+**Leitura:** há sinal de entidade/citação pública fora do ecossistema próprio, mas a presença web oficial ainda não foi demonstrada nessas consultas.
+
+**Classificação E1:** `PARTIAL`.
+
+### Busca local estruturada
+Foi executada descoberta local para famílias relacionadas a:
+
+- prestador de serviços de construção civil;
+- construção civil;
+- serviços para obra;
+
+com localização em **Redenção-PA**.
+
+O Canteiro de Obras Digital **não apareceu no conjunto de resultados locais retornados nessa rodada**. Entre os resultados observados estavam empresas locais classificadas como engenharia civil, construtora, locação de equipamentos, pedreiro e serviços correlatos.
+
+**Classificação:** `FAIL` nesta rodada e nestas famílias de consulta.
+
+**Limitação:** isto não estabelece posição universal no Google/Maps. A entrega local depende, entre outros fatores, da consulta e do contexto/localização. O teste deve ser repetido de forma controlada no T0.
+
+### Sinal competitivo observado
+A amostra local retornou negócios com categorias específicas e histórico de avaliações. Isto cria duas hipóteses para investigação, ainda **não comprovadas**:
+
+1. a categoria atual do Canteiro pode estar ampla ou desalinhada com a intenção de busca que queremos capturar;
+2. reputação e demais sinais públicos podem estar insuficientes frente aos negócios retornados.
+
+Não alterar categoria com base apenas nesta hipótese.
+
+## Pendências que exigem captura do operador / painel
+Os seguintes itens não podem ser inferidos com segurança pela busca pública e continuam `UNKNOWN`:
+
+- status de verificação do Perfil da Empresa;
+- indicador Força do Perfil;
+- categorias adicionais atualmente configuradas;
+- serviços atualmente publicados;
+- métricas internas de desempenho;
+- consultas reais registradas pelo Google que levaram ao perfil;
+- visualizações/interações no período;
+- estado exato de fotos, vídeos e postagens dentro do painel.
+
+### Condição de parada
+Não iniciar T1 nem vender “ranqueamento” como capacidade comprovada antes de capturar os itens internos acima e fechar o baseline reproduzível.
+
+### Próxima ação humana mínima
+Capturar telas de **Força do Perfil** e **Desempenho** do Perfil da Empresa do Canteiro. A Torre cruza essas evidências com E1 e fecha a próxima fatia do T0.
