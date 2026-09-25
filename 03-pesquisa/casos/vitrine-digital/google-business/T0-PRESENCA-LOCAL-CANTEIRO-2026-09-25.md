@@ -382,3 +382,55 @@ Produtos visuais não compensam automaticamente essas lacunas.
 7. Repetir a mesma medição após janela definida.
 
 Nenhuma destas ações deve ser registrada como PASS antes da execução e evidência.
+
+
+---
+
+## Evidência E5 — Posts e acervo visual / 2026-09-25
+
+**Fonte:** capturas do painel proprietário fornecidas pelo operador.
+
+### Postagens
+A tela **Suas postagens** informa explicitamente:
+
+> “Ainda não há postagens. Faça sua primeira hoje mesmo.”
+
+**Classificação posts:** `FAIL` — nenhuma postagem publicada no Perfil da Empresa no T0.
+
+### Fotos e vídeos
+A tela **Fotos e vídeos** demonstra que existe acervo visual publicado. A captura mostra:
+
+- capa configurada;
+- logotipo configurado;
+- múltiplas peças/imagens adicionais;
+- contadores visíveis em peças individuais, incluindo **212**, **275**, **576** e **247 visualizações**.
+
+Esses contadores pertencem às peças exibidas e **não devem ser somados ao indicador de 320 pessoas do painel de Desempenho**, pois são métricas/superfícies distintas.
+
+**Classificação acervo visual:** `PASS` para existência de conteúdo; `UNKNOWN` para qualidade/efeito sobre descoberta ou conversão.
+
+### Achado importante
+O perfil não está vazio de mídia. Existe consumo mensurável de imagens, enquanto:
+
+- posts = 0;
+- interações do perfil = 0 na janela abr–set;
+- avaliações = 0;
+- serviços específicos visíveis = 0;
+- termos de busca ainda não são liberados pelo Google por baixo volume.
+
+Isso reforça que **visualização de mídia não equivale a interação ou resultado comercial**.
+
+### Estado consolidado do T0
+
+`Perfil estruturado + mídia existente + exposição existente ≠ descoberta qualificada/interação comprovada`.
+
+A lacuna agora está mais concentrada em:
+
+1. arquitetura semântica (categoria, serviços, descrição e páginas de destino);
+2. reputação (avaliações reais);
+3. atividade do perfil (posts);
+4. caminhos de ação/conversão;
+5. medição reproduzível por consulta.
+
+### Pendência para congelamento do T0
+Capturar **Editar perfil → Sobre** para preservar descrição atual e categorias adicionais. Com isso, o baseline interno pode ser congelado e T1 aberto formalmente.
