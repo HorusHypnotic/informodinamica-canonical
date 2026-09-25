@@ -295,3 +295,90 @@ Antes de T1:
 3. registrar fotos/posts atuais;
 4. executar matriz controlada Pesquisa/Maps;
 5. fechar T0 e definir intervenções T1.
+
+
+---
+
+## Evidência E4 — Reputação, serviços, agendamento e catálogo / 2026-09-25
+
+**Fonte:** quatro capturas do painel proprietário fornecidas pelo operador.
+
+### Avaliações / reputação
+O painel exibe **“Receba sua primeira avaliação”**.
+
+**Estado:** `0 avaliações` no Perfil da Empresa, conforme painel capturado.
+
+O próprio painel disponibiliza compartilhamento do pedido de avaliação por e-mail, WhatsApp, Facebook, link direto e QR code.
+
+**Classificação reputação:** `FAIL` — nenhuma avaliação registrada no perfil no T0.
+
+> Observação: mensagens promocionais/estimativas apresentadas pela interface do Google não são adotadas como promessa de resultado da operação.
+
+### Serviços
+A tela de serviços mostra apenas a categoria principal:
+
+**Prestador de serviços de construção civil**
+
+e oferece **“Adicionar um serviço personalizado”**.
+
+Nenhum serviço específico aparece cadastrado na captura.
+
+**Classificação serviços:** `FAIL` — catálogo de serviços não estruturado no T0.
+
+### Agendamento / reserva
+A tela **Reserva** oferece a configuração de links para ferramentas de agendamento on-line e o botão **“Adicionar um link”**.
+
+Nenhum link de agendamento aparece configurado na captura.
+
+**Classificação agendamento:** `NOT_CONFIGURED`.
+
+Não há evidência suficiente para afirmar que agendamento seja necessário ao produto atual; portanto não é pendência obrigatória até validação de uso.
+
+### Produtos
+A tela Produtos mostra seis cards visíveis/preparados:
+
+1. Ativação Comercial e Presença Digital;
+2. Vitrine para Prestadores;
+3. Minha Obra;
+4. Vaga Quente — card visualmente marcado **PENDENTE**;
+5. Smart Cotações;
+6. Vitrine Digital.
+
+Isto atualiza a fotografia anterior de cinco produtos: no instante da E4 há **seis cards na tela**, sendo pelo menos um com indicação visual de pendência.
+
+**Classificação catálogo:** `PARTIAL`.
+
+### Diagnóstico consolidado após E1–E4
+
+| Camada | Estado T0 | Evidência |
+|---|---|---|
+| Perfil existe/é gerenciado | PASS | E2 |
+| Informações básicas | PASS/PARTIAL | E2 |
+| Exposição | PASS | E3: 320 visualizações |
+| Descoberta suficiente para termos | FAIL | E3: <50 pesquisas; termos não exibidos |
+| Interações | FAIL | E3: gráfico em zero |
+| Reputação | FAIL | E4: primeira avaliação ainda não recebida |
+| Serviços específicos | FAIL | E4: nenhum serviço específico visível |
+| Produtos | PARTIAL | E4: seis cards; Vaga Quente pendente |
+| Agendamento | NOT_CONFIGURED | E4 |
+| Resultado comercial atribuível ao GBP | UNKNOWN | sem evidência |
+
+### Hipótese prioritária para T1
+A evidência agora aponta para um problema menos parecido com **“perfil incompleto”** e mais parecido com **“perfil existente, porém semanticamente e reputacionalmente raso para as intenções que queremos capturar”**.
+
+Hipótese `CANDIDATE`, ainda não PASS:
+
+`categoria ampla/desalinhada + serviços ausentes + zero avaliações + pouca descoberta por consulta → baixa interação`.
+
+Produtos visuais não compensam automaticamente essas lacunas.
+
+### Ações T1 candidatas, ainda não executadas
+1. Definir o que o Canteiro realmente deve ser encontrado para resolver.
+2. Auditar categorias disponíveis antes de trocar a principal.
+3. Cadastrar serviços reais e semanticamente coerentes.
+4. Criar processo ético de solicitação de avaliações a clientes/parceiros com experiência real.
+5. Corrigir/publicar o card pendente somente se representar capacidade real.
+6. Auditar descrição, site/landing e coerência semântica.
+7. Repetir a mesma medição após janela definida.
+
+Nenhuma destas ações deve ser registrada como PASS antes da execução e evidência.
