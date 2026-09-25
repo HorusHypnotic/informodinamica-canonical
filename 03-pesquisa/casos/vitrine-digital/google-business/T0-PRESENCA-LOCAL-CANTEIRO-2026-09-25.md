@@ -232,3 +232,66 @@ Abrir **Desempenho** e preservar captura contendo, quando disponível:
 4. chamadas, cliques no site, mensagens, rotas ou demais interações exibidas.
 
 Não alterar categoria nem iniciar T1 antes de registrar E3.
+
+
+---
+
+## Evidência E3 — Desempenho interno / abr–set 2026
+
+**Fonte:** capturas do painel de Desempenho fornecidas pelo operador em 2026-09-25.
+
+### Janela observada
+`abr. de 2026 – set. de 2026`
+
+### Interações
+O gráfico **Interações no Perfil da Empresa** permanece em **0** durante os meses exibidos de abril a setembro de 2026.
+
+**Classificação:** `FAIL` para interação registrada nessa janela.
+
+### Descoberta e visualizações
+O painel informa:
+
+- **320** pessoas visualizaram o Perfil da Empresa;
+- **< 50** pesquisas mostraram o Perfil da Empresa nos resultados da pesquisa;
+- o Google não exibe termos de pesquisa e informa: **“Mais buscas são necessárias para que os termos de pesquisa sejam exibidos aqui”**.
+
+Distribuição das 320 visualizações:
+
+| Origem | Visualizações | Participação |
+|---|---:|---:|
+| Google Maps — computadores | 94 | 29% |
+| Pesquisa Google — dispositivos móveis | 84 | 26% |
+| Google Maps — dispositivos móveis | 77 | 24% |
+| Pesquisa Google — computadores | 65 | 20% |
+
+A soma das quatro origens é 320.
+
+### Leitura operacional
+O perfil **tem exposição**, portanto não está invisível no ecossistema Google. Porém, na janela observada, essa exposição não produziu interação registrada no gráfico apresentado.
+
+O T0 passa a distinguir três camadas:
+
+`EXPOSIÇÃO → DESCOBERTA POR CONSULTA → INTERAÇÃO`
+
+Estado atual:
+
+- Exposição: `PASS` — 320 visualizações.
+- Volume suficiente para termos de busca: `FAIL` — Google reporta menos de 50 pesquisas e não libera os termos.
+- Interação: `FAIL` — zero no gráfico da janela.
+- Conversão comercial: `UNKNOWN` — nenhuma evidência apresentada permite atribuir negócio/venda ao perfil.
+
+### Implicação
+Cadastrar produtos, por si só, não demonstrou resolver descoberta ou interação. O experimento deve agora investigar relevância, categoria/serviços, reputação, conteúdo, presença web e caminhos de conversão, sempre preservando baseline antes/depois.
+
+### Gate atualizado
+Não vender “ranqueamento” como resultado comprovado.
+
+A capacidade comercial permanece candidata a **Operação de Presença Local Mensurável**, com métricas separadas para exposição, descoberta, interação e resultado comercial.
+
+### Próxima frente T0
+Antes de T1:
+1. registrar estado de avaliações/reputação;
+2. registrar serviços e categorias adicionais;
+3. registrar fotos/posts atuais;
+4. executar matriz controlada Pesquisa/Maps;
+5. fechar T0 e definir intervenções T1.
