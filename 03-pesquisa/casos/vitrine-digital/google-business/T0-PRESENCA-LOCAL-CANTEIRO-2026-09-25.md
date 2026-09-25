@@ -1,0 +1,121 @@
+# T0 — Baseline de Presença Local no Google
+
+## Canteiro de Obras Digital
+
+**Data:** 2026-09-25  
+**Estado:** T0 / BASELINE  
+**Classificação:** baseline documental em construção; descoberta genérica ainda não demonstrada.
+
+## Objetivo
+
+Usar o Canteiro de Obras Digital como **caso zero** antes de transformar presença local no Google em capacidade comercial replicável para clientes da Vitrine Digital.
+
+A operação não promete posição, primeiro lugar ou “ranqueamento garantido”. O objeto em validação é:
+
+> **estruturação, otimização e acompanhamento de presença local no Google com baseline, intervenção, medição e evidência.**
+
+## Problema observado
+
+O Perfil da Empresa do Canteiro de Obras Digital está sendo estruturado e, no momento desta captura, havia **5 itens cadastrados** no catálogo. Apesar disso, a investigação inicial não demonstrou descoberta orgânica do Canteiro em consultas genéricas relacionadas à atividade em Redenção-PA.
+
+Isto **não prova ausência do perfil no Google**, não representa uma posição universal e não autoriza concluir que o negócio nunca aparece. Resultados locais variam por consulta, localização/distância e demais sinais do Google.
+
+## Fundamento de ranking a verificar
+
+A documentação oficial do Google descreve três grupos principais para resultados locais:
+
+1. **Relevância** — correspondência entre o Perfil da Empresa e a pesquisa.
+2. **Distância** — relação entre o negócio e o local da pesquisa/pesquisador.
+3. **Destaque/popularidade** — quão conhecido é o negócio, incluindo sinais públicos como referências na web, links e avaliações.
+
+O Google também declara que não existe forma de solicitar ou pagar por uma classificação local melhor.
+
+## Estado conhecido no T0
+
+- Perfil: **Canteiro de Obras Digital**.
+- Categoria principal registrada na operação: **Prestador de serviços de construção civil**.
+- Site do perfil foi direcionado para a Vitrine Digital.
+- Operação configurada sem local físico exposto / atendimento por área de serviço.
+- Catálogo: **5 itens cadastrados** no instante reportado pelo operador.
+- Capacidades preparadas para catálogo: Vitrine Digital, Smart Cotações, Vaga Quente, Minha Obra, Vitrine para Prestadores e Ativação Comercial / Presença Digital.
+- Central de Causas permanece institucional e não deve ser automaticamente tratada como produto comercial.
+
+## Evidência inicial de descoberta
+
+Na investigação de 2026-09-25, consultas genéricas relacionadas a construção civil e serviços em Redenção não retornaram o Canteiro no conjunto de resultados observado.
+
+**Classificação:** `FAIL/UNKNOWN` para descoberta genérica até que a matriz seja medida de forma reproduzível.
+
+Não converter esta observação em “o perfil não existe” ou “não aparece em nenhuma busca”.
+
+## Matriz de consultas T0
+
+| Família | Consulta-base |
+|---|---|
+| Marca | Canteiro de Obras Digital + Redenção |
+| Categoria principal | prestador de serviços de construção civil + Redenção |
+| Categoria ampla | construção civil + Redenção |
+| Intenção / cotação | cotação de material de construção + Redenção |
+| Intenção / vagas | vagas construção civil + Redenção |
+| Intenção / serviço | serviços para obra + Redenção |
+
+Cada medição deve preservar:
+
+`consulta + data + contexto/local + superfície (Pesquisa/Maps) + presença/ausência + posição observada quando mensurável + evidência`.
+
+Uma busca manual isolada **não é prova de ranking**.
+
+## Checklist de fechamento do T0
+
+Antes de iniciar otimização, preservar evidência de:
+
+- verificação do Perfil da Empresa;
+- Força do Perfil;
+- categoria principal e categorias adicionais;
+- nome, descrição, telefone, site e área de atendimento;
+- serviços;
+- produtos/catálogo;
+- fotos e vídeos;
+- postagens;
+- avaliações, nota e respostas;
+- métricas de desempenho disponíveis;
+- consistência entre Perfil, Vitrine/site e demais fontes públicas;
+- páginas indexáveis e referências externas;
+- execução da matriz de consultas acima.
+
+## Gate T0 → T1
+
+O T0 fecha como **PASS documental** somente quando existir baseline reproduzível suficiente para comparação posterior.
+
+O desempenho permanece `FAIL/UNKNOWN` por consulta até medição.
+
+T1 deve começar por diagnóstico de coerência, e não por preenchimento indiscriminado:
+
+`categoria → informação comercial → serviços → conteúdo → reputação → presença web → mensuração`.
+
+Depois das intervenções, repetir a mesma matriz de consultas.
+
+## Produto candidato
+
+### Operação de Presença Local Mensurável
+
+`Diagnóstico → baseline → estruturação → otimização → reputação → presença web → medição → evidência → melhoria`.
+
+**Ranqueamento é métrica/resultado observado, nunca promessa comercial.**
+
+## Regra canônica de documentação
+
+A partir deste registro, **todo artefato que for declarado “documentado” nesta operação deve ser versionado no repositório canônico**. Arquivo apenas local, em chat, /mnt/data ou memória de agente não satisfaz o gate documental.
+
+Para cada avanço material, preservar ao menos um rastro versionado: commit, documento, issue, PR ou ledger aplicável.
+
+## Próximos passos
+
+1. Capturar estado real do Perfil da Empresa.
+2. Registrar Força do Perfil e campos incompletos/inconsistentes.
+3. Auditar categoria principal e adicionais contra o objeto real do Canteiro.
+4. Auditar serviços versus produtos do catálogo.
+5. Capturar avaliações, fotos, posts e métricas de desempenho.
+6. Executar e registrar a matriz T0 em Pesquisa e Maps.
+7. Classificar cada consulta como PASS/FAIL/UNKNOWN.
+8. Só então abrir T1 com intervenções rastreáveis.
