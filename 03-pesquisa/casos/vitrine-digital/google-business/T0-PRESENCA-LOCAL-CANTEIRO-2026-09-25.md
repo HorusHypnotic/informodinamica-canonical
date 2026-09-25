@@ -434,3 +434,105 @@ A lacuna agora está mais concentrada em:
 
 ### Pendência para congelamento do T0
 Capturar **Editar perfil → Sobre** para preservar descrição atual e categorias adicionais. Com isso, o baseline interno pode ser congelado e T1 aberto formalmente.
+
+
+---
+
+## Evidência E6 — Sobre, contato, área, horário e atributos / 2026-09-25
+
+**Fonte:** transcrição direta do painel proprietário fornecida pelo operador.
+
+### Identidade
+- Nome: **Canteiro de Obras Digital**
+- Categoria: **Prestador de serviços de construção civil**
+- Nenhuma categoria adicional foi informada na captura/transcrição.
+
+### Descrição atual
+> O Canteiro de Obras Digital conecta quem constrói a empresas, fornecedores e profissionais da construção civil em Redenção e região. Facilitamos a busca por materiais, mão de obra, serviços especializados, máquinas, equipamentos e soluções para obras. Também organizamos cotações, oportunidades de trabalho e demandas reais da construção, aproximando clientes, profissionais e empresas locais. Atendimento digital e suporte pelo WhatsApp.
+
+### Contato e presença digital
+- Telefone: configurado.
+- Chat: não configurado.
+- Site: `https://vitrinedigital-cod.lovable.app/`
+- Instagram: `https://instagram.com/canteirodeobrasdigital/`
+
+### Modelo de atendimento
+- Sem local físico.
+- Entregas e atendimento no local do cliente.
+- Áreas configuradas: Xinguara, Redenção, Tucumã, Rio Maria, Santana do Araguaia, Ourilândia do Norte e Conceição do Araguaia.
+
+### Horário
+- Domingo: fechado
+- Segunda: 09:00–17:00
+- Terça a sexta: 08:00–17:00
+- Sábado: fechado
+
+### Atributos declarados no painel
+- “Se identifica como uma empresa de empreendedoras”
+- “Oferece estimativas on-line”
+- Português
+- Inglês não usado
+- Mandarim não falado
+- Russo não falado
+- “Empresa que acolhe a comunidade LGBTQ+”
+
+### Auditoria de coerência
+Os atributos acima são **dados configurados**, não fatos validados pela Torre. Devem ser auditados contra a realidade operacional antes de preservação definitiva.
+
+Em especial, **“empresa de empreendedoras”** merece revisão imediata de coerência com a empresa real; não alterar automaticamente sem confirmação do operador.
+
+### Achado semântico
+A descrição atual representa melhor o ecossistema do que a categoria principal isolada. Ela menciona conexão entre demanda, empresas, fornecedores, profissionais, materiais, mão de obra, serviços, máquinas/equipamentos, cotações e oportunidades.
+
+Isso amplia a hipótese de desalinhamento entre:
+- **categoria principal:** prestador de serviços de construção civil;
+- **objeto descrito:** plataforma/operação de conexão e organização de demanda/oferta na construção.
+
+A existência de desalinhamento semântico é `CANDIDATE`, não conclusão sobre qual categoria deve substituí-la.
+
+---
+
+# FECHAMENTO T0 — 2026-09-25
+
+## Estado congelado
+
+| Dimensão | Estado |
+|---|---|
+| Perfil existente e gerenciado | PASS |
+| Força do Perfil | PASS — “Informações completas” |
+| Informações básicas | PASS/PARTIAL |
+| Categoria principal identificada | PASS |
+| Coerência da categoria com o objeto atual | CANDIDATE / investigar |
+| Exposição | PASS — 320 visualizações no período observado |
+| Pesquisas suficientes para termos | FAIL — <50; termos não exibidos |
+| Interações | FAIL — 0 |
+| Avaliações | FAIL — 0 |
+| Serviços específicos | FAIL — nenhum visível |
+| Posts | FAIL — 0 |
+| Acervo de fotos/mídia | PASS |
+| Produtos | PARTIAL |
+| Chat | NOT_CONFIGURED |
+| Agendamento | NOT_CONFIGURED |
+| Conversão comercial atribuível | UNKNOWN |
+
+## Diagnóstico T0
+O Canteiro possui perfil estruturado, presença visual e exposição, mas ainda não demonstra descoberta qualificada, interação ou resultado comercial atribuível ao Perfil da Empresa.
+
+A investigação não sustenta a tese simplista “falta preencher o perfil”. O problema candidato está na combinação de **semântica/categoria, serviços, reputação, atividade e caminhos de conversão**.
+
+## Gate
+**T0 INTERNO: PASS / CONGELADO.**
+
+Este PASS significa que o baseline interno foi documentado com evidência suficiente para iniciar intervenções comparáveis. **Não significa PASS de ranqueamento, descoberta, interação ou resultado comercial.**
+
+## Abertura T1
+T1 deve operar por intervenções rastreáveis, evitando alterar várias variáveis sem registro.
+
+Ordem inicial:
+1. auditoria de coerência dos atributos;
+2. arquitetura semântica e categorias;
+3. serviços reais;
+4. reputação/solicitação ética de avaliações;
+5. primeira rotina de posts;
+6. caminhos de contato/conversão;
+7. medição pós-intervenção contra este T0.
