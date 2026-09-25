@@ -178,3 +178,57 @@ Não iniciar T1 nem vender “ranqueamento” como capacidade comprovada antes d
 
 ### Próxima ação humana mínima
 Capturar telas de **Força do Perfil** e **Desempenho** do Perfil da Empresa do Canteiro. A Torre cruza essas evidências com E1 e fecha a próxima fatia do T0.
+
+
+---
+
+## Evidência E2 — Painel proprietário do Perfil / 2026-09-25
+
+**Fonte:** captura fornecida pelo operador do painel do Perfil da Empresa no Google.
+
+### Fatos visíveis na captura
+
+- O Google reconhece a sessão como proprietária/gestora: **“Você gerencia este Perfil da Empresa”**.
+- Perfil exibido: **Canteiro de Obras Digital**.
+- Categoria pública exibida: **Prestador de serviços de construção civil**.
+- Indicador **Força do perfil** aparece com o texto **“Informações completas”**.
+- Contador visível no painel: **320 visualizações**.
+- O painel disponibiliza ações de **Editar perfil, Ler avaliações, Fotos, Posts, Desempenho, Anunciar, Editar produtos, Editar serviços, Agendamento e Solicitar avaliações**.
+- Telefone público visível no painel.
+- Horário aparece como **Aberto · Fecha 17:00**.
+- Existe botão **Site** no painel público.
+- O painel ainda apresenta um cartão **“Complete seu perfil — Adicione detalhes para que mais clientes encontrem sua empresa”**.
+
+### Classificação
+
+| Item | Estado |
+|---|---|
+| Perfil existente | PASS |
+| Gestão/propriedade pelo operador | PASS |
+| Categoria principal identificada | PASS |
+| Força do Perfil: “Informações completas” | PASS |
+| Contador de visualizações disponível | PASS |
+| Ferramentas de produtos/serviços disponíveis | PASS |
+| Descoberta por buscas genéricas | FAIL/UNKNOWN |
+| Consultas que geraram descoberta | UNKNOWN |
+| Interações/conversões | UNKNOWN |
+| Avaliações/reputação | UNKNOWN |
+
+### Leitura operacional
+
+A hipótese de que o problema inicial fosse simplesmente **perfil incompleto** perde força: o próprio painel mostra **“Informações completas”** na Força do Perfil.
+
+Ao mesmo tempo, a captura contém um cartão pedindo para completar o perfil. Isso deve ser tratado como **sinal a investigar**, não como contradição resolvida. O conteúdo específico desse cartão ainda não foi aberto.
+
+O próximo ganho de informação está em **Desempenho**, não em preencher campos aleatoriamente.
+
+### Próxima evidência requerida — E3
+
+Abrir **Desempenho** e preservar captura contendo, quando disponível:
+
+1. período analisado;
+2. visualizações/interações;
+3. pesquisas/termos usados para encontrar o negócio;
+4. chamadas, cliques no site, mensagens, rotas ou demais interações exibidas.
+
+Não alterar categoria nem iniciar T1 antes de registrar E3.
