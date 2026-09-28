@@ -78,3 +78,52 @@ Ausência no Registry V2 não prova ausência no ecossistema.
 ## Estado
 
 CANDIDATE INVENTORY DELTA. Não altera o Registry V2 nem promove capability.
+
+
+## Varredura diferencial — lote 2 / patrimônio 20–25 set
+
+Evidência canônica adicional localizada. Novas famílias candidatas ou extensões de famílias já conhecidas:
+
+6. Market Signal Audit / Information-Loss Detection
+   - fonte: `INTELIGENCIA-MERCADO-AUDITORIA-SINAIS-V0.md`
+   - distingue sinal persistido de sinal efêmero e explicita viés causado por perda de informação;
+   - decisão: ADAPT de CAP-005/CAP-011 antes de considerar CAP nova;
+   - classificação: CANDIDATE_PATTERN.
+
+7. Economic Memory / Price Reconfirmation
+   - fonte: `SMART-COTACOES-MEMORIA-RECONFIRMACAO-PRECO-V0.md`
+   - observação histórica imutável + reconfirmação com nova evidência + freshness separada de validade estatística;
+   - decisão: família local de Smart Cotações; possível reuso comercial;
+   - classificação: CANDIDATE_FAMILY.
+
+8. Federated State Machine / Cross-System Correlation
+   - fonte: `REPLENISHMENT-DECISION-FEDERATED-STATE-MACHINE-V0.md`
+   - decision_id/correlation_id, ownership por estado, anti-duplicação, handoffs sem fusão de bancos;
+   - decisão: candidato forte a contrato reutilizável, mas ainda sem teste independente;
+   - classificação: CANDIDATE_FAMILY.
+
+9. Human-Gated External Handoff
+   - fonte: `OBRA-FLOW-HANDOFF-SMART-COTACOES-WHATSAPP-V0.md`
+   - objeto estruturado -> formatter puro -> preview editável -> destino -> ação explícita;
+   - WhatsApp é transporte, não ledger; OPENED != ORDERED/DELIVERED;
+   - decisão: candidato de baixo acoplamento, ainda sem extração independente;
+   - classificação: CANDIDATE_PATTERN.
+
+10. External API Adapter Guard Rails
+   - fonte: `google-business/INVESTIGACAO-GBP-API-MCP-REMANUFATURA-2026-09-25.md`
+   - READ/PREPARE/WRITE, mutations off by default, allowlist, expected fingerprint, dry-run, human gate, before/after ledger;
+   - aplicação inicial GBP, padrão potencialmente reutilizável para APIs externas;
+   - estado real GBP continua BLOCKED externo enquanto aprovação/quota não forem comprovadas;
+   - classificação: CANDIDATE_FAMILY.
+
+## Deduplicação lote 2
+
+- Market Signal Audit sobrepõe CAP-005 Evidence Ledger e CAP-011 Research Governance; não criar CAP agora.
+- Price Reconfirmation reutiliza princípios de CAP-005 e patrimônio Smart Cotações; permanece família de domínio.
+- Federated State Machine não equivale a CAP-010: correlation/ownership/idempotência entre sistemas é contrato diferente de snapshot/hash/audit.
+- Human-Gated Handoff não equivale a integração automática e não autoriza tratar transporte como estado canônico.
+- External API Adapter Guard Rails se relaciona ao Credential/Compute Abuse Gate, mas um governa borda de integração/mutação e o outro abuso de credencial/compute. OVERLAP_PARTIAL, não duplicata.
+
+## Cobertura após lote 2
+
+A varredura provou que o patrimônio pós-V2 é maior que o primeiro delta. Ainda não declarar cobertura exaustiva: buscas por termos podem não recuperar artefatos recentes não nomeados de forma consistente. Estado = PARTIAL / CANDIDATE INVENTORY.
