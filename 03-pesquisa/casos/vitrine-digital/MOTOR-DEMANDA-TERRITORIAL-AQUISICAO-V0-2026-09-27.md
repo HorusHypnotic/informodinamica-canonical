@@ -23,3 +23,47 @@ Initial state for all: DISCOVERED.
 Every activated store or provider expands the Vitrine capability matrix. Every served or lost demand updates acquisition priority.
 
 Candidate capabilities: demand_gap_detector; territorial_lead_enricher; acquisition_queue; capability_feedback; outcome_loop.
+
+
+## Pilot 002 - sinais organicos externos de WhatsApp
+
+Fonte: grupo externo de WhatsApp, observacao de 2026-09-26 a 2026-09-27.
+Privacidade: numeros pessoais e identidade dos demandantes nao entram no radar comercial. Preservar somente sinal necessario, data, categoria, territorio e proveniencia.
+
+Sinais observados:
+- 2026-09-26 | SAUDE/ENDOSCOPIA | Redencao | procura por local que realize endoscopia pela Unimed.
+- 2026-09-26 | ALIMENTACAO/SALGADOS_FESTA | Redencao | procura por fornecedor recomendado.
+- 2026-09-26 | LOGISTICA/TOTAL_EXPRESS | Redencao | procura por contato/local da distribuidora.
+- 2026-09-26 | MOBILIDADE/CARONA | Maraba -> Redencao | 1 passageiro, segunda ou terca.
+- 2026-09-27 | ALIMENTACAO/FRANGO_ASSADO | Redencao | procura por fornecedor no mesmo dia.
+- 2026-09-27 | BELEZA/DESIGN_SOBRANCELHAS | Redencao | procura por prestador.
+
+Regra: demanda externa observada != lead comercial do demandante. O alvo de aquisicao e a capacidade fornecedora ausente ou insuficiente.
+
+## Recorrencia e prioridade
+
+Um sinal isolado valida existencia de demanda. Repeticao por categoria, subcategoria, rota, urgencia ou periodo aumenta prioridade de aquisicao e produto. Nao inferir tamanho de mercado a partir de um grupo isolado.
+
+Registrar, quando possivel: signal_id, observed_at, source_type, category, subcategory, territory, route, urgency, normalized_need, supplier_found_count, vitrine_supplier_count, outcome e evidence_ref.
+
+## Cobertura territorial da demanda
+
+Indicador CANDIDATE:
+
+coverage_rate = demandas observadas com pelo menos uma resposta compativel disponivel na Vitrine / demandas observadas elegiveis
+
+Manter tambem:
+- external_supplier_discovery_rate
+- vitrine_gap_count
+- time_to_first_compatible_supplier
+- activation_from_gap_rate
+- first_demand_served_rate
+
+Uma listagem publica nao conta como resposta disponivel ate capacidade, disponibilidade e condicoes relevantes serem confirmadas.
+
+## Novas regras de evidencia
+
+- Credenciamento de saude/convenio permanece UNKNOWN ate confirmacao por fonte apropriada.
+- Disponibilidade no dia, estoque, preco, rota e agenda permanecem UNKNOWN ate confirmacao.
+- Informacao territorial aberta serve para descoberta e qualificacao, nao para fabricar disponibilidade.
+- Dados pessoais de participantes de grupos externos nao devem virar base de prospeccao sem fundamento/autorizacao.
