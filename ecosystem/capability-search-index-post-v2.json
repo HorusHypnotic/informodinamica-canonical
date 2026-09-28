@@ -1,0 +1,302 @@
+{
+  "version": "0.1.0",
+  "as_of": "2026-09-28",
+  "status": "CANDIDATE",
+  "purpose": "Machine-readable search index for post-Registry-V2 reusable capability candidates. Does not promote CAP IDs.",
+  "authority": {
+    "active_registry": "ecosystem/capabilities-v2.json",
+    "systems_registry": "ecosystem/systems-v2.json",
+    "delta_document": "docs/ecosystem/CAPABILITY-REGISTRY-POST-V2-DELTA-2026-09-28.md"
+  },
+  "search_policy": {
+    "precedence": [
+      "CANONICAL_CAPABILITY",
+      "REGISTERED_CANDIDATE",
+      "POST_V2_CANDIDATE",
+      "SOURCE_EVIDENCE",
+      "SOURCE_CODE"
+    ],
+    "absence_means": "UNKNOWN",
+    "reuse_rule": "REUSE_ADAPT_CREATE_ONLY_IF_ABSENT"
+  },
+  "entries": [
+    {
+      "id": "POSTV2-001",
+      "name": "Territorial Demand Engine",
+      "classification": "CANDIDATE_FAMILY",
+      "source_system": "SYS-019",
+      "aliases": [
+        "motor demanda territorial",
+        "external_signal",
+        "coverage gap",
+        "COVERED GAP UNKNOWN",
+        "demand offer"
+      ],
+      "tags": [
+        "demand",
+        "territorial",
+        "signal",
+        "normalization",
+        "deduplication",
+        "coverage",
+        "privacy"
+      ],
+      "evidence": [
+        "docs/ecosystem/CAPABILITY-REGISTRY-POST-V2-DELTA-2026-09-28.md"
+      ],
+      "overlap": []
+    },
+    {
+      "id": "POSTV2-002",
+      "name": "External Demand Recurrence",
+      "classification": "CANDIDATE_FAMILY",
+      "source_system": "SYS-019",
+      "aliases": [
+        "recurrenceKey",
+        "occurrence_count",
+        "recorrencia demanda"
+      ],
+      "tags": [
+        "demand",
+        "recurrence",
+        "signal",
+        "temporal"
+      ],
+      "evidence": [
+        "docs/ecosystem/CAPABILITY-REGISTRY-POST-V2-DELTA-2026-09-28.md"
+      ],
+      "overlap": [
+        "POSTV2-001"
+      ]
+    },
+    {
+      "id": "POSTV2-003",
+      "name": "Attention Bus Delivery",
+      "classification": "CANDIDATE_FAMILY",
+      "source_system": "SYS-019",
+      "aliases": [
+        "attention_events",
+        "attention_deliveries",
+        "Telegram ACK",
+        "producer delivery ack"
+      ],
+      "tags": [
+        "attention",
+        "delivery",
+        "telegram",
+        "ack",
+        "notification",
+        "peteco"
+      ],
+      "evidence": [
+        "docs/ecosystem/CAPABILITY-REGISTRY-POST-V2-DELTA-2026-09-28.md"
+      ],
+      "overlap": []
+    },
+    {
+      "id": "POSTV2-004",
+      "name": "PETECO Command Bus Executor Pattern",
+      "classification": "CANDIDATE_FAMILY",
+      "source_system": "UNREGISTERED_RUNTIME",
+      "aliases": [
+        "PÉTECO",
+        "PETECO",
+        "command bus",
+        "RUN START PASS FAIL",
+        "job SHA"
+      ],
+      "tags": [
+        "executor",
+        "command",
+        "job",
+        "sha",
+        "evidence",
+        "local",
+        "termux"
+      ],
+      "evidence": [
+        "docs/ecosystem/CAPABILITY-REGISTRY-POST-V2-DELTA-2026-09-28.md"
+      ],
+      "overlap": [
+        "CAP-001",
+        "CAP-005"
+      ]
+    },
+    {
+      "id": "POSTV2-005",
+      "name": "Credential and Compute Abuse Gate",
+      "classification": "CANDIDATE",
+      "source_system": "CONTROL_TOWER",
+      "aliases": [
+        "credential gate",
+        "LLM-jacking",
+        "secret leak",
+        "compute abuse",
+        "token lifecycle",
+        "fail closed"
+      ],
+      "tags": [
+        "security",
+        "secret",
+        "credential",
+        "token",
+        "compute",
+        "privilege",
+        "mcp",
+        "cost"
+      ],
+      "evidence": [
+        "https://github.com/HorusHypnotic/informodinamica-canonical/issues/23"
+      ],
+      "overlap": [
+        "CAP-001"
+      ]
+    },
+    {
+      "id": "POSTV2-006",
+      "name": "Market Signal Information-Loss Audit",
+      "classification": "CANDIDATE_PATTERN",
+      "source_system": "SYS-019",
+      "aliases": [
+        "market signal audit",
+        "information loss",
+        "sinal efemero",
+        "loss detection"
+      ],
+      "tags": [
+        "signal",
+        "analytics",
+        "evidence",
+        "bias",
+        "persistence",
+        "audit"
+      ],
+      "evidence": [
+        "03-pesquisa/casos/vitrine-digital/INTELIGENCIA-MERCADO-AUDITORIA-SINAIS-V0.md"
+      ],
+      "overlap": [
+        "CAP-005",
+        "CAP-011"
+      ],
+      "decision": "ADAPT_BEFORE_NEW_CAP"
+    },
+    {
+      "id": "POSTV2-007",
+      "name": "Economic Memory Price Reconfirmation",
+      "classification": "CANDIDATE_FAMILY",
+      "source_system": "SYS-010",
+      "aliases": [
+        "price reconfirmation",
+        "economic memory",
+        "freshness",
+        "price_observations",
+        "reconfirmar preco"
+      ],
+      "tags": [
+        "price",
+        "procurement",
+        "memory",
+        "freshness",
+        "evidence",
+        "supplier"
+      ],
+      "evidence": [
+        "03-pesquisa/casos/vitrine-digital/SMART-COTACOES-MEMORIA-RECONFIRMACAO-PRECO-V0.md"
+      ],
+      "overlap": [
+        "CAP-005"
+      ]
+    },
+    {
+      "id": "POSTV2-008",
+      "name": "Federated State Machine and Cross-System Correlation",
+      "classification": "CANDIDATE_FAMILY",
+      "source_system": "MULTI_SYSTEM",
+      "aliases": [
+        "ReplenishmentDecision",
+        "correlation_id",
+        "decision_id",
+        "federated state machine",
+        "ownership by state"
+      ],
+      "tags": [
+        "state-machine",
+        "correlation",
+        "idempotency",
+        "ownership",
+        "handoff",
+        "federation"
+      ],
+      "evidence": [
+        "03-pesquisa/casos/vitrine-digital/REPLENISHMENT-DECISION-FEDERATED-STATE-MACHINE-V0.md"
+      ],
+      "overlap": [
+        "CAP-010"
+      ],
+      "duplicate_assessment": "DISTINCT_CONTRACT"
+    },
+    {
+      "id": "POSTV2-009",
+      "name": "Human-Gated External Handoff",
+      "classification": "CANDIDATE_PATTERN",
+      "source_system": "SYS-011",
+      "aliases": [
+        "PurchaseOrderHandoff",
+        "WhatsApp handoff",
+        "preview editavel",
+        "formatter preview"
+      ],
+      "tags": [
+        "handoff",
+        "human-gate",
+        "whatsapp",
+        "transport",
+        "preview",
+        "formatter"
+      ],
+      "evidence": [
+        "03-pesquisa/casos/vitrine-digital/OBRA-FLOW-HANDOFF-SMART-COTACOES-WHATSAPP-V0.md"
+      ],
+      "overlap": []
+    },
+    {
+      "id": "POSTV2-010",
+      "name": "External API Adapter Guard Rails",
+      "classification": "CANDIDATE_FAMILY",
+      "source_system": "SYS-019",
+      "aliases": [
+        "READ PREPARE WRITE",
+        "mutation allowlist",
+        "dry-run",
+        "expected fingerprint",
+        "before after ledger",
+        "GBP adapter"
+      ],
+      "tags": [
+        "adapter",
+        "api",
+        "mutation",
+        "allowlist",
+        "dry-run",
+        "human-gate",
+        "ledger",
+        "oauth"
+      ],
+      "evidence": [
+        "03-pesquisa/casos/vitrine-digital/google-business/INVESTIGACAO-GBP-API-MCP-REMANUFATURA-2026-09-25.md"
+      ],
+      "overlap": [
+        "POSTV2-005"
+      ],
+      "duplicate_assessment": "OVERLAP_PARTIAL"
+    }
+  ],
+  "promotion_requirements": [
+    "independent_contract",
+    "explicit_limits",
+    "versioned_evidence",
+    "independent_test",
+    "duplicate_assessment",
+    "reuse_evidence_when_applicable"
+  ]
+}
