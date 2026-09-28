@@ -67,3 +67,45 @@ Uma listagem publica nao conta como resposta disponivel ate capacidade, disponib
 - Disponibilidade no dia, estoque, preco, rota e agenda permanecem UNKNOWN ate confirmacao.
 - Informacao territorial aberta serve para descoberta e qualificacao, nao para fabricar disponibilidade.
 - Dados pessoais de participantes de grupos externos nao devem virar base de prospeccao sem fundamento/autorizacao.
+
+
+## Integracao com o Radar de Demanda existente
+
+Nao criar uma segunda inbox operacional.
+
+Arquitetura decidida:
+external_signal -> normalize/dedupe -> coverage_check -> COVERED | GAP | UNKNOWN.
+
+- COVERED: existe capacidade compativel confirmada na Vitrine; encaminhar para o fluxo existente quando houver demanda acionavel.
+- GAP: nao ha capacidade compativel confirmada; gerar acquisition_signal e fila de fornecedores/prestadores DISCOVERED.
+- UNKNOWN: informacao insuficiente para afirmar cobertura; enriquecer antes de promover.
+
+O Radar de Demanda existente permanece responsavel pelo ciclo operacional UNMATCHED -> REVIEWING -> REFERRED -> WON/LOST.
+O Motor Territorial fica a montante e aprende com sinais externos sem criar demandante ficticio nem copiar telefone pessoal.
+
+Promocao external_signal -> public_demand_lead exige demanda real acionavel e base/autorizacao adequada para contato. Sinal agregado de mercado pode alimentar aquisicao sem virar public_demand_lead.
+
+## Contrato minimo da fila de sinais
+
+external_signal:
+- signal_id
+- observed_at
+- source_type
+- source_ref protegido ou agregado
+- category
+- subcategory
+- normalized_need
+- territory
+- route nullable
+- urgency
+- recurrence_key
+- evidence_ref
+- coverage_state: COVERED | GAP | UNKNOWN
+- matched_capability_ids
+- acquisition_signal_id nullable
+- promoted_demand_id nullable
+- created_at
+
+Regra de dedupe CANDIDATE: mesma recurrence_key em janela temporal definida aumenta occurrence_count; nao apagar ocorrencias brutas/evidencia.
+
+Prioridade de aquisicao CANDIDATE deve considerar recorrencia, urgencia, gap confirmado e proximidade territorial. Pesos so viram ACTIVE depois de dados observados.
