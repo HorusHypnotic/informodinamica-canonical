@@ -152,3 +152,28 @@ Within this batch, HOUSING / RENT_HOUSE appears twice. This is recurrence eviden
 Vitrine implementation branch `fix/peteco-singleton-bus-v3` now contains deterministic offline classification for demand vs offer, category/subcategory, route and coverage default UNKNOWN.
 Latest implementation commit for Pilot 003: `df3bb117fea0da671bca96120878d2954f74aa01`.
 Fresh PETECO test/build evidence is required before implementation state can become PASS.
+
+
+## Next-task scope — recurrence and acquisition bands
+
+Status: CANDIDATE pending fresh PETECO test/build evidence.
+
+Recurrence aggregation:
+- count DEMAND only;
+- OFFER/ADVERTISING never increments demand recurrence;
+- preserve first_observed_at and last_observed_at;
+- group by recurrence_key;
+- recurrence is prioritization evidence, not market-size evidence.
+
+Transparent acquisition bands, without invented weighted scores:
+- COVERED -> OBSERVE;
+- UNKNOWN + urgent or occurrence_count >= 2 -> P1;
+- UNKNOWN isolated -> P2;
+- GAP + urgent or occurrence_count >= 2 -> P0;
+- GAP isolated -> P1;
+- OFFER -> OBSERVE.
+
+P0/P1/P2 here express queue ordering only. They do not assert revenue, conversion probability, market size or supplier availability.
+
+Implementation evidence: Vitrine branch fix/peteco-singleton-bus-v3, latest commit `1f893c1cc3590ac1047d4023e77987a6d0057532`.
+Jobs 146 and 147 were observed as RUN-only at this checkpoint, with no fresh START/PASS/FAIL. No duplicate retry was issued.
