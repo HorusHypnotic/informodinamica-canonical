@@ -154,3 +154,28 @@ Para consultas futuras de remanufatura, usar termos de intenção além de nomes
 - territorial / supplier / discovery / qualification
 
 Isso reduz falso negativo causado por nomes inconsistentes sem introduzir RAG ou infraestrutura nova.
+
+
+## Índice machine-readable V0
+
+Criado:
+- `ecosystem/capability-search-index-post-v2.json`
+- schema: `ecosystem/capability-search-index-post-v2.schema.json`
+
+Estado do índice na criação:
+- 10 entradas POSTV2;
+- JSON parse: PASS;
+- IDs duplicados: 0;
+- status global: CANDIDATE;
+- nenhum CAP-* oficial criado ou promovido.
+
+Contrato de consulta:
+1. consultar `capabilities-v2.json` primeiro;
+2. consultar o índice POSTV2 para candidatos/aliases/tags;
+3. seguir `evidence[]`;
+4. se necessário, verificar código fonte e estado fresco;
+5. ausência em ambos = UNKNOWN, nunca ABSENT comprovado.
+
+IDs `POSTV2-*` são identificadores de inventário, não IDs de capability canônica.
+
+Lacuna explicitada: PÉTECO está indexado como `UNREGISTERED_RUNTIME`; não foi inventado um SYS-* sem decisão canônica.
