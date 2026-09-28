@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "capability-search-index-post-v2.schema.json",
+  "title": "Post-V2 Capability Search Index",
+  "type": "object",
+  "required": [
+    "version",
+    "as_of",
+    "status",
+    "authority",
+    "search_policy",
+    "entries",
+    "promotion_requirements"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "as_of": {
+      "type": "string"
+    },
+    "status": {
+      "const": "CANDIDATE"
+    },
+    "authority": {
+      "type": "object",
+      "required": [
+        "active_registry",
+        "systems_registry",
+        "delta_document"
+      ]
+    },
+    "search_policy": {
+      "type": "object",
+      "required": [
+        "precedence",
+        "absence_means",
+        "reuse_rule"
+      ]
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "classification",
+          "source_system",
+          "aliases",
+          "tags",
+          "evidence",
+          "overlap"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^POSTV2-[0-9]{3}$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "classification": {
+            "enum": [
+              "CANDIDATE",
+              "CANDIDATE_FAMILY",
+              "CANDIDATE_PATTERN"
+            ]
+          },
+          "source_system": {
+            "type": "string"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "overlap": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "promotion_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
