@@ -177,3 +177,23 @@ P0/P1/P2 here express queue ordering only. They do not assert revenue, conversio
 
 Implementation evidence: Vitrine branch fix/peteco-singleton-bus-v3, latest commit `1f893c1cc3590ac1047d4023e77987a6d0057532`.
 Jobs 146 and 147 were observed as RUN-only at this checkpoint, with no fresh START/PASS/FAIL. No duplicate retry was issued.
+
+
+## Evidência executada — PETECO 150 — 2026-09-27
+
+Estado: **PASS fresco**.
+
+- Repo executado: `HorusHypnotic/vitrinedigital-cod`.
+- SHA provado: `d033a1da6bcb2d1531f8523aafa80bb877c3d095`.
+- Job: `external-demand-recurrence-20260927-150`.
+- Capability: `vitrine-test-build`.
+- Resultado: `PETECO_VITRINE_TEST_BUILD_PASS`; build concluído; GC concluído com PASS.
+- Regressão descoberta no job 149: a mensagem territorial "vindo me Marabá ... trazer uma encomenda" não continha Redenção no texto e produzia rota indefinida. Correção limitada a `PARCEL_RIDE`: quando Marabá é origem explícita e o território confirmado do sinal é Redenção, a rota pode ser normalizada como Marabá → Redenção. Isso não autoriza inferência genérica de destino fora de contexto territorial confirmado.
+
+### Aprendizado do Command Bus
+
+O envelope aceito pelo worker é `PETECO RUN job=... target=... ref=... capability=...`. Os jobs 146–148 foram emitidos sem o prefixo `PETECO` e, corretamente, não foram consumidos. O job 149, já com envelope válido, iniciou e falhou no teste de rota; o 150 corrigiu a regressão e passou. Não tratar RUN não consumido como execução.
+
+### Próximo gate de cobertura
+
+A base existente da Vitrine já contém candidatos públicos, produtos, serviços e contatos curados. Reutilizar essas fontes para evidência de capacidade estrutural antes de criar cadastro paralelo. Produto/serviço cadastrado pode sustentar compatibilidade estrutural; não prova estoque, preço, agenda, rota ou disponibilidade instantânea. Essas condições permanecem `UNKNOWN` até evidência própria.
