@@ -127,3 +127,30 @@ Evidência canônica adicional localizada. Novas famílias candidatas ou extens�
 ## Cobertura após lote 2
 
 A varredura provou que o patrimônio pós-V2 é maior que o primeiro delta. Ainda não declarar cobertura exaustiva: buscas por termos podem não recuperar artefatos recentes não nomeados de forma consistente. Estado = PARTIAL / CANDIDATE INVENTORY.
+
+
+## Varredura diferencial — lote 3 / cobertura temporal
+
+Busca explícita por artefatos datados 22–28 set encontrou:
+- 23 set: proposta/review comercial Padilha; classificada como instância comercial, não capability nova;
+- 25 set: modelo comercial 90 dias/LTV/distribuição; candidato de processo comercial, não promovido a capability nesta varredura;
+- 25 set: GBP Adapter e baseline T0, já cobertos no lote 2;
+- 22, 24, 26, 27 e 28 set: busca textual por data não retornou artefatos adicionais.
+
+Limitação: ausência de resultado textual por data não prova ausência de commits/arquivos nesses dias. Portanto cobertura temporal continua PARTIAL, não EXHAUSTIVE.
+
+## Índice de busca operacional V0
+
+Para consultas futuras de remanufatura, usar termos de intenção além de nomes de produto:
+- preflight / gate / authority / fail closed
+- evidence / ledger / before after / audit
+- state machine / correlation_id / idempotency / handoff
+- demand / signal / recurrence / coverage / gap
+- price observation / reconfirmation / freshness
+- attention / delivery / ack / Telegram
+- PETECO / command bus / job / SHA
+- adapter / READ PREPARE WRITE / dry-run / allowlist
+- secret / credential / token / compute
+- territorial / supplier / discovery / qualification
+
+Isso reduz falso negativo causado por nomes inconsistentes sem introduzir RAG ou infraestrutura nova.
