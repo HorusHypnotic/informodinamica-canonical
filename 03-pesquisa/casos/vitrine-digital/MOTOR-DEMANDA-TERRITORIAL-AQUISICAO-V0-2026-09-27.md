@@ -109,3 +109,46 @@ external_signal:
 Regra de dedupe CANDIDATE: mesma recurrence_key em janela temporal definida aumenta occurrence_count; nao apagar ocorrencias brutas/evidencia.
 
 Prioridade de aquisicao CANDIDATE deve considerar recorrencia, urgencia, gap confirmado e proximidade territorial. Pesos so viram ACTIVE depois de dados observados.
+
+
+## Pilot 003 — second external WhatsApp batch
+
+Observed window: 2026-09-23 to 2026-09-25.
+Privacy rule remains: participant phone numbers and identities are not copied into the commercial radar.
+
+### Demand signals
+- LOGISTICS / MARKETPLACE_DROPOFF — pickup/drop-off point for Mercado Livre/Shopee in Redencao.
+- HOME_SERVICES / CAR_UPHOLSTERY_CLEANING — car-seat cleaning.
+- RETAIL / AIR_CONDITIONER — central air-conditioning unit for sale.
+- MOBILITY / PARCEL_RIDE — Maraba -> Redencao parcel transport, same day, cost contribution offered.
+- HOUSING / RENT_KITNET — kitnet rental.
+- JOBS / DOMESTIC_WORKER — domestic worker referral.
+- RETAIL / NOTEBOOK — notebook for sale.
+- HEALTH / KNEE_BRACE — knee brace for sale.
+- HOME_SERVICES / GAS_DELIVERY — urgent gas delivery at night.
+- HOUSING / RENT_HOUSE — house rental.
+- HOUSING / RENT_HOUSE — house rental near Fesar.
+- MOBILITY / RIDE — Goiania -> Redencao, Sunday or Monday.
+
+### Non-demand signals
+Three messages were classified as OFFER/ADVERTISING rather than demand:
+- semijewelry promotion;
+- new catalog/promotion announcement;
+- Maragogi apartment travel advertisement.
+
+Rule: OFFER/ADVERTISING may feed a supplier/opportunity corpus later, but MUST NOT increment observed-demand metrics.
+
+### Recurrence evidence
+Within this batch, HOUSING / RENT_HOUSE appears twice. This is recurrence evidence for prioritization only. It is not evidence of market size, conversion, willingness to pay, or unmet supply.
+
+### Product intersections
+- GAS_DELIVERY intersects an already-developed Vitrine emergency gas/water flow, but coverage remains UNKNOWN until compatible supplier availability for the observed time is evidenced.
+- PARCEL_RIDE and RIDE reinforce the Caronas/Encomendas product hypothesis.
+- MARKETPLACE_DROPOFF is a candidate information/logistics capability.
+- HOUSING introduces a repeated local demand class that is not yet canonically declared covered.
+- JOBS / DOMESTIC_WORKER intersects the broader local opportunity/job discovery surface, but no fulfillment capability is inferred.
+
+### Classifier implementation evidence
+Vitrine implementation branch `fix/peteco-singleton-bus-v3` now contains deterministic offline classification for demand vs offer, category/subcategory, route and coverage default UNKNOWN.
+Latest implementation commit for Pilot 003: `df3bb117fea0da671bca96120878d2954f74aa01`.
+Fresh PETECO test/build evidence is required before implementation state can become PASS.
