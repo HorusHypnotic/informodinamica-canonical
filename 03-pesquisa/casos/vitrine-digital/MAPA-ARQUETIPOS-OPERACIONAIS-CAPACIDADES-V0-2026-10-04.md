@@ -95,3 +95,109 @@ Segmento != arquétipo. Empresa pode ter múltiplos arquétipos. Capacidade != p
 
 ## Próximo parafuso
 Executar Gate A em lote sobre carteira e infraestrutura existentes, produzindo matriz empresa x arquétipo x capacidade x evidência x lacuna antes de qualquer mudança de schema/UI.
+
+
+## Gate A — arqueologia em lote 001
+
+Fonte cruzada: estado real do banco da Vitrine + documentos versionados do repositório operacional. Classificação abaixo é conservadora.
+
+| Caso | Composição operacional | Evidência recuperada | Lacuna dominante |
+|---|---|---|---|
+| Bezerrão | varejo + entrega + recorrência + ativo em ponto + presença | empresa pública; catálogo; pedido emergencial; analytics/IVV; operação de entrega documentada | ledger econômico, pontos/freezers e conversão |
+| Ferragens Brasil | comércio materiais + locação + cotação + entrega | ADR multicacidade prova venda e locação; Smart Cotações tem ciclo comercial real documentado | estoque, rental operacional, margem/atribuição |
+| Letroart | fabricação sob medida + venda + instalação + mídia | ADR multicacidade prova fabricação, venda e instalação; catálogo/mídia existentes | estados de orçamento/fabricação/instalação e economia |
+| Tauros Forros | serviço técnico + material + instalação | nó público e escopo de modalidades em investigação | confirmar modalidades, agenda, orçamento, execução |
+| Jean Michael F4000 | frete + capacidade + território + agenda | nó público e capacidade logística documentada | agenda, rotas, preço, ocupação e resultado |
+| RSM Serviços e Locações | locação + ativo + agenda | owner_confirmed; Rental Core existente; banco tem pelo menos 1 ativo e 1 ciclo | operação real SOS, frota completa, giro, mídia e economia |
+| SOS | serviço + locação + ativo + agenda + mídia | caso documentado como origem/aplicação de Rental Core; dados comerciais de campo | vinculação canônica SOS↔tenant, ativos reais, ciclos reais, receita de mídia |
+| Alex Escavações | equipamento + serviço + locação + território | escavação/terraplenagem/locação documentadas; nó público | máquinas, mobilização, disponibilidade, preço e agenda |
+| Amélia Rosas do Deserto | varejo/produto + estoque + entrega + sazonalidade | owner_confirmed; produtos/preços e IVV documentados | estoque, custo/margem, pedidos, entrega e sazonalidade |
+| Você FM 92.1 | mídia + distribuição + programação | nó público externally_confirmed; rádio ao vivo e capacidade de mídia documentadas | inventário, audiência, grade comercial, campanha e atribuição |
+| Depósito de Areia do Marcus | materiais a granel + entrega/logística | nó público scope_confirmed | capacidade, estoque/origem, frota, preço, agenda e recorrência |
+| Dirceu Junior | obra + serviço + equipamento + Minha Obra | ADR multicacidade prova execução de obra, serviço e equipamento | ligar operação diária a eventos/indicadores reutilizáveis |
+| Canteiro de Obras Digital | empresa/plataforma + imóvel/proprietário + mídia | nó público e arquitetura corporativa documentada | separar capacidades corporativas, Vitrine e fluxo imobiliário |
+| Vaga Quente | demanda de mão de obra + match + resposta + contratação | capacidade de bastidor existente; demanda e matching privado documentados | fechamento/contratação, tempo de preenchimento e recorrência |
+
+### Descoberta adicional
+O ADR de multicacidade já havia provado que a categoria principal única é insuficiente: Ferragens vende e aluga; Dirceu executa obra, presta serviço e opera equipamento; Letroart fabrica, vende e instala. Isso reforça o modelo de composição e reduz a necessidade de novos produtos isolados.
+
+### Deduplicação provisória
+Os 11 arquétipos iniciais não devem ser promovidos integralmente. A arqueologia indica três camadas:
+
+**Motores nucleares candidatos**
+1. COMÉRCIO
+2. SERVIÇO
+3. FABRICAÇÃO
+4. LOCAÇÃO
+5. LOGÍSTICA
+6. PROJETO/OBRA
+7. MATCH/INTERMEDIAÇÃO
+8. MÍDIA/DISTRIBUIÇÃO
+
+**Capacidades combináveis**
+entrega, agenda, ativo, território, recorrência, pedido rápido, cotação, proprietário, presença, catálogo, disponibilidade, compartilhamento, analytics, atribuição, evidência, ledger econômico e narrativa.
+
+**Especializações ainda não promovidas**
+freezer por ponto, caçamba com mídia, imóvel com proprietário, fabricação sob medida e mão de obra. Elas permanecem como composição/delta até repetição provar padrão próprio.
+
+## Contrato operacional genérico V0
+
+Todo motor deve poder ser descrito sem criar schema por segmento:
+
+`ENTRADA → ACEITE/QUALIFICAÇÃO → ALOCAÇÃO DE RECURSO → EXECUÇÃO → RESULTADO → EVIDÊNCIA → ECONOMIA → RECORRÊNCIA`
+
+Campos conceituais mínimos:
+- subject: empresa/operação;
+- operation_type;
+- source;
+- started_at;
+- current_state;
+- resource_ref opcional;
+- counterparty_ref opcional e com minimização de PII;
+- territory/route opcional;
+- amount/unit opcional;
+- due_at opcional;
+- completed_at opcional;
+- economic_value e economic_basis somente quando evidenciados;
+- evidence_ref;
+- outcome;
+- next_action;
+- epistemic_state.
+
+Esse é contrato conceitual CANDIDATE, não autorização para migration.
+
+## Indicadores por motor — candidatos
+
+COMÉRCIO: pedidos, resposta, conversão, ticket, recorrência, margem quando provada.
+SERVIÇO: chamados, tempo até agenda, execução, duração, retorno, margem quando provada.
+FABRICAÇÃO: orçamentos, prazo prometido x realizado, fila, retrabalho, margem.
+LOCAÇÃO: ativos, ocupação, dias parados, giros, atraso, receita/ativo, margem.
+LOGÍSTICA: corridas, capacidade utilizada, distância/rota, agrupamento, tempo, contribuição.
+PROJETO/OBRA: progresso, desvios, demandas, recursos, prazo, custo quando provado.
+MATCH: demandas, compatíveis, respostas, tempo até match, fechamento.
+MÍDIA: peças/campanhas, publicação, interação, contato atribuível, resultado econômico quando provado.
+
+Nenhum indicador econômico assume valor ausente. UNKNOWN permanece UNKNOWN.
+
+## Maturidade após lote 001
+
+- descoberta dos motores/arquétipos: 88%
+- empresa → composição operacional: 82%
+- inventário de capacidades: 78%
+- deduplicação motor vs capacidade: 70%
+- contratos de eventos/estados: 55%
+- contratos de indicadores: 48%
+- ligação automática ao Admin Inteligência: 20%
+- previsto x observado: 10%
+
+Maturidade arquitetural estimada: **56%**.
+
+A subida de 45% para 56% representa redução de incerteza arquitetural, não implementação em produção.
+
+## Próximo lote autônomo seguro
+
+1. confrontar os oito motores candidatos com tabelas/capacidades já existentes;
+2. marcar REUSE / ADAPT / CREATE / UNKNOWN;
+3. identificar quais contratos já têm implementação real;
+4. produzir mapa de lacunas sem migration;
+5. somente depois propor V1 do Admin Inteligência.
