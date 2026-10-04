@@ -201,3 +201,43 @@ A subida de 45% para 56% representa redução de incerteza arquitetural, não im
 3. identificar quais contratos já têm implementação real;
 4. produzir mapa de lacunas sem migration;
 5. somente depois propor V1 do Admin Inteligência.
+
+
+## Lote 002 — remanufatura contra infraestrutura existente
+
+Classificação: REUSE = capacidade implementada reaproveitável; ADAPT = existe núcleo, falta especialização; CREATE = ausência comprovada; UNKNOWN = arqueologia insuficiente.
+
+| Motor | Base recuperada | Decisão V0 |
+|---|---|---|
+| COMÉRCIO | curated_business_products/services, contatos, storefront, Smart Cotações/demandas, analytics/attribution | REUSE + ADAPT |
+| SERVIÇO | curated_business_services, contatos, demandas e estados existentes | REUSE + ADAPT |
+| FABRICAÇÃO | catálogo/serviço/mídia existem, mas workflow fabricação não foi provado | ADAPT; workflow específico UNKNOWN |
+| LOCAÇÃO | curated_business_rental_assets/cycles, RPCs, agenda e histórico já implementados | REUSE |
+| LOGÍSTICA | demanda/frete e território existem como conceitos/casos; ledger universal de corrida não foi provado | ADAPT |
+| PROJETO/OBRA | construction_projects, construction_demands, construction_resources e observações de cotação existem | REUSE |
+| MATCH/INTERMEDIAÇÃO | public_demand_leads/responses, professional_profiles e Vaga Quente existem | REUSE |
+| MÍDIA/DISTRIBUIÇÃO | mídia de empresa, social campaigns/attribution/analytics existem em partes | REUSE + ADAPT |
+
+### Resultado da remanufatura
+Nenhum dos oito motores exige, neste momento, autorização para criar uma aplicação paralela. Sete possuem base reutilizável clara; fabricação possui peças reutilizáveis e workflow específico ainda UNKNOWN. Portanto o próximo avanço deve ser uma camada semântica de composição sobre estruturas existentes, não novos silos.
+
+### Lacuna comum encontrada
+A principal lacuna transversal não é cadastro. É o contrato operacional/econômico que conecta evento real a resultado:
+`evento operacional → evidência → valor/custo/margem quando disponível → resultado → próxima ação`.
+
+Isso explica por que o Admin V0 consegue enxergar empresas, mas ainda não consegue narrar cada operação com precisão econômica.
+
+## Maturidade após lote 002
+
+- descoberta dos motores: 90%
+- empresa → composição: 84%
+- inventário de capacidades: 86%
+- deduplicação motor vs capacidade: 82%
+- contratos de eventos/estados: 62%
+- contratos de indicadores: 55%
+- ligação automática ao Admin Inteligência: 20%
+- previsto x observado: 10%
+
+Maturidade arquitetural estimada: **61%**.
+
+Próximo gate: desenhar a matriz semântica de capacidades por motor e o contrato mínimo de resultado/evidência, ainda sem migration, para decidir o menor slice V1.
