@@ -241,3 +241,72 @@ Isso explica por que o Admin V0 consegue enxergar empresas, mas ainda não conse
 Maturidade arquitetural estimada: **61%**.
 
 Próximo gate: desenhar a matriz semântica de capacidades por motor e o contrato mínimo de resultado/evidência, ainda sem migration, para decidir o menor slice V1.
+
+
+## Lote 003 — matriz semântica e slice V1 candidato
+
+### Capacidades mínimas por motor
+
+| Motor | Entrada | Recurso principal | Estado decisivo | Resultado mínimo | Indicador inicial |
+|---|---|---|---|---|---|
+| COMÉRCIO | pedido/demanda | produto/estoque | atendido/perdido | compra | conversão e recorrência |
+| SERVIÇO | chamado | equipe/capacidade | agendado/executado | serviço concluído | tempo e recorrência |
+| FABRICAÇÃO | orçamento/pedido | capacidade produtiva | produção/entrega | item entregue | prazo prometido x realizado |
+| LOCAÇÃO | reserva | ativo | entregue/atrasado/fechado | ciclo encerrado | ocupação e giro |
+| LOGÍSTICA | solicitação | veículo/capacidade | aceito/em rota/entregue | entrega | tempo, agrupamento, utilização |
+| PROJETO/OBRA | demanda/tarefa | equipe/recurso | aberta/em execução/concluída | avanço/entrega | prazo e desvio |
+| MATCH | demanda | candidatos/fornecedores | compatível/respondido/fechado | contratação/negócio | tempo até match |
+| MÍDIA | campanha/peça | canal/inventário | publicada/encerrada | contato/resultado | atribuição e resultado |
+
+### Contrato de resultado
+Para evitar um ledger novo sem necessidade, V1 deve primeiro tentar derivar resultado dos registros nativos de cada motor. Uma camada semântica pode normalizar leitura sem duplicar fonte de verdade.
+
+Envelope conceitual de leitura:
+- business_id;
+- motor;
+- source_table/source_record;
+- observed_at;
+- operational_state;
+- outcome_state;
+- evidence_state;
+- economic_amount opcional;
+- economic_kind opcional: REVENUE | COST | MARGIN | SAVING | MEDIA_REVENUE | UNKNOWN;
+- attribution_state;
+- next_action;
+- confidence/epistemic_state.
+
+Regra: este envelope é de leitura/contrato. Não implica criar tabela.
+
+### Slice V1 recomendado
+Primeiro piloto: Bezerrão.
+Motivo: combina comércio + entrega + presença, já possui catálogo, pedido rápido, analytics e IVV. O menor V1 deve:
+1. ler capacidades existentes da empresa;
+2. exibir composição operacional ativa;
+3. separar OBSERVADO de UNKNOWN;
+4. mostrar telemetria disponível;
+5. mostrar lacunas econômicas explicitamente;
+6. gerar próxima pergunta/ação para reduzir o UNKNOWN mais valioso.
+
+Segundo piloto: RSM/SOS, usando Rental Core real para validar ativo + agenda + ciclo + giro.
+Terceiro piloto: Canteiro/imóvel, para validar composição com proprietário e funil imobiliário.
+
+### Andaime de próxima ação
+A Inteligência não deve perguntar tudo. Deve escolher a lacuna que mais altera decisão:
+`lacuna → impacto na decisão → custo de coleta → próxima pergunta mínima → nova evidência → recalcular narrativa`.
+
+Isso transforma formulário em retroalimentação dirigida.
+
+## Maturidade após lote 003
+
+- descoberta dos motores: 90%
+- empresa → composição: 84%
+- inventário de capacidades: 86%
+- deduplicação: 82%
+- contratos de eventos/estados: 72%
+- contratos de indicadores: 68%
+- desenho do slice V1: 70%
+- ligação automática ao Admin: 20%
+- previsto x observado: 10%
+
+Maturidade arquitetural/documental estimada: **68%**.
+Implementação V1 continua não iniciada; 68% não deve ser confundido com feature entregue.
