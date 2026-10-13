@@ -44,3 +44,6 @@ Reutilizar `commercial/experimento-r197/MATRIZ-DIAGNOSTICO-PARA-OPERA-V0.md` par
 ## Arqueologia de reuso
 - `docs/commercial/MONEY-MACHINE-V0.md`: arquitetura candidata de eventos append-only, não backend implantado.
 - `03-pesquisa/casos/vitrine-digital/SMART-COTACOES-TRILHAS-PRECO-RECONFIRMACAO-CORTE-002.md`: trilha histórica append-only de movimentos de preço no Smart Cotações; reutilizar princípios, não sua tabela de domínio para oportunidades.
+
+## Protótipo sintético de eventos
+`tests/opportunity_event_ledger_v0.py` e `tests/test_opportunity_event_ledger_v0.py` especificam append-only em memória, replay idempotente, rejeição de conflito de EVENT_ID, correção por novo evento, preservação de resultado negativo e isolamento de oportunidades. Não há durabilidade, autenticação, persistência, concorrência, integração com radar ou garantias de produção. Testes criados no GitHub; execução de CI/PÉTECO ainda precisa de evidência.
