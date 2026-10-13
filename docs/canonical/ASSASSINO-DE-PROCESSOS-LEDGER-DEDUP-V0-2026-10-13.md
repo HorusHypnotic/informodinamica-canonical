@@ -38,3 +38,9 @@ Normalizar espaços, acentos, caixa e sinônimos controlados por versão do voca
 
 ## Integração
 Reutilizar `commercial/experimento-r197/MATRIZ-DIAGNOSTICO-PARA-OPERA-V0.md` para encaminhamento após diagnóstico, sem alterar a oferta aprovada. O radar diário gera candidatos, não clientes automaticamente.
+## Protótipo de contrato executável
+`tests/test_opportunity_dedup_v0.py` contém sete testes sintéticos de classificação, sem armazenamento ou integração. Os testes cobrem somente a decisão básica; idempotência de eventos, conflito de EVENT_ID, append-only e migração de aliases permanecem fora do escopo executável. A presença do arquivo não é prova de PASS em CI.
+
+## Arqueologia de reuso
+- `docs/commercial/MONEY-MACHINE-V0.md`: arquitetura candidata de eventos append-only, não backend implantado.
+- `03-pesquisa/casos/vitrine-digital/SMART-COTACOES-TRILHAS-PRECO-RECONFIRMACAO-CORTE-002.md`: trilha histórica append-only de movimentos de preço no Smart Cotações; reutilizar princípios, não sua tabela de domínio para oportunidades.
