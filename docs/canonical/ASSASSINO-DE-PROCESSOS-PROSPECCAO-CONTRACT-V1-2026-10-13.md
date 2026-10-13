@@ -33,7 +33,7 @@ Registrar ID, data, segmento, empresa (se pertinente), origem/fonte, fato vs hip
 - Dirceu Jr: horímetro de máquinas para uso, manutenção e custos.
 - Bezerrão: pedido rápido; pontos de freezer em comodato; gelo saborizado como hipótese de produto; triciclo/Doblò para encomendas de terceiros, sujeito a capacidade, segurança e viabilidade.
 - SOS: aumentar giros mensais por caçamba; monetizar espaço publicitário em contêineres, sujeito a custos e autorização.
-- Vidraçaria 2 Irmãos: prospect demonstrou interesse em mais orçamentos e indisponibilidade de investimento; fabricação própria NÃO confirmada. Investigar sobras, medições, logística e fornecimento B2B apenas como hipóteses. Não reabrir abordagem sem motivo legítimo.
+- Segmento vidraçaria (caso anonimizado): investigar sobras, medições, logística e fornecimento B2B apenas como hipóteses; fabricação própria não confirmada. Respeitar recusas e não reabrir abordagem sem motivo legítimo.
 
 ## Pesquisa diária e retroalimentação
 Pesquisar diariamente segmentos locais e adjacentes. Entregar até cinco hipóteses novas, com fonte/data, evidência, oportunidade, intervenção reversível, métrica, risco e validação. Comparar com histórico para evitar duplicações. Separar descobertas de campo, referências externas e inferências. A pesquisa agendada não é, por si só, integração automática ao ledger canônico; persistência e deduplicação exigem implementação e QA específicos.
@@ -49,3 +49,15 @@ Pesquisa e documentação: reversíveis. Contato comercial, acesso a dados priva
 
 ## Evolução
 Este documento é proposta de método, não novo produto vendido nem substituto dos contratos existentes. Revisar conflitos e duplicações antes de canonizar.
+
+## Compatibilidade com o diagnóstico O.P.E.R.A. existente
+Referência existente: `commercial/experimento-r197/PLAYBOOK-DIAGNOSTICO-OPERA-R197-V0.md`. O diagnóstico O.P.E.R.A. é oferta específica para problemas operacionais de obra, com escopo, preço e gates próprios; o Assassino de Processos não altera sua oferta aprovada nem a substitui. Sua função é radar de hipóteses intersegmentos e encaminhamento a capacidades existentes quando aplicável. Não vender diagnóstico genérico como O.P.E.R.A. sem elegibilidade.
+
+## Proteção de dados e auditoria
+O repositório foi identificado como PUBLIC no momento da auditoria, divergindo de afirmação histórica do playbook. Não versionar nomes de prospects, telefones, conversas privadas, identificadores ou dados comerciais confidenciais. Casos reais devem ser anonimizados no Git público e evidências identificáveis mantidas somente em canal autorizado. O radar diário não tem permissão para coletar dados privados ou contatar terceiros automaticamente.
+
+## Pendências antes de canonização
+- Revisar outras ofertas e contratos vigentes para prevenir sobreposição.
+- Definir ledger persistente, deduplicação e controle de acesso para retroalimentação.
+- Validar gates documentais/CI e compatibilidade com o registro canônico.
+- Manter a PR em draft até revisão e decisão humana de merge.
