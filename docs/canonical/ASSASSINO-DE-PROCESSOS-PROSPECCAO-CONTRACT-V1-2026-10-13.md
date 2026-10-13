@@ -78,3 +78,6 @@ Uma linha por `OPPORTUNITY_ID` pseudônimo, com `SEGMENT_ID`, `SOURCE_REF` autor
 4. Não há disparo comercial, gasto ou alteração de produto sem gate.
 5. Resultados negativos permanecem no histórico; métricas têm baseline e data.
 6. Integração com OPERA e Vitrine referencia capacidades existentes, sem duplicar estados ou ofertas.
+
+## Especificação vinculada de deduplicação
+Ver `docs/canonical/ASSASSINO-DE-PROCESSOS-LEDGER-DEDUP-V0-2026-10-13.md` para identidade de oportunidade, eventos append-only, conflitos, exemplos sintéticos e critérios de aceite. Documento CANDIDATE; nenhum teste executável ou armazenamento foi implementado nesta PR.
