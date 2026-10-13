@@ -61,3 +61,20 @@ O repositório foi identificado como PUBLIC no momento da auditoria, divergindo 
 - Definir ledger persistente, deduplicação e controle de acesso para retroalimentação.
 - Validar gates documentais/CI e compatibilidade com o registro canônico.
 - Manter a PR em draft até revisão e decisão humana de merge.
+
+## Reuso confirmado na auditoria 2026-10-13
+- `commercial/experimento-r197/MATRIZ-DIAGNOSTICO-PARA-OPERA-V0.md`: já implementa DIAGNOSIS_FIRST, ACHADO → NECESSIDADE → CONTINUIDADE, cinco critérios de fit e NEXT_BEST_ACTION. Reusar estas regras; não criar funil paralelo de upsell.
+- `commercial/portfolio-execution-matrix-v1-draft.json`: já distingue maturidade e readiness de capacidades. É snapshot histórico draft, não evidência atual de produção.
+- `03-pesquisa/MATRIZ_CONCEITO_HIPOTESE_METRICA_TESTE.md`: exige separar hipótese, métrica candidata e validação; aplicar aos ganhos econômicos propostos.
+- `commercial/experimento-r197/LOG.md`: append-only do experimento O.P.E.R.A. R$197; NÃO usar como ledger universal ou registrar oportunidades fictícias.
+
+## Contrato mínimo de ledger futuro (somente desenho)
+Uma linha por `OPPORTUNITY_ID` pseudônimo, com `SEGMENT_ID`, `SOURCE_REF` autorizado, `OBSERVED_AT`, `EVIDENCE_CLASS` (OBSERVED/REPORTED/HYPOTHESIS), `CAPABILITY_REF`, `BASELINE`, `METRIC`, `EXPERIMENT`, `OUTCOME`, `NEXT_REVIEW_AT`, `STATE`, `REVISION_OF`. Hash de deduplicação calculado sobre segmento + problema + intervenção + referência de origem, sem dados pessoais. Eventos append-only; correções por revisão, nunca sobrescrever evidência. Não persistir dados privados no Git público. Este schema é CANDIDATE e não representa implementação.
+
+## Critérios de aceite para futura implementação
+1. Rodadas consecutivas distinguem hipótese inédita de repetição.
+2. Hipótese sem fonte é explicitamente UNKNOWN e não vira fato.
+3. Nenhuma empresa ou pessoa identificável é publicada sem autorização e base legítima.
+4. Não há disparo comercial, gasto ou alteração de produto sem gate.
+5. Resultados negativos permanecem no histórico; métricas têm baseline e data.
+6. Integração com OPERA e Vitrine referencia capacidades existentes, sem duplicar estados ou ofertas.
